@@ -7,9 +7,14 @@ layer was added, and — per the no-auth mandate — the **graded core now runs 
 on the open, no-login Tier-1 CSVs** (no CZI/Synapse/Wiley account required anywhere on
 the critical path).
 
-## Status checklist (live)
+> **Repo state: planning / brainstorming only.** All runnable code (`src/`, `app/`,
+> `tests/`, build config) has been removed; this repo now holds the design docs plus
+> the local Tier-1 CSVs. The "Done" items below are **validated findings from the
+> earlier prototype** — preserved as ground truth to rebuild from, not live code.
 
-**Done**
+## Status checklist
+
+**Done (validated in the prototype before code was stripped)**
 - [x] Schema gate (`data_loader.validate_local_data`) — all 7 CSVs pass
 - [x] Fixed target sign (`toward_Th1` = −Th2_vs_Th1); validated: GATA3 down, TBX21/IFNG up
 - [x] Cross-source concordance computed (Ota vs Höllbacher: 68.5% sign-concordant, ρ=0.56)
@@ -21,8 +26,8 @@ the critical path).
 - [x] Folder renamed → `cell-state-reachability`; core smoke tests pass on CPU
 
 **Pending (needs the user or is optional)**
-- [ ] Commit + push (sandbox is network- and `.git`-lock-blocked; run locally)
-- [ ] `git rm src/pathways.py` locally (now a shim; sandbox can't delete)
+- [ ] Commit the code-removal + doc updates and push (run locally; sandbox can't push)
+- [ ] Rebuild the pipeline from this plan when implementation resumes
 - [ ] Decide whether to track the 7 Tier-1 CSVs (currently gitignored despite README)
 - [ ] *(optional)* Tier-2 gene-level matrix for full reachability — CZI login; not on critical path
 - [ ] Reachability cone + spectrum, held-out-gene eval (Tier-2, once/if matrix is fetched)

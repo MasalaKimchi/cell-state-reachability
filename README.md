@@ -106,39 +106,27 @@ unbenchmarked claim.
 - Outputs are **ranked, falsifiable hypotheses for future experimental validation** —
   not conclusions.
 
-## Repository layout
+## Status: planning & brainstorming only
+
+This repository is currently a **planning/brainstorming workspace** — all runnable code
+(`src/`, `app/`, `tests/`, build config) has been intentionally removed. What remains is
+the design thinking (markdown) plus the local Tier-1 data.
 
 ```
 cell-state-reachability/
-├── README.md
-├── ROADMAP.md            # 7-day plan, rationale, risks
+├── README.md             # this file — framing, method sketch, honest limitations
+├── ROADMAP.md            # 7-day plan, reachability reframe, risks, live checklist
 ├── LICENSE               # MIT
-├── requirements.txt
-├── environment.yml
-├── data/                 # Tier-1 supplementary CSVs are tracked; large h5ad stays gitignored (data/README.md)
-├── src/
-│   ├── data_loader.py    # load DE_stats / pseudobulk, subset, QC
-│   ├── target_states.py  # build Th1/Th2 & aging target vectors
-│   ├── counterfactual.py # sparse minimal-set solver
-│   ├── confidence.py     # reproducibility + stability + held-out scoring
-│   ├── evidence.py       # PubMed / Open Targets literature support
-│   └── pathways.py       # gene-set / pathway interpretation
-├── app/
-│   └── explorer.py       # lightweight Streamlit hypothesis explorer
-├── notebooks/            # exploratory analysis (see notebooks/README.md)
-└── tests/
-    └── test_counterfactual.py
+├── data/
+│   ├── README.md         # how the data is sourced (no-auth first)
+│   └── *.suppl_table.csv # Tier-1 supplementary tables (local, gitignored)
+└── notebooks/README.md   # notes for exploratory analysis (no notebooks yet)
 ```
 
-## Quickstart
-
-```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-# See data/README.md to fetch the DE_stats artifact, then:
-python -m src.data_loader --check
-```
+The method, tiers, and analysis catalog live in [`ROADMAP.md`](./ROADMAP.md); the data
+provenance lives in [`data/README.md`](./data/README.md). When implementation resumes,
+code will be rebuilt from that plan.
 
 ## License
 
-Code: MIT. Data: MIT (CZI Virtual Cells Platform). Please cite Zhu et al. 2025.
+MIT. Data: MIT (CZI Virtual Cells Platform). Please cite Zhu et al. 2025.

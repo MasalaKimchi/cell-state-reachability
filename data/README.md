@@ -3,7 +3,9 @@
 **No-auth first.** Everything the graded pipeline needs is the open, no-login
 supplementary CSVs already in this folder — no CZI / Synapse / Wiley account required.
 The raw dataset (~22M cells) is **not** needed. The gene-level `GWCD4i.DE_stats.h5ad`
-is **optional** (Tier-2 only) and requires a free CZI login; see `fetch_de_stats.sh`.
+is **optional** (Tier-2 only) and requires a free CZI login (via `vcp login` + `vcp
+data download`; the raw per-donor datasets are hundreds of GB, so only fetch the
+derived artifact — see the ROADMAP "Two tiers" section).
 
 > Note (`.gitignore`): `data/*.csv` is currently ignored, so the 7 CSVs are present
 > locally but **not tracked** by git. To ship a self-contained repo, force-add them:
