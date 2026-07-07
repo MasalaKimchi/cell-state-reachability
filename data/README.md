@@ -3,6 +3,26 @@
 The raw dataset is ~22M cells and is **not** needed. We work with precomputed
 derived artifacts.
 
+## What is already local (checked in)
+
+The following **supplementary CSV tables (~36 MB total)** are committed to this
+repo and are enough to run every analysis in the "CSV-only" tier of `ROADMAP.md`:
+
+| File | Rows | What it is |
+|---|---|---|
+| `DE_stats.suppl_table.csv` | 33,983 | Per **perturbation × culture-condition** summary: DE-gene counts, on-target knockdown effect/significance, off-target flag, cross-donor & cross-guide reproducibility. **Not** the full gene-level effect matrix. |
+| `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` | 37,288 | Th2-vs-Th1 target signature (per-gene logFC/zscore) from **two** source contrasts (Ota 2021, Höllbacher 2021). |
+| `CD4T_aging_signature_DE_results_full.suppl_table.csv` | 10,000 | CD4+ T-cell aging signature (per-gene logFC/zscore), Yaza 2022 discovery contrast. |
+| `guide_kd_efficiency.suppl_table.csv` | 73,765 | Per-guide × condition knockdown QC (guide vs NTC expression, t-stat, `signif_knockdown`). |
+| `sgrna_library_metadata.suppl_table.csv` | 31,110 | Per-guide design + off-target annotation (TSS distance, nearby/non-target genes, alternate alignments). |
+| `cluster_autoimmune_enrichment_results.suppl_table.csv` | 5,236 | Perturbation-cluster × **autoimmune-disease** GWAS-gene enrichment (odds ratio, FDR, intersecting genes) across 17 diseases and 4 gene sets. |
+| `sample_metadata.suppl_table.csv` | 12 | Sample sheet: 4 donors × 3 conditions, donor demographics (age, sex, ethnicity). |
+
+**Not local:** the large `GWCD4i.DE_stats.h5ad` gene×perturbation *effect matrix*
+(and `GWCD4i.pseudobulk_merged.h5ad`). These are required only for the full
+counterfactual reconstruction solver (see `ROADMAP.md` §"Two tiers"). Fetch them
+via Option A below when you're ready to move past the CSV-only tier.
+
 ## Option A — CZI Virtual Cells Platform CLI (recommended)
 
 1. Register (free) at https://virtualcellmodels.cziscience.com/
@@ -23,13 +43,12 @@ Core artifact for this project: **`GWCD4i.DE_stats.h5ad`**
 Open, MIT-licensed supplementary tables (enough to prototype the pipeline):
 https://github.com/emdann/GWT_perturbseq_analysis_2025/tree/master/metadata/suppl_tables
 
-Useful files:
-- `DE_stats.suppl_table.csv` — per-perturbation DE metadata + reproducibility columns
-- `Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv` — polarization target
-- `CD4T_aging_signature_DE_results_full.suppl_table.csv` — aging target
-- `Th1Th2_validation_summary.suppl_table.csv` — arrayed CRISPRi ground truth
-- `guide_kd_efficiency.suppl_table.csv` — knockdown QC
-- `sgrna_library_metadata.suppl_table.csv` — guide/off-target metadata
+The files listed in the table above are the ones we already pulled from here. If
+you re-clone the analysis repo, also look for an **arrayed CRISPRi validation
+table** (e.g. a `Th1Th2_validation*` file) if the authors publish one — we do
+**not** currently have it locally, so our polarization ground-truth check instead
+relies on internal reproducibility (`guide_kd_efficiency` + `DE_stats`
+cross-donor/cross-guide columns) and orthogonal literature/Open Targets evidence.
 
 ## Memory tips (CPU-only laptop)
 

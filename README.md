@@ -23,14 +23,16 @@ The hackathon abstract originally targeted Acute Myeloid Leukemia (AML) using th
 Marson/Pritchard Perturb-seq dataset. **That dataset is a genome-scale CRISPRi
 Perturb-seq screen in primary human CD4+ T cells — not AML/HSPC data.** We
 therefore reframe the identical *method* onto a state transition that this dataset
-can actually support and validate:
+can actually support:
 
 - **Primary axis:** Th1 ↔ Th2 helper-T polarization balance
 - **Secondary axis:** CD4+ T-cell aging signature (aged → young-like)
 
-Both target-state signatures, *and* an arrayed CRISPRi validation table for the
-polarization axis, are provided directly by the dataset authors — giving us a rare
-built-in ground-truth check. See [`ROADMAP.md`](./ROADMAP.md) for the full rationale.
+Both target-state signatures are provided directly by the dataset authors. The
+polarization signature ships from **two independent source contrasts** (Ota 2021,
+Höllbacher 2021), which we use for a cross-source robustness check in lieu of an
+arrayed wet-lab validation table (not present in our local data). See
+[`ROADMAP.md`](./ROADMAP.md) for the full rationale and the analysis catalog.
 
 ## Data
 
@@ -43,17 +45,33 @@ license.
 - Analysis repo & supplementary tables: https://github.com/emdann/GWT_perturbseq_analysis_2025
 
 **Feasibility on a laptop (CPU-only):** the raw dataset is ~22M cells and is *not*
-tractable on a laptop. We deliberately build on the authors' **precomputed derived
-artifacts**, which are:
+tractable on a laptop. We build on the authors' **precomputed derived artifacts**,
+and the work is split into two tiers by what's needed.
+
+**Tier 1 — already local (checked into `data/`, ~36 MB of CSVs):** enough for the
+graded core — target signatures, per-perturbation QC/effect summaries, guide QC,
+off-target design, autoimmune-disease enrichment, and donor metadata.
+
+| Local file | Rows | What it is |
+|---|---|---|
+| `DE_stats.suppl_table.csv` | 33,983 | Per **perturbation × condition** summary (DE-gene counts, on/off-target flags, cross-donor & cross-guide reproducibility). *Summary, not the gene-level matrix.* |
+| `Th2_Th1_polarization_signature…csv` | 37,288 | Th2→Th1 target signature, two source contrasts |
+| `CD4T_aging_signature…csv` | 10,000 | Aged→young target signature |
+| `guide_kd_efficiency.suppl_table.csv` | 73,765 | Per-guide knockdown QC |
+| `sgrna_library_metadata.suppl_table.csv` | 31,110 | Guide design / off-target annotation |
+| `cluster_autoimmune_enrichment…csv` | 5,236 | Perturbation-cluster × 17 autoimmune diseases |
+| `sample_metadata.suppl_table.csv` | 12 | 4 donors × 3 conditions, demographics |
+
+**Tier 2 — one download away (not local yet):** the full gene-level effect matrix,
+needed only for the sparse reconstruction solver.
 
 | Artifact | Shape | What it is |
 |---|---|---|
-| `GWCD4i.DE_stats.h5ad` | 33,983 perturbation×condition × 10,282 genes | Per-perturbation differential-expression effect matrix (logFC, z-score, p-values) — **our core input** |
-| `GWCD4i.pseudobulk_merged.h5ad` | guide×donor×condition × 18,129 genes | Pseudobulk expression profiles |
-| Supplementary `.csv` tables (on GitHub, open) | — | Signatures, guide QC, arrayed validation, reproducibility stats |
+| `GWCD4i.DE_stats.h5ad` | 33,983 pert×cond × 10,282 genes | Per-perturbation effect matrix (logFC, z-score, p) — **input to the reconstruction solver** |
+| `GWCD4i.pseudobulk_merged.h5ad` | guide×donor×cond × 18,129 genes | Pseudobulk expression profiles |
 
-Working from the ~34k × 10k perturbation-effect matrix (optionally subset to
-high-confidence perturbations and highly-variable genes) is comfortably CPU-tractable.
+Working from the ~34k × 10k matrix (subset to significant on-target perturbations +
+HVGs) is comfortably CPU-tractable once fetched. See [`data/README.md`](./data/README.md).
 
 ## Method (baseline-first, honestly benchmarked)
 
@@ -97,7 +115,7 @@ counterfactual-biology-explorer/
 ├── LICENSE               # MIT
 ├── requirements.txt
 ├── environment.yml
-├── data/                 # (gitignored) fetch instructions in data/README.md
+├── data/                 # Tier-1 supplementary CSVs are tracked; large h5ad stays gitignored (data/README.md)
 ├── src/
 │   ├── data_loader.py    # load DE_stats / pseudobulk, subset, QC
 │   ├── target_states.py  # build Th1/Th2 & aging target vectors

@@ -4,7 +4,11 @@
       "Bash(rm -f .DS_Store)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git credential *)",
+      "Bash(git config *)",
+      "Bash(git push *)",
+      "Bash(grep -iE '\\\\.\\(h5ad|h5mu|csv|tsv|parquet|npz|npy|pkl|feather|loom|mtx|zarr|h5|hdf5\\)$')"
     ]
   }
 }
