@@ -33,21 +33,49 @@ class ConfidenceReport:
     components: dict
 
     @property
+    def _present(self) -> list:
+        vals = [self.reproducibility, self.stability, self.heldout, self.external]
+        return [v for v in vals if v is not None and not np.isnan(v)]
+
+    @property
     def score(self) -> float:
         # Equal-weight by default; tune with held-out calibration, don't hard-sell.
-        vals = [self.reproducibility, self.stability, self.heldout, self.external]
-        vals = [v for v in vals if v is not None and not np.isnan(v)]
+        vals = self._present
         return float(np.mean(vals)) if vals else float("nan")
+
+    @property
+    def coverage(self) -> float:
+        """Fraction of the 4 components actually present (not defaulted/NaN).
+
+        Surfaces confidence built from thin evidence: a 0.9 score at coverage 0.25 is
+        one lucky component, not a well-supported nomination. Show BOTH on every card.
+        """
+        return len(self._present) / 4.0
+
+
+def _first(row: pd.Series, names: tuple[str, ...], default=np.nan):
+    """Return the first present, non-null column among `names` (schema-drift tolerant)."""
+    for n in names:
+        if n in row and pd.notna(row[n]):
+            return row[n]
+    return default
 
 
 def reproducibility_score(row: pd.Series) -> float:
-    """Map a DE_stats .obs row's QC columns to [0, 1]. Missing -> neutral 0.5."""
-    guide = row.get("guide_correlation_signif", np.nan)
-    donor = row.get("donor_correlation_hits_mean", np.nan)
-    ont = bool(row.get("ontarget_significant", False))
-    offtarget = bool(row.get("distal_offtarget_flag", False)) or bool(
-        row.get("neighboring_gene_KD", False)
+    """Map a DE_stats row's QC columns to [0, 1]. Missing -> neutral 0.5.
+
+    Column names match the local DE_stats.suppl_table.csv (crossguide_correlation,
+    crossdonor_correlation_mean, ontarget_significant, offtarget_flag); aliases cover
+    the h5ad .obs variant so this works on either source.
+    """
+    guide = _first(row, ("crossguide_correlation", "guide_correlation_signif"))
+    donor = _first(
+        row, ("crossdonor_correlation_mean", "donor_correlation_hits_mean", "crossdonor_correlation_min")
     )
+    ont = bool(_first(row, ("ontarget_significant",), False))
+    offtarget = bool(_first(row, ("offtarget_flag", "distal_offtarget_flag", "neighboring_gene_KD"), False))
+    guide = float(guide) if pd.notna(guide) else np.nan
+    donor = float(donor) if pd.notna(donor) else np.nan
     parts = []
     if not np.isnan(guide):
         parts.append(np.clip((guide + 1) / 2, 0, 1))   # corr in [-1,1] -> [0,1]

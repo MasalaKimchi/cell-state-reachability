@@ -72,7 +72,7 @@ def main() -> None:
         gene = str(pert_ids[local_i])
         with st.expander(f"{gene}  (weight {w:+.2f})"):
             st.write("Confidence and evidence panels populate here "
-                     "(src/confidence.py, src/evidence.py, src/pathways.py).")
+                     "(src/confidence.py, src/evidence.py — pathways now live in evidence.py).")
             st.caption("Knock-down nomination. Validate with an arrayed CRISPRi assay.")
 
 

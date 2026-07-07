@@ -1,7 +1,13 @@
 # Fetching the data
 
-The raw dataset is ~22M cells and is **not** needed. We work with precomputed
-derived artifacts.
+**No-auth first.** Everything the graded pipeline needs is the open, no-login
+supplementary CSVs already in this folder — no CZI / Synapse / Wiley account required.
+The raw dataset (~22M cells) is **not** needed. The gene-level `GWCD4i.DE_stats.h5ad`
+is **optional** (Tier-2 only) and requires a free CZI login; see `fetch_de_stats.sh`.
+
+> Note (`.gitignore`): `data/*.csv` is currently ignored, so the 7 CSVs are present
+> locally but **not tracked** by git. To ship a self-contained repo, force-add them:
+> `git add -f data/*.suppl_table.csv`.
 
 ## What is already local (checked in)
 

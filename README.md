@@ -109,7 +109,7 @@ unbenchmarked claim.
 ## Repository layout
 
 ```
-counterfactual-biology-explorer/
+cell-state-reachability/
 ├── README.md
 ├── ROADMAP.md            # 7-day plan, rationale, risks
 ├── LICENSE               # MIT

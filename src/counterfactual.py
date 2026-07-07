@@ -132,3 +132,77 @@ def random_null(E: np.ndarray, d: np.ndarray, k: int, n_iter: int = 1000,
         w, *_ = np.linalg.lstsq(A, d, rcond=None)
         out[i] = _cosine(A @ w, d)
     return out
+
+
+# --------------------------------------------------------------------------- #
+# Tier-1 directional nominations — NO AUTH, NO h5ad, CSVs only.
+# --------------------------------------------------------------------------- #
+def tier1_directional_nominations(
+    de_stats,
+    target_map: dict,
+    condition: str | None = "Stim8hr",
+    significant_only: bool = True,
+    gene_col: str = "target_contrast_gene_name",
+) -> "object":
+    """Rank knockdowns by a 1-D directional prior, using only the local CSVs.
+
+    This is the graded core when the gene-level effect matrix (Tier-2 h5ad) is absent:
+    it needs no CZI/Synapse login and no download. It is an HONEST PROXY, not the full
+    gene-space reachability — it scores each perturbation on a single question:
+
+        "Does the target want this gene's own transcript LOWER, and is its knockdown
+         reproducible and on-target?"
+
+    Because CRISPRi lowers the targeted gene, a knockdown of gene g is directionally
+    aligned when the target direction at g is negative (target wants g down). Strength
+    combines |target[g]| (how much g matters to the target) with on-target effect size
+    and cross-donor reproducibility, and is down-weighted for off-target risk.
+
+    Parameters
+    ----------
+    de_stats : DataFrame of the DE_stats summary table (per perturbation x condition).
+    target_map : {gene -> target-direction value} e.g. from
+        dict(zip(genes, target_states.polarization_target(genes, "toward_Th1"))).
+    condition : restrict to one culture condition, or None for all.
+
+    Returns a DataFrame sorted by `direction_score` (desc), columns:
+      gene, target_value, ontarget_effect_size, crossdonor_corr, offtarget_flag,
+      direction_score.
+    """
+    import numpy as np
+    import pandas as pd
+
+    df = de_stats
+    if condition is not None and "culture_condition" in df.columns:
+        df = df[df["culture_condition"] == condition]
+    if significant_only and "ontarget_significant" in df.columns:
+        df = df[df["ontarget_significant"].fillna(False).astype(bool)]
+
+    genes = df[gene_col].astype(str).to_numpy()
+    tval = np.array([float(target_map.get(g, 0.0)) for g in genes], dtype=float)
+
+    eff = df.get("ontarget_effect_size")
+    eff = np.abs(eff.to_numpy(dtype=float)) if eff is not None else np.ones(len(df))
+    eff = np.nan_to_num(eff, nan=0.0)
+
+    donor = df.get("crossdonor_correlation_mean")
+    donor = donor.to_numpy(dtype=float) if donor is not None else np.full(len(df), np.nan)
+    repro = np.clip((np.nan_to_num(donor, nan=0.0) + 1) / 2, 0, 1)
+
+    off = df.get("offtarget_flag")
+    off = off.fillna(False).astype(bool).to_numpy() if off is not None else np.zeros(len(df), bool)
+
+    # aligned = target wants g DOWN (negative target value); knockdown lowers g.
+    alignment = np.maximum(-tval, 0.0)
+    score = alignment * eff * repro * np.where(off, 0.6, 1.0)
+
+    out = pd.DataFrame({
+        "gene": genes,
+        "target_value": tval,
+        "ontarget_effect_size": eff,
+        "crossdonor_corr": donor,
+        "offtarget_flag": off,
+        "direction_score": score,
+    })
+    out = out[out["direction_score"] > 0].sort_values("direction_score", ascending=False)
+    return out.reset_index(drop=True)

@@ -87,12 +87,73 @@ def load_de_dictionary(
     )
 
 
+# --------------------------------------------------------------------------- #
+# Schema gate — fail LOUDLY on column/shape drift instead of silently degrading.
+# Every downstream module reads columns by name; a renamed column otherwise
+# produces plausible-but-wrong numbers. This contract is the cheapest defense.
+# --------------------------------------------------------------------------- #
+# file stem -> (required columns, approx expected row count)
+LOCAL_CSV_CONTRACT: dict[str, tuple[set[str], int]] = {
+    "DE_stats.suppl_table.csv": (
+        {"target_contrast_gene_name", "culture_condition", "ontarget_significant",
+         "offtarget_flag", "crossdonor_correlation_mean", "crossguide_correlation"},
+        33983,
+    ),
+    "Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv": (
+        {"variable", "zscore", "log_fc", "contrast"}, 37288,
+    ),
+    "CD4T_aging_signature_DE_results_full.suppl_table.csv": (
+        {"gene_name", "zscore", "log_fc", "contrast"}, 10000,
+    ),
+    "guide_kd_efficiency.suppl_table.csv": (
+        {"perturbed_gene_id", "signif_knockdown", "culture_condition", "rank"}, 73765,
+    ),
+    "sgrna_library_metadata.suppl_table.csv": (set(), 31110),
+    "cluster_autoimmune_enrichment_results.suppl_table.csv": (
+        {"cluster", "disease", "odds_ratio", "p_adj_fdr", "intersecting_genes"}, 5236,
+    ),
+    "sample_metadata.suppl_table.csv": (set(), 12),
+}
+
+
+def validate_local_data(data_dir: Path = DATA_DIR, tolerance: float = 0.02) -> list[str]:
+    """Assert every local CSV has its required columns and ~expected row count.
+
+    Returns a list of human-readable problems (empty == all good). Raising is left to
+    the caller so tests can assert on the list.
+    """
+    import pandas as pd
+
+    problems: list[str] = []
+    for fname, (required, n_expected) in LOCAL_CSV_CONTRACT.items():
+        path = data_dir / fname
+        if not path.exists():
+            problems.append(f"MISSING: {fname}")
+            continue
+        head = pd.read_csv(path, nrows=5)
+        missing = required - set(head.columns)
+        if missing:
+            problems.append(f"{fname}: missing columns {sorted(missing)}")
+        n_rows = sum(1 for _ in open(path, "rb")) - 1  # minus header
+        if n_expected and abs(n_rows - n_expected) > max(1, tolerance * n_expected):
+            problems.append(f"{fname}: {n_rows} rows, expected ~{n_expected}")
+    return problems
+
+
 def _check() -> None:
     """Lightweight environment/data check that does not require the big file."""
     print("data dir:", DATA_DIR)
-    print("DE_stats present:", DE_STATS.exists())
+    print("DE_stats (h5ad, Tier 2) present:", DE_STATS.exists())
     if not DE_STATS.exists():
-        print("  -> see data/README.md to fetch GWCD4i.DE_stats.h5ad")
+        print("  -> see data/README.md to fetch GWCD4i.DE_stats.h5ad (Tier 2 only)")
+    print("\nTier-1 CSV schema gate:")
+    problems = validate_local_data()
+    if not problems:
+        print("  [ok] all local CSVs match the expected schema + row counts")
+    else:
+        for p in problems:
+            print(f"  [FAIL] {p}")
+    print("\nEnvironment:")
     for pkg in ("numpy", "pandas", "scipy", "sklearn", "anndata"):
         try:
             __import__(pkg)
