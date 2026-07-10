@@ -2,11 +2,11 @@
 
 *Orientation for an autonomous coding agent (or a new human contributor) working in
 `cell-state-reachability`. Read this before touching code. It records the enduring facts,
-guardrails, and literature anchors; for **what the method found** read
-[`RESULTS.md`](./docs/RESULTS.md) first, then [`NOVELTY.md`](./docs/NOVELTY.md) (positioning + impact),
-[`RELATED_WORK.md`](./docs/RELATED_WORK.md) (prior-method survey), [`CAUSAL.md`](./docs/CAUSAL.md)
-(causal-inference reframe + validation ledger), and [`ROADMAP.md`](./docs/ROADMAP.md) (the
-current build plan). `data/README.md` documents data provenance.*
+guardrails, and literature anchors.*
+
+*This file deliberately does **not** repeat the repo map, the reproduce commands, or the doc
+index — those live once, in [`README.md`](./README.md). For **what the method found**, read
+[`docs/RESULTS.md`](./docs/RESULTS.md) first.*
 
 ---
 
@@ -25,61 +25,18 @@ similarity ranking — it is a reachability decision.
 
 ---
 
-## 1. Current state (built and validated)
+## 1. Current state
 
 The method is implemented in **`reachability.py`** (~1,200 LOC: cone fit, signed
 LOF/GOF decomposition, Farkas/KKT certificate, honest nulls, reachability spectrum,
-additivity risk). The 16.8 GB Tier-2 effect matrix is local, and the full analysis has
-run. The three run scripts drive the headline outputs:
-
-```bash
-python scripts/run_atlas.py       # 12-cell atlas → analysis_cache/atlas_work/{point,cell}_*.json, results/atlas_reachability.csv
-python scripts/run_nulls.py       # held-out-gene significance per cell
-python scripts/run_bootstrap.py   # gene-panel subsampling CI on the headline verdict
-# or step through the notebooks:
-#   01 QC → 02 headline → 03 generalizability (K562 CRISPRa)
-#   04 experimental-design toolkit → 05 target-ID showcase
-#   06 reinforcement battery (L1/L2/L4/L5) → 07 cross-cell-type transfer (K562/RPE1)
-#   09 causal-validation dossier (A1–A6 trust layer)
-```
+additivity risk). The 16.8 GB Tier-2 effect matrix is local, and the full analysis has run.
 
 Everything runs CPU-only on an 18 GB laptop; compute is not a constraint (full solver +
 1,000-iteration null at 34k×2k is ~0.57 s, 1.4 GB RAM).
 
----
+Commands and the notebook order are in [`README.md`](./README.md#reproduce).
 
-## 2. Repo map
-
-```
-cell-state-reachability/
-├── CLAUDE.md            ← you are here (operating manual)
-├── README.md            ← framing, method, related work, hackathon fit  (front door)
-├── reachability.py      ← the method: cone fit, signed decomposition, certificate, nulls, spectrum
-├── reproduce.sh         ← one-command reproduce (pytest + in-module self-test)
-├── environment.yml / requirements.txt   ← pinned env
-├── docs/                ← narrative writeups + process notes
-│   ├── RESULTS.md       ←   headline verdict + atlas + modality triage + generalizability (primary)
-│   ├── NOVELTY.md       ←   novelty delta vs prior art + real-world impact + field positioning
-│   ├── RELATED_WORK.md  ←   the 91-method survey (citation-grounded)
-│   ├── CAUSAL.md        ←   design-based causal reframe, IV/compliance, trust dossier, ledger, critique
-│   ├── ROADMAP.md       ←   the 3-day hackathon build plan
-│   ├── figures/         ←   doc figures (roadmap timeline)
-│   └── process/         ←   consolidation log, 5-day summary, reviewer-2 response
-├── scripts/             ← analysis drivers: run_atlas/run_nulls/run_bootstrap/run_iv_compliance,
-│                          run_a1_sensitivity, run_deg_weighted_eval, build_effect_matrices, build_nbB
-├── notebooks/           ← 01–09 + figures/ + README.md
-├── app/                 ← interactive explorer (8 self-contained HTML views + data + previews/ + DEPLOY.md)
-├── results/             ← atlas + modality + K562 tables, a-series outputs, references.csv
-├── data/  (README.md + *.suppl_table.csv local/gitignored + GWCD4i.DE_stats.h5ad 16.8 GB)
-├── manuscript/  (main.tex/.pdf, sections/, references.bib, limitations plan)
-└── analysis_cache/      ← cached intermediates (heavy .npz gitignored, small tables tracked)
-    ├── atlas_work/  (cached inputs.npz + per-cell atlas JSONs + bootstrap_ci.json)
-    ├── nb_out/      (reinforcement outputs L1–L5 + REINFORCEMENT_RESULTS.md + figR1)
-    ├── czi_data/    (K562/RPE1 aligned effects + CROSS_CELLTYPE_TRANSFER.md)
-    └── czi_fig/     (cross-cell-type transfer figures)
-```
-
-The public API of `reachability.py` (verdict layer): `reachability(E, d)` →
+**Public API of `reachability.py`** (verdict layer): `reachability(E, d)` →
 reachable_cosine / residual_norm / verdict / non-negative weights;
 `signed_reachability(...)` → LOF/GOF/neither split; `reachability_spectrum(...)` (with
 `epistasis_penalty`); `additivity_risk(...)`; the shuffled-target and
@@ -89,7 +46,7 @@ decomposition, and the PubMed/Open Targets/Enrichr evidence layer round out the 
 
 ---
 
-## 3. Verified quantitative facts (trust these; reproduced from the data)
+## 2. Verified quantitative facts (trust these; reproduced from the data)
 
 | fact | value | note |
 |---|---|---|
@@ -108,9 +65,14 @@ key columns `target_contrast_gene_name`, `culture_condition`, `ontarget_effect_s
 `ontarget_significant`, `offtarget_flag`, `crossdonor_correlation_mean/min`,
 `crossguide_correlation`. The aging join uses `gene_name`; polarization uses `variable`.
 
+> **Known inconsistency to resolve.** The signed split above (39/25/35) matches
+> `docs/figures/fig_central_illustration.png`, but `docs/figures/fig2_decomposition_certificate.png`
+> shows 39/31/30 for what reads as the same quantity. Establish which is right before
+> either number reaches the manuscript.
+
 ---
 
-## 4. GUARDRAILS (non-negotiable — this project's credibility depends on them)
+## 3. GUARDRAILS (non-negotiable — this project's credibility depends on them)
 
 - **Knockdown-only.** CRISPRi is loss-of-function. Never invent activation effects; keep
   weights non-negative (`knockdown_only=True`). If a target needs a gene *up*, the honest
@@ -127,6 +89,8 @@ key columns `target_contrast_gene_name`, `culture_condition`, `ontarget_effect_s
   held-out-gene validation.
 - **Nulls before claims.** No reachability/alignment number is reported without its null
   and CI. Report the held-out number as the headline, never the in-sample cosine.
+  *This applies to documentation too: a result with no committed figure or table is not a
+  reported result. See the §8.3 status table in `docs/RESULTS.md`.*
 - **No invented judging rubric.** The event page publishes no scored criteria; do not
   optimize for or cite an imagined rubric.
 - **Reproducibility hygiene.** Fixed seed everywhere; `fig, ax = plt.subplots()` then
@@ -135,7 +99,7 @@ key columns `target_contrast_gene_name`, `culture_condition`, `ontarget_effect_s
 
 ---
 
-## 5. Literature anchors (verified — cite these exactly)
+## 4. Literature anchors (verified — cite these exactly)
 
 - **Baseline-first justification:** Ahlmann-Eltze, Huber & Anders, *Nat Methods*
   22:1657–1661 (2025), doi:10.1038/s41592-025-02772-6. Five foundation + two other DL

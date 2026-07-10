@@ -188,12 +188,12 @@ knockdown nodes, and a cross-dataset K562 CRISPRa transfer demo are all reproduc
 notebooks and written up in the results docs. Two later reinforcement passes harden the
 claims against their own stated limitations:
 
-- **Reinforcement battery** (`06_reinforcement_analyses.ipynb`, `analysis_cache/nb_out/REINFORCEMENT_RESULTS.md`) —
+- **Reinforcement battery** (`06_reinforcement_analyses.ipynb`, `docs/REINFORCEMENT_RESULTS.md`) —
   the non-negativity constraint costs only +0.018 held-out cosine but is the sole source of the
   certificate (**L4**); the modest 0.448 cosine is **71% of the achievable knockdown ceiling** (**L5**);
   every recommended recipe is additive-safe 12/12 with a 5.6× margin to the cap (**L2**); and a runnable
   dual-modality certificate test verifies at AUROC 0.999 on synthetic ground truth (**L1**).
-- **Cross-cell-type transfer** (`07_cross_celltype_transfer.ipynb`, `analysis_cache/czi_data/CROSS_CELLTYPE_TRANSFER.md`) —
+- **Cross-cell-type transfer** (`07_cross_celltype_transfer.ipynb`, `docs/CROSS_CELLTYPE_TRANSFER.md`) —
   running the unchanged `reachability.py` on the Replogle 2022 K562 and RPE1 essential-gene screens
   (via CZI) shows effect *direction* transfers across cell types while the specific minimal *recipe*
   does not — a robustness result with a sharp, honest boundary.
@@ -207,51 +207,70 @@ claims against their own stated limitations:
 | [`RELATED_WORK.md`](./docs/RELATED_WORK.md) | The citation-grounded survey of 91 prior methods across three research communities, with the capability matrix and landscape map. |
 | [`CAUSAL.md`](./docs/CAUSAL.md) | The design-based causal-inference reframe, the IV/compliance trust layer, the A1–A6/B1–B4 research agenda, the assumption-by-assumption **validation ledger**, and an adversarial dataset critique. |
 | [`ROADMAP.md`](./docs/ROADMAP.md) | The 3-day hackathon build plan (packaging + cross-dataset replication of existing results). |
-| [`CLAUDE.md`](./CLAUDE.md) | Operating manual: verified facts, guardrails, repo map, literature anchors. |
+| [`CLAUDE.md`](./CLAUDE.md) | Operating manual: verified facts, guardrails, literature anchors. |
 
-Secondary writeups referenced by the above live alongside their notebooks:
-[`analysis_cache/nb_out/REINFORCEMENT_RESULTS.md`](./analysis_cache/nb_out/REINFORCEMENT_RESULTS.md) (L1/L2/L4/L5 battery,
-notebook 06) and [`analysis_cache/czi_data/CROSS_CELLTYPE_TRANSFER.md`](./analysis_cache/czi_data/CROSS_CELLTYPE_TRANSFER.md)
-(Replogle 2022 K562/RPE1, notebook 07).
+Supporting writeups, all under [`docs/`](./docs):
+
+| Doc | What it covers |
+|---|---|
+| [`REINFORCEMENT_RESULTS.md`](./docs/REINFORCEMENT_RESULTS.md) | The L1/L2/L4/L5 reinforcement battery (notebook 06). |
+| [`CROSS_CELLTYPE_TRANSFER.md`](./docs/CROSS_CELLTYPE_TRANSFER.md) | Replogle 2022 K562/RPE1 transfer, and its independent reproduction (notebook 07). |
+| [`GENERALIZABILITY_SURVEY.md`](./docs/GENERALIZABILITY_SURVEY.md) | The 13-candidate-dataset survey and application map. |
+| [`REVIEWER_RESPONSE.md`](./docs/REVIEWER_RESPONSE.md) | Dataset-limitations response: the G4/D4/T2/T3 analyses and a ready-to-paste limitations paragraph. |
+
+> **Caveat on `RESULTS.md` §8.3.** Seven of the nine "in-silico results" in that section have no
+> committed figure or table — they were rendered in a working session and never written to the repo.
+> The section opens with a status table saying exactly which. Regenerate before publication.
 
 **Reproduce:**
 
 ```bash
-# the method module + the three run scripts drive everything:
-python scripts/run_atlas.py       # 12-cell atlas → analysis_cache/atlas_work/{point,cell}_*.json, results/atlas_reachability.csv
-python scripts/run_nulls.py       # held-out-gene significance per cell (lean pass)
-python scripts/run_bootstrap.py   # gene-panel subsampling CI on the headline verdict
-# or step through the notebooks:
-#   01 QC → 02 headline → 03 generalizability (K562 CRISPRa)
-#   04 experimental-design toolkit → 05 target-ID showcase
-#   06 reinforcement battery (L1/L2/L4/L5) → 07 cross-cell-type transfer (K562/RPE1)
+bash reproduce.sh                     # pytest (11 tests) + reachability._selftest()
+
+# the method module + the batch drivers produce every headline output:
+python scripts/run_atlas.py           # 12-cell atlas → analysis_cache/atlas_work/*.json, results/atlas_reachability.csv
+python scripts/run_nulls.py           # held-out-gene significance per cell (lean pass)
+python scripts/run_bootstrap.py       # gene-panel subsampling CI on the headline verdict
+python scripts/run_a1_sensitivity.py  # A1 verdict sensitivity radius  (feeds notebook 09)
+python scripts/run_iv_compliance.py   # IV / compliance layer          (feeds notebook 09)
 ```
+
+Or step through the notebooks — [`notebooks/README.md`](./notebooks/README.md) has the reading
+route. Build order: `01` EDA → `02` headline → `03` generalizability (K562 CRISPRa) → `04` design
+toolkit → `05` target-ID showcase → `06` reinforcement battery → `07` cross-cell-type transfer →
+`08` DEG-weighted evaluation → `09` causal-validation dossier, plus `bring_your_own_target` for an
+arbitrary target signature.
 
 **Repository layout:**
 
 ```
 cell-state-reachability/
 ├── README.md                # this file — framing, method, related work, hackathon fit
-├── CLAUDE.md                # operating manual (verified facts, guardrails, repo map, refs)
+├── CLAUDE.md                # operating manual (verified facts, guardrails, literature anchors)
 ├── reachability.py          # the method: cone fit, signed decomposition, certificate, nulls, spectrum
 ├── reproduce.sh             # one-command reproduce (pytest + in-module self-test)
 ├── environment.yml          # conda environment
 ├── requirements.txt         # pip pins (numpy/scipy/pandas/…)
-├── docs/                    # narrative writeups (start with RESULTS.md)
-│   ├── RESULTS.md           #   headline verdict + atlas + modality triage + generalizability ← primary
-│   ├── NOVELTY.md           #   method delta (vs prior art) + disease impact + field positioning
-│   ├── RELATED_WORK.md      #   the 91-prior-method survey (citation-grounded)
-│   ├── CAUSAL.md            #   causal-inference reframe + IV/compliance + validation ledger + critique
-│   ├── ROADMAP.md           #   the 3-day hackathon build plan
-│   ├── figures/             #   doc figures (roadmap timeline)
-│   └── process/             #   process notes (consolidation log, 5-day summary, reviewer-2 response)
+├── tests/                   # test_reachability.py — 11 tests, run by reproduce.sh
+├── docs/                    # every narrative writeup (start with RESULTS.md)
+│   ├── RESULTS.md                    #   headline verdict + atlas + modality triage ← primary
+│   ├── NOVELTY.md                    #   method delta (vs prior art) + disease impact + positioning
+│   ├── RELATED_WORK.md               #   the 91-prior-method survey (citation-grounded)
+│   ├── CAUSAL.md                     #   causal reframe + IV/compliance + validation ledger + critique
+│   ├── ROADMAP.md                    #   the 3-day hackathon build plan
+│   ├── REINFORCEMENT_RESULTS.md      #   L1/L2/L4/L5 battery (nb06)
+│   ├── CROSS_CELLTYPE_TRANSFER.md    #   K562/RPE1 transfer + reproduction (nb07)
+│   ├── GENERALIZABILITY_SURVEY.md    #   13-dataset survey + application map
+│   ├── REVIEWER_RESPONSE.md          #   dataset-limitations response + limitations paragraph
+│   └── figures/                      #   figures embedded by the docs above (tracked)
 ├── scripts/                 # analysis drivers: run_atlas/run_nulls/run_bootstrap/run_iv_compliance,
 │                            #   run_a1_sensitivity, run_deg_weighted_eval, build_effect_matrices, build_nbB
-├── notebooks/               # 01 EDA · 02 headline · 03 generalizability · 04 design toolkit
-│   └── figures/             #   · 05 target-ID showcase · 06 reinforcement · 07 cross-cell-type
+├── notebooks/               # 01–09 + bring_your_own_target + README.md (reading route)
+│   ├── figures/             #   notebook figures (gitignored; doc-embedded ones copied to docs/figures/)
+│   └── cache/              #   small cached bundles + exported design cards
 ├── app/                     # interactive explorer — 8 self-contained HTML views + data + DEPLOY.md
 │   └── previews/            #   PNG previews of each view
-├── results/                 # atlas + modality + K562 tables, a-series outputs, generalizability survey
+├── results/                 # atlas + modality + K562 tables, a-series outputs, references.csv
 ├── manuscript/              # LaTeX manuscript (sections/ + figures/)
 ├── data/
 │   ├── README.md            # data provenance + tiers
@@ -259,8 +278,8 @@ cell-state-reachability/
 │   └── *.suppl_table.csv    # Tier-1 supplementary tables (local, gitignored)
 └── analysis_cache/          # cached intermediates — heavy .npz gitignored, small tables tracked
     ├── atlas_work/          #   cached inputs.npz + per-cell atlas JSONs + bootstrap_ci.json
-    ├── nb_out/              #   reinforcement outputs (L1–L5) + REINFORCEMENT_RESULTS.md + figR1
-    ├── czi_data/            #   K562/RPE1 aligned effects + CROSS_CELLTYPE_TRANSFER.md
+    ├── nb_out/              #   reinforcement outputs (L1–L5) + figR1
+    ├── czi_data/            #   K562/RPE1 aligned effects + per-perturbation transfer table
     └── czi_fig/             #   cross-cell-type transfer figures (nb07)
 ```
 
