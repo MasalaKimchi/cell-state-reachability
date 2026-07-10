@@ -1,0 +1,146 @@
+{
+  "RULE": "These are the ONLY quantitative values either figure may display. Every number in a figure must appear verbatim here. Do NOT invent, round differently, or add any statistic not in this sheet. If a panel seems to need a number that is not here, use a qualitative label instead.",
+  "method_one_liner": "A convex-cone reachability ORACLE: compose MEASURED genome-scale CRISPRi effect vectors; return a reachable / provably-outside verdict + minimal knockdown recipe + Farkas/KKT activation certificate.",
+  "screen": {
+    "assay": "genome-scale CRISPRi Perturb-seq",
+    "cell_type": "primary human CD4+ T cells",
+    "source": "Zhu et al. 2025 (Marson/Pritchard, CZI Virtual Cells Platform)",
+    "matrix_shape": "33,983 knockdowns x 10,282 genes",
+    "target_example": "Th2 -> Th1 polarization"
+  },
+  "th2_th1_headline": {
+    "heldout_cosine": 0.448,
+    "null_mean": -0.005,
+    "null_sd": 0.019,
+    "null_max": 0.029,
+    "null_shuffles": 60,
+    "null_z": "~24",
+    "in_sample_cosine": 0.627,
+    "knee_k": 7,
+    "knee_cos": 0.4,
+    "greedy_first_genes": [
+      "LAT2",
+      "APPBP2",
+      "RARA",
+      "ICOS"
+    ],
+    "KKT_Farkas_violation": "1.1e-11"
+  },
+  "decomposition_one_sided": {
+    "reachable_by_knockdown": "39%",
+    "activation_required": "31%",
+    "orthogonal_residual": "30%"
+  },
+  "decomposition_signed": {
+    "LOF": "39%",
+    "GOF": "25%",
+    "neither": "35%",
+    "note": "signed split is the more honest remainder; reachable share 39% identical to one-sided"
+  },
+  "positive_control": {
+    "GATA3_down": "Th2 master TF, must go DOWN: reached \u2014 rank 155/6871 (97.7th pctile), cosine +0.101, on the LOF/remove side",
+    "TBX21_down": "Th1 master TF, must go UP: correctly points AWAY when knocked down \u2014 rank 6775/6871 (1.4th pctile)"
+  },
+  "activation_certificate_genes": [
+    "LYAR",
+    "IKZF3",
+    "CRTAM",
+    "CBLB",
+    "GBP5",
+    "LAG3",
+    "IRF8"
+  ],
+  "activation_certificate_meaning": "genes Th1 needs RAISED that no non-negative knockdown mix delivers \u2014 falsifiable CRISPRa hypotheses",
+  "transfer_norman_k562": {
+    "dataset": "Norman et al. 2019 K562 CRISPRa combinatorial (GSE133344)",
+    "target": "held-out CEBPA master-TF state",
+    "heldout_cosine": 0.878,
+    "null_z": "~37",
+    "heldout_gene_z": 23.5,
+    "recipe_lead": "CEBPE (CEBPA paralog)",
+    "certificate_program": "myeloid program (MNDA, HP, VSIG4, NCF1)",
+    "additivity_median_cos": 0.71,
+    "additivity_meaning": "measured double-perturbation vs sum-of-singles \u2014 additivity is a BOUNDED approximation, not exact"
+  },
+  "atlas": {
+    "cells": "12 (4 transitions x 3 conditions)",
+    "all_significant_z_range": "4.7 to 45.0",
+    "mean_LOF_fraction": 0.34,
+    "takeaway": "knockdown is never the majority modality; activation + irreducible always dominate"
+  },
+  "modality_triage": {
+    "total_nodes": 102,
+    "hard_to_drug": "45/102 (44%)",
+    "clinical_grade_drug": "10 of 102",
+    "green_light_examples": [
+      "JAK2 (14 immune-genetic assoc, 31 drugs/candidates)",
+      "ICOS (13, 4)",
+      "MAPK14 (8, 28)",
+      "CD3D (3, 16)"
+    ],
+    "tractable_but_untried": [
+      "IL7R (22 assoc, antibody-tractable, highest genetic support)",
+      "ZAP70 (12, SM-tractable)",
+      "TET2 (12, SM-tractable)"
+    ],
+    "required_but_undruggable": [
+      "IRF1 (17 immune-disease genetic assoc, top Th2 knockdown node, degrader-only / no conventional handle)"
+    ]
+  },
+  "attrition_numbers": {
+    "approval_rate": "~10% of clinical programs reach approval (BIO/Thomas 2006-2015: 9.6%)",
+    "phase_transitions": {
+      "Phase_I": "63.2%",
+      "Phase_II": "30.7% (lowest)",
+      "Phase_III": "58.1%"
+    },
+    "efficacy_failure_share": "~half of Phase II/III failures are lack of efficacy (Harrison 2016)",
+    "autoimmune_PoS": "~15% (Wong, Siah & Lo 2019)",
+    "genetic_support_odds": "2.6x approval odds with human genetic support (Minikel 2024)",
+    "preclinical_reproducibility": "11-25% (Amgen 6/53 = 11%, Begley & Ellis 2012; Bayer ~25%, Prinz 2011)"
+  },
+  "four_value_levers": [
+    {
+      "lever": "Measured, not inferred target effects",
+      "number": "attacks the 11-25% preclinical reproducibility problem",
+      "funnel_stage": "target selection (pre-Phase II)"
+    },
+    {
+      "lever": "Cross-reference to disease genetics",
+      "number": "2.6x approval odds (Minikel 2024)",
+      "funnel_stage": "portfolio prioritisation"
+    },
+    {
+      "lever": "Provable 'unreachable by this modality' STOP",
+      "number": "~half of Phase II/III failures are efficacy; autoimmune PoS ~15%",
+      "funnel_stage": "redirect modality before the expensive phase"
+    },
+    {
+      "lever": "Minimal ranked knockdown recipe",
+      "number": "allocates scarce screen slots / animal cohorts per arm",
+      "funnel_stage": "screen design"
+    }
+  ],
+  "go_stop_redirect": {
+    "GO": "target reachable -> minimal ranked knockdown set -> put in the arrayed screen",
+    "STOP": "target provably outside the cone -> do NOT spend a CRISPRi arm on it",
+    "REDIRECT": "activation-required -> switch to CRISPRa/agonist -> certificate names the genes to test first"
+  },
+  "honesty_guardrails": [
+    "Nominations are HYPOTHESES for wet-lab testing, not validated targets.",
+    "CRISPRi is loss-of-function only; activation hypotheses need a separate CRISPRa arm.",
+    "Multi-gene sets assume additivity (no epistasis) \u2014 each combination is an extrapolation to test. (Norman additivity median cos 0.71 shows it is bounded, not exact.)",
+    "One primary-cell system, four donors \u2014 external validity across genotypes/tissues is to be earned.",
+    "This is a hypothesis-prioritisation & experiment-triage instrument, NOT a target-validation engine. It does not claim a hit rate; it shifts where a program spends and where it stops."
+  ],
+  "existing_figure_artifacts": {
+    "reachability_spectrum_png": "5901bd51-d50f-4cb4-abb7-3e92233007ae",
+    "decomposition_certificate_png": "f1153ab8-b87f-4e96-9076-4293731d5d56",
+    "landscape_positioning_png": "a25e87b7-a1ee-48da-b6b4-7fd75aa45ff3",
+    "feature_matrix_png": "272b2ac5-4975-46e6-9ea2-e9215c2a3f86"
+  },
+  "data_csv_artifacts": {
+    "method_comparison_matrix_csv": "40af6d01-1530-4f0e-b0c8-c0e7b5ba781b",
+    "references_csv": "4e304080-4405-4fe3-8278-85782b539944"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "generators_flagged": 808,
+  "pct_flagged": 11.8,
+  "cosine_full": 0.6266,
+  "cosine_clean": 0.6203,
+  "delta": -0.0063,
+  "recipe_overlap_15": 11,
+  "top6_identical": true,
+  "dropped_flagged": [
+    "MUTYH",
+    "PIGS",
+    "VTI1A",
+    "MBD2"
+  ],
+  "recipe_full": [
+    "LAT2",
+    "APPBP2",
+    "RARA",
+    "ICOS",
+    "SNAP23",
+    "SNX4",
+    "VTI1A",
+    "HEXIM1",
+    "MUTYH",
+    "HPS1",
+    "MTFR1L",
+    "MBD2",
+    "PIGS",
+    "SLC39A1",
+    "AKIRIN2"
+  ],
+  "recipe_clean": [
+    "LAT2",
+    "APPBP2",
+    "RARA",
+    "ICOS",
+    "SNAP23",
+    "SNX4",
+    "HEXIM1",
+    "SLC39A1",
+    "AKIRIN2",
+    "C2CD5",
+    "EMC3",
+    "FEZ2",
+    "BICD1",
+    "HPS1",
+    "MTFR1L"
+  ],
+  "interpretation": "Removing all 808 offtarget-flagged generators moves reachable cosine only -0.006 (1% rel). Top-6 recipe identical; 11/15 overlap. The 3 flagged headline genes (MUTYH,PIGS,VTI1A) + MBD2 drop out and are replaced by unflagged genes. Verdict and leading recipe are NOT offtarget artifacts."
+}

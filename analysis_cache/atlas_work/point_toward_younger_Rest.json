@@ -1,0 +1,28 @@
+{
+  "target": "toward_younger",
+  "condition": "Rest",
+  "n_readout": 6014,
+  "n_generators": 6871,
+  "reachable_cosine": 0.6261701403110038,
+  "residual_norm": 0.7796864468380208,
+  "lof_fraction": 0.39208904461710214,
+  "gof_fraction": 0.21792202863541787,
+  "neither_fraction": 0.3899889267474799,
+  "signed_cosine": 0.7854455099410743,
+  "kkt_viol": 5.101766352716391e-12,
+  "lof_support_size": 764,
+  "gof_support_size": 1201,
+  "greedy_order": [
+    "FAM98A",
+    "DEPDC5",
+    "NFAT5",
+    "COIL",
+    "SESN2",
+    "ABHD3",
+    "CHMP2B",
+    "RGS1",
+    "PAN2",
+    "MLLT11"
+  ],
+  "seconds": 43.3
+}

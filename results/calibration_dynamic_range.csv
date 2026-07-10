@@ -1,0 +1,19 @@
+dataset,target,weighting,reachable_cosine,floor_mean,ceiling,dynamic_range_fraction,heldout_z
+Norman2019_K562_CRISPRa,CEBPA+JUN (held-out double),unweighted,0.6829,0.2542,0.9719,0.5974,17.85
+Norman2019_K562_CRISPRa,CEBPA+JUN (held-out double),DEG-weighted(|d|),0.7798,0.366,0.9868,0.6667,13.2
+Norman2019_K562_CRISPRa,CEBPA+CEBPB (held-out double),unweighted,0.6776,0.2351,0.9719,0.6006,19.41
+Norman2019_K562_CRISPRa,CEBPA+CEBPB (held-out double),DEG-weighted(|d|),0.7876,0.3536,0.9868,0.6855,14.71
+Norman2019_K562_CRISPRa,CEBPB+JUN (held-out double),unweighted,0.568,0.248,0.9719,0.4421,14.21
+Norman2019_K562_CRISPRa,CEBPB+JUN (held-out double),DEG-weighted(|d|),0.6769,0.3441,0.9868,0.5178,10.49
+Norman2019_K562_CRISPRa,CEBPE+SPI1 (held-out double),unweighted,0.8398,0.2974,0.9719,0.8042,21.89
+Norman2019_K562_CRISPRa,CEBPE+SPI1 (held-out double),DEG-weighted(|d|),0.9066,0.4572,0.9868,0.8485,15.62
+Norman2019_K562_CRISPRa,CEBPB+FOSB (held-out double),unweighted,0.7119,0.2501,0.9719,0.6398,23.6
+Norman2019_K562_CRISPRa,CEBPB+FOSB (held-out double),DEG-weighted(|d|),0.807,0.369,0.9868,0.709,14.47
+Norman2019_K562_CRISPRa,CEBPA+ZC3HAV1 (held-out double),unweighted,0.7507,0.2718,0.9719,0.6841,23.2
+Norman2019_K562_CRISPRa,CEBPA+ZC3HAV1 (held-out double),DEG-weighted(|d|),0.8544,0.4439,0.9868,0.7562,13.97
+Tier2_CD4_CRISPRi,toward_Th1 (Rest),unweighted,0.6266,0.3456,0.9739,0.4473,28.28
+Tier2_CD4_CRISPRi,toward_Th1 (Rest),DEG-weighted(|d|),0.8033,0.619,0.9883,0.499,14.09
+Tier2_CD4_CRISPRi,toward_Th1 (Stim8hr),unweighted,0.5235,,,,19.91
+Tier2_CD4_CRISPRi,toward_Th1 (Stim8hr),DEG-weighted(|d|),0.7363,,,,9.83
+Tier2_CD4_CRISPRi,toward_Th1 (Stim48hr),unweighted,0.5329,,,,19.18
+Tier2_CD4_CRISPRi,toward_Th1 (Stim48hr),DEG-weighted(|d|),0.7367,,,,8.62

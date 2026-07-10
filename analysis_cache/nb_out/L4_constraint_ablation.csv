@@ -1,0 +1,13 @@
+target,condition,nnls_heldout,nnls_support,unconstrained_heldout,unconstrained_neg_weights,n_generators,nearest_single_heldout,nearest_single_gene,cosine_cost_of_constraint
+toward_Th1,Rest,0.4464,691,0.4894,3435,6871,0.1989,ICOS,0.043
+toward_Th1,Stim8hr,0.2927,704,0.3242,3506,7155,0.1039,ICOS,0.0316
+toward_Th1,Stim48hr,0.2994,753,0.3021,3611,7195,0.1406,ATF7IP2,0.0027
+toward_Th2,Rest,0.4584,742,0.4894,3436,6871,0.1718,IRF1,0.031
+toward_Th2,Stim8hr,0.3038,748,0.3242,3649,7155,0.0761,ATXN7L2,0.0205
+toward_Th2,Stim48hr,0.2586,757,0.3021,3584,7195,0.1297,RSBN1L,0.0436
+toward_younger,Rest,0.4008,772,0.39,3377,6871,0.1521,NFAT5,-0.0108
+toward_younger,Stim8hr,0.3495,781,0.365,3574,7155,0.1907,TRIT1,0.0155
+toward_younger,Stim48hr,0.3629,839,0.3659,3626,7195,0.1858,SLC9A1,0.0029
+toward_older,Rest,0.3902,631,0.39,3494,6871,0.2348,C1D,-0.0001
+toward_older,Stim8hr,0.3618,714,0.365,3581,7155,0.2775,CD3D,0.0032
+toward_older,Stim48hr,0.3309,749,0.3659,3569,7195,0.2612,ZAP70,0.035

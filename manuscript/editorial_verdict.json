@@ -1,0 +1,50 @@
+{
+ "hook_verdict": {
+  "would_send_for_review": "yes",
+  "reasoning": "Fig 1 is a four-panel graphical abstract (screen -> convex cone -> verdict+certificate -> cross-dataset transfer) that conveys the complete novel contribution on its own. Critically it foregrounds the feasibility VERDICT and the activation CERTIFICATE, which is the disjointness-defining capability no surveyed method has. An editor seeing only Fig 1 learns both what is new (a decision, not a prediction) and that it generalizes. Passes the hook test."
+ },
+ "arc": [
+  {
+   "figure": "fig1",
+   "role": "hook / framework",
+   "keep": "main"
+  },
+  {
+   "figure": "fig2",
+   "role": "headline evidence (Th2->Th1 verdict + decomposition + certificate + positive control)",
+   "keep": "main"
+  },
+  {
+   "figure": "fig3",
+   "role": "breadth within primary data (12-cell atlas) + calibration honesty",
+   "keep": "main"
+  },
+  {
+   "figure": "fig4",
+   "role": "external validation (K562 transfer) + additivity guardrail",
+   "keep": "main"
+  },
+  {
+   "figure": "fig5",
+   "role": "positioning (disjointness) + application (GO/REDIRECT/STOP triage)",
+   "keep": "main"
+  }
+ ],
+ "arc_assessment": "Clean hook -> mechanism/evidence -> breadth -> external transfer -> positioning/impact. Ordering is correct: generalize WITHIN the primary dataset (Fig3) before across datasets (Fig4); close on why-it's-new + why-it-matters (Fig5). No reordering needed.",
+ "figure_moves": [
+  {
+   "observation": "Fig1 panel C previews Fig2's signed decomposition (39/25/35) and activation certificate genes.",
+   "decision": "KEEP as-is. A graphical abstract is supposed to preview the headline; the duplication is intentional scaffolding, not redundancy. Panel C in Fig1 is a compressed teaser; Fig2 b/c are the full-resolution result. Not a move."
+  }
+ ],
+ "missing_panels": [
+  {
+   "panel": "per-target reachable-cosine ceiling (best achievable given GOF fraction)",
+   "status": "NOT added to main deck; logged as reinforcement item L5 in the limitations plan. It would strengthen the 'modest cosine is a ceiling not a defect' argument but is not required for the current story to hold."
+  }
+ ],
+ "kill_list": [],
+ "boldest_defensible_fig1": "Current Fig 1 already states the boldest defensible claim: a measured-effect feasibility DECISION with a constructive certificate on both sides. No change.",
+ "supplement_check": "S1-S4 correctly demoted to supplement: family capability matrix (detail behind Fig5a), additivity-vs-magnitude (detail behind Fig4b), positive-control ranking (detail behind Fig2d), triage funnel (detail behind Fig5b). Each supports exactly one main figure. Correct placement.",
+ "net_actions_required": "NONE structural. Arc is sound, hook works, no kills, no mandatory moves. Manuscript figure narrative is publication-ready."
+}

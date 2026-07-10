@@ -1,0 +1,103 @@
+% ============================================================================
+%  Cell-state reachability: a convex-cone oracle for feasibility verdicts
+%  Preprint manuscript — compiled with tectonic (pdflatex-compatible)
+% ============================================================================
+\documentclass[11pt]{article}
+
+% ---- Geometry: preprint single-column ----
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ---- Math ----
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{bm}
+
+% ---- Figures & tables ----
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font=small,labelfont=bf}
+\captionsetup[sub]{font=footnotesize}
+
+% ---- Float placement: let large figures settle near their text ----
+\usepackage{placeins}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.7}
+\setcounter{topnumber}{2}
+\setcounter{totalnumber}{3}
+
+% ---- Colours & links ----
+\usepackage{xcolor}
+\definecolor{linkblue}{HTML}{2166AC}
+\usepackage[colorlinks=true,allcolors=linkblue,breaklinks=true]{hyperref}
+\usepackage{url}
+
+% ---- Bibliography: natbib numeric ----
+\usepackage[numbers,sort&compress,comma]{natbib}
+\bibliographystyle{unsrtnat}
+
+% ---- Headers ----
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Cell-state reachability oracle}
+\lhead{\small Preprint}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+
+% ---- Theorem-like environments (used lightly in Methods) ----
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+
+% ---- Convenience macros ----
+\newcommand{\reach}{\textsc{Reach}}
+\newcommand{\cone}{\mathcal{C}}
+\newcommand{\Emat}{\mathbf{E}}
+\newcommand{\dvec}{\mathbf{d}}
+\newcommand{\wvec}{\mathbf{w}}
+\newcommand{\Rnn}{\mathbb{R}_{\geq 0}}
+\newcommand{\Th}[1]{T\textsubscript{H}#1}
+
+% ---- Title ----
+\usepackage{authblk}
+\title{\bfseries A convex-cone reachability oracle for cell-state engineering:\\
+falsifiable feasibility verdicts and constructive certificates\\
+from measured genome-scale perturbation screens}
+
+\author[1]{Cell-State Reachability Project}
+\affil[1]{\small Built with Claude --- Life Sciences (Research track)}
+\date{\today}
+
+% ============================================================================
+\begin{document}
+\maketitle
+
+\input{sections/00_abstract}
+
+\input{sections/10_introduction}
+
+\input{sections/20_methods}
+
+\input{sections/30_results}
+
+\input{sections/40_related_work}
+
+\input{sections/50_discussion}
+
+% ---- Bibliography ----
+\FloatBarrier
+\bibliography{references}
+
+\clearpage
+\appendix
+\input{sections/90_supplement}
+
+\end{document}

@@ -1,0 +1,56 @@
+{
+ "negative_control": {
+  "housekeeping": [
+   "TUBB",
+   "PGK1",
+   "PPIA",
+   "HPRT1",
+   "TBP",
+   "YWHAZ",
+   "UBC",
+   "GUSB",
+   "CHMP2A",
+   "EMC7",
+   "REEP5",
+   "VPS29"
+  ],
+  "ribosomal": [],
+  "mito": [],
+  "proteasome": [
+   "PSMB1",
+   "PSMA4",
+   "PSME4",
+   "PSMC5",
+   "PSME1",
+   "PSMD5",
+   "PSMD8",
+   "PSMC6",
+   "PSMA3",
+   "PSMC1",
+   "PSMB5",
+   "PSME2",
+   "PSMA7",
+   "PSMD10",
+   "PSMD7",
+   "PSMA2",
+   "PSMD3",
+   "PSMD11",
+   "PSMD9",
+   "PSMD14"
+  ]
+ },
+ "positive_control": [
+  "TBX21",
+  "GATA3",
+  "IFNG",
+  "IL4",
+  "IL13",
+  "STAT1",
+  "STAT4",
+  "STAT6",
+  "IL12RB2",
+  "CCR5",
+  "CXCR3",
+  "IL4R"
+ ]
+}

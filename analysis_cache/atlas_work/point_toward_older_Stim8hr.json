@@ -1,0 +1,28 @@
+{
+  "target": "toward_older",
+  "condition": "Stim8hr",
+  "n_readout": 6014,
+  "n_generators": 7155,
+  "reachable_cosine": 0.5898741884012565,
+  "residual_norm": 0.8074951652226523,
+  "lof_fraction": 0.3479515581420418,
+  "gof_fraction": 0.22620118998114142,
+  "neither_fraction": 0.4258472518768171,
+  "signed_cosine": 0.7629000263852694,
+  "kkt_viol": 1.0120683135377335e-11,
+  "lof_support_size": 664,
+  "gof_support_size": 1197,
+  "greedy_order": [
+    "CD3D",
+    "SMG1",
+    "CROT",
+    "DCP2",
+    "MIOS",
+    "SNRNP40",
+    "PLEKHO1",
+    "ERGIC3",
+    "C1D",
+    "DCAF6"
+  ],
+  "seconds": 42.7
+}

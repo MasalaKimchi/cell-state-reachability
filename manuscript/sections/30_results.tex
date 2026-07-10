@@ -1,0 +1,302 @@
+\section{Results}
+\label{sec:results}
+
+Figure~\ref{fig:framework} summarizes the framework: a genome-scale screen yields measured
+effect vectors (\ref{fig:framework}A); reachability is membership in their convex cone, with
+the residual naming what knockdown cannot supply (\ref{fig:framework}B); a reachable target
+returns a verdict, a signed decomposition, and an activation certificate
+(\ref{fig:framework}C); and the same operator transfers to an independent screen
+(\ref{fig:framework}D).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig1}
+\caption{\textbf{The convex-cone reachability oracle.}
+\textbf{(A)}~A genome-scale CRISPRi Perturb-seq screen in primary human
+CD4\textsuperscript{+} T cells yields, for each of $33{,}983$ knockdowns, a measured effect
+vector over $10{,}282$ genes. \textbf{(B)}~Reachability is membership in the non-negative
+conic hull of these vectors; the reachable component is the NNLS projection of the target,
+and the residual is the activation-required direction, with ``outside'' certified by a
+separating hyperplane (Farkas/KKT). \textbf{(C)}~For
+T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1 the oracle returns a
+\emph{partly reachable} verdict (held-out cosine $0.448$, $\lVert$KKT/Farkas$\rVert\approx
+1.1\times10^{-11}$), a signed decomposition ($39\%$ LOF / $25\%$ GOF / $35\%$ neither), and an
+activation certificate naming genes that must be raised. \textbf{(D)}~The identical operator,
+with no retuning, transfers to the Norman K562 CRISPRa screen (held-out CEBPA cosine
+$0.878$).}
+\label{fig:framework}
+\end{figure}
+
+\subsection{The T\texorpdfstring{\textsubscript{H}}{H}2\texorpdfstring{$\rightarrow$}{->}T\texorpdfstring{\textsubscript{H}}{H}1 shift is partly reachable by knockdown}
+\label{sec:results-headline}
+Our headline target is the T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1 polarization
+shift in resting cells, a canonical and therapeutically relevant repolarization. The greedy
+reachability spectrum (Fig.~\ref{fig:headline}a) rises rapidly and plateaus: the reachable
+cosine reaches a knee at $k=7$ knockdowns (cosine $0.40$) and saturates near $0.45$, sitting
+far above the shuffled-target null at every recipe size. The held-out-gene cosine is $0.448$
+against a null of mean $-0.005$ and standard deviation $0.019$ ($z\approx24$), so the target
+is unambiguously reachable in the statistical sense---the recipe generalizes to expression
+coordinates it was not fit on---yet the absolute value is well below $1$. We read this as the
+central honest result of the paper: a real biological repolarization is \emph{partly}, not
+fully, reachable by loss-of-function alone.
+
+The signed decomposition (Fig.~\ref{fig:headline}b) explains why. Only $39\%$ of the target
+shift lies in the knockdown cone; $25\%$ requires gain-of-function, and the remaining $35\%$
+aligns with neither. The activation certificate (Fig.~\ref{fig:headline}c) makes the
+gain-of-function budget concrete, naming seven genes---LYAR, IKZF3, CRTAM, CBLB, GBP5, LAG3,
+and IRF8---that the T\textsubscript{H}1 target requires to be raised but that no non-negative
+combination of knockdowns can deliver. These are not a null result but a set of falsifiable
+CRISPRa hypotheses: they specify exactly which activations a follow-up experiment should test.
+
+The geometry recovers known biology as a positive control (Fig.~\ref{fig:headline}d). GATA3,
+the master T\textsubscript{H}2 transcription factor that must be removed to become
+T\textsubscript{H}1, is reached on the loss-of-function side at rank $155/6871$ ($97.7$th
+percentile). TBX21, the master T\textsubscript{H}1 factor that must instead be
+\emph{raised}, is correctly anti-aligned under knockdown at rank $6775/6871$ ($1.4$th
+percentile)---the oracle refuses to knock down the gene the target needs induced. Both
+regulators are already reported by the source screen \citep{Zhu2025}; their recovery
+validates the operator and is not claimed as a discovery. The first genes entered by the
+greedy recipe (LAT2, APPBP2, RARA, ICOS) are likewise consistent with T-cell signaling and
+differentiation biology rather than novel nominations.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig2}
+\caption{\textbf{T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1 is partly reachable by
+knockdown.}
+\textbf{(a)}~Greedy reachability spectrum: reachable cosine versus recipe size $k$, far above
+the shuffled-target null at every $k$, with a knee at $k=7$ (cosine $0.40$) and a held-out
+cosine of $0.448$ (null mean $-0.005$, $z\approx24$). \textbf{(b)}~Signed decomposition of the
+target: $39\%$ reachable by knockdown, $25\%$ activation-required, $35\%$ neither.
+\textbf{(c)}~Activation certificate: seven genes the T\textsubscript{H}1 target needs raised
+that no knockdown mix supplies---falsifiable CRISPRa hypotheses. \textbf{(d)}~Positive
+control: the T\textsubscript{H}2 driver GATA3 is reached (rank $155/6871$) while the
+T\textsubscript{H}1 driver TBX21 is correctly anti-aligned (rank $6775/6871$).}
+\label{fig:headline}
+\end{figure}
+
+\subsection{Knockdown is never the majority modality across a 12-cell atlas}
+\label{sec:results-atlas}
+To test whether the partial-reachability finding is idiosyncratic to one transition, we ran
+the oracle across an atlas of $12$ target cell-states: four transitions
+(toward T\textsubscript{H}1, toward T\textsubscript{H}2, toward younger, toward older) under
+three activation conditions (resting, stimulated $8$\,h, stimulated $48$\,h). Every one of the
+$12$ targets is statistically reachable, with held-out $z$ ranging from $4.7$ to $45.0$; none
+is a false positive of the cone's dimensionality. But in no case does loss-of-function account
+for the majority of the shift (Fig.~\ref{fig:atlas}a): the mean loss-of-function fraction is
+$0.34$, and the knockdown bar never crosses the $50\%$ line. Resting cells are the most
+reachable along all four axes---consistent with activation adding gain-of-function directions
+that knockdown cannot span---and the verdicts range from ``partially reachable'' (four resting
+transitions) to ``weakly reachable'' (the stimulated conditions). The general conclusion is
+robust: across transitions, cell states, and activation conditions, engineering by knockdown
+alone reaches a real but minority fraction of the desired change, and an honest method must
+report that fraction rather than a single reachable/not-reachable bit.
+
+The atlas also exposes a calibration hazard that we report against ourselves
+(Fig.~\ref{fig:atlas}b). The in-sample reachable cosine (mean $0.580$) systematically
+overstates the held-out-gene cosine (mean $0.355$), by a mean gap of $0.225$ (range
+$0.18$--$0.27$) across all $12$ transitions; an $85\%$ without-replacement gene-panel
+bootstrap gives tight confidence intervals (e.g. toward T\textsubscript{H}1 resting: point
+$0.627$, bootstrap mean $0.639$, CI $[0.633, 0.649]$), confirming that the gap is a real
+optimism bias and not estimation noise. We therefore assign a confidence tier to each
+transition from its held-out $z$ ($2$ high, $6$ medium, $4$ low) and quote held-out numbers
+everywhere. Finally, the closed-form anisotropy null lands almost exactly on the empirical
+shuffle null (Fig.~\ref{fig:atlas}c; Pearson $r=0.995$ in-sample, $0.998$ held-out), which is
+what makes the atlas-wide analysis affordable.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig3}
+\caption{\textbf{Across a 12-cell atlas, knockdown is never the majority modality.}
+\textbf{(a)}~Signed LOF/GOF/neither decomposition for all $12$ targets (four transitions
+$\times$ three activation states); the loss-of-function (green) bar never crosses the $50\%$
+majority line, mean LOF fraction $0.34$, all held-out $z$ between $4.7$ and $45.0$.
+\textbf{(b)}~In-sample reachable cosine overstates the honest held-out cosine on every
+transition (points below $y=x$), mean gap $0.225$; marker shade encodes the confidence tier.
+\textbf{(c)}~The closed-form analytic null matches the empirical shuffle null
+(near-identity), justifying its use atlas-wide.}
+\label{fig:atlas}
+\end{figure}
+
+\subsection{The verdict survives five reinforcement stress tests}
+\label{sec:results-robustness}
+A feasibility verdict is only trustworthy if it is not an artifact of a modelling or scoring
+choice. Five analyses each attack a different assumption; the headline conclusion---partly
+reachable by knockdown, with a named activation remainder---holds under all five, and two of
+them \emph{tighten} the original claims rather than merely surviving. The analyses that carry a
+dedicated panel appear in Supplementary Figs.~\ref{fig:supp-deg}, \ref{fig:supp-calib},
+\ref{fig:supp-split} and~\ref{fig:supp-crossref}.
+
+First, the non-negativity constraint earns its place. Relative to an unconstrained
+least-squares fit that is free to run knockdowns in reverse, the biological constraint costs
+only a mean of $0.018$ in held-out cosine, yet the unconstrained fit buys that improvement with
+$\approx\!3{,}537$ biologically unrealizable negative weights; the cone recovers a mean $95\%$
+(range $86$--$103\%$) of the unconstrained cosine and beats the single best generator in all
+$12$ cells. The constraint is nearly free and is the sole source of the Farkas/KKT certificate.
+
+Second, the modest absolute cosine is close to its modality-imposed ceiling. Because a
+knockdown-only cone cannot express gain-of-function directions, the attainable held-out cosine
+is bounded by $\sqrt{\smash[b]{f_{\mathrm{LOF}}}}$; the headline $0.448$ is $71\%$ of that
+ceiling (atlas mean $61\%$, range $49$--$71\%$), and the residual gap is $22$--$26\%$
+gain-of-function-locked. The ``modest'' number is therefore most of what knockdown can achieve
+in principle, not a tuning shortfall.
+
+Third, the recipes are additive-safe with margin. Every recommended knee recipe is additive-safe
+in all $12$ cells (per-recipe reliability $0.92$--$0.96$), and the combined-magnitude
+saturation cap binds only at $k\approx28$ knockdowns versus a knee of $k\approx4$--$5$---a
+$5.6\times$ margin on the headline recipe.
+
+Fourth, and most stringently, the verdict strengthens rather than collapses when the
+signal-dilution critique of \citet{Mejia2026} is applied (Fig.~\ref{fig:supp-deg}). Reweighting
+the metric by each gene's target magnitude ($w_g=\lvert d_g\rvert$) raises the Tier-2
+T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1 reachable cosine from $0.627$ to $0.803$ at
+rest (and every stimulated condition and every held-out Norman double likewise increases), while
+the held-out $z$ stays far above the significance floor ($28.3\rightarrow14.1$ at rest). The
+dynamic-range fraction barely moves ($0.447\rightarrow0.499$) because the shuffled floor rises
+in step ($0.346\rightarrow0.619$); the verdict's placement between floor and ceiling is stable,
+so it is not a dilution artifact (Fig.~\ref{fig:supp-calib}). The unweighted metric remains the
+default and reproduces the published numbers exactly.
+
+Fifth, the certificate is reproducible but its interpretation must be stated carefully
+(Figs.~\ref{fig:supp-split}--\ref{fig:supp-crossref}). Under a random gene-axis split the top
+certificate genes hold their rank (cross-half Spearman $\rho=0.65$, half-versus-full $0.84$,
+$z\approx35$ against a shuffle null of $\approx0$; the full top-$30$ is retained), while the
+tail drifts. A retrospective cross-reference of the top $20$ genes, however, qualifies the
+biological reading: the highest-demand genes are state-markers (LYAR, CRTAM, GBP5) and
+\emph{negative} regulators (IKZF3/Aiolos, CBLB, LAG3)---genes whose \emph{deletion}, not
+activation, boosts T-cell function---while the canonical T\textsubscript{H}1 master
+transcription factors are present in the certificate but rank deep (IFNG $\#35$, TBX21 $\#144$,
+STAT4 $\#364$, STAT1 $\#473$). Of the $20$, four are literature-SUPPORTED, seven PLAUSIBLE, and
+nine UNKNOWN, and $8/20$ carry a strong ($\ge0.5$) Open Targets genetic link to a
+T\textsubscript{H}1-driven autoimmune disease. We therefore read the certificate as a
+reproducible ranking of \emph{unmet upward demand}, not as a validated list of activation
+targets: for the negative regulators in particular, the direction of a useful intervention may
+be opposite to naive activation. This is a tightening of the original ``activation certificate''
+framing, and we carry it into the discussion.
+
+Finally, applying the operator to an independent pair of cell types bounds what transfers, which
+we develop next.
+
+\subsection{The operator transfers unchanged to a K562 CRISPRa screen}
+\label{sec:results-transfer}
+A feasibility operator is only useful if it is not bespoke to one screen. We applied the
+identical pipeline---same code, no retuned parameters---to the K562 combinatorial CRISPR
+activation screen of \citet{Norman2019} (GSE133344), a different cell type, a different
+perturbation direction (activation rather than interference), and a different experimental
+design. Holding out the CEBPA master-regulator state as the target, the oracle reaches a
+cosine of $0.878$ (residual norm $0.479$) against a shuffled-target null with median $0.389$
+and $95$th percentile $0.411$ ($z\approx37$ over $500$ iterations), and a held-out-gene cosine
+of $0.856$ ($z\approx23.5$) (Fig.~\ref{fig:transfer}a). The recipe is led by CEBPE, the CEBPA
+paralog, with a knee at $k=2$ (CEBPE\,$+$\,SPI1)---a biologically sensible minimal program.
+Where the target is not fully reached, the certificate again names an interpretable
+program: the CEBPA state requires raising a myeloid-differentiation module (MNDA, HP, VSIG4,
+NCF1) orthogonal to what the activation atoms in the screen supply.
+
+Crucially, the Norman screen contains \emph{measured} double perturbations, which let us test
+the additivity assumption that underlies every multi-gene recipe rather than merely assert it
+(Fig.~\ref{fig:transfer}b). Across $126$ measured doubles, the cosine between the true double
+perturbation and the sum of its two singles has median $0.71$: additivity is a good but
+\emph{bounded} approximation, not an identity. We characterized the departure directly.
+The deficit grows with the combined perturbation magnitude (Spearman $+0.58$), consistent with
+a scale-free saturation ceiling ($M^{\star}=13.9$ in units of the median single-effect norm,
+fit $R^2=0.57$); the intuitive hypothesis that collinear pairs should be most sub-additive was
+\emph{refuted} (Spearman $-0.16$, not significant). The practical consequence, which we carry
+into every recipe claim, is that multi-gene knockdown recipes are an extrapolation to be
+tested, not an exact prediction, and their reliability degrades at large combined magnitude.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig4}
+\caption{\textbf{Transfer to Norman 2019 K562 CRISPRa and the additivity guardrail.}
+\textbf{(a)}~The unchanged operator reaches the held-out CEBPA state at cosine $0.878$
+(full-fit), far above the shuffled-target null ($z\approx37$; held-out-gene $z\approx23.5$),
+with the recipe led by the CEBPA paralog CEBPE. \textbf{(c)}~The infeasible remainder's
+certificate names a myeloid program (MNDA, HP, VSIG4, NCF1). \textbf{(b)}~Across $126$ measured
+double perturbations, the cosine of the measured double to the sum of its singles has median
+$0.71$: additivity is a bounded approximation, and the ``epistasis gap'' to perfect additivity
+($=1$) is real.}
+\label{fig:transfer}
+\end{figure}
+
+To probe generalization more systematically than a single held-out state, we applied the
+operator to an independent pair of cell types---the genome-scale essential-gene Perturb-seq
+screens of \citet{Replogle2022} in K562 and RPE1 cells ($843$ shared single-gene perturbations
+over $2{,}832$ shared genes)---and asked, at three levels, what transfers across cell type
+(Supplementary Fig.~\ref{fig:supp-transfer}). A single perturbation's effect \emph{direction}
+transfers moderately: the matched cross-type cosine has median $0.35$ against a shuffled-gene
+null of $\approx0$, rising to $0.64$ along the common essential-stress axis. The reachability
+\emph{verdict} transfers only as a graded quantity, not a binary flip---the residual norm is
+systematically worse under a cross-type basis than a within-type one ($0.61\rightarrow0.87$ for
+K562 targets, $0.37\rightarrow0.68$ for RPE1)---so a naive $100\%$ verdict-agreement rate is an
+artifact of an over-expressive $843$-atom cone and should be read as a residual, not a label.
+The minimal \emph{recipe} does \emph{not} transfer: the same-target Jaccard overlap across cell
+types is only $0.11$, collapsing to the random-selection null ($0.05$) under a cross-type basis.
+The prescription is therefore bounded: the \emph{direction} of a cell-state shift is portable
+across cell types, but the \emph{specific minimal recipe} is cell-type-specific and must be
+re-derived per system. This is a cross-cell-type generalization probe on essential-gene screens,
+not a second CD4\textsuperscript{+} T-cell polarization screen.
+
+\subsection{No prior method occupies the measured-effects, verdict-plus-certificate corner}
+\label{sec:results-landscape}
+We placed the oracle against a structured survey of $92$ methods spanning $2011$--$2026$
+(Section~\ref{sec:related}), scored on two axes: how strongly each is grounded in measured
+effect vectors, and whether it emits a feasibility verdict with a certificate
+(Fig.~\ref{fig:landscape}a). The two capabilities are held by \emph{disjoint} sets of prior
+methods. The $14$ methods that operate directly on measured effects are all forward-only
+predictors or rankers; none returns a feasibility verdict or a data-grounded certificate. The
+$13$--$15$ methods carrying any verdict- or certificate-like output are all model-theoretic---%
+their guarantee is a property of a hand-built, fitted, or inferred model, and they span
+several families (structural and Boolean network control, control-from-data, an inferred
+single-cell GRN, a causally inspired predictor) rather than one. The intersection of
+``grounded in measured effects'' and ``emits a verdict plus certificate'' is empty for all
+$91$ prior methods; the reachability oracle is the sole occupant of that corner. The
+family-level capability matrix (Supplementary Fig.~\ref{fig:supp-matrix}) shows the same
+structure per capability column: measured-effect grounding and feasibility output never
+co-occur in any prior family.
+
+We state the scope of this claim precisely. It is a claim about the \emph{combination} of two
+capabilities on a structured survey, not a claim that any individual capability is
+unprecedented; network control has reasoned about reachability for over a decade, and many
+methods use measured data. The novelty is the pairing---a feasibility decision computed
+directly from measured effects, with a certificate---and the disjointness is the evidence for
+it.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig5}
+\caption{\textbf{Landscape positioning and modality triage.}
+\textbf{(a)}~Each of $92$ surveyed methods ($2011$--$2026$) placed by measured-effect
+grounding ($x$) and feasibility-verdict-plus-certificate output ($y$). Measured-grounded
+methods (blue) are forward-only; verdict/certificate methods (pink) are model-theoretic; the
+top-right corner is empty across all $91$ prior methods and occupied only by this work.
+\textbf{(b)}~The verdict translates into a GO/REDIRECT/STOP triage over $102$ real target
+nominations ($45/102 = 44\%$ hard-to-drug, $10$ with a clinical-grade drug); all nominations
+are falsifiable wet-lab hypotheses, not validated targets.}
+\label{fig:landscape}
+\end{figure}
+
+\subsection{From verdict to experiment: a GO/REDIRECT/STOP triage}
+\label{sec:results-impact}
+The point of a feasibility verdict is that it changes what experiment gets run. We applied the
+oracle to $102$ real target nominations drawn from the T-cell transitions and translated each
+verdict into one of three actions (Fig.~\ref{fig:landscape}b): \textbf{GO}---the target is
+reachable, so hand the minimal ranked knockdown set to an arrayed CRISPRi screen;
+\textbf{REDIRECT}---the target is activation-required, so switch to a CRISPRa/agonist arm, with
+the certificate naming the genes to test first; and \textbf{STOP}---the target is provably
+outside the cone, so do not spend a knockdown arm on it. This matters because $45/102$ ($44\%$)
+of the nominated targets are hard-to-drug and only $10$ carry a clinical-grade drug, so
+misallocating screen arms is expensive. Across transitions, $36$--$49\%$ (mean $\approx42\%$)
+of each transition's addressable shift needs induction and is therefore unreachable by a
+knockdown-only screen---exactly the fraction a CRISPRi-only campaign would waste effort on
+without a feasibility check.
+
+The triage surfaces concrete, and honestly caveated, examples. Nine targets are green-lit as
+directly reachable and druggable (including JAK2, ICOS, MAPK14, CD3D). Three are tractable but
+untried and flagged for a redirected arm (IL7R, which carries the highest genetic support;
+ZAP70; TET2). One, IRF1, is a top T\textsubscript{H}2 knockdown node with strong immune-disease
+genetic support but no conventional small-molecule or antibody handle (degrader-only), a
+required-but-undruggable case where the verdict argues for a new modality rather than a
+conventional campaign. We emphasize that every one of these is a prioritization hypothesis for
+the bench, generated by geometry over one screen; none is a validated target, and the oracle's
+role is to triage where experimental effort is spent, not to replace the experiment.
+

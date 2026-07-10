@@ -1,0 +1,6477 @@
+{
+ "ABCB8": {
+  "gene": "ABCB8",
+  "ensembl_id": "ENSG00000197150",
+  "approvedSymbol": "ABCB8",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ABRAXAS1": {
+  "gene": "ABRAXAS1",
+  "ensembl_id": "ENSG00000163322",
+  "approvedSymbol": "ABRAXAS1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ACACA": {
+  "gene": "ACACA",
+  "ensembl_id": "ENSG00000278540",
+  "approvedSymbol": "ACACA",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 4,
+  "resolved": true,
+  "error": ""
+ },
+ "ACADVL": {
+  "gene": "ACADVL",
+  "ensembl_id": "ENSG00000072778",
+  "approvedSymbol": "ACADVL",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ACTN1": {
+  "gene": "ACTN1",
+  "ensembl_id": "ENSG00000072110",
+  "approvedSymbol": "ACTN1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ADCK2": {
+  "gene": "ADCK2",
+  "ensembl_id": "ENSG00000133597",
+  "approvedSymbol": "ADCK2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ADD1": {
+  "gene": "ADD1",
+  "ensembl_id": "ENSG00000087274",
+  "approvedSymbol": "ADD1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ADPRH": {
+  "gene": "ADPRH",
+  "ensembl_id": "ENSG00000144843",
+  "approvedSymbol": "ADPRH",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ADPRM": {
+  "gene": "ADPRM",
+  "ensembl_id": "ENSG00000170222",
+  "approvedSymbol": "ADPRM",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "AGAP3": {
+  "gene": "AGAP3",
+  "ensembl_id": "ENSG00000133612",
+  "approvedSymbol": "AGAP3",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "AGL": {
+  "gene": "AGL",
+  "ensembl_id": "ENSG00000162688",
+  "approvedSymbol": "AGL",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "AGTPBP1": {
+  "gene": "AGTPBP1",
+  "ensembl_id": "ENSG00000135049",
+  "approvedSymbol": "AGTPBP1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "AKR1C3": {
+  "gene": "AKR1C3",
+  "ensembl_id": "ENSG00000196139",
+  "approvedSymbol": "AKR1C3",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ALDH3A2": {
+  "gene": "ALDH3A2",
+  "ensembl_id": "ENSG00000072210",
+  "approvedSymbol": "ALDH3A2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ALKBH4": {
+  "gene": "ALKBH4",
+  "ensembl_id": "ENSG00000160993",
+  "approvedSymbol": "ALKBH4",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ALOX5": {
+  "gene": "ALOX5",
+  "ensembl_id": "ENSG00000012779",
+  "approvedSymbol": "ALOX5",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 11,
+  "resolved": true,
+  "error": ""
+ },
+ "AMER1": {
+  "gene": "AMER1",
+  "ensembl_id": "ENSG00000184675",
+  "approvedSymbol": "AMER1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "AMPD3": {
+  "gene": "AMPD3",
+  "ensembl_id": "ENSG00000133805",
+  "approvedSymbol": "AMPD3",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "AP5S1": {
+  "gene": "AP5S1",
+  "ensembl_id": "ENSG00000125843",
+  "approvedSymbol": "AP5S1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "APOBEC3F": {
+  "gene": "APOBEC3F",
+  "ensembl_id": "ENSG00000128394",
+  "approvedSymbol": "APOBEC3F",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "APPBP2": {
+  "gene": "APPBP2",
+  "ensembl_id": "ENSG00000062725",
+  "approvedSymbol": "APPBP2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ARHGEF2": {
+  "gene": "ARHGEF2",
+  "ensembl_id": "ENSG00000116584",
+  "approvedSymbol": "ARHGEF2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ATG10": {
+  "gene": "ATG10",
+  "ensembl_id": "ENSG00000152348",
+  "approvedSymbol": "ATG10",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ATG5": {
+  "gene": "ATG5",
+  "ensembl_id": "ENSG00000057663",
+  "approvedSymbol": "ATG5",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ATMIN": {
+  "gene": "ATMIN",
+  "ensembl_id": "ENSG00000166454",
+  "approvedSymbol": "ATMIN",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ATN1": {
+  "gene": "ATN1",
+  "ensembl_id": "ENSG00000111676",
+  "approvedSymbol": "ATN1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "BCL9L": {
+  "gene": "BCL9L",
+  "ensembl_id": "ENSG00000186174",
+  "approvedSymbol": "BCL9L",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "BICD1": {
+  "gene": "BICD1",
+  "ensembl_id": "ENSG00000151746",
+  "approvedSymbol": "BICD1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "BMAL1": {
+  "gene": "BMAL1",
+  "ensembl_id": "ENSG00000133794",
+  "approvedSymbol": "BMAL1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "BOLA1": {
+  "gene": "BOLA1",
+  "ensembl_id": "ENSG00000178096",
+  "approvedSymbol": "BOLA1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "BST2": {
+  "gene": "BST2",
+  "ensembl_id": "ENSG00000130303",
+  "approvedSymbol": "BST2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "C2CD5": {
+  "gene": "C2CD5",
+  "ensembl_id": "ENSG00000111731",
+  "approvedSymbol": "C2CD5",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "C3orf38": {
+  "gene": "C3orf38",
+  "ensembl_id": "ENSG00000179021",
+  "approvedSymbol": "C3orf38",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CALM1": {
+  "gene": "CALM1",
+  "ensembl_id": "ENSG00000198668",
+  "approvedSymbol": "CALM1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 2,
+  "resolved": true,
+  "error": ""
+ },
+ "CAMK1": {
+  "gene": "CAMK1",
+  "ensembl_id": "ENSG00000134072",
+  "approvedSymbol": "CAMK1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CARMIL1": {
+  "gene": "CARMIL1",
+  "ensembl_id": "ENSG00000079691",
+  "approvedSymbol": "CARMIL1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CASP2": {
+  "gene": "CASP2",
+  "ensembl_id": "ENSG00000106144",
+  "approvedSymbol": "CASP2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 1,
+  "resolved": true,
+  "error": ""
+ },
+ "CBFA2T2": {
+  "gene": "CBFA2T2",
+  "ensembl_id": "ENSG00000078699",
+  "approvedSymbol": "CBFA2T2",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCDC127": {
+  "gene": "CCDC127",
+  "ensembl_id": "ENSG00000164366",
+  "approvedSymbol": "CCDC127",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCDC150": {
+  "gene": "CCDC150",
+  "ensembl_id": "ENSG00000144395",
+  "approvedSymbol": "CCDC150",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCDC43": {
+  "gene": "CCDC43",
+  "ensembl_id": "ENSG00000180329",
+  "approvedSymbol": "CCDC43",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCDC90B": {
+  "gene": "CCDC90B",
+  "ensembl_id": "ENSG00000137500",
+  "approvedSymbol": "CCDC90B",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCND3": {
+  "gene": "CCND3",
+  "ensembl_id": "ENSG00000112576",
+  "approvedSymbol": "CCND3",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCNYL1": {
+  "gene": "CCNYL1",
+  "ensembl_id": "ENSG00000163249",
+  "approvedSymbol": "CCNYL1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CCR4": {
+  "gene": "CCR4",
+  "ensembl_id": "ENSG00000183813",
+  "approvedSymbol": "CCR4",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 1,
+  "resolved": true,
+  "error": ""
+ },
+ "CD2AP": {
+  "gene": "CD2AP",
+  "ensembl_id": "ENSG00000198087",
+  "approvedSymbol": "CD2AP",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CD320": {
+  "gene": "CD320",
+  "ensembl_id": "ENSG00000167775",
+  "approvedSymbol": "CD320",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CD58": {
+  "gene": "CD58",
+  "ensembl_id": "ENSG00000116815",
+  "approvedSymbol": "CD58",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CDC14A": {
+  "gene": "CDC14A",
+  "ensembl_id": "ENSG00000079335",
+  "approvedSymbol": "CDC14A",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CENPS": {
+  "gene": "CENPS",
+  "ensembl_id": "ENSG00000175279",
+  "approvedSymbol": "CENPS",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CEP20": {
+  "gene": "CEP20",
+  "ensembl_id": "ENSG00000133393",
+  "approvedSymbol": "CEP20",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CEP350": {
+  "gene": "CEP350",
+  "ensembl_id": "ENSG00000135837",
+  "approvedSymbol": "CEP350",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CHRAC1": {
+  "gene": "CHRAC1",
+  "ensembl_id": "ENSG00000104472",
+  "approvedSymbol": "CHRAC1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CISD3": {
+  "gene": "CISD3",
+  "ensembl_id": "ENSG00000277972",
+  "approvedSymbol": "CISD3",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CLINT1": {
+  "gene": "CLINT1",
+  "ensembl_id": "ENSG00000113282",
+  "approvedSymbol": "CLINT1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CMTM7": {
+  "gene": "CMTM7",
+  "ensembl_id": "ENSG00000153551",
+  "approvedSymbol": "CMTM7",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CNKSR2": {
+  "gene": "CNKSR2",
+  "ensembl_id": "ENSG00000149970",
+  "approvedSymbol": "CNKSR2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "COPS7B": {
+  "gene": "COPS7B",
+  "ensembl_id": "ENSG00000144524",
+  "approvedSymbol": "COPS7B",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "COX7A2L": {
+  "gene": "COX7A2L",
+  "ensembl_id": "ENSG00000115944",
+  "approvedSymbol": "COX7A2L",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CREBRF": {
+  "gene": "CREBRF",
+  "ensembl_id": "ENSG00000164463",
+  "approvedSymbol": "CREBRF",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CREBZF": {
+  "gene": "CREBZF",
+  "ensembl_id": "ENSG00000137504",
+  "approvedSymbol": "CREBZF",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CSTPP1": {
+  "gene": "CSTPP1",
+  "ensembl_id": "ENSG00000149179",
+  "approvedSymbol": "CSTPP1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CTNNA1": {
+  "gene": "CTNNA1",
+  "ensembl_id": "ENSG00000044115",
+  "approvedSymbol": "CTNNA1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "CWC27": {
+  "gene": "CWC27",
+  "ensembl_id": "ENSG00000153015",
+  "approvedSymbol": "CWC27",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DAP": {
+  "gene": "DAP",
+  "ensembl_id": "ENSG00000112977",
+  "approvedSymbol": "DAP",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DCP2": {
+  "gene": "DCP2",
+  "ensembl_id": "ENSG00000172795",
+  "approvedSymbol": "DCP2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DENND10": {
+  "gene": "DENND10",
+  "ensembl_id": "ENSG00000119979",
+  "approvedSymbol": "DENND10",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DENND4B": {
+  "gene": "DENND4B",
+  "ensembl_id": "ENSG00000198837",
+  "approvedSymbol": "DENND4B",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DGKE": {
+  "gene": "DGKE",
+  "ensembl_id": "ENSG00000153933",
+  "approvedSymbol": "DGKE",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DGUOK": {
+  "gene": "DGUOK",
+  "ensembl_id": "ENSG00000114956",
+  "approvedSymbol": "DGUOK",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DHX34": {
+  "gene": "DHX34",
+  "ensembl_id": "ENSG00000134815",
+  "approvedSymbol": "DHX34",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DNTTIP1": {
+  "gene": "DNTTIP1",
+  "ensembl_id": "ENSG00000101457",
+  "approvedSymbol": "DNTTIP1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DPH1": {
+  "gene": "DPH1",
+  "ensembl_id": "ENSG00000108963",
+  "approvedSymbol": "DPH1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "DPYD": {
+  "gene": "DPYD",
+  "ensembl_id": "ENSG00000188641",
+  "approvedSymbol": "DPYD",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 2,
+  "resolved": true,
+  "error": ""
+ },
+ "DZIP1": {
+  "gene": "DZIP1",
+  "ensembl_id": "ENSG00000134874",
+  "approvedSymbol": "DZIP1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ECHS1": {
+  "gene": "ECHS1",
+  "ensembl_id": "ENSG00000127884",
+  "approvedSymbol": "ECHS1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "EHMT2": {
+  "gene": "EHMT2",
+  "ensembl_id": "ENSG00000204371",
+  "approvedSymbol": "EHMT2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ENOX2": {
+  "gene": "ENOX2",
+  "ensembl_id": "ENSG00000165675",
+  "approvedSymbol": "ENOX2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ETS2": {
+  "gene": "ETS2",
+  "ensembl_id": "ENSG00000157557",
+  "approvedSymbol": "ETS2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "EVI2B": {
+  "gene": "EVI2B",
+  "ensembl_id": "ENSG00000185862",
+  "approvedSymbol": "EVI2B",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FAM91A1": {
+  "gene": "FAM91A1",
+  "ensembl_id": "ENSG00000176853",
+  "approvedSymbol": "FAM91A1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FBXO32": {
+  "gene": "FBXO32",
+  "ensembl_id": "ENSG00000156804",
+  "approvedSymbol": "FBXO32",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FBXO8": {
+  "gene": "FBXO8",
+  "ensembl_id": "ENSG00000164117",
+  "approvedSymbol": "FBXO8",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FBXW7": {
+  "gene": "FBXW7",
+  "ensembl_id": "ENSG00000109670",
+  "approvedSymbol": "FBXW7",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FERMT3": {
+  "gene": "FERMT3",
+  "ensembl_id": "ENSG00000149781",
+  "approvedSymbol": "FERMT3",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FKRP": {
+  "gene": "FKRP",
+  "ensembl_id": "ENSG00000181027",
+  "approvedSymbol": "FKRP",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FNDC3A": {
+  "gene": "FNDC3A",
+  "ensembl_id": "ENSG00000102531",
+  "approvedSymbol": "FNDC3A",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "FZD3": {
+  "gene": "FZD3",
+  "ensembl_id": "ENSG00000104290",
+  "approvedSymbol": "FZD3",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GALC": {
+  "gene": "GALC",
+  "ensembl_id": "ENSG00000054983",
+  "approvedSymbol": "GALC",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GALK1": {
+  "gene": "GALK1",
+  "ensembl_id": "ENSG00000108479",
+  "approvedSymbol": "GALK1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GBP5": {
+  "gene": "GBP5",
+  "ensembl_id": "ENSG00000154451",
+  "approvedSymbol": "GBP5",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GFI1": {
+  "gene": "GFI1",
+  "ensembl_id": "ENSG00000162676",
+  "approvedSymbol": "GFI1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GGA1": {
+  "gene": "GGA1",
+  "ensembl_id": "ENSG00000100083",
+  "approvedSymbol": "GGA1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GOLGA1": {
+  "gene": "GOLGA1",
+  "ensembl_id": "ENSG00000136935",
+  "approvedSymbol": "GOLGA1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GPR108": {
+  "gene": "GPR108",
+  "ensembl_id": "ENSG00000125734",
+  "approvedSymbol": "GPR108",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GPR15": {
+  "gene": "GPR15",
+  "ensembl_id": "ENSG00000154165",
+  "approvedSymbol": "GPR15",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "GPRIN3": {
+  "gene": "GPRIN3",
+  "ensembl_id": "ENSG00000185477",
+  "approvedSymbol": "GPRIN3",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "H2AC11": {
+  "gene": "H2AC11",
+  "ensembl_id": "ENSG00000196787",
+  "approvedSymbol": "H2AC11",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HDHD2": {
+  "gene": "HDHD2",
+  "ensembl_id": "ENSG00000167220",
+  "approvedSymbol": "HDHD2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HELLS": {
+  "gene": "HELLS",
+  "ensembl_id": "ENSG00000119969",
+  "approvedSymbol": "HELLS",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HELZ2": {
+  "gene": "HELZ2",
+  "ensembl_id": "ENSG00000130589",
+  "approvedSymbol": "HELZ2",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HERC1": {
+  "gene": "HERC1",
+  "ensembl_id": "ENSG00000103657",
+  "approvedSymbol": "HERC1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HMGN5": {
+  "gene": "HMGN5",
+  "ensembl_id": "ENSG00000198157",
+  "approvedSymbol": "HMGN5",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HPS4": {
+  "gene": "HPS4",
+  "ensembl_id": "ENSG00000100099",
+  "approvedSymbol": "HPS4",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HSPA1L": {
+  "gene": "HSPA1L",
+  "ensembl_id": "ENSG00000204390",
+  "approvedSymbol": "HSPA1L",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "HSPBP1": {
+  "gene": "HSPBP1",
+  "ensembl_id": "ENSG00000133265",
+  "approvedSymbol": "HSPBP1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ICOS": {
+  "gene": "ICOS",
+  "ensembl_id": "ENSG00000163600",
+  "approvedSymbol": "ICOS",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 4,
+  "resolved": true,
+  "error": ""
+ },
+ "IFNAR1": {
+  "gene": "IFNAR1",
+  "ensembl_id": "ENSG00000142166",
+  "approvedSymbol": "IFNAR1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   },
+   {
+    "modality": "OC",
+    "label": "Approved Drug"
+   }
+  ],
+  "n_drugs": 12,
+  "resolved": true,
+  "error": ""
+ },
+ "IFNGR1": {
+  "gene": "IFNGR1",
+  "ensembl_id": "ENSG00000027697",
+  "approvedSymbol": "IFNGR1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "OC",
+    "label": "Approved Drug"
+   }
+  ],
+  "n_drugs": 1,
+  "resolved": true,
+  "error": ""
+ },
+ "IFT88": {
+  "gene": "IFT88",
+  "ensembl_id": "ENSG00000032742",
+  "approvedSymbol": "IFT88",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "IL10RB": {
+  "gene": "IL10RB",
+  "ensembl_id": "ENSG00000243646",
+  "approvedSymbol": "IL10RB",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "OC",
+    "label": "Advanced Clinical"
+   }
+  ],
+  "n_drugs": 3,
+  "resolved": true,
+  "error": ""
+ },
+ "IL16": {
+  "gene": "IL16",
+  "ensembl_id": "ENSG00000172349",
+  "approvedSymbol": "IL16",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ILVBL": {
+  "gene": "ILVBL",
+  "ensembl_id": "ENSG00000105135",
+  "approvedSymbol": "HACL2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": "resolved_via_alias_HACL2"
+ },
+ "INF2": {
+  "gene": "INF2",
+  "ensembl_id": "ENSG00000203485",
+  "approvedSymbol": "INF2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "IPP": {
+  "gene": "IPP",
+  "ensembl_id": "ENSG00000197429",
+  "approvedSymbol": "IPP",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "IRF1": {
+  "gene": "IRF1",
+  "ensembl_id": "ENSG00000125347",
+  "approvedSymbol": "IRF1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "IRF9": {
+  "gene": "IRF9",
+  "ensembl_id": "ENSG00000213928",
+  "approvedSymbol": "IRF9",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ITPKB": {
+  "gene": "ITPKB",
+  "ensembl_id": "ENSG00000143772",
+  "approvedSymbol": "ITPKB",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ITPR3": {
+  "gene": "ITPR3",
+  "ensembl_id": "ENSG00000096433",
+  "approvedSymbol": "ITPR3",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "JAK2": {
+  "gene": "JAK2",
+  "ensembl_id": "ENSG00000096968",
+  "approvedSymbol": "JAK2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Literature"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 31,
+  "resolved": true,
+  "error": ""
+ },
+ "JAML": {
+  "gene": "JAML",
+  "ensembl_id": "ENSG00000160593",
+  "approvedSymbol": "JAML",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "JMJD4": {
+  "gene": "JMJD4",
+  "ensembl_id": "ENSG00000081692",
+  "approvedSymbol": "JMJD4",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KDM5B": {
+  "gene": "KDM5B",
+  "ensembl_id": "ENSG00000117139",
+  "approvedSymbol": "KDM5B",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KDM5C": {
+  "gene": "KDM5C",
+  "ensembl_id": "ENSG00000126012",
+  "approvedSymbol": "KDM5C",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KDM6A": {
+  "gene": "KDM6A",
+  "ensembl_id": "ENSG00000147050",
+  "approvedSymbol": "KDM6A",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KIF5B": {
+  "gene": "KIF5B",
+  "ensembl_id": "ENSG00000170759",
+  "approvedSymbol": "KIF5B",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 2,
+  "resolved": true,
+  "error": ""
+ },
+ "KLF3": {
+  "gene": "KLF3",
+  "ensembl_id": "ENSG00000109787",
+  "approvedSymbol": "KLF3",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KLHL6": {
+  "gene": "KLHL6",
+  "ensembl_id": "ENSG00000172578",
+  "approvedSymbol": "KLHL6",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KPNA3": {
+  "gene": "KPNA3",
+  "ensembl_id": "ENSG00000102753",
+  "approvedSymbol": "KPNA3",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "KYAT1": {
+  "gene": "KYAT1",
+  "ensembl_id": "ENSG00000171097",
+  "approvedSymbol": "KYAT1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "LGALS1": {
+  "gene": "LGALS1",
+  "ensembl_id": "ENSG00000100097",
+  "approvedSymbol": "LGALS1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   },
+   {
+    "modality": "OC",
+    "label": "Advanced Clinical"
+   }
+  ],
+  "n_drugs": 1,
+  "resolved": true,
+  "error": ""
+ },
+ "LIMA1": {
+  "gene": "LIMA1",
+  "ensembl_id": "ENSG00000050405",
+  "approvedSymbol": "LIMA1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "LMNB2": {
+  "gene": "LMNB2",
+  "ensembl_id": "ENSG00000176619",
+  "approvedSymbol": "LMNB2",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "LRP10": {
+  "gene": "LRP10",
+  "ensembl_id": "ENSG00000197324",
+  "approvedSymbol": "LRP10",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAGED2": {
+  "gene": "MAGED2",
+  "ensembl_id": "ENSG00000102316",
+  "approvedSymbol": "MAGED2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAGEH1": {
+  "gene": "MAGEH1",
+  "ensembl_id": "ENSG00000187601",
+  "approvedSymbol": "MAGEH1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAL": {
+  "gene": "MAL",
+  "ensembl_id": "ENSG00000172005",
+  "approvedSymbol": "MAL",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAMLD1": {
+  "gene": "MAMLD1",
+  "ensembl_id": "ENSG00000013619",
+  "approvedSymbol": "MAMLD1",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAP1LC3B": {
+  "gene": "MAP1LC3B",
+  "ensembl_id": "ENSG00000140941",
+  "approvedSymbol": "MAP1LC3B",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAP2K2": {
+  "gene": "MAP2K2",
+  "ensembl_id": "ENSG00000126934",
+  "approvedSymbol": "MAP2K2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Literature"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 18,
+  "resolved": true,
+  "error": ""
+ },
+ "MAP3K10": {
+  "gene": "MAP3K10",
+  "ensembl_id": "ENSG00000130758",
+  "approvedSymbol": "MAP3K10",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 1,
+  "resolved": true,
+  "error": ""
+ },
+ "MAP3K4": {
+  "gene": "MAP3K4",
+  "ensembl_id": "ENSG00000085511",
+  "approvedSymbol": "MAP3K4",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MAPK14": {
+  "gene": "MAPK14",
+  "ensembl_id": "ENSG00000112062",
+  "approvedSymbol": "MAPK14",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Literature"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 28,
+  "resolved": true,
+  "error": ""
+ },
+ "MEN1": {
+  "gene": "MEN1",
+  "ensembl_id": "ENSG00000133895",
+  "approvedSymbol": "MEN1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Phase 1 Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 3,
+  "resolved": true,
+  "error": ""
+ },
+ "MLLT6": {
+  "gene": "MLLT6",
+  "ensembl_id": "ENSG00000275023",
+  "approvedSymbol": "MLLT6",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MOSPD2": {
+  "gene": "MOSPD2",
+  "ensembl_id": "ENSG00000130150",
+  "approvedSymbol": "MOSPD2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MSC": {
+  "gene": "MSC",
+  "ensembl_id": "ENSG00000178860",
+  "approvedSymbol": "MSC",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MTRFR": {
+  "gene": "MTRFR",
+  "ensembl_id": "ENSG00000130921",
+  "approvedSymbol": "MTRFR",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MUTYH": {
+  "gene": "MUTYH",
+  "ensembl_id": "ENSG00000132781",
+  "approvedSymbol": "MUTYH",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "MYH9": {
+  "gene": "MYH9",
+  "ensembl_id": "ENSG00000100345",
+  "approvedSymbol": "MYH9",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NAA80": {
+  "gene": "NAA80",
+  "ensembl_id": "ENSG00000243477",
+  "approvedSymbol": "NAA80",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NBN": {
+  "gene": "NBN",
+  "ensembl_id": "ENSG00000104320",
+  "approvedSymbol": "NBN",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NFATC2IP": {
+  "gene": "NFATC2IP",
+  "ensembl_id": "ENSG00000176953",
+  "approvedSymbol": "NFATC2IP",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NME6": {
+  "gene": "NME6",
+  "ensembl_id": "ENSG00000172113",
+  "approvedSymbol": "NME6",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NOP9": {
+  "gene": "NOP9",
+  "ensembl_id": "ENSG00000196943",
+  "approvedSymbol": "NOP9",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NUDT9": {
+  "gene": "NUDT9",
+  "ensembl_id": "ENSG00000170502",
+  "approvedSymbol": "NUDT9",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "NXPE3": {
+  "gene": "NXPE3",
+  "ensembl_id": "ENSG00000144815",
+  "approvedSymbol": "NXPE3",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "OAT": {
+  "gene": "OAT",
+  "ensembl_id": "ENSG00000065154",
+  "approvedSymbol": "OAT",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PACS1": {
+  "gene": "PACS1",
+  "ensembl_id": "ENSG00000175115",
+  "approvedSymbol": "PACS1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PAN3": {
+  "gene": "PAN3",
+  "ensembl_id": "ENSG00000152520",
+  "approvedSymbol": "PAN3",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PARD6B": {
+  "gene": "PARD6B",
+  "ensembl_id": "ENSG00000124171",
+  "approvedSymbol": "PARD6B",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PARP12": {
+  "gene": "PARP12",
+  "ensembl_id": "ENSG00000059378",
+  "approvedSymbol": "PARP12",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PBK": {
+  "gene": "PBK",
+  "ensembl_id": "ENSG00000168078",
+  "approvedSymbol": "PBK",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PCMT1": {
+  "gene": "PCMT1",
+  "ensembl_id": "ENSG00000120265",
+  "approvedSymbol": "PCMT1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PDE4B": {
+  "gene": "PDE4B",
+  "ensembl_id": "ENSG00000184588",
+  "approvedSymbol": "PDE4B",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Literature"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 28,
+  "resolved": true,
+  "error": ""
+ },
+ "PEX16": {
+  "gene": "PEX16",
+  "ensembl_id": "ENSG00000121680",
+  "approvedSymbol": "PEX16",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PIGS": {
+  "gene": "PIGS",
+  "ensembl_id": "ENSG00000087111",
+  "approvedSymbol": "PIGS",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PLCL2": {
+  "gene": "PLCL2",
+  "ensembl_id": "ENSG00000154822",
+  "approvedSymbol": "PLCL2",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PLCXD1": {
+  "gene": "PLCXD1",
+  "ensembl_id": "ENSG00000182378",
+  "approvedSymbol": "PLCXD1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PLEKHO1": {
+  "gene": "PLEKHO1",
+  "ensembl_id": "ENSG00000023902",
+  "approvedSymbol": "PLEKHO1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PLIN3": {
+  "gene": "PLIN3",
+  "ensembl_id": "ENSG00000105355",
+  "approvedSymbol": "PLIN3",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "POGZ": {
+  "gene": "POGZ",
+  "ensembl_id": "ENSG00000143442",
+  "approvedSymbol": "POGZ",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "POLI": {
+  "gene": "POLI",
+  "ensembl_id": "ENSG00000101751",
+  "approvedSymbol": "POLI",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PPP5C": {
+  "gene": "PPP5C",
+  "ensembl_id": "ENSG00000011485",
+  "approvedSymbol": "PPP5C",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Advanced Clinical"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 1,
+  "resolved": true,
+  "error": ""
+ },
+ "PRNP": {
+  "gene": "PRNP",
+  "ensembl_id": "ENSG00000171867",
+  "approvedSymbol": "PRNP",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "PRPF38B": {
+  "gene": "PRPF38B",
+  "ensembl_id": "ENSG00000134186",
+  "approvedSymbol": "PRPF38B",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "QKI": {
+  "gene": "QKI",
+  "ensembl_id": "ENSG00000112531",
+  "approvedSymbol": "QKI",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "QSOX1": {
+  "gene": "QSOX1",
+  "ensembl_id": "ENSG00000116260",
+  "approvedSymbol": "QSOX1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Med-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "R3HDM4": {
+  "gene": "R3HDM4",
+  "ensembl_id": "ENSG00000198858",
+  "approvedSymbol": "R3HDM4",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RANBP3": {
+  "gene": "RANBP3",
+  "ensembl_id": "ENSG00000031823",
+  "approvedSymbol": "RANBP3",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RAP1GDS1": {
+  "gene": "RAP1GDS1",
+  "ensembl_id": "ENSG00000138698",
+  "approvedSymbol": "RAP1GDS1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RARA": {
+  "gene": "RARA",
+  "ensembl_id": "ENSG00000131759",
+  "approvedSymbol": "RARA",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Literature"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 11,
+  "resolved": true,
+  "error": ""
+ },
+ "RASGRP1": {
+  "gene": "RASGRP1",
+  "ensembl_id": "ENSG00000172575",
+  "approvedSymbol": "RASGRP1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RBM26": {
+  "gene": "RBM26",
+  "ensembl_id": "ENSG00000139746",
+  "approvedSymbol": "RBM26",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RMI1": {
+  "gene": "RMI1",
+  "ensembl_id": "ENSG00000178966",
+  "approvedSymbol": "RMI1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RNF139": {
+  "gene": "RNF139",
+  "ensembl_id": "ENSG00000170881",
+  "approvedSymbol": "RNF139",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RNF144A": {
+  "gene": "RNF144A",
+  "ensembl_id": "ENSG00000151692",
+  "approvedSymbol": "RNF144A",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RPGR": {
+  "gene": "RPGR",
+  "ensembl_id": "ENSG00000156313",
+  "approvedSymbol": "RPGR",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RREB1": {
+  "gene": "RREB1",
+  "ensembl_id": "ENSG00000124782",
+  "approvedSymbol": "RREB1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RRP1B": {
+  "gene": "RRP1B",
+  "ensembl_id": "ENSG00000160208",
+  "approvedSymbol": "RRP1B",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "RTL8C": {
+  "gene": "RTL8C",
+  "ensembl_id": "ENSG00000134590",
+  "approvedSymbol": "RTL8C",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SAC3D1": {
+  "gene": "SAC3D1",
+  "ensembl_id": "ENSG00000168061",
+  "approvedSymbol": "SAC3D1",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SAMD8": {
+  "gene": "SAMD8",
+  "ensembl_id": "ENSG00000156671",
+  "approvedSymbol": "SAMD8",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SBF1": {
+  "gene": "SBF1",
+  "ensembl_id": "ENSG00000100241",
+  "approvedSymbol": "SBF1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SCAMP1": {
+  "gene": "SCAMP1",
+  "ensembl_id": "ENSG00000085365",
+  "approvedSymbol": "SCAMP1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SEC23IP": {
+  "gene": "SEC23IP",
+  "ensembl_id": "ENSG00000107651",
+  "approvedSymbol": "SEC23IP",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SEPTIN2": {
+  "gene": "SEPTIN2",
+  "ensembl_id": "ENSG00000168385",
+  "approvedSymbol": "SEPTIN2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SEPTIN7": {
+  "gene": "SEPTIN7",
+  "ensembl_id": "ENSG00000122545",
+  "approvedSymbol": "SEPTIN7",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SERAC1": {
+  "gene": "SERAC1",
+  "ensembl_id": "ENSG00000122335",
+  "approvedSymbol": "SERAC1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SERPINB1": {
+  "gene": "SERPINB1",
+  "ensembl_id": "ENSG00000021355",
+  "approvedSymbol": "SERPINB1",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SFI1": {
+  "gene": "SFI1",
+  "ensembl_id": "ENSG00000198089",
+  "approvedSymbol": "SFI1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SIN3A": {
+  "gene": "SIN3A",
+  "ensembl_id": "ENSG00000169375",
+  "approvedSymbol": "SIN3A",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SLC25A12": {
+  "gene": "SLC25A12",
+  "ensembl_id": "ENSG00000115840",
+  "approvedSymbol": "SLC25A12",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SLC27A4": {
+  "gene": "SLC27A4",
+  "ensembl_id": "ENSG00000167114",
+  "approvedSymbol": "SLC27A4",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SLC35F5": {
+  "gene": "SLC35F5",
+  "ensembl_id": "ENSG00000115084",
+  "approvedSymbol": "SLC35F5",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SLC38A10": {
+  "gene": "SLC38A10",
+  "ensembl_id": "ENSG00000157637",
+  "approvedSymbol": "SLC38A10",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SLC7A6": {
+  "gene": "SLC7A6",
+  "ensembl_id": "ENSG00000103064",
+  "approvedSymbol": "SLC7A6",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SMG1": {
+  "gene": "SMG1",
+  "ensembl_id": "ENSG00000157106",
+  "approvedSymbol": "SMG1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SNRNP40": {
+  "gene": "SNRNP40",
+  "ensembl_id": "ENSG00000060688",
+  "approvedSymbol": "SNRNP40",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SNX4": {
+  "gene": "SNX4",
+  "ensembl_id": "ENSG00000114520",
+  "approvedSymbol": "SNX4",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SNX5": {
+  "gene": "SNX5",
+  "ensembl_id": "ENSG00000089006",
+  "approvedSymbol": "SNX5",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SP100": {
+  "gene": "SP100",
+  "ensembl_id": "ENSG00000067066",
+  "approvedSymbol": "SP100",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "SPAG4": {
+  "gene": "SPAG4",
+  "ensembl_id": "ENSG00000061656",
+  "approvedSymbol": "SPAG4",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ST6GALNAC4": {
+  "gene": "ST6GALNAC4",
+  "ensembl_id": "ENSG00000136840",
+  "approvedSymbol": "ST6GALNAC4",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "STEEP1": {
+  "gene": "STEEP1",
+  "ensembl_id": "ENSG00000018610",
+  "approvedSymbol": "STEEP1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "STK39": {
+  "gene": "STK39",
+  "ensembl_id": "ENSG00000198648",
+  "approvedSymbol": "STK39",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "STRADB": {
+  "gene": "STRADB",
+  "ensembl_id": "ENSG00000082146",
+  "approvedSymbol": "STRADB",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "STRIP1": {
+  "gene": "STRIP1",
+  "ensembl_id": "ENSG00000143093",
+  "approvedSymbol": "STRIP1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TACO1": {
+  "gene": "TACO1",
+  "ensembl_id": "ENSG00000136463",
+  "approvedSymbol": "TACO1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TAFAZZIN": {
+  "gene": "TAFAZZIN",
+  "ensembl_id": "ENSG00000102125",
+  "approvedSymbol": "TAFAZZIN",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TBC1D10A": {
+  "gene": "TBC1D10A",
+  "ensembl_id": "ENSG00000099992",
+  "approvedSymbol": "TBC1D10A",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TBC1D2B": {
+  "gene": "TBC1D2B",
+  "ensembl_id": "ENSG00000167202",
+  "approvedSymbol": "TBC1D2B",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TET2": {
+  "gene": "TET2",
+  "ensembl_id": "ENSG00000168769",
+  "approvedSymbol": "TET2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TIMM21": {
+  "gene": "TIMM21",
+  "ensembl_id": "ENSG00000075336",
+  "approvedSymbol": "TIMM21",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TMEM184C": {
+  "gene": "TMEM184C",
+  "ensembl_id": "ENSG00000164168",
+  "approvedSymbol": "TMEM184C",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TMEM265": {
+  "gene": "TMEM265",
+  "ensembl_id": "ENSG00000281991",
+  "approvedSymbol": "TMEM265",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TMEM87A": {
+  "gene": "TMEM87A",
+  "ensembl_id": "ENSG00000103978",
+  "approvedSymbol": "TMEM87A",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TMSB15B": {
+  "gene": "TMSB15B",
+  "ensembl_id": "ENSG00000158427",
+  "approvedSymbol": "TMSB15B",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TOP3B": {
+  "gene": "TOP3B",
+  "ensembl_id": "ENSG00000100038",
+  "approvedSymbol": "TOP3B",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TRAF1": {
+  "gene": "TRAF1",
+  "ensembl_id": "ENSG00000056558",
+  "approvedSymbol": "TRAF1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TRAF4": {
+  "gene": "TRAF4",
+  "ensembl_id": "ENSG00000076604",
+  "approvedSymbol": "TRAF4",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TTC13": {
+  "gene": "TTC13",
+  "ensembl_id": "ENSG00000143643",
+  "approvedSymbol": "TTC13",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TTC17": {
+  "gene": "TTC17",
+  "ensembl_id": "ENSG00000052841",
+  "approvedSymbol": "TTC17",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TTC32": {
+  "gene": "TTC32",
+  "ensembl_id": "ENSG00000183891",
+  "approvedSymbol": "TTC32",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TXNDC5": {
+  "gene": "TXNDC5",
+  "ensembl_id": "ENSG00000239264",
+  "approvedSymbol": "TXNDC5",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "TYW5": {
+  "gene": "TYW5",
+  "ensembl_id": "ENSG00000162971",
+  "approvedSymbol": "TYW5",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "UAP1L1": {
+  "gene": "UAP1L1",
+  "ensembl_id": "ENSG00000197355",
+  "approvedSymbol": "UAP1L1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "UBA2": {
+  "gene": "UBA2",
+  "ensembl_id": "ENSG00000126261",
+  "approvedSymbol": "UBA2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "UBASH3B": {
+  "gene": "UBASH3B",
+  "ensembl_id": "ENSG00000154127",
+  "approvedSymbol": "UBASH3B",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "UBE2D2": {
+  "gene": "UBE2D2",
+  "ensembl_id": "ENSG00000131508",
+  "approvedSymbol": "UBE2D2",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "UBE2L6": {
+  "gene": "UBE2L6",
+  "ensembl_id": "ENSG00000156587",
+  "approvedSymbol": "UBE2L6",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "UHRF2": {
+  "gene": "UHRF2",
+  "ensembl_id": "ENSG00000147854",
+  "approvedSymbol": "UHRF2",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "USP12": {
+  "gene": "USP12",
+  "ensembl_id": "ENSG00000152484",
+  "approvedSymbol": "USP12",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "VANGL1": {
+  "gene": "VANGL1",
+  "ensembl_id": "ENSG00000173218",
+  "approvedSymbol": "VANGL1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "Human Protein Atlas loc"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "VCF2": {
+  "gene": "VCF2",
+  "ensembl_id": "ENSG00000182518",
+  "approvedSymbol": "VCF2",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "VCPKMT": {
+  "gene": "VCPKMT",
+  "ensembl_id": "ENSG00000100483",
+  "approvedSymbol": "VCPKMT",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "VKORC1": {
+  "gene": "VKORC1",
+  "ensembl_id": "ENSG00000167397",
+  "approvedSymbol": "VKORC1",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Approved Drug"
+   },
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "High-Quality Ligand"
+   },
+   {
+    "modality": "SM",
+    "label": "Druggable Family"
+   },
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   },
+   {
+    "modality": "PR",
+    "label": "Small Molecule Binder"
+   }
+  ],
+  "n_drugs": 7,
+  "resolved": true,
+  "error": ""
+ },
+ "VTI1A": {
+  "gene": "VTI1A",
+  "ensembl_id": "ENSG00000151532",
+  "approvedSymbol": "VTI1A",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "WASHC4": {
+  "gene": "WASHC4",
+  "ensembl_id": "ENSG00000136051",
+  "approvedSymbol": "WASHC4",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "WDR54": {
+  "gene": "WDR54",
+  "ensembl_id": "ENSG00000005448",
+  "approvedSymbol": "WDR54",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc med conf"
+   },
+   {
+    "modality": "AB",
+    "label": "GO CC med conf"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "WDR62": {
+  "gene": "WDR62",
+  "ensembl_id": "ENSG00000075702",
+  "approvedSymbol": "WDR62",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "WWP2": {
+  "gene": "WWP2",
+  "ensembl_id": "ENSG00000198373",
+  "approvedSymbol": "WWP2",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "Structure with Ligand"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "XAF1": {
+  "gene": "XAF1",
+  "ensembl_id": "ENSG00000132530",
+  "approvedSymbol": "XAF1",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "YWHAQ": {
+  "gene": "YWHAQ",
+  "ensembl_id": "ENSG00000134308",
+  "approvedSymbol": "YWHAQ",
+  "tract_true": [
+   {
+    "modality": "SM",
+    "label": "High-Quality Pocket"
+   },
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZBTB22": {
+  "gene": "ZBTB22",
+  "ensembl_id": "ENSG00000236104",
+  "approvedSymbol": "ZBTB22",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZBTB49": {
+  "gene": "ZBTB49",
+  "ensembl_id": "ENSG00000168826",
+  "approvedSymbol": "ZBTB49",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZC3H12D": {
+  "gene": "ZC3H12D",
+  "ensembl_id": "ENSG00000178199",
+  "approvedSymbol": "ZC3H12D",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZDHHC18": {
+  "gene": "ZDHHC18",
+  "ensembl_id": "ENSG00000204160",
+  "approvedSymbol": "ZDHHC18",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt SigP or TMHMM"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZFP36": {
+  "gene": "ZFP36",
+  "ensembl_id": "ENSG00000128016",
+  "approvedSymbol": "ZFP36",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF213": {
+  "gene": "ZNF213",
+  "ensembl_id": "ENSG00000085644",
+  "approvedSymbol": "ZNF213",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF224": {
+  "gene": "ZNF224",
+  "ensembl_id": "ENSG00000267680",
+  "approvedSymbol": "ZNF224",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF260": {
+  "gene": "ZNF260",
+  "ensembl_id": "ENSG00000254004",
+  "approvedSymbol": "ZNF260",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF544": {
+  "gene": "ZNF544",
+  "ensembl_id": "ENSG00000198131",
+  "approvedSymbol": "ZNF544",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF579": {
+  "gene": "ZNF579",
+  "ensembl_id": "ENSG00000218891",
+  "approvedSymbol": "ZNF579",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF583": {
+  "gene": "ZNF583",
+  "ensembl_id": "ENSG00000198440",
+  "approvedSymbol": "ZNF583",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF627": {
+  "gene": "ZNF627",
+  "ensembl_id": "ENSG00000198551",
+  "approvedSymbol": "ZNF627",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF638": {
+  "gene": "ZNF638",
+  "ensembl_id": "ENSG00000075292",
+  "approvedSymbol": "ZNF638",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZNF785": {
+  "gene": "ZNF785",
+  "ensembl_id": "ENSG00000197162",
+  "approvedSymbol": "ZNF785",
+  "tract_true": [],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZSCAN22": {
+  "gene": "ZSCAN22",
+  "ensembl_id": "ENSG00000182318",
+  "approvedSymbol": "ZSCAN22",
+  "tract_true": [
+   {
+    "modality": "PR",
+    "label": "UniProt Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ },
+ "ZW10": {
+  "gene": "ZW10",
+  "ensembl_id": "ENSG00000086827",
+  "approvedSymbol": "ZW10",
+  "tract_true": [
+   {
+    "modality": "AB",
+    "label": "UniProt loc high conf"
+   },
+   {
+    "modality": "PR",
+    "label": "Database Ubiquitination"
+   },
+   {
+    "modality": "PR",
+    "label": "Half-life Data"
+   }
+  ],
+  "n_drugs": 0,
+  "resolved": true,
+  "error": ""
+ }
+}

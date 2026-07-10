@@ -1,0 +1,93 @@
+key,method,authors,year,venue,doi,pmid,citations,family,cohort
+Zanudo2015,Stable-motif control of Boolean networks,Zañudo & Albert,2015,PLoS Computational Biology,10.1371/journal.pcbi.1004193,25849586.0,248,Boolean attractor control,core
+Zanudo2017,Structure-based (feedback-vertex-set + source) control,"Zañudo, Yang & Albert",2017,Proceedings of the National Academy of Sciences,10.1073/pnas.1617387114,28655847.0,282,Boolean attractor control,core
+Joo2018,Boolean relative dynamic stability of cell states,"Joo, Zhou, Huang & Cho",2018,Scientific Reports,10.1038/s41598-018-30544-0,30104572.0,56,Boolean attractor control,core
+Marazzi2022,NETISCE (attractor/steady-state steering),"Marazzi, Shah et al.",2022,npj Systems Biology and Applications,10.1038/s41540-022-00231-y,35725577.0,17,Boolean attractor control,core
+Norman2019,Genetic-interaction manifolds (Norman combinatorial Perturb-seq),Norman et al.,2019,Science,10.1126/science.aax4438,31395745.0,376,Combinatorial data / OT / design,core
+Schiebinger2019,Waddington-OT,Schiebinger et al.,2019,Cell,10.1016/j.cell.2019.01.006,30712874.0,855,Combinatorial data / OT / design,core
+Lange2022,CellRank,Lange et al.,2022,Nature Methods,10.1038/s41592-021-01346-6,35027767.0,783,Combinatorial data / OT / design,core
+Huang2024,IterPert (sequential optimal experimental design of perturbation screens),Huang et al.,2024,RECOMB 2024 (Lecture Notes in Computer Science),10.1007/978-1-0716-3989-4_2,,7,Combinatorial data / OT / design,core
+Ronquist2017,Control-theoretic cellular reprogramming (LTI from Hi-C/time-series),"Ronquist, Patterson, Rajapakse et al.",2017,Proceedings of the National Academy of Sciences,10.1073/pnas.1712350114,29078370.0,41,Control from data,core
+Rukhlenko2022,cSTAR (cell-State Transition Assessment & Regulation),"Rukhlenko, Halász, Kholodenko et al.",2022,Nature,10.1038/s41586-022-05194-y,36104561.0,89,Control from data,core
+Wytock2024,Transfer-learned functional-network control,Wytock & Motter,2024,Proceedings of the National Academy of Sciences,10.1073/pnas.2312942121,38437548.0,8,Control from data,core
+Theodoris2023,Geneformer,Theodoris et al.,2023,Nature,10.1038/s41586-023-06139-9,37258680.0,1051,Foundation model,core
+Cui2024,scGPT,Cui et al.,2024,Nature Methods,10.1038/s41592-024-02201-0,38409223.0,1073,Foundation model,core
+Hao2024,scFoundation,Hao et al.,2024,Nature Methods,10.1038/s41592-024-02305-7,38844628.0,473,Foundation model,core
+Aibar2017,SCENIC,Aibar et al.,2017,Nature Methods,10.1038/nmeth.4463,28991892.0,6993,GRN + in-silico perturbation,core
+Pratapa2020,BEELINE,Pratapa et al.,2020,Nature Methods,10.1038/s41592-019-0690-6,31907445.0,825,GRN + in-silico perturbation,core
+Cannoodt2021,dyngen,Cannoodt et al.,2021,Nature Communications,10.1038/s41467-021-24152-2,34168133.0,129,GRN + in-silico perturbation,core
+Xu2021,ANANSE,Xu et al.,2021,Nucleic Acids Research,10.1093/nar/gkab598,34244796.0,98,GRN + in-silico perturbation,core
+Osorio2022,scTenifoldKnk,Osorio et al.,2022,Patterns,10.1016/j.patter.2022.100434,35510185.0,157,GRN + in-silico perturbation,core
+BravoGonzalezBlas2023,SCENIC+,Bravo Gonzalez-Blas et al.,2023,Nature Methods,10.1038/s41592-023-01938-4,37443338.0,695,GRN + in-silico perturbation,core
+Kamimoto2023,CellOracle,Kamimoto et al.,2023,Nature,10.1038/s41586-022-05688-9,36755098.0,656,GRN + in-silico perturbation,core
+Wang2023CEFCON,CEFCON,Wang et al.,2023,Nature Communications,10.1038/s41467-023-44103-3,38123534.0,25,GRN + in-silico perturbation,core
+Wang2023Dictys,Dictys,Wang et al.,2023,Nature Methods,10.1038/s41592-023-01971-3,37537351.0,107,GRN + in-silico perturbation,core
+Lotfollahi2019,scGen,Lotfollahi et al.,2019,Nature Methods,10.1038/s41592-019-0494-8,31363220.0,696,Perturbation-response prediction,core
+Hetzel2022,chemCPA,Hetzel et al.,2022,NeurIPS 2022 (arXiv:2204.13545),10.48550/arXiv.2204.13545,,42,Perturbation-response prediction,core
+Lotfollahi2023,CPA (Compositional Perturbation Autoencoder),Lotfollahi et al.,2023,Molecular Systems Biology,10.15252/msb.202211517,37154091.0,272,Perturbation-response prediction,core
+Roohani2023,GEARS,Roohani et al.,2023,Nature Biotechnology,10.1038/s41587-023-01905-6,37592036.0,309,Perturbation-response prediction,core
+Piran2024,Biolord,Piran et al.,2024,Nature Biotechnology,10.1038/s41587-023-02079-x,38225466.0,63,Perturbation-response prediction,core
+Liu2011,Structural controllability (minimum driver-node set),"Liu, Slotine & Barabási",2011,Nature,10.1038/nature10011,21562557.0,3298,Structural network control,core
+Kim2013,Control kernel of biomolecular regulatory networks,"Kim, Park & Cho",2013,Scientific Reports,10.1038/srep02223,23860463.0,117,Structural network control,core
+Mochizuki2013,Feedback vertex set / determining nodes,"Mochizuki, Fiedler et al.",2013,Journal of Theoretical Biology,10.1016/j.jtbi.2013.06.009,23774067.0,193,Structural network control,core
+Gao2014,Target control of complex networks,"Gao, Liu, Slotine & Barabási",2014,Nature Communications,10.1038/ncomms6415,25388503.0,422,Structural network control,core
+Cahan2014,CellNet (GRN cell-identity assessment),Cahan et al. (CellNet),2014,Cell,10.1016/j.cell.2014.07.020,25126793.0,545,TF-reprogramming predictor,core
+Rackham2016,Mogrify (network-influence TF predictor),Rackham et al. (Mogrify),2016,Nature Genetics,10.1038/ng.3487,26780608.0,306,TF-reprogramming predictor,core
+Cifuentes-Fontanals2025,Trap-space-based control strategy identification (ASP),"Laura Cifuentes-Fontanals, Elisa Tonello et al.",2025,BMC Bioinformatics,10.1186/s12859-025-06135-y,41057758.0,1,Structural / Boolean network control,2025-2026
+Metzcar2025,Boolean network stable-motif/exhaustive control + multiscale ABM translation,"John Metzcar, Katie Pletz et al.",2025,arXiv (Cornell University),10.48550/arxiv.2501.16052,,0,Structural / Boolean network control,2025-2026
+Murrugarra2025,Modular Boolean Network Control,"David Murrugarra, Alan Veliz‐Cuba et al.",2025,Bulletin of Mathematical Biology,10.1007/s11538-025-01471-9,40461704.0,1,Structural / Boolean network control,2025-2026
+Trinh2025,biobalm (succession diagram mapper),"Van-Giang Trinh, Kyu Hyong Park et al.",2025,Bioinformatics,10.1093/bioinformatics/btaf280,40327535.0,5,Structural / Boolean network control,2025-2026
+Vecchio2026,Biomolecular feedback/feedforward control design,Domitilla Del Vecchio,2026,Open MIND,10.48550/arxiv.2601.20135,,0,Structural / Boolean network control,2025-2026
+Yang2026,Computational blueprints for cell fate programming (review/framework),Pengyi Yang,2026,Stem Cell Reports,10.1016/j.stemcr.2026.102929,42208532.0,0,Structural / Boolean network control,2025-2026
+Funk2025,Airqtl,"Matthew W. Funk, Yuhe Wang et al.",2025,bioRxiv (Cold Spring Harbor Laboratory),10.1101/2025.01.15.633041,,1,GRN + in-silico perturbation,2025-2026
+Huang2025,SMOGT (heterogeneous graph transformer for HRNet),"Yuhong Huang, Chao Liu et al.",2025,Briefings in Bioinformatics,10.1093/bib/bbaf664,41643202.0,0,GRN + in-silico perturbation,2025-2026
+Ota2025,Regulator-Program-Trait causal graph,"Mineto Ota, Jeffrey P. Spence et al.",2025,Nature,10.1038/s41586-025-09866-3,41372418.0,10,GRN + in-silico perturbation,2025-2026
+Corridori2026,IGNITE (kinetic Ising GRN inference),"Clelia Corridori, Merrit Romeike et al.",2026,PLoS computational biology,10.1371/journal.pcbi.1014067,41984780.0,0,GRN + in-silico perturbation,2025-2026
+Feng2026,CellPolaris,"Guihai Feng, Xin Qin et al.",2026,Advanced Science,10.1002/advs.202508697,41498638.0,1,GRN + in-silico perturbation,2025-2026
+He2026,scMagnifier,"Zhenhui He, Kangning Dong",2026,PLoS Computational Biology,10.1371/journal.pcbi.1014167,42313807.0,0,GRN + in-silico perturbation,2025-2026
+Adduri2025,State (transformer perturbation model),"Abhinav Adduri, Dhruv Gautam et al.",2025,bioRxiv (Cold Spring Harbor Laboratory),10.1101/2025.06.26.661135,,63,Perturbation-response prediction,2025-2026
+Chang2025,PertSpectra,"Seowon Chang, Anna Shcherbina et al.",2025,Pacific Symposium on Biocomputing,10.1142/9789819824755_0033,41758161.0,0,Perturbation-response prediction,2025-2026
+Han2025,PAIRING,"Young-Hyun Han, Hyunjin Kim et al.",2025,Cell Systems,10.1016/j.cels.2025.101405,40997798.0,0,Perturbation-response prediction,2025-2026
+He2025,Squidiff (diffusion),"Siyu He, Yuefei Zhu et al.",2025,Nature Methods,10.1038/s41592-025-02877-y,41184550.0,21,Perturbation-response prediction,2025-2026
+Klein2025a,CellFlow (flow matching),"Dominik Klein, Jonas Simon Fleck et al.",2025,bioRxiv (Cold Spring Harbor Laboratory) [preprint],10.1101/2025.04.11.648220,,34,Perturbation-response prediction,2025-2026
+Liu2025,SCCVAE,"Emily Liu, Jiaqi Zhang et al.",2025,bioRxiv (Cold Spring Harbor Laboratory),10.1101/2025.06.05.657988,40501829.0,1,Perturbation-response prediction,2025-2026
+Miladinovic2025,Large Perturbation Model (LPM),"Djordje Miladinovic, Tobias Höppe et al.",2025,Nature Computational Science,10.1038/s43588-025-00870-1,41094040.0,5,Perturbation-response prediction,2025-2026
+Wong2025,Baseline mean/linear control for perturbation prediction,"Daniel R. Wong, Abby S. Hill et al.",2025,Bioinformatics,10.1093/bioinformatics/btaf317,40407144.0,12,Perturbation-response prediction,2025-2026
+Xing2025,GPerturb,"Hanwen Xing, Christopher Yau",2025,Nature Communications,10.1038/s41467-025-61165-7,40593897.0,5,Perturbation-response prediction,2025-2026
+Yu2025,PerturbNet,"Hengshi Yu, Weizhou Qian et al.",2025,Molecular Systems Biology,10.1038/s44320-025-00131-3,40640612.0,18,Perturbation-response prediction,2025-2026
+Bai2026b,PertAdapt,"Ding Bai, Le Song et al.",2026,"Bioinformatics (Oxford, England)",10.1093/bioinformatics/btag307,42412811.0,0,Perturbation-response prediction,2025-2026
+Fu2026,PRIM (Prior-guided Response Inference Model),"Xiuhao Fu, Chao Yang et al.",2026,Genome Research,10.1101/gr.281523.125,41887798.0,0,Perturbation-response prediction,2025-2026
+Sengstack2026,TF Perturb-seq rejuvenation screen,"Janine Sengstack, Jiashun Zheng et al.",2026,Proceedings of the National Academy of Sciences,10.1073/pnas.2515183123,41512022.0,9,Perturbation-response prediction,2025-2026
+Wenkel2026,TxPert,"Frederik Wenkel, Wilson Tu et al.",2026,Nature Biotechnology,10.1038/s41587-026-03113-4,42067667.0,1,Perturbation-response prediction,2025-2026
+Atti2025,"Foundation Model Benchmarking Study (scGPT/scGPT-like, Geneformer, Seurat v5)","Srijan Atti, Shankar Subramaniam",2025,bioRxiv (Cold Spring Harbor Laboratory),10.1101/2025.06.26.661767,,5,Foundation model,2025-2026
+Fu2025,GET (general expression transformer),"Xi Fu, Shentong Mo et al.",2025,Nature,10.1038/s41586-024-08391-z,39779852.0,98,Foundation model,2025-2026
+Kalfon2025,scPRINT,"Jérémie Kalfon, Jules Samaran et al.",2025,Nature Communications,10.1038/s41467-025-58699-1,40240364.0,36,Foundation model,2025-2026
+Pearce2025,TranscriptFormer,"James D Pearce, Sara E. Simmonds et al.",2025,bioRxiv (Cold Spring Harbor Laboratory) [preprint],10.1101/2025.04.25.650731,,27,Foundation model,2025-2026
+Qiu2025,GRNFormer,"Mufan Qiu, Xi-Jiang Hu et al.",2025,arXiv (Cornell University),10.48550/arxiv.2503.01682,,0,Foundation model,2025-2026
+Rizvi2025,"C2S-Scale (Cell2Sentence, scaling LLMs)","Syed Asad Rizvi, Daniel Lévine et al.",2025,bioRxiv (Cold Spring Harbor Laboratory) [preprint],10.1101/2025.04.14.648850,41279114.0,32,Foundation model,2025-2026
+TejadaLapuerta2025,Nicheformer,"Alejandro Tejada-Lapuerta, Anna C. Schaar et al.",2025,Nature Methods,10.1038/s41592-025-02814-z,41168487.0,51,Foundation model,2025-2026
+Wang2025scGPTspatial,scGPT-spatial,"Chloe Xueqi Wang, Haotian Cui et al.",2025,bioRxiv (Cold Spring Harbor Laboratory) [preprint],10.1101/2025.02.05.636714,,37,Foundation model,2025-2026
+Zeng2025,CellFM,"Yuansong Zeng, Jiancong Xie et al.",2025,Nature Communications,10.1038/s41467-025-59926-5,40393991.0,59,Foundation model,2025-2026
+Bai2026a,scLong,"Ding Bai, Shentong Mo et al.",2026,Nature Communications,10.1038/s41467-026-69102-y,41639087.0,5,Foundation model,2025-2026
+Demir2026,CellxPert,"Andaç Demir, Erik W. Anderson et al.",2026,arXiv (Cornell University),10.48550/arxiv.2605.00930,,0,Foundation model,2025-2026
+Alatkar2025,ARTEMIS,"Sayali Alatkar, Daifeng Wang",2025,Bioinformatics,10.1093/bioinformatics/btaf218,40662824.0,3,Virtual-cell / large perturbation model,2025-2026
+Qian2025,Grow AI virtual cells (position/roadmap),"Liujia Qian, Zhen Dong et al.",2025,Cell Research,10.1038/s41422-025-01101-y,40128605.0,40,Virtual-cell / large perturbation model,2025-2026
+Roohani2025,Virtual Cell Challenge,"Yusuf Roohani, Tony J. Hua et al.",2025,Cell,10.1016/j.cell.2025.06.008,40578317.0,59,Virtual-cell / large perturbation model,2025-2026
+Chen2026,"SCALE (set-aware flow, conditional transport)","Shuizhou Chen, Lang Yu et al.",2026,arXiv (Cornell University),10.48550/arxiv.2603.17380,,0,Virtual-cell / large perturbation model,2025-2026
+Mao2026,VCBench (VC benchmarking framework),"Xinjie Mao, Songming Zhang et al.",2026,arXiv (Cornell University),10.48550/arxiv.2604.27646,,1,Virtual-cell / large perturbation model,2025-2026
+Vollenweider2026,"SBB Principles (Signal, Bounds, Baselines)","Michael Vollenweider, Peter Bühlmann",2026,bioRxiv (Cold Spring Harbor Laboratory),10.64898/2026.04.20.719650,,1,Virtual-cell / large perturbation model,2025-2026
+Wang2026,AROMA,"Zhenyu Wang, Geyan Ye et al.",2026,arXiv (Cornell University),10.48550/arxiv.2604.20263,,0,Virtual-cell / large perturbation model,2025-2026
+Zhang2026,Lingshu-Cell (masked discrete diffusion world model),"Han Zhang, Guo-Hua Yuan et al.",2026,arXiv (Cornell University),10.48550/arxiv.2603.25240,,0,Virtual-cell / large perturbation model,2025-2026
+Gonzalez2025,Causally-inspired combinatorial perturbation prediction,"Guadalupe Gonzalez, Xiang Lin et al.",2025,Nature Biomedical Engineering,10.1038/s41551-025-01481-x,40925962.0,18,Combinatorial data / OT / design,2025-2026
+Klein2025b,moscot (multi-omics single-cell optimal transport),"Dominik Klein, Giovanni Palla et al.",2025,Nature,10.1038/s41586-024-08453-2,39843746.0,127,Combinatorial data / OT / design,2025-2026
+Driessen2026,CAR-OT (conditional optimal transport for CAR response),"Alice Driessen, Jannis Born et al.",2026,Cell Systems,10.1016/j.cels.2026.101591,42025164.0,1,Combinatorial data / OT / design,2025-2026
+AhlmannEltze2025,Linear-baseline benchmark of perturbation models,"Constantin Ahlmann-Eltze, Wolfgang Huber et al.",2025,Nature Methods,10.1038/s41592-025-02772-6,40759747.0,96,Benchmark / other,2025-2026
+Csendes2025,Benchmark of foundation models for post-perturbation RNA-seq,"Gerold Csendes, Gema Sanz et al.",2025,BMC Genomics,10.1186/s12864-025-11600-2,40269681.0,34,Benchmark / other,2025-2026
+Kedzierska2025,Zero-shot evaluation of single-cell foundation models,"Kasia Z. Kedzierska, Lorin Crawford et al.",2025,Genome biology,10.1186/s13059-025-03574-x,40251685.0,65,Benchmark / other,2025-2026
+Kernfeld2025,Comparison of expression-forecasting (perturbation) methods,"Eric Kernfeld, Yunxiao Yang et al.",2025,Genome biology,10.1186/s13059-025-03840-y,41250104.0,6,Benchmark / other,2025-2026
+Luecken2025,Open Problems in single-cell analysis (benchmark platform),"Malte D. Luecken, Scott Gigante et al.",2025,Nature Biotechnology,10.1038/s41587-025-02694-w,40595413.0,31,Benchmark / other,2025-2026
+Vinas2025,Systema,"Ramón Viñas, Maciej Wiatrak et al.",2025,Nature Biotechnology,10.1038/s41587-025-02777-8,40854979.0,31,Benchmark / other,2025-2026
+Wei2025,Benchmark of generalizable single-cell perturbation prediction,"Zhiting Wei, Yiheng Wang et al.",2025,Nature Methods,10.1038/s41592-025-02980-0,41381899.0,15,Benchmark / other,2025-2026
+Wu2025,Biology-driven insights into single-cell foundation models,"Jialu Wu, Qing Ye et al.",2025,Genome biology,10.1186/s13059-025-03781-6,41044630.0,15,Benchmark / other,2025-2026
+Zhang2025Tahoe,Tahoe-100M,"Jesse Zhang, Airol A Ubas et al.",2025,bioRxiv (Cold Spring Harbor Laboratory) [preprint],10.1101/2025.02.20.639398,,85,Benchmark / other,2025-2026
+Mejia2026,"DEG-aware evaluation metrics (WMSE, weighted delta-R2) + positive/negative control calibration","Gabriel Mateo Mejia, Henry E. Miller et al.",2026,ICML,10.1101/2025.10.20.683304,,3,Evaluation methodology,2025-2026

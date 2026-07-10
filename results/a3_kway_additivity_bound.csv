@@ -1,0 +1,8 @@
+recipe_size_k,n_pairs,additive_dir_retention,magnitude_risk_note
+1,0,0.995,see additivity_risk (saturation channel)
+2,1,0.712,see additivity_risk (saturation channel)
+3,3,0.584,see additivity_risk (saturation channel)
+5,10,0.454,see additivity_risk (saturation channel)
+8,28,0.359,see additivity_risk (saturation channel)
+12,66,0.294,see additivity_risk (saturation channel)
+20,190,0.228,see additivity_risk (saturation channel)

@@ -1,0 +1,23 @@
+[
+  {
+    "target": "toward_Th1",
+    "condition": "Rest",
+    "method": "85% gene subsample x15 (LOF-only, headline)",
+    "point_reach_cos": 0.6266,
+    "point_lof": 0.3927,
+    "point_gof": 0.2535,
+    "point_neither": 0.3538,
+    "sub_reach_cos_mean": 0.6374,
+    "sub_reach_cos_ci": [
+      0.629,
+      0.6479
+    ],
+    "sub_lof_mean": 0.4063,
+    "sub_lof_ci": [
+      0.3957,
+      0.4198
+    ],
+    "n_sub": 15,
+    "seconds": 210.0
+  }
+]

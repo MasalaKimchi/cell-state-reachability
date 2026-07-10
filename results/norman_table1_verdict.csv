@@ -1,0 +1,2 @@
+dataset,cell_type,modality,target,reachable_cosine,residual_norm,in_cone_fraction,null_p50,null_p95,null_p99,heldout_z,verdict,support_size,cert_max_violation,heldout_gene_z
+"GSE133344 (Norman et al. 2019, Science)",K562,CRISPRa (gain-of-function),CEBPA (held out),0.8779,0.4789,0.8779,0.3894,0.4105,0.4162,36.97,partially-reachable,86,1.72e-12,23.49

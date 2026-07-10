@@ -1,0 +1,28 @@
+{
+  "target": "toward_Th1",
+  "condition": "Stim8hr",
+  "n_readout": 6188,
+  "n_generators": 7155,
+  "reachable_cosine": 0.5235240543878785,
+  "residual_norm": 0.852010894576635,
+  "lof_fraction": 0.27407743552272246,
+  "gof_fraction": 0.26054358726810045,
+  "neither_fraction": 0.4653789772091775,
+  "signed_cosine": 0.7377528293887856,
+  "kkt_viol": 4.9107944097715416e-12,
+  "lof_support_size": 713,
+  "gof_support_size": 1246,
+  "greedy_order": [
+    "RARA",
+    "ICOS",
+    "PCNX3",
+    "MAMLD1",
+    "LAT2",
+    "AGTPBP1",
+    "APPBP2",
+    "HELLS",
+    "VTI1A",
+    "DHX34"
+  ],
+  "seconds": 45.3
+}

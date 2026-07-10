@@ -1,0 +1,28 @@
+{
+  "target": "toward_Th2",
+  "condition": "Stim8hr",
+  "n_readout": 6188,
+  "n_generators": 7155,
+  "reachable_cosine": 0.5369907235618406,
+  "residual_norm": 0.8435881476221264,
+  "lof_fraction": 0.2883590371914694,
+  "gof_fraction": 0.24933828513054748,
+  "neither_fraction": 0.4623026776779834,
+  "signed_cosine": 0.7410980450278245,
+  "kkt_viol": 1.0086554334629948e-11,
+  "lof_support_size": 760,
+  "gof_support_size": 1252,
+  "greedy_order": [
+    "DENND4B",
+    "JAK2",
+    "IL7R",
+    "IRF9",
+    "MAPK14",
+    "CASP7",
+    "IFNGR1",
+    "TET2",
+    "TXNDC5",
+    "MED24"
+  ],
+  "seconds": 47.4
+}

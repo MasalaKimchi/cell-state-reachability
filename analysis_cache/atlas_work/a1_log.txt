@@ -1,0 +1,11 @@
+loaded Stim48hr: E (7195, 10282), SE (7195, 10282)
+[toward_Th1] base=0.5329 p99=0.4977 z=2.91 boot95=[0.5414,0.5471] clears_null=True beta*=0.088 kSE*=0.033 (637.9s)
+[toward_Th2] base=0.5300 p99=0.4977 z=2.86 boot95=[0.5370,0.5436] clears_null=True beta*=0.080 kSE*=0.030 (644.5s)
+[toward_younger] base=0.5970 p99=0.6160 z=1.90 boot95=[0.6026,0.6082] clears_null=False beta*=0.002 kSE*=0.001 (642.7s)
+[toward_older] base=0.5662 p99=0.6160 z=1.20 boot95=[0.5709,0.5766] clears_null=False beta*=0.002 kSE*=0.001 (577.1s)
+A1 COMPLETE
+ target condition  baseline_cosine  null_p99   null_z  boot_lo  boot_hi  boot_mean  boot_clears_null  n_boot  beta_star  kse_star   med_se  seconds
+    Th1  Stim48hr         0.532884  0.497731 2.908282 0.541403 0.547058   0.544405              True      12   0.087891  0.032829 0.118189    637.9
+    Th2  Stim48hr         0.529968  0.497731 2.859980 0.537001 0.543619   0.540243              True      12   0.080078  0.029911 0.118189    644.5
+younger  Stim48hr         0.597015  0.615985 1.897014 0.602553 0.608238   0.605524             False      12   0.001953  0.001186 0.123756    642.7
+  older  Stim48hr         0.566234  0.615985 1.200925 0.570862 0.576627   0.573731             False      12   0.001953  0.001186 0.123756    577.1

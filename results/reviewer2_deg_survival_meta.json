@@ -1,0 +1,6 @@
+{
+  "top50_survival_th2th1": 0.76,
+  "top50_survival_aging": 0.76,
+  "stable_across_thresholds": "74-80% for top-50..1000",
+  "interpretation": "~1 in 4 of the strongest target DEGs (24% at top-50) is NOT measured in the CRISPRi screen and is silently dropped before the cone sees it. The reachable cosine is therefore computed on a target missing ~a quarter of its defining genes. Real caveat: verdict stands but on an incomplete target. This is a data-coverage limitation, not a method flaw."
+}

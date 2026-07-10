@@ -1,0 +1,15 @@
+metric,value
+reach_cosine_median_K562,0.794
+reach_cosine_median_RPE1,0.9278
+verdict_transfer_spearman_rho,0.569
+verdict_transfer_spearman_p,1.7562031143890914e-73
+cross_K562tgt_RPE1basis_reachcos_median,0.5013
+cross_RPE1tgt_K562basis_reachcos_median,0.7306
+shuffled_gene_null_95,0.058
+verdict_agreement_K562targets,0.9929
+verdict_agreement_RPE1targets,1.0
+recipe_jaccard_sametarget_median,0.1111
+recipe_jaccard_null_95,0.0526
+recipe_frac_above_null,0.6489
+n_perturbations,843.0
+n_shared_genes,2832.0

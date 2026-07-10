@@ -1,0 +1,1 @@
+[1/12] toward_Th1 Rest: ITT cos=0.627 -> valid cos=0.626 (drop-Δ=-0.0002, dropped 10/6871; LATE-rescale |Δ|=2.2e-16) (220.9s)

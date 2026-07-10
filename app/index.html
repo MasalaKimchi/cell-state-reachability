@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cell-State Reachability — interactive explorers</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#161c24; --ink:#e8edf2; --dim:#8b97a6; --line:#2a333f;
+    --lof:#1f9e89; --gof:#d99b2b; --neither:#c7cdd6; --target:#e8edf2; --accent:#4aa3df;
+    --stop:#d9534f; --good:#4fd6c0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  header{padding:22px 26px 14px;border-bottom:1px solid var(--line)}
+  h1{margin:0 0 4px;font-size:19px;font-weight:650;letter-spacing:.2px}
+  header p{margin:0;color:var(--dim);font-size:13px;max-width:80ch}
+  .wrap{display:grid;grid-template-columns:minmax(420px,1fr) minmax(360px,1fr);gap:0}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+  .col{padding:20px 26px} .col.left{border-right:1px solid var(--line)}
+  .sub{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:var(--dim);margin:0 0 10px}
+  svg{width:100%;height:auto;display:block}
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:650;letter-spacing:.3px;margin-bottom:12px}
+  .badge.p{background:#123d38;color:#4fd6c0;border:1px solid #1f6a5f}
+  .badge.w{background:#3d3212;color:#e6bd5b;border:1px solid #6a561f}
+  .badge.s{background:#3d1a18;color:#f0a09c;border:1px solid #7a2f2b}
+  .stat{display:flex;gap:18px;margin:2px 0 16px;flex-wrap:wrap}
+  .stat div{font-size:12px;color:var(--dim)}
+  .stat b{display:block;font-size:20px;color:var(--ink);font-weight:650;font-variant-numeric:tabular-nums}
+  .bar{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:4px 0 6px;font-size:12px;font-weight:600}
+  .bar>span{display:flex;align-items:center;justify-content:center;color:#0d1117;min-width:0;transition:flex-basis .35s ease}
+  .barkey{display:flex;gap:16px;font-size:11px;color:var(--dim);margin-bottom:20px}
+  .barkey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  .tabs{display:flex;gap:4px;margin-bottom:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .tab{padding:7px 12px;cursor:pointer;font-size:13px;color:var(--dim);border-bottom:2px solid transparent}
+  .tab.on{color:var(--ink);border-bottom-color:var(--accent)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--dim);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.8px}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;color:var(--dim)}
+  .gene{font-weight:600}
+  .note{font-size:11.5px;color:var(--dim);margin-top:10px;line-height:1.5}
+  .hide{display:none}
+  .foot{padding:14px 26px 24px;color:var(--dim);font-size:11.5px;border-top:1px solid var(--line)}
+  .foot code{color:#9fb0c0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:pointer;transition:.12s}
+  .card:hover{border-color:#3d4a5a} .card.on{border-color:var(--accent);background:#182533}
+
+  .hub{padding:24px 26px 40px;max-width:1180px;margin:0 auto}
+  .lede{color:var(--dim);font-size:14px;max-width:78ch;margin:0 0 6px}
+  .grp{margin:30px 0 8px}
+  .grp h2{font-size:13px;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent);margin:0 0 3px;font-weight:650}
+  .grp .gb{color:var(--dim);font-size:12.5px;margin:0 0 14px;max-width:74ch}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+  a.tile{display:block;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:16px 17px;
+    text-decoration:none;color:var(--ink);transition:.14s}
+  a.tile:hover{border-color:var(--accent);background:#182533;transform:translateY(-2px)}
+  a.tile .tt{font-size:15px;font-weight:650;margin:0 0 6px;letter-spacing:.2px}
+  a.tile .td{font-size:12.5px;color:var(--dim);line-height:1.5;margin:0 0 10px}
+  a.tile .tg{font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;color:#7d8896;
+    border-top:1px solid var(--line);padding-top:8px;font-variant-numeric:tabular-nums}
+  .m0{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+</style>
+</head>
+<body>
+<header>
+  <h1>Cell-State Reachability &mdash; interactive explorers</h1>
+  <p>A convex-cone oracle that decides, from measured CRISPRi Perturb-seq effects, whether a target cell state is reachable by a non-negative mix of knockdowns &mdash; and, when it is not, names the genes that must be activated instead. These explorers open the method, its causal-inference foundations, and its impact on drug-development decisions.</p>
+</header>
+
+<div class="hub">
+  <p class="lede">Seven single-file explorers. Each is self-contained &mdash; no server, no libraries &mdash; and every number is computed by <span class="m0">reachability.py</span> on the real effect matrix and cross-checked against the repo's result tables.</p>
+  <section class="grp"><h2>Method</h2><p class="gb">The headline reachability oracle.</p><div class="grid"><a class="tile" href="reachability_explorer.html"><p class="tt">Reachability Explorer</p><p class="td">Can a knockdown screen move a cell to a target state? A convex-cone verdict on measured CRISPRi effects — 12-cell atlas, real 2-D cone geometry, minimal recipe + activation certificate.</p><p class="tg">cone geometry · 33,983 knockdowns</p></a></div></section><section class="grp"><h2>Causal inference</h2><p class="gb">The oracle is design-based causal inference — concept, headline result, and the trust layer.</p><div class="grid"><a class="tile" href="causal_reframe.html"><p class="tt">The reframe that costs nothing</p><p class="td">Perturb-seq → average treatment effect → non-negative cone → counterfactual query. Click a code object to see its causal-inference name; 9 of 10 constructs were already built.</p><p class="tg">ATE · design-based vs observational</p></a>
+<a class="tile" href="causal_iv.html"><p class="tt">IV / convex-cone invariance</p><p class="td">Imperfect knockdown as noncompliance. Toggle intent-to-treat ↔ compliance-rescaled (LATE) and watch the verdict not move (|Δcosine| = 2.22e-16); drop invalid instruments and watch it barely move (≤0.0004).</p><p class="tg">instrumental variables · 12 cells</p></a>
+<a class="tile" href="causal_trust.html"><p class="tt">The six-assumption trust dossier</p><p class="td">Can I trust the verdict? The six identifying assumptions, each with its stress-test (A1 sensitivity radius, A3 k-way additivity, A4 weak-instrument, A5 negative-control, A6 construct validity) and a robust / fragile / caveat verdict.</p><p class="tg">sensitivity analysis · A1–A6</p></a></div></section><section class="grp"><h2>Pharma impact</h2><p class="gb">Why it matters to a drug-development team — the cost of failure, the unique gap, and the concrete triage.</p><div class="grid"><a class="tile" href="pharma_funnel.html"><p class="tt">Attrition funnel + value levers</p><p class="td">~90% of programs fail; Phase II is the lowest transition (30.7%); ~half of failures are efficacy. Hover a stage to see which of the four oracle value levers acts there.</p><p class="tg">attrition · 2.6× genetics · provable STOP</p></a>
+<a class="tile" href="pharma_triage.html"><p class="tt">Modality triage — 102 nominations</p><p class="td">102 real knockdown nominations crossed against Open Targets tractability × immune genetics. 44% hard-to-drug, only 10 clinical-grade. IRF1 is the headline collision: strong genetics, no handle.</p><p class="tg">tractability × genetics · 3 tiers</p></a>
+<a class="tile" href="pharma_capability.html"><p class="tt">&#x27;0 of 91&#x27; capability landscape</p><p class="td">91 surveyed methods (2011–2026). 14 use measured data — all only predict or rank; 0 return a feasibility verdict. The oracle is the sole occupant of the measured × achievability quadrant.</p><p class="tg">91 methods · the empty quadrant</p></a></div></section>
+</div>
+
+<div class="foot">
+  Built for the cell-state-reachability project. Every explorer embeds its own verified data payload and hand-drawn SVG; provenance for each figure is stated in that explorer's footer.
+  Source: <code>reachability.py</code>, <code>CAUSAL_INFERENCE.md</code>, <code>CAUSAL_RESEARCH_AGENDA.md</code>, <code>IMPACT.md</code>, <code>MODALITY.md</code>, <code>method_comparison_matrix.csv</code>, and the <code>results/</code> tables.
+</div>
+</body>
+</html>

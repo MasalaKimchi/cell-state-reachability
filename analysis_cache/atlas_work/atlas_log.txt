@@ -1,0 +1,28 @@
+=== PASS 1: point estimates ===
+[P1/12] toward_Th1 Rest: reach=0.627 LOF=0.39 GOF=0.25 neither=0.35 greedy=['LAT2', 'APPBP2', 'RARA', 'ICOS', 'SNAP23'] (45.7s)
+[P2/12] toward_Th1 Stim8hr: reach=0.524 LOF=0.27 GOF=0.26 neither=0.47 greedy=['RARA', 'ICOS', 'PCNX3', 'MAMLD1', 'LAT2'] (45.3s)
+[P3/12] toward_Th1 Stim48hr: reach=0.533 LOF=0.28 GOF=0.26 neither=0.45 greedy=['ATF7IP2', 'FBXO32', 'RARA', 'HPS1', 'KIF5B'] (49.4s)
+[P4/12] toward_Th2 Rest: reach=0.643 LOF=0.41 GOF=0.23 neither=0.35 greedy=['IRF1', 'RSBN1L', 'DENND4B', 'SFXN1', 'SIN3A'] (46.3s)
+[P5/12] toward_Th2 Stim8hr: reach=0.537 LOF=0.29 GOF=0.25 neither=0.46 greedy=['DENND4B', 'JAK2', 'IL7R', 'IRF9', 'MAPK14'] (47.4s)
+[P6/12] toward_Th2 Stim48hr: reach=0.530 LOF=0.28 GOF=0.26 neither=0.46 greedy=['RSBN1L', 'TMSB15B', 'IRF1', 'TAFAZZIN', 'ENTPD7'] (49.5s)
+[P7/12] toward_younger Rest: reach=0.626 LOF=0.39 GOF=0.22 neither=0.39 greedy=['FAM98A', 'DEPDC5', 'NFAT5', 'COIL', 'SESN2'] (43.3s)
+[P8/12] toward_younger Stim8hr: reach=0.588 LOF=0.35 GOF=0.23 neither=0.43 greedy=['TRIT1', 'HVCN1', 'PAN3', 'ALKBH1', 'RELA'] (46.4s)
+[P9/12] toward_younger Stim48hr: reach=0.597 LOF=0.36 GOF=0.23 neither=0.41 greedy=['SLC9A1', 'ATXN2', 'MFSD10', 'PLIN3', 'SLC35F5'] (48.1s)
+[P10/12] toward_older Rest: reach=0.596 LOF=0.36 GOF=0.25 neither=0.40 greedy=['C1D', 'SMG1', 'SUPT7L', 'TARS2', 'UBA2'] (41.8s)
+[P11/12] toward_older Stim8hr: reach=0.590 LOF=0.35 GOF=0.23 neither=0.43 greedy=['CD3D', 'SMG1', 'CROT', 'DCP2', 'MIOS'] (42.7s)
+[P12/12] toward_older Stim48hr: reach=0.566 LOF=0.32 GOF=0.25 neither=0.42 greedy=['ZAP70', 'SMG1', 'CROT', 'WDFY1', 'CD5'] (46.3s)
+=== PASS 1 COMPLETE ===
+=== PASS 2: nulls ===
+[N1/12] toward_Th1 Rest: heldout_z=36.8 pert_z=-23.3 (711.6s)
+[N2/12] toward_Th1 Stim8hr: heldout_z=14.9 pert_z=-32.5 (857.0s)
+skip null toward_Th1 Stim48hr
+skip null toward_Th2 Rest
+skip null toward_Th2 Stim8hr
+skip null toward_Th2 Stim48hr
+skip null toward_younger Rest
+skip null toward_younger Stim8hr
+[N9/12] toward_younger Stim48hr: heldout_z=6.4 pert_z=-54.9 (882.5s)
+skip null toward_older Rest
+skip null toward_older Stim8hr
+skip null toward_older Stim48hr
+ATLAS COMPLETE

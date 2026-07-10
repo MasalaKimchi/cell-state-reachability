@@ -1,0 +1,103 @@
+gene,n_atlas_nominations,nominations,required_modality,modality_tier,OT_SM_tractability,OT_AB_tractability,OT_PR_tractability,n_drugs_or_candidates,n_immune_genetic_assoc,top_immune_disease,top_immune_genetic_score,biotype,flag
+C1D,3,→older/Rest:1;→older/Stim48hr:6;→older/Stim8hr:9,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,4,seasonal allergic rhinitis,0.384,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+RARA,3,→Th1/Rest:3;→Th1/Stim48hr:3;→Th1/Stim8hr:1,knockdown/degradation (LOF greedy node),clinical drug,Approved Drug,GO CC high conf,Small Molecule Binder,11,0,,0.0,protein_coding,
+SMG1,3,→older/Rest:2;→older/Stim48hr:2;→older/Stim8hr:2,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Small Molecule Binder,0,0,,0.0,protein_coding,
+IRF1,2,→Th2/Rest:1;→Th2/Stim48hr:3,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,17,asthma,0.832,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+ICOS,2,→Th1/Rest:4;→Th1/Stim8hr:2,knockdown/degradation (LOF greedy node),clinical drug,,Advanced Clinical,Small Molecule Binder,4,13,"immunodeficiency, common variable, 1",0.832,protein_coding,GREEN-LIGHT (druggable+genetic)
+HEXIM1,2,→Th1/Rest:8;→Th1/Stim48hr:7,knockdown/degradation (LOF greedy node),undruggable (conventional),Med-Quality Pocket,,Database Ubiquitination,0,2,allergic disease,0.523,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+LAT2,2,→Th1/Rest:1;→Th1/Stim8hr:5,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,UniProt Ubiquitination,0,2,systemic lupus erythematosus,0.38,protein_coding,
+CROT,2,→older/Stim48hr:3;→older/Stim8hr:3,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,1,systemic lupus erythematosus,0.033,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+DCP2,2,→older/Rest:7;→older/Stim8hr:4,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,1,alopecia,0.092,protein_coding,
+DENND4B,2,→Th2/Rest:3;→Th2/Stim8hr:1,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,1,functional neutrophil defect,0.036,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+IRF9,2,→Th2/Stim48hr:6;→Th2/Stim8hr:4,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,1,"immunodeficiency 65, susceptibility to viral infections",0.422,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+VTI1A,2,→Th1/Rest:7;→Th1/Stim8hr:9,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,1,immune system disorder,0.342,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+APPBP2,2,→Th1/Rest:2;→Th1/Stim8hr:7,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+HPS1,2,→Th1/Rest:10;→Th1/Stim48hr:4,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+RSBN1L,2,→Th2/Rest:2;→Th2/Stim48hr:1,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+IL7R,1,→Th2/Stim8hr:3,knockdown/degradation (LOF greedy node),AB-tractable,,GO CC high conf,UniProt Ubiquitination,0,22,T-B+ severe combined immunodeficiency due to JAK3 deficiency,0.959,protein_coding,
+JAK2,1,→Th2/Stim8hr:2,knockdown/degradation (LOF greedy node),clinical drug,Approved Drug,GO CC high conf,Small Molecule Binder,31,14,ulcerative colitis,0.818,protein_coding,GREEN-LIGHT (druggable+genetic)
+TET2,1,→Th2/Stim8hr:8,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Small Molecule Binder,0,12,myeloid leukemia,0.988,protein_coding,
+ZAP70,1,→older/Stim48hr:1,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc high conf,Small Molecule Binder,0,12,combined immunodeficiency due to ZAP70 deficiency,0.882,protein_coding,
+MAPK14,1,→Th2/Stim8hr:5,knockdown/degradation (LOF greedy node),clinical drug,Advanced Clinical,GO CC high conf,Small Molecule Binder,28,8,ulcerative colitis,0.423,protein_coding,GREEN-LIGHT (druggable+genetic)
+ATXN2,1,→younger/Stim48hr:2,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,7,Hashimoto thyroiditis,0.51,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+MED24,1,→Th2/Stim8hr:10,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,7,functional neutrophil defect,0.27,protein_coding,
+RGS1,1,→younger/Rest:8,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc high conf,Database Ubiquitination,0,7,celiac disease,0.763,protein_coding,
+CD5,1,→older/Stim48hr:5,knockdown/degradation (LOF greedy node),AB-tractable,Med-Quality Pocket,GO CC high conf,Database Ubiquitination,1,5,multiple sclerosis,0.722,protein_coding,GREEN-LIGHT (druggable+genetic)
+FAM98A,1,→younger/Rest:1,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,5,asthma,0.372,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+CD3D,1,→older/Stim8hr:1,knockdown/degradation (LOF greedy node),clinical drug,Structure with Ligand,Approved Drug,Database Ubiquitination,16,3,immunodeficiency 19,0.918,protein_coding,GREEN-LIGHT (druggable+genetic)
+PHF3,1,→younger/Stim48hr:10,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,3,Sjogren syndrome,0.48,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+TARS2,1,→older/Rest:4,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,3,atopic eczema,0.232,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+AGTPBP1,1,→Th1/Stim8hr:6,knockdown/degradation (LOF greedy node),AB-tractable,,GO CC high conf,Database Ubiquitination,0,2,celiac disease,0.496,protein_coding,
+IFNGR1,1,→Th2/Stim8hr:7,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc high conf,UniProt Ubiquitination,1,2,immunodeficiency disease,0.559,protein_coding,GREEN-LIGHT (druggable+genetic)
+MIOS,1,→older/Stim8hr:5,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,2,mixed connective tissue disease,0.425,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+NFAT5,1,→younger/Rest:3,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,2,Immunodeficiency,0.32,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+PAN2,1,→younger/Rest:9,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,2,psoriasis,0.269,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+PLEKHO1,1,→older/Stim8hr:7,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Half-life Data,0,2,allergic rhinitis,0.073,protein_coding,
+SFXN1,1,→Th2/Rest:4,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,2,myeloid leukemia,0.153,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+SLC9A1,1,→younger/Stim48hr:1,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc high conf,Small Molecule Binder,0,2,non-autoimmune hemolytic anemia,0.291,protein_coding,
+TRIM14,1,→older/Stim48hr:10,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,2,multiple sclerosis,0.498,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+UBE2V2,1,→Th2/Rest:6,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,2,ulcerative colitis,0.213,protein_coding,
+BICD1,1,→Th1/Stim48hr:10,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,1,acute tonsillitis,0.331,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+BRF2,1,→older/Rest:9,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,1,thyroiditis,0.473,protein_coding,
+C19orf47,1,→older/Rest:6,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,1,systemic lupus erythematosus,0.267,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+CASP7,1,→Th2/Stim8hr:6,knockdown/degradation (LOF greedy node),clinical drug,Advanced Clinical,GO CC high conf,Small Molecule Binder,1,1,vitiligo,0.47,protein_coding,GREEN-LIGHT (druggable+genetic)
+CHMP2B,1,→younger/Rest:7,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,1,immune system disorder,0.151,protein_coding,
+COIL,1,→younger/Rest:4,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,1,systemic lupus erythematosus,0.035,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+GORASP2,1,→Th1/Stim48hr:6,knockdown/degradation (LOF greedy node),SM-tractable,High-Quality Pocket,,Database Ubiquitination,0,1,type 1 diabetes mellitus,0.421,protein_coding,
+HELLS,1,→Th1/Stim8hr:8,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,1,ICF syndrome,0.766,protein_coding,
+KEAP1,1,→older/Stim48hr:7,knockdown/degradation (LOF greedy node),clinical drug,Approved Drug,,Small Molecule Binder,4,1,multiple sclerosis,0.248,protein_coding,GREEN-LIGHT (druggable+genetic)
+MFSD10,1,→younger/Stim48hr:3,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc high conf,Database Ubiquitination,0,1,asthma,0.05,protein_coding,
+PAN3,1,→younger/Stim8hr:3,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,1,Hashimoto thyroiditis,0.095,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+PLIN3,1,→younger/Stim48hr:4,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,UniProt Ubiquitination,0,1,immune system disorder,0.393,protein_coding,
+STK17A,1,→younger/Stim8hr:8,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,GO CC high conf,Small Molecule Binder,0,1,type 1 diabetes mellitus,0.203,protein_coding,
+TAFAZZIN,1,→Th2/Stim48hr:4,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,1,Barth syndrome,0.915,protein_coding,
+TSNARE1,1,→Th2/Stim48hr:9,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,1,ankylosing spondylitis,0.19,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+UFM1,1,→Th2/Stim48hr:8,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,UniProt Ubiquitination,0,1,multiple sclerosis,0.102,protein_coding,
+VANGL1,1,→younger/Stim8hr:6,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc med conf,Database Ubiquitination,0,1,"osteoarthritis, knee",0.139,protein_coding,
+VKORC1,1,→Th2/Stim48hr:10,knockdown/degradation (LOF greedy node),clinical drug,Approved Drug,UniProt SigP or TMHMM,Small Molecule Binder,7,1,Sjogren syndrome,0.285,protein_coding,GREEN-LIGHT (druggable+genetic)
+ZC3H12D,1,→younger/Stim48hr:8,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Half-life Data,0,1,asthma,0.511,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+ABHD3,1,→younger/Rest:6,knockdown/degradation (LOF greedy node),AB-tractable,,GO CC high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+ALKBH1,1,→younger/Stim8hr:4,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,0,,0.0,protein_coding,
+ATF7IP2,1,→Th1/Stim48hr:1,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+BCAP29,1,→Th2/Rest:8,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+BID,1,→younger/Stim8hr:10,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Small Molecule Binder,0,0,,0.0,protein_coding,
+CENPB,1,→younger/Stim8hr:7,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,UniProt Ubiquitination,0,0,,0.0,protein_coding,
+DCAF6,1,→older/Stim8hr:10,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+DDX1,1,→older/Rest:10,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Small Molecule Binder,0,0,,0.0,protein_coding,
+DEPDC5,1,→younger/Rest:2,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,UniProt Ubiquitination,0,0,,0.0,protein_coding,
+DHX34,1,→Th1/Stim8hr:10,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+ENTPD7,1,→Th2/Stim48hr:5,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+ERG28,1,→younger/Stim48hr:9,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+ERGIC3,1,→older/Stim8hr:8,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+FBXO32,1,→Th1/Stim48hr:2,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+FKBP14,1,→Th1/Stim48hr:8,knockdown/degradation (LOF greedy node),SM-tractable,Druggable Family,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,
+HVCN1,1,→younger/Stim8hr:2,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+KIF5B,1,→Th1/Stim48hr:5,knockdown/degradation (LOF greedy node),clinical drug,Approved Drug,UniProt loc high conf,Small Molecule Binder,2,0,,0.0,protein_coding,
+KLHL6,1,→Th1/Stim48hr:9,knockdown/degradation (LOF greedy node),SM-tractable,Druggable Family,Human Protein Atlas loc,Database Ubiquitination,0,0,,0.0,protein_coding,
+KYAT1,1,→older/Stim48hr:9,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Small Molecule Binder,0,0,,0.0,protein_coding,
+MAMLD1,1,→Th1/Stim8hr:4,knockdown/degradation (LOF greedy node),undruggable (conventional),,,,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+MLLT11,1,→younger/Rest:10,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+MLLT6,1,→older/Stim48hr:8,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+MUTYH,1,→Th1/Rest:9,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Database Ubiquitination,0,0,,0.0,protein_coding,
+PCNX3,1,→Th1/Stim8hr:3,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+PLEKHA8,1,→older/Rest:8,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+PPP1R7,1,→younger/Stim48hr:6,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+RELA,1,→younger/Stim8hr:5,knockdown/degradation (LOF greedy node),clinical drug,Advanced Clinical,,Small Molecule Binder,1,0,,0.0,protein_coding,
+SERPINB1,1,→Th2/Stim48hr:7,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+SESN2,1,→younger/Rest:5,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,UniProt Ubiquitination,0,0,,0.0,protein_coding,
+SIN3A,1,→Th2/Rest:5,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+SLC35F5,1,→younger/Stim48hr:5,knockdown/degradation (LOF greedy node),undruggable (conventional),,UniProt SigP or TMHMM,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+SNAP23,1,→Th1/Rest:5,knockdown/degradation (LOF greedy node),AB-tractable,,GO CC high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+SNRNP40,1,→older/Stim8hr:6,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,UniProt Ubiquitination,0,0,,0.0,protein_coding,
+SNX4,1,→Th1/Rest:6,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+SUPT7L,1,→older/Rest:3,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,UniProt Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+TESC,1,→Th2/Rest:9,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+TMSB15B,1,→Th2/Stim48hr:2,knockdown/degradation (LOF greedy node),undruggable (conventional),,,,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+TRIT1,1,→younger/Stim8hr:1,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+TTC17,1,→Th2/Rest:10,knockdown/degradation (LOF greedy node),AB-tractable,,UniProt loc high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+TXNDC5,1,→Th2/Stim8hr:9,knockdown/degradation (LOF greedy node),AB-tractable,,GO CC high conf,Database Ubiquitination,0,0,,0.0,protein_coding,
+UAP1L1,1,→younger/Stim48hr:7,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+UBA2,1,→older/Rest:5,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,Small Molecule Binder,0,0,,0.0,protein_coding,
+UBAP2L,1,→Th2/Rest:7,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE
+UBL4A,1,→younger/Stim8hr:9,knockdown/degradation (LOF greedy node),SM-tractable,Structure with Ligand,,UniProt Ubiquitination,0,0,,0.0,protein_coding,
+WDFY1,1,→older/Stim48hr:4,knockdown/degradation (LOF greedy node),degrader-only (predicted),,,Database Ubiquitination,0,0,,0.0,protein_coding,REQUIRED-BUT-UNDRUGGABLE

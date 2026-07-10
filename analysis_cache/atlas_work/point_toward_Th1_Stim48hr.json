@@ -1,0 +1,28 @@
+{
+  "target": "toward_Th1",
+  "condition": "Stim48hr",
+  "n_readout": 6188,
+  "n_generators": 7195,
+  "reachable_cosine": 0.5328836947832118,
+  "residual_norm": 0.8461884942695644,
+  "lof_fraction": 0.2839650321658074,
+  "gof_fraction": 0.26296859057800065,
+  "neither_fraction": 0.4530663772561923,
+  "signed_cosine": 0.7473261939603977,
+  "kkt_viol": 1.054196725679543e-11,
+  "lof_support_size": 793,
+  "gof_support_size": 1332,
+  "greedy_order": [
+    "ATF7IP2",
+    "FBXO32",
+    "RARA",
+    "HPS1",
+    "KIF5B",
+    "GORASP2",
+    "HEXIM1",
+    "FKBP14",
+    "KLHL6",
+    "BICD1"
+  ],
+  "seconds": 49.4
+}

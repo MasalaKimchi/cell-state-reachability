@@ -1,0 +1,33 @@
+# ==========================================================================
+# cell-state-reachability — conda environment
+# ==========================================================================
+# Create and activate:
+#   conda env create -f environment.yml
+#   conda activate cell-state-reachability
+#
+# The core method (reachability.py) needs only numpy + scipy. The rest of the
+# stack drives the analysis notebooks and figure generation. Exact-pinned
+# packages are the versions this work was validated against (Python 3.11).
+# --------------------------------------------------------------------------
+name: cell-state-reachability
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  # --- core method (validated exact pins) ---
+  - numpy=2.4.6
+  - scipy=1.17.1
+  # --- analysis / figures (validated exact pins) ---
+  - pandas=2.3.3
+  - matplotlib=3.11.0
+  - anndata=0.12.19
+  - h5py=3.16.0
+  # --- test runner ---
+  - pytest>=7.4
+  # --- notebook execution + EDA (version floors) ---
+  - scanpy>=1.10
+  - nbformat>=5.9
+  - nbconvert>=7.10
+  - ipykernel>=6.25
+  - scikit-learn>=1.3

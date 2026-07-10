@@ -1,0 +1,2 @@
+target,observed,null_p50,null_p95,null_p99,percentile_of_observed,z,n_iter,heldout_gene_cosine,heldout_gene_null_mean,heldout_gene_z
+CEBPA (held out),0.8779,0.3894,0.4105,0.4162,100.0,36.97,500,0.8556,0.2045,23.49

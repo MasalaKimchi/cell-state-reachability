@@ -1,0 +1,22 @@
+{
+  "n_perturbations": 843,
+  "n_genes": 2832,
+  "E_K562_shape": [
+    843,
+    2832
+  ],
+  "E_RPE1_shape": [
+    843,
+    2832
+  ],
+  "effect": "pseudobulk logFC = mean(pert cells) - mean(control cells) on the files' pre-log-normalized X (no re-normalization)",
+  "source": "s3://cz-benchmarks-data Replogle 2022 K562/RPE1 essential",
+  "n_control_cells": {
+    "K562": 10691,
+    "RPE1": 11485
+  },
+  "ontarget_frac_negative": {
+    "K562": 1.0,
+    "RPE1": 1.0
+  }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>The reframe that costs nothing — cell-state reachability as causal inference</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#161c24; --ink:#e8edf2; --dim:#8b97a6; --line:#2a333f;
+    --lof:#1f9e89; --gof:#d99b2b; --neither:#c7cdd6; --target:#e8edf2; --accent:#4aa3df;
+    --stop:#d9534f; --good:#4fd6c0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  header{padding:22px 26px 14px;border-bottom:1px solid var(--line)}
+  h1{margin:0 0 4px;font-size:19px;font-weight:650;letter-spacing:.2px}
+  header p{margin:0;color:var(--dim);font-size:13px;max-width:80ch}
+  .wrap{display:grid;grid-template-columns:minmax(420px,1fr) minmax(360px,1fr);gap:0}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+  .col{padding:20px 26px} .col.left{border-right:1px solid var(--line)}
+  .sub{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:var(--dim);margin:0 0 10px}
+  svg{width:100%;height:auto;display:block}
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:650;letter-spacing:.3px;margin-bottom:12px}
+  .badge.p{background:#123d38;color:#4fd6c0;border:1px solid #1f6a5f}
+  .badge.w{background:#3d3212;color:#e6bd5b;border:1px solid #6a561f}
+  .badge.s{background:#3d1a18;color:#f0a09c;border:1px solid #7a2f2b}
+  .stat{display:flex;gap:18px;margin:2px 0 16px;flex-wrap:wrap}
+  .stat div{font-size:12px;color:var(--dim)}
+  .stat b{display:block;font-size:20px;color:var(--ink);font-weight:650;font-variant-numeric:tabular-nums}
+  .bar{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:4px 0 6px;font-size:12px;font-weight:600}
+  .bar>span{display:flex;align-items:center;justify-content:center;color:#0d1117;min-width:0;transition:flex-basis .35s ease}
+  .barkey{display:flex;gap:16px;font-size:11px;color:var(--dim);margin-bottom:20px}
+  .barkey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  .tabs{display:flex;gap:4px;margin-bottom:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .tab{padding:7px 12px;cursor:pointer;font-size:13px;color:var(--dim);border-bottom:2px solid transparent}
+  .tab.on{color:var(--ink);border-bottom-color:var(--accent)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--dim);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.8px}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;color:var(--dim)}
+  .gene{font-weight:600}
+  .note{font-size:11.5px;color:var(--dim);margin-top:10px;line-height:1.5}
+  .hide{display:none}
+  .foot{padding:14px 26px 24px;color:var(--dim);font-size:11.5px;border-top:1px solid var(--line)}
+  .foot code{color:#9fb0c0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:pointer;transition:.12s}
+  .card:hover{border-color:#3d4a5a} .card.on{border-color:var(--accent);background:#182533}
+</style>
+<style>
+  .stepnum{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--line);color:var(--ink);font-size:11px;font-weight:700;margin-right:9px;flex:0 0 auto}
+  .stage-h{display:flex;align-items:center}
+  .term{font-size:14px}
+  .stage-body{margin-top:9px;padding-left:29px}
+  .plain{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--dim);background:#0d1117;border:1px solid var(--line);border-radius:5px;padding:7px 9px;margin-bottom:8px;overflow-x:auto}
+  .ci{font-size:13px;color:var(--good);line-height:1.5}
+  .conn{text-align:center;color:var(--accent);font-size:15px;line-height:1;margin:3px 0}
+  .mach-row{margin-bottom:7px}
+  .mach-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .mach-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--ink)}
+  .mach-body{margin-top:8px;font-size:12.5px;line-height:1.5}
+  .mach-body .cival{color:var(--good)}
+  .mach-body .w{display:block;margin-top:4px;color:var(--dim);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px}
+  .badge.sm{font-size:10.5px;padding:2px 8px;margin:0}
+  .count{display:flex;gap:22px;margin:2px 0 16px;align-items:baseline}
+  .count div{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.6px}
+  .count b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .count b.new{color:var(--gof)} .count b.built{color:var(--good)}
+  .camps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  @media(max-width:560px){.camps{grid-template-columns:1fr}}
+  .camp{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:12px}
+  .camp.here{border-color:var(--accent);background:#182533}
+  .camp .cn{font-size:13px;font-weight:650;margin-bottom:2px}
+  .camp .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--dim);margin-top:9px;margin-bottom:2px}
+  .camp .tx{font-size:12px;color:var(--dim);line-height:1.45}
+  .tag{display:inline-block;background:var(--accent);color:#0d1117;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:1px}
+</style>
+</head>
+<body>
+<header>
+  <h1>The reframe that costs nothing</h1>
+  <p id="thesis"></p>
+</header>
+
+<div class="wrap">
+  <div class="col left">
+    <p class="sub">The pipeline — Perturb-seq &rarr; ATE &rarr; cone &rarr; counterfactual query</p>
+    <div id="pipe"></div>
+    <p class="note">Each stage is a step you already run in code (bold = the causal-inference name;
+      monospace = what it is in the repo; <span style="color:var(--good)">green</span> = its meaning as a
+      causal estimand). Click a stage to expand it.</p>
+  </div>
+
+  <div class="col right">
+    <p class="sub">The machinery — which causal construct is already built?</p>
+    <div class="count">
+      <div><b class="built" id="cbuilt">0</b>already built</div>
+      <div><b class="new" id="cnew">0</b>genuinely new</div>
+      <div><b id="ctot">0</b>causal constructs</div>
+    </div>
+    <div id="mach"></div>
+    <p class="sub" style="margin-top:22px">Which causal-inference camp?</p>
+    <div class="camps" id="camps"></div>
+    <p class="note">Nine of ten constructs were already in the repo; only the IV / compliance layer
+      (<span style="color:var(--gof)">amber</span>) is new. And the method sits in the design-based camp,
+      whose validity rests on the randomized experiment rather than on a fitted causal graph.</p>
+  </div>
+</div>
+
+<div class="foot">
+  Framing from <code>CAUSAL_INFERENCE.md</code> &sect;1&ndash;&sect;4. 9 of 10 causal constructs already in the repo;
+  only the IV/compliance layer is new. Dataset: <code>GWCD4i CRISPRi Perturb-seq</code>,
+  primary human CD4+ T cells, 33,983 knockdowns &times; 10,282 genes.
+</div>
+
+<script>
+const DATA = {"meta": {"title": "The reframe that costs nothing", "thesis": "The reachability oracle is already a design-based causal-inference method \u2014 a genome-scale CRISPRi Perturb-seq screen is a randomized interventional experiment, so each effect vector is an estimated average treatment effect (ATE), and asking whether a target state lies in the non-negative cone of those vectors is a counterfactual feasibility query about a compound intervention.", "dataset": "GWCD4i CRISPRi Perturb-seq \u00b7 primary human CD4+ T cells \u00b7 33,983 knockdowns \u00d7 10,282 genes"}, "pipeline": [{"id": "exp", "term": "Randomized interventional experiment", "plain": "Guides delivered at low MOI; a cell carrying guide g is assigned approximately at random, independent of its latent state.", "ci": "This cell-level randomization is what licenses a causal reading of each measured effect."}, {"id": "ate", "term": "Average treatment effect (ATE)", "plain": "E[g,:] = mean(X | guide g) \u2212 mean(X | non-targeting control).", "ci": "An estimate of E[X | do(knock down g)] \u2212 E[X | do(control)] \u2014 an interventional contrast under randomization, not a correlation."}, {"id": "cone", "term": "Reachable cone C = { E\u1d40w : w \u2265 0 }", "plain": "All transcriptomic shifts achievable by some non-negative mix of knockdowns.", "ci": "The set of shifts achievable by a compound (multi-gene) intervention."}, {"id": "query", "term": "Counterfactual feasibility query", "plain": "Is target state d \u2208 C? NNLS fit + Farkas certificate.", "ci": "A counterfactual reachability answer about a compound intervention \u2014 not a ranking heuristic."}], "machinery": [{"code": "E[g,:] = mean(X|guide g) \u2212 mean(X|NTC)", "ci": "Average treatment effect (ATE), estimated under cell-level randomization", "where": "build_effect_matrices.py, inputs.npz", "done": true}, {"code": "Non-targeting-control pool", "ci": "Control / placebo arm \u2014 its spread is the do-nothing null", "where": "guide_kd_efficiency (NTC rows)", "done": true}, {"code": "Is d \u2208 cone C ?", "ci": "Counterfactual query on a compound (multi-gene) intervention", "where": "reachability(), signed_reachability()", "done": true}, {"code": "Farkas direction \u03c1 = d \u2212 E\u1d40w*", "ci": "Identified infeasible sub-space: what no intervention in the dictionary can cause", "where": "activation_certificate()", "done": true}, {"code": "Additivity of stacked effects", "ci": "No-interaction / partial-SUTVA assumption on compound treatments; its failure is epistasis", "where": "additivity_risk()", "done": true}, {"code": "Norman-2019 saturation law (R\u00b2\u22480.57)", "ci": "Empirical interaction (epistasis) model calibrating deviation from additivity", "where": "SATURATION_CEILING", "done": true}, {"code": "Shuffled-target / anisotropy / held-out nulls", "ci": "Negative-control / falsification tests for the estimand", "where": "shuffled_target_null(), analytic_anisotropy_null()", "done": true}, {"code": "Bootstrap verdict distribution", "ci": "Sampling uncertainty of the ATE propagated to the verdict", "where": "run_bootstrap.py", "done": true}, {"code": "Cross-cell-type transfer (K562 \u2194 RPE1)", "ci": "Transportability of causal effects across domains (Pearl\u2013Bareinboim)", "where": "07_cross_celltype_transfer.ipynb", "done": true}, {"code": "Imperfect CRISPRi knockdown", "ci": "Noncompliance \u2192 instrumental-variables design (the one genuinely new layer)", "where": "run_iv_compliance.py", "done": false}], "camps": {"A": {"name": "Observational causal discovery", "how": "Infer a gene-regulatory / causal graph from expression, then predict interventions off the fitted structure.", "cost": "Inherits identifiability problems of structure learning \u2014 unobserved confounders, latent common causes, Markov-equivalence ambiguity. Interventional predictions only as good as the recovered graph.", "examples": "variational causal inference, causal-GRN inference, OT matching, causal representation learning"}, "B": {"name": "Design-based / experimental causal inference", "how": "Use the measured interventional effects directly. No graph is fitted; the randomized experiment already did the causal identification.", "cost": "Depends on the dictionary and two transparent assumptions (non-negativity, additive composition) \u2014 not on a learned structure that could be wrong.", "examples": "the reachability oracle (this work)", "here": true}}};
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const P = DATA.pipeline, M = DATA.machinery, C = DATA.camps;
+
+// ---------- subtitle ----------
+document.getElementById('thesis').textContent = DATA.meta.thesis;
+
+// ---------- pipeline accordion ----------
+let openStage = 0;
+const pipeEl = document.getElementById('pipe');
+function drawPipe(){
+  let s='';
+  P.forEach((st,i)=>{
+    const on = i===openStage;
+    s += `<div class="card stage${on?' on':''}" data-i="${i}">
+      <div class="stage-h"><span class="stepnum">${i+1}</span><b class="term">${esc(st.term)}</b></div>`;
+    if(on){
+      s += `<div class="stage-body">
+        <div class="plain">${esc(st.plain)}</div>
+        <div class="ci">${esc(st.ci)}</div></div>`;
+    }
+    s += `</div>`;
+    if(i<P.length-1) s += `<div class="conn">&#9660;</div>`;
+  });
+  pipeEl.innerHTML = s;
+  pipeEl.querySelectorAll('.stage').forEach(c=>{ c.onclick=()=>{ openStage=+c.dataset.i; drawPipe(); }; });
+}
+
+// ---------- machinery list ----------
+const machEl = document.getElementById('mach');
+let openMach = new Set();
+function drawMach(){
+  let s='';
+  M.forEach((m,i)=>{
+    const on = openMach.has(i);
+    const bcls = m.done ? 'p' : 'w';
+    const btxt = m.done ? 'BUILT' : 'NEW';
+    s += `<div class="card mach-row${on?' on':''}" data-i="${i}">
+      <div class="mach-h"><span class="mach-code">${esc(m.code)}</span>
+        <span class="badge ${bcls} sm">${btxt}</span></div>`;
+    if(on){
+      s += `<div class="mach-body"><span class="cival">${esc(m.ci)}</span>
+        <span class="w">${esc(m.where)}</span></div>`;
+    }
+    s += `</div>`;
+  });
+  machEl.innerHTML = s;
+  machEl.querySelectorAll('.mach-row').forEach(c=>{
+    c.onclick=()=>{ const i=+c.dataset.i; openMach.has(i)?openMach.delete(i):openMach.add(i); drawMach(); };
+  });
+  const nb = M.filter(m=>m.done).length, nn = M.length-nb;
+  document.getElementById('cbuilt').textContent = nb;
+  document.getElementById('cnew').textContent = nn;
+  document.getElementById('ctot').textContent = M.length;
+}
+
+// ---------- camps ----------
+function drawCamps(){
+  const order = [['A',C.A],['B',C.B]];
+  let s='';
+  order.forEach(([k,c])=>{
+    const here = !!c.here;
+    s += `<div class="camp${here?' here':''}">
+      <div class="cn">Camp ${k} &middot; ${esc(c.name)}${here?'<span class="tag">this method</span>':''}</div>
+      <div class="lbl">How it identifies causal effects</div><div class="tx">${esc(c.how)}</div>
+      <div class="lbl">What it costs</div><div class="tx">${esc(c.cost)}</div>
+      <div class="lbl">Examples</div><div class="tx">${esc(c.examples)}</div>
+    </div>`;
+  });
+  document.getElementById('camps').innerHTML = s;
+}
+
+drawPipe(); drawMach(); drawCamps();
+</script>
+
+</body>
+</html>

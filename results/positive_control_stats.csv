@@ -1,0 +1,6 @@
+test,statistic,value,p_value,n
+Th2-TF KDs enriched at top (vs genome bg),AUROC,0.722,0.0622,4 vs 6871
+Th1-TF KDs enriched at bottom (vs genome bg),AUROC,0.173,0.0118,4 vs 6871
+Th2-TFs outrank Th1-TFs (directional),AUROC,1.0,0.0143,4 vs 4
+Signed concordance (all 8 TFs),fraction,7/8,0.0352,8
+Full curated panel Th2-drivers at top,AUROC,0.692,0.0518,6 vs 6871

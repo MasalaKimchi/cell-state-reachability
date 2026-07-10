@@ -1,0 +1,6398 @@
+{
+  "toward_Th1_Rest": {
+    "transition": "toward_Th1_Rest",
+    "target": "toward_Th1",
+    "condition": "Rest",
+    "verdict": "partially reachable",
+    "reachable_cosine": 0.6266290274312786,
+    "signed_cosine": 0.8065599069011596,
+    "residual_norm": 0.7793176900215535,
+    "lof_fraction": 0.39266393801947014,
+    "gof_fraction": 0.25349258987294027,
+    "neither_fraction": 0.35384347210758993,
+    "optimal_k": 5,
+    "n_knockdown_support": 715,
+    "n_activation_support": 1335,
+    "knockdown_recipe": [
+      {
+        "gene": "ICOS",
+        "weight": 0.25407113862544367,
+        "rank": 1
+      },
+      {
+        "gene": "C2CD5",
+        "weight": 0.18749569530091093,
+        "rank": 2
+      },
+      {
+        "gene": "ADCK2",
+        "weight": 0.17769873008769094,
+        "rank": 3
+      },
+      {
+        "gene": "VTI1A",
+        "weight": 0.15057666434663738,
+        "rank": 4
+      },
+      {
+        "gene": "FBXW7",
+        "weight": 0.13773908137239188,
+        "rank": 5
+      },
+      {
+        "gene": "FAM91A1",
+        "weight": 0.13118151084998356,
+        "rank": 6
+      },
+      {
+        "gene": "AKR1C3",
+        "weight": 0.12233843468390307,
+        "rank": 7
+      },
+      {
+        "gene": "BCL9L",
+        "weight": 0.12053131638880579,
+        "rank": 8
+      },
+      {
+        "gene": "PIGS",
+        "weight": 0.11974974031336247,
+        "rank": 9
+      },
+      {
+        "gene": "APPBP2",
+        "weight": 0.11587913569995134,
+        "rank": 10
+      },
+      {
+        "gene": "MUTYH",
+        "weight": 0.11490788060343538,
+        "rank": 11
+      },
+      {
+        "gene": "MAGED2",
+        "weight": 0.11468663971422563,
+        "rank": 12
+      },
+      {
+        "gene": "DGKE",
+        "weight": 0.11098531835895417,
+        "rank": 13
+      },
+      {
+        "gene": "CCDC150",
+        "weight": 0.10970459267013637,
+        "rank": 14
+      },
+      {
+        "gene": "MAP1LC3B",
+        "weight": 0.1095309116486981,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "DENND10",
+        "weight": 0.13528080700737982,
+        "rank": 1
+      },
+      {
+        "gene": "WWP2",
+        "weight": 0.13248695220275877,
+        "rank": 2
+      },
+      {
+        "gene": "SP100",
+        "weight": 0.13246150394399675,
+        "rank": 3
+      },
+      {
+        "gene": "ITPR3",
+        "weight": 0.1279735316366075,
+        "rank": 4
+      },
+      {
+        "gene": "CREBZF",
+        "weight": 0.12008220478563232,
+        "rank": 5
+      },
+      {
+        "gene": "MAPK14",
+        "weight": 0.11284918634448582,
+        "rank": 6
+      },
+      {
+        "gene": "IRF1",
+        "weight": 0.10907540868630786,
+        "rank": 7
+      },
+      {
+        "gene": "GALK1",
+        "weight": 0.10815444200235708,
+        "rank": 8
+      },
+      {
+        "gene": "HDHD2",
+        "weight": 0.10585581518925954,
+        "rank": 9
+      },
+      {
+        "gene": "RBM26",
+        "weight": 0.10500416251207628,
+        "rank": 10
+      },
+      {
+        "gene": "UBA2",
+        "weight": 0.10132371401185729,
+        "rank": 11
+      },
+      {
+        "gene": "ST6GALNAC4",
+        "weight": 0.1012611819026121,
+        "rank": 12
+      },
+      {
+        "gene": "SIN3A",
+        "weight": 0.10076572641830672,
+        "rank": 13
+      },
+      {
+        "gene": "EHMT2",
+        "weight": 0.09682133184171705,
+        "rank": 14
+      },
+      {
+        "gene": "POLI",
+        "weight": 0.0958179187016394,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "LAT2",
+        "k": 1,
+        "cosine_at_k": 0.22550808078127063,
+        "marginal_gain": 0.22550808078127063
+      },
+      {
+        "gene": "APPBP2",
+        "k": 2,
+        "cosine_at_k": 0.2891902057827031,
+        "marginal_gain": 0.06368212500143247
+      },
+      {
+        "gene": "RARA",
+        "k": 3,
+        "cosine_at_k": 0.3245136656240203,
+        "marginal_gain": 0.035323459841317184
+      },
+      {
+        "gene": "ICOS",
+        "k": 4,
+        "cosine_at_k": 0.3555740039747102,
+        "marginal_gain": 0.031060338350689887
+      },
+      {
+        "gene": "SNAP23",
+        "k": 5,
+        "cosine_at_k": 0.37906154954973653,
+        "marginal_gain": 0.02348754557502636
+      },
+      {
+        "gene": "SNX4",
+        "k": 6,
+        "cosine_at_k": 0.39201453439126266,
+        "marginal_gain": 0.012952984841526127
+      },
+      {
+        "gene": "VTI1A",
+        "k": 7,
+        "cosine_at_k": 0.4021889409003857,
+        "marginal_gain": 0.010174406509123046
+      },
+      {
+        "gene": "HEXIM1",
+        "k": 8,
+        "cosine_at_k": 0.41194543768215347,
+        "marginal_gain": 0.009756496781767765
+      },
+      {
+        "gene": "MUTYH",
+        "k": 9,
+        "cosine_at_k": 0.42078920769445666,
+        "marginal_gain": 0.008843770012303187
+      },
+      {
+        "gene": "HPS1",
+        "k": 10,
+        "cosine_at_k": 0.4298162305158892,
+        "marginal_gain": 0.009027022821432529
+      },
+      {
+        "gene": "MTFR1L",
+        "k": 11,
+        "cosine_at_k": 0.4357979878151668,
+        "marginal_gain": 0.005981757299277635
+      },
+      {
+        "gene": "MBD2",
+        "k": 12,
+        "cosine_at_k": 0.4416413280888634,
+        "marginal_gain": 0.005843340273696596
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.6266,
+      "realized_cosine": 0.4464,
+      "gap": 0.1802,
+      "heldout_z": 45.046,
+      "boot_reach_cos_lo": 0.6327,
+      "boot_reach_cos_hi": 0.6486,
+      "recipe_donor_repro_weight": 0.1086,
+      "recipe_donor_covered_frac": 0.267,
+      "confidence_label": "high",
+      "boot_reach_cos_mean": 0.6388
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 7,
+      "n_clinical_drug_knockdown": 1,
+      "n_SM_druggable_activation": 8,
+      "headline_modality_message": "39% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 1/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "ICOS",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.254071,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRi or antibody blockade (surface; 4 drugs)"
+      },
+      {
+        "gene": "C2CD5",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.187496,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "ADCK2",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.177699,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "VTI1A",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.150577,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FBXW7",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.137739,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "FAM91A1",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.131182,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "AKR1C3",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.122338,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "BCL9L",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.120531,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PIGS",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.11975,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "APPBP2",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.115879,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "MUTYH",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.114908,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "MAGED2",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.114687,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "DGKE",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.110985,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "CCDC150",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.109705,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "MAP1LC3B",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.109531,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "DENND10",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.135281,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "WWP2",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.132487,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "SP100",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.132462,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ITPR3",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.127974,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CREBZF",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.120082,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "MAPK14",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.112849,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 28,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Advanced Clinical)"
+      },
+      {
+        "gene": "IRF1",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.109075,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "GALK1",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.108154,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "HDHD2",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.105856,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "RBM26",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.105004,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "UBA2",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.101324,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ST6GALNAC4",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.101261,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SIN3A",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.100766,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "EHMT2",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.096821,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "POLI",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.095818,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      }
+    ]
+  },
+  "toward_Th1_Stim8hr": {
+    "transition": "toward_Th1_Stim8hr",
+    "target": "toward_Th1",
+    "condition": "Stim8hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5235240543878785,
+    "signed_cosine": 0.7377528293887856,
+    "residual_norm": 0.852010894576635,
+    "lof_fraction": 0.27407743552272246,
+    "gof_fraction": 0.26054358726810045,
+    "neither_fraction": 0.4653789772091775,
+    "optimal_k": 6,
+    "n_knockdown_support": 713,
+    "n_activation_support": 1246,
+    "knockdown_recipe": [
+      {
+        "gene": "AGTPBP1",
+        "weight": 0.166462031548066,
+        "rank": 1
+      },
+      {
+        "gene": "RARA",
+        "weight": 0.15050272919074392,
+        "rank": 2
+      },
+      {
+        "gene": "HERC1",
+        "weight": 0.14073938740519118,
+        "rank": 3
+      },
+      {
+        "gene": "DPH1",
+        "weight": 0.13804322206422454,
+        "rank": 4
+      },
+      {
+        "gene": "MAMLD1",
+        "weight": 0.13452837866328488,
+        "rank": 5
+      },
+      {
+        "gene": "HELLS",
+        "weight": 0.13433587437873715,
+        "rank": 6
+      },
+      {
+        "gene": "ITPKB",
+        "weight": 0.13380570697474903,
+        "rank": 7
+      },
+      {
+        "gene": "PLCL2",
+        "weight": 0.1302817534762085,
+        "rank": 8
+      },
+      {
+        "gene": "MSC",
+        "weight": 0.12626361383973508,
+        "rank": 9
+      },
+      {
+        "gene": "FKRP",
+        "weight": 0.12403656401860169,
+        "rank": 10
+      },
+      {
+        "gene": "ICOS",
+        "weight": 0.12245352010121205,
+        "rank": 11
+      },
+      {
+        "gene": "RRP1B",
+        "weight": 0.11876231482306492,
+        "rank": 12
+      },
+      {
+        "gene": "FBXO32",
+        "weight": 0.11862650715020494,
+        "rank": 13
+      },
+      {
+        "gene": "IPP",
+        "weight": 0.1177089184541456,
+        "rank": 14
+      },
+      {
+        "gene": "DHX34",
+        "weight": 0.11621354316096377,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "ZBTB49",
+        "weight": 0.17535262053186138,
+        "rank": 1
+      },
+      {
+        "gene": "AP5S1",
+        "weight": 0.16408852804158058,
+        "rank": 2
+      },
+      {
+        "gene": "PEX16",
+        "weight": 0.1289723633612614,
+        "rank": 3
+      },
+      {
+        "gene": "APOBEC3F",
+        "weight": 0.12776438212928537,
+        "rank": 4
+      },
+      {
+        "gene": "TXNDC5",
+        "weight": 0.12172038872887637,
+        "rank": 5
+      },
+      {
+        "gene": "IFNGR1",
+        "weight": 0.11792009074014943,
+        "rank": 6
+      },
+      {
+        "gene": "WDR54",
+        "weight": 0.11755176064263205,
+        "rank": 7
+      },
+      {
+        "gene": "RTL8C",
+        "weight": 0.113369044130431,
+        "rank": 8
+      },
+      {
+        "gene": "TMEM87A",
+        "weight": 0.10851164617391491,
+        "rank": 9
+      },
+      {
+        "gene": "NOP9",
+        "weight": 0.10600088179902402,
+        "rank": 10
+      },
+      {
+        "gene": "MAP2K2",
+        "weight": 0.10464519157477861,
+        "rank": 11
+      },
+      {
+        "gene": "CEP350",
+        "weight": 0.10331345675374784,
+        "rank": 12
+      },
+      {
+        "gene": "RREB1",
+        "weight": 0.10277061589324626,
+        "rank": 13
+      },
+      {
+        "gene": "KDM5C",
+        "weight": 0.10007472253501244,
+        "rank": 14
+      },
+      {
+        "gene": "PACS1",
+        "weight": 0.09963060988734539,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "RARA",
+        "k": 1,
+        "cosine_at_k": 0.14193656658418552,
+        "marginal_gain": 0.14193656658418552
+      },
+      {
+        "gene": "ICOS",
+        "k": 2,
+        "cosine_at_k": 0.19184029463369912,
+        "marginal_gain": 0.049903728049513596
+      },
+      {
+        "gene": "PCNX3",
+        "k": 3,
+        "cosine_at_k": 0.22532353951719003,
+        "marginal_gain": 0.033483244883490915
+      },
+      {
+        "gene": "MAMLD1",
+        "k": 4,
+        "cosine_at_k": 0.24729337803374538,
+        "marginal_gain": 0.021969838516555346
+      },
+      {
+        "gene": "LAT2",
+        "k": 5,
+        "cosine_at_k": 0.26773257633847564,
+        "marginal_gain": 0.02043919830473026
+      },
+      {
+        "gene": "AGTPBP1",
+        "k": 6,
+        "cosine_at_k": 0.2852307218266558,
+        "marginal_gain": 0.017498145488180183
+      },
+      {
+        "gene": "APPBP2",
+        "k": 7,
+        "cosine_at_k": 0.29642833336774327,
+        "marginal_gain": 0.011197611541087449
+      },
+      {
+        "gene": "HELLS",
+        "k": 8,
+        "cosine_at_k": 0.3051926217507139,
+        "marginal_gain": 0.008764288382970609
+      },
+      {
+        "gene": "VTI1A",
+        "k": 9,
+        "cosine_at_k": 0.31314998528320775,
+        "marginal_gain": 0.007957363532493877
+      },
+      {
+        "gene": "DHX34",
+        "k": 10,
+        "cosine_at_k": 0.32028615671735167,
+        "marginal_gain": 0.007136171434143912
+      },
+      {
+        "gene": "KLHL6",
+        "k": 11,
+        "cosine_at_k": 0.3261741924283953,
+        "marginal_gain": 0.0058880357110436266
+      },
+      {
+        "gene": "DPH1",
+        "k": 12,
+        "cosine_at_k": 0.33161367631208394,
+        "marginal_gain": 0.005439483883688645
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.5235,
+      "realized_cosine": 0.2927,
+      "gap": 0.2308,
+      "heldout_z": 12.703,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.0784,
+      "recipe_donor_covered_frac": 0.267,
+      "confidence_label": "medium",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 6,
+      "n_clinical_drug_knockdown": 2,
+      "n_SM_druggable_activation": 4,
+      "headline_modality_message": "49% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 2/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "AGTPBP1",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.166462,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "RARA",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.150503,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 11,
+        "delivery_call": "CRISPRi (SM inhibitor available: 11 drugs)"
+      },
+      {
+        "gene": "HERC1",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.140739,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "DPH1",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.138043,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "MAMLD1",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.134528,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "HELLS",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.134336,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ITPKB",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.133806,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "PLCL2",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.130282,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "MSC",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.126264,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FKRP",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.124037,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ICOS",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.122454,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRi or antibody blockade (surface; 4 drugs)"
+      },
+      {
+        "gene": "RRP1B",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.118762,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FBXO32",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.118627,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "IPP",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.117709,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "DHX34",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.116214,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ZBTB49",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.175353,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "AP5S1",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.164089,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PEX16",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.128972,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "APOBEC3F",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.127764,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "TXNDC5",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.12172,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "IFNGR1",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.11792,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "WDR54",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.117552,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "RTL8C",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.113369,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "TMEM87A",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.108512,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "NOP9",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.106001,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "MAP2K2",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.104645,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 18,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Approved Drug)"
+      },
+      {
+        "gene": "CEP350",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.103313,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "RREB1",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.102771,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "KDM5C",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.100075,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PACS1",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.099631,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      }
+    ]
+  },
+  "toward_Th1_Stim48hr": {
+    "transition": "toward_Th1_Stim48hr",
+    "target": "toward_Th1",
+    "condition": "Stim48hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5328836947832118,
+    "signed_cosine": 0.7473261939603977,
+    "residual_norm": 0.8461884942695644,
+    "lof_fraction": 0.2839650321658074,
+    "gof_fraction": 0.26296859057800065,
+    "neither_fraction": 0.4530663772561923,
+    "optimal_k": 4,
+    "n_knockdown_support": 793,
+    "n_activation_support": 1332,
+    "knockdown_recipe": [
+      {
+        "gene": "FBXO32",
+        "weight": 0.22994658583229685,
+        "rank": 1
+      },
+      {
+        "gene": "ICOS",
+        "weight": 0.17061794231082386,
+        "rank": 2
+      },
+      {
+        "gene": "KLHL6",
+        "weight": 0.16895498986418395,
+        "rank": 3
+      },
+      {
+        "gene": "RARA",
+        "weight": 0.1656044890370403,
+        "rank": 4
+      },
+      {
+        "gene": "ATG5",
+        "weight": 0.1527920999578986,
+        "rank": 5
+      },
+      {
+        "gene": "KIF5B",
+        "weight": 0.14604436420199607,
+        "rank": 6
+      },
+      {
+        "gene": "APPBP2",
+        "weight": 0.12988389870957617,
+        "rank": 7
+      },
+      {
+        "gene": "SNX4",
+        "weight": 0.12971001923055026,
+        "rank": 8
+      },
+      {
+        "gene": "RNF139",
+        "weight": 0.12757464165676405,
+        "rank": 9
+      },
+      {
+        "gene": "RPGR",
+        "weight": 0.12528787138183434,
+        "rank": 10
+      },
+      {
+        "gene": "BICD1",
+        "weight": 0.11996560586033322,
+        "rank": 11
+      },
+      {
+        "gene": "SNX5",
+        "weight": 0.11982398839718374,
+        "rank": 12
+      },
+      {
+        "gene": "SPAG4",
+        "weight": 0.11921305691714348,
+        "rank": 13
+      },
+      {
+        "gene": "ATG10",
+        "weight": 0.11879866391130357,
+        "rank": 14
+      },
+      {
+        "gene": "CISD3",
+        "weight": 0.11741103020522776,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "GBP5",
+        "weight": 0.14916776209028892,
+        "rank": 1
+      },
+      {
+        "gene": "ADD1",
+        "weight": 0.13558566574764952,
+        "rank": 2
+      },
+      {
+        "gene": "SAMD8",
+        "weight": 0.12259106627910966,
+        "rank": 3
+      },
+      {
+        "gene": "MYH9",
+        "weight": 0.12209654455565128,
+        "rank": 4
+      },
+      {
+        "gene": "ZFP36",
+        "weight": 0.12124760297678452,
+        "rank": 5
+      },
+      {
+        "gene": "ZNF213",
+        "weight": 0.12046070323794979,
+        "rank": 6
+      },
+      {
+        "gene": "RAP1GDS1",
+        "weight": 0.1170041634206462,
+        "rank": 7
+      },
+      {
+        "gene": "ALOX5",
+        "weight": 0.11168721191441114,
+        "rank": 8
+      },
+      {
+        "gene": "DNTTIP1",
+        "weight": 0.111182332066523,
+        "rank": 9
+      },
+      {
+        "gene": "ARHGEF2",
+        "weight": 0.10965697812752682,
+        "rank": 10
+      },
+      {
+        "gene": "PLCXD1",
+        "weight": 0.10708861160231144,
+        "rank": 11
+      },
+      {
+        "gene": "CEP20",
+        "weight": 0.10613590340714932,
+        "rank": 12
+      },
+      {
+        "gene": "SEC23IP",
+        "weight": 0.1046307791118988,
+        "rank": 13
+      },
+      {
+        "gene": "SFI1",
+        "weight": 0.1034538523426347,
+        "rank": 14
+      },
+      {
+        "gene": "QSOX1",
+        "weight": 0.1018432739526423,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "ATF7IP2",
+        "k": 1,
+        "cosine_at_k": 0.15637760039105536,
+        "marginal_gain": 0.15637760039105536
+      },
+      {
+        "gene": "FBXO32",
+        "k": 2,
+        "cosine_at_k": 0.19761532136687765,
+        "marginal_gain": 0.04123772097582229
+      },
+      {
+        "gene": "RARA",
+        "k": 3,
+        "cosine_at_k": 0.22632625938407822,
+        "marginal_gain": 0.028710938017200566
+      },
+      {
+        "gene": "HPS1",
+        "k": 4,
+        "cosine_at_k": 0.2519971393443652,
+        "marginal_gain": 0.02567087996028697
+      },
+      {
+        "gene": "KIF5B",
+        "k": 5,
+        "cosine_at_k": 0.265107409676224,
+        "marginal_gain": 0.013110270331858798
+      },
+      {
+        "gene": "GORASP2",
+        "k": 6,
+        "cosine_at_k": 0.27711653250954843,
+        "marginal_gain": 0.012009122833324448
+      },
+      {
+        "gene": "HEXIM1",
+        "k": 7,
+        "cosine_at_k": 0.28673135969034036,
+        "marginal_gain": 0.00961482718079193
+      },
+      {
+        "gene": "FKBP14",
+        "k": 8,
+        "cosine_at_k": 0.2949133496770405,
+        "marginal_gain": 0.008181989986700167
+      },
+      {
+        "gene": "KLHL6",
+        "k": 9,
+        "cosine_at_k": 0.30147312824148514,
+        "marginal_gain": 0.006559778564444618
+      },
+      {
+        "gene": "BICD1",
+        "k": 10,
+        "cosine_at_k": 0.3084514123032607,
+        "marginal_gain": 0.00697828406177553
+      },
+      {
+        "gene": "RBAK",
+        "k": 11,
+        "cosine_at_k": 0.31540186276563065,
+        "marginal_gain": 0.0069504504623699725
+      },
+      {
+        "gene": "PIGP",
+        "k": 12,
+        "cosine_at_k": 0.32104305157242674,
+        "marginal_gain": 0.005641188806796094
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.5329,
+      "realized_cosine": 0.2994,
+      "gap": 0.2335,
+      "heldout_z": 21.821,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": -0.0035,
+      "recipe_donor_covered_frac": 0.133,
+      "confidence_label": "medium",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 4,
+      "n_clinical_drug_knockdown": 3,
+      "n_SM_druggable_activation": 6,
+      "headline_modality_message": "48% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 3/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "FBXO32",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.229947,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ICOS",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.170618,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRi or antibody blockade (surface; 4 drugs)"
+      },
+      {
+        "gene": "KLHL6",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.168955,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "RARA",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.165604,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 11,
+        "delivery_call": "CRISPRi (SM inhibitor available: 11 drugs)"
+      },
+      {
+        "gene": "ATG5",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.152792,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "KIF5B",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.146044,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 2,
+        "delivery_call": "CRISPRi (SM inhibitor available: 2 drugs)"
+      },
+      {
+        "gene": "APPBP2",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.129884,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "SNX4",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.12971,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "RNF139",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.127575,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "RPGR",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.125288,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "BICD1",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.119966,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "SNX5",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.119824,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "SPAG4",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.119213,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ATG10",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.118799,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CISD3",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.117411,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "GBP5",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.149168,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ADD1",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.135586,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SAMD8",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.122591,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "MYH9",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.122097,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZFP36",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.121248,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF213",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.120461,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "RAP1GDS1",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.117004,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ALOX5",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.111687,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 11,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Approved Drug)"
+      },
+      {
+        "gene": "DNTTIP1",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.111182,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ARHGEF2",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.109657,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PLCXD1",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.107089,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CEP20",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.106136,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SEC23IP",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.104631,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SFI1",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.103454,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "QSOX1",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.101843,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      }
+    ]
+  },
+  "toward_Th2_Rest": {
+    "transition": "toward_Th2_Rest",
+    "target": "toward_Th2",
+    "condition": "Rest",
+    "verdict": "partially reachable",
+    "reachable_cosine": 0.6428176245552623,
+    "signed_cosine": 0.8080498130238551,
+    "residual_norm": 0.7660192566516392,
+    "lof_fraction": 0.41321449843887026,
+    "gof_fraction": 0.23492074964790557,
+    "neither_fraction": 0.3518647519132245,
+    "optimal_k": 4,
+    "n_knockdown_support": 786,
+    "n_activation_support": 1308,
+    "knockdown_recipe": [
+      {
+        "gene": "MAPK14",
+        "weight": 0.2071924677093181,
+        "rank": 1
+      },
+      {
+        "gene": "IRF1",
+        "weight": 0.17967614629791812,
+        "rank": 2
+      },
+      {
+        "gene": "WWP2",
+        "weight": 0.17252483025496076,
+        "rank": 3
+      },
+      {
+        "gene": "ILVBL",
+        "weight": 0.16645312994455325,
+        "rank": 4
+      },
+      {
+        "gene": "SIN3A",
+        "weight": 0.1573305107698836,
+        "rank": 5
+      },
+      {
+        "gene": "DENND10",
+        "weight": 0.1461301773538168,
+        "rank": 6
+      },
+      {
+        "gene": "GALK1",
+        "weight": 0.13876143173282057,
+        "rank": 7
+      },
+      {
+        "gene": "PPP5C",
+        "weight": 0.13543270953322104,
+        "rank": 8
+      },
+      {
+        "gene": "EHMT2",
+        "weight": 0.13199230666782866,
+        "rank": 9
+      },
+      {
+        "gene": "TTC17",
+        "weight": 0.12527565582832217,
+        "rank": 10
+      },
+      {
+        "gene": "ATN1",
+        "weight": 0.12370514242513815,
+        "rank": 11
+      },
+      {
+        "gene": "QKI",
+        "weight": 0.1234050925659111,
+        "rank": 12
+      },
+      {
+        "gene": "JAML",
+        "weight": 0.12118678191696808,
+        "rank": 13
+      },
+      {
+        "gene": "PACS1",
+        "weight": 0.11988319335002384,
+        "rank": 14
+      },
+      {
+        "gene": "ITPR3",
+        "weight": 0.11972041565701123,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "ADCK2",
+        "weight": 0.14074099253487882,
+        "rank": 1
+      },
+      {
+        "gene": "ICOS",
+        "weight": 0.13990898314816297,
+        "rank": 2
+      },
+      {
+        "gene": "CCND3",
+        "weight": 0.1255912077819684,
+        "rank": 3
+      },
+      {
+        "gene": "ZBTB22",
+        "weight": 0.12418049354784341,
+        "rank": 4
+      },
+      {
+        "gene": "C2CD5",
+        "weight": 0.11754237252878168,
+        "rank": 5
+      },
+      {
+        "gene": "XAF1",
+        "weight": 0.11672669441119243,
+        "rank": 6
+      },
+      {
+        "gene": "PLIN3",
+        "weight": 0.11239134341688307,
+        "rank": 7
+      },
+      {
+        "gene": "ZNF627",
+        "weight": 0.11035686040633053,
+        "rank": 8
+      },
+      {
+        "gene": "IFNAR1",
+        "weight": 0.10922637945577439,
+        "rank": 9
+      },
+      {
+        "gene": "CASP2",
+        "weight": 0.10520485034209079,
+        "rank": 10
+      },
+      {
+        "gene": "TBC1D2B",
+        "weight": 0.10454424259451685,
+        "rank": 11
+      },
+      {
+        "gene": "HMGN5",
+        "weight": 0.1021601564686416,
+        "rank": 12
+      },
+      {
+        "gene": "DAP",
+        "weight": 0.09693356663878935,
+        "rank": 13
+      },
+      {
+        "gene": "EVI2B",
+        "weight": 0.09655847581854583,
+        "rank": 14
+      },
+      {
+        "gene": "DGUOK",
+        "weight": 0.09356694697575813,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "IRF1",
+        "k": 1,
+        "cosine_at_k": 0.17468660645418566,
+        "marginal_gain": 0.17468660645418566
+      },
+      {
+        "gene": "RSBN1L",
+        "k": 2,
+        "cosine_at_k": 0.2641649001757305,
+        "marginal_gain": 0.08947829372154487
+      },
+      {
+        "gene": "DENND4B",
+        "k": 3,
+        "cosine_at_k": 0.29479653251402854,
+        "marginal_gain": 0.03063163233829802
+      },
+      {
+        "gene": "SFXN1",
+        "k": 4,
+        "cosine_at_k": 0.3216097372973446,
+        "marginal_gain": 0.026813204783316058
+      },
+      {
+        "gene": "SIN3A",
+        "k": 5,
+        "cosine_at_k": 0.3411501809668317,
+        "marginal_gain": 0.019540443669487095
+      },
+      {
+        "gene": "UBE2V2",
+        "k": 6,
+        "cosine_at_k": 0.3597110930309154,
+        "marginal_gain": 0.018560912064083723
+      },
+      {
+        "gene": "UBAP2L",
+        "k": 7,
+        "cosine_at_k": 0.3734217014755425,
+        "marginal_gain": 0.01371060844462707
+      },
+      {
+        "gene": "BCAP29",
+        "k": 8,
+        "cosine_at_k": 0.3868185386872476,
+        "marginal_gain": 0.013396837211705093
+      },
+      {
+        "gene": "TESC",
+        "k": 9,
+        "cosine_at_k": 0.39783172614368056,
+        "marginal_gain": 0.011013187456432982
+      },
+      {
+        "gene": "TTC17",
+        "k": 10,
+        "cosine_at_k": 0.4081997160268137,
+        "marginal_gain": 0.010367989883133144
+      },
+      {
+        "gene": "JAML",
+        "k": 11,
+        "cosine_at_k": 0.4164303892474889,
+        "marginal_gain": 0.008230673220675166
+      },
+      {
+        "gene": "IRF9",
+        "k": 12,
+        "cosine_at_k": 0.42415834112039164,
+        "marginal_gain": 0.007727951872902761
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.6428,
+      "realized_cosine": 0.4584,
+      "gap": 0.1845,
+      "heldout_z": 20.868,
+      "boot_reach_cos_lo": 0.6449,
+      "boot_reach_cos_hi": 0.6636,
+      "recipe_donor_repro_weight": 0.2106,
+      "recipe_donor_covered_frac": 0.267,
+      "confidence_label": "high",
+      "boot_reach_cos_mean": 0.6539
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 6,
+      "n_clinical_drug_knockdown": 2,
+      "n_SM_druggable_activation": 5,
+      "headline_modality_message": "36% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 2/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "MAPK14",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.207192,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 28,
+        "delivery_call": "CRISPRi (SM inhibitor available: 28 drugs)"
+      },
+      {
+        "gene": "IRF1",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.179676,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "WWP2",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.172525,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ILVBL",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.166453,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "SIN3A",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.157331,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "DENND10",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.14613,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "GALK1",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.138761,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PPP5C",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.135433,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRi (SM inhibitor available: 1 drugs)"
+      },
+      {
+        "gene": "EHMT2",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.131992,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "TTC17",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.125276,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "ATN1",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.123705,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "QKI",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.123405,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "JAML",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.121187,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "PACS1",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.119883,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ITPR3",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.11972,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ADCK2",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.140741,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ICOS",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.139909,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CCND3",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.125591,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ZBTB22",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.12418,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "C2CD5",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.117542,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "XAF1",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.116727,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PLIN3",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.112391,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF627",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.110357,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "IFNAR1",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.109226,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 12,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CASP2",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.105205,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Advanced Clinical)"
+      },
+      {
+        "gene": "TBC1D2B",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.104544,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "HMGN5",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.10216,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "DAP",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.096934,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "EVI2B",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.096558,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "DGUOK",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.093567,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      }
+    ]
+  },
+  "toward_Th2_Stim8hr": {
+    "transition": "toward_Th2_Stim8hr",
+    "target": "toward_Th2",
+    "condition": "Stim8hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5369907235618406,
+    "signed_cosine": 0.7410980450278245,
+    "residual_norm": 0.8435881476221264,
+    "lof_fraction": 0.2883590371914694,
+    "gof_fraction": 0.24933828513054748,
+    "neither_fraction": 0.4623026776779834,
+    "optimal_k": 5,
+    "n_knockdown_support": 760,
+    "n_activation_support": 1252,
+    "knockdown_recipe": [
+      {
+        "gene": "IFNGR1",
+        "weight": 0.21799860030573925,
+        "rank": 1
+      },
+      {
+        "gene": "ZBTB49",
+        "weight": 0.17059837409135348,
+        "rank": 2
+      },
+      {
+        "gene": "DZIP1",
+        "weight": 0.1388602907762569,
+        "rank": 3
+      },
+      {
+        "gene": "GGA1",
+        "weight": 0.13415641742569623,
+        "rank": 4
+      },
+      {
+        "gene": "PACS1",
+        "weight": 0.12951837699449822,
+        "rank": 5
+      },
+      {
+        "gene": "DENND4B",
+        "weight": 0.12947624390368895,
+        "rank": 6
+      },
+      {
+        "gene": "BMAL1",
+        "weight": 0.12929376604104975,
+        "rank": 7
+      },
+      {
+        "gene": "JAK2",
+        "weight": 0.12915835044533705,
+        "rank": 8
+      },
+      {
+        "gene": "TXNDC5",
+        "weight": 0.12338498250886089,
+        "rank": 9
+      },
+      {
+        "gene": "DPYD",
+        "weight": 0.12132789458793959,
+        "rank": 10
+      },
+      {
+        "gene": "ZW10",
+        "weight": 0.11919263602200415,
+        "rank": 11
+      },
+      {
+        "gene": "ENOX2",
+        "weight": 0.11797985310482564,
+        "rank": 12
+      },
+      {
+        "gene": "DNTTIP1",
+        "weight": 0.11689977290241042,
+        "rank": 13
+      },
+      {
+        "gene": "TRAF1",
+        "weight": 0.11683659750806813,
+        "rank": 14
+      },
+      {
+        "gene": "TMEM87A",
+        "weight": 0.11641114100397103,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "AMPD3",
+        "weight": 0.12670459953150723,
+        "rank": 1
+      },
+      {
+        "gene": "SEPTIN2",
+        "weight": 0.12645098263221183,
+        "rank": 2
+      },
+      {
+        "gene": "BST2",
+        "weight": 0.11963859616401562,
+        "rank": 3
+      },
+      {
+        "gene": "MAGEH1",
+        "weight": 0.11823806988240822,
+        "rank": 4
+      },
+      {
+        "gene": "MAL",
+        "weight": 0.11514195858245019,
+        "rank": 5
+      },
+      {
+        "gene": "INF2",
+        "weight": 0.11509130238571104,
+        "rank": 6
+      },
+      {
+        "gene": "TMEM184C",
+        "weight": 0.11259390886011135,
+        "rank": 7
+      },
+      {
+        "gene": "CHRAC1",
+        "weight": 0.10779645527873269,
+        "rank": 8
+      },
+      {
+        "gene": "ZBTB22",
+        "weight": 0.10492392225914683,
+        "rank": 9
+      },
+      {
+        "gene": "SCAMP1",
+        "weight": 0.10461841935127494,
+        "rank": 10
+      },
+      {
+        "gene": "PARP12",
+        "weight": 0.10443614204851699,
+        "rank": 11
+      },
+      {
+        "gene": "ZDHHC18",
+        "weight": 0.1043352204204625,
+        "rank": 12
+      },
+      {
+        "gene": "CCNYL1",
+        "weight": 0.10239814797371864,
+        "rank": 13
+      },
+      {
+        "gene": "HERC1",
+        "weight": 0.10061242907675991,
+        "rank": 14
+      },
+      {
+        "gene": "CMTM7",
+        "weight": 0.10009076131780345,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "DENND4B",
+        "k": 1,
+        "cosine_at_k": 0.13949841384214207,
+        "marginal_gain": 0.13949841384214207
+      },
+      {
+        "gene": "JAK2",
+        "k": 2,
+        "cosine_at_k": 0.1753363038380392,
+        "marginal_gain": 0.035837889995897126
+      },
+      {
+        "gene": "IL7R",
+        "k": 3,
+        "cosine_at_k": 0.2025027348986686,
+        "marginal_gain": 0.02716643106062941
+      },
+      {
+        "gene": "IRF9",
+        "k": 4,
+        "cosine_at_k": 0.22522380048729967,
+        "marginal_gain": 0.022721065588631073
+      },
+      {
+        "gene": "MAPK14",
+        "k": 5,
+        "cosine_at_k": 0.24165578114637332,
+        "marginal_gain": 0.01643198065907364
+      },
+      {
+        "gene": "CASP7",
+        "k": 6,
+        "cosine_at_k": 0.25649292361517745,
+        "marginal_gain": 0.014837142468804132
+      },
+      {
+        "gene": "IFNGR1",
+        "k": 7,
+        "cosine_at_k": 0.27048152256123004,
+        "marginal_gain": 0.013988598946052588
+      },
+      {
+        "gene": "TET2",
+        "k": 8,
+        "cosine_at_k": 0.282050935980659,
+        "marginal_gain": 0.011569413419428964
+      },
+      {
+        "gene": "TXNDC5",
+        "k": 9,
+        "cosine_at_k": 0.2917911282787764,
+        "marginal_gain": 0.0097401922981174
+      },
+      {
+        "gene": "MED24",
+        "k": 10,
+        "cosine_at_k": 0.3006841164259844,
+        "marginal_gain": 0.008892988147208014
+      },
+      {
+        "gene": "SAP30",
+        "k": 11,
+        "cosine_at_k": 0.3094896962984282,
+        "marginal_gain": 0.008805579872443792
+      },
+      {
+        "gene": "BMAL1",
+        "k": 12,
+        "cosine_at_k": 0.3156769354017251,
+        "marginal_gain": 0.006187239103296882
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.537,
+      "realized_cosine": 0.3038,
+      "gap": 0.2332,
+      "heldout_z": 20.39,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.1498,
+      "recipe_donor_covered_frac": 0.267,
+      "confidence_label": "medium",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 6,
+      "n_clinical_drug_knockdown": 2,
+      "n_SM_druggable_activation": 5,
+      "headline_modality_message": "46% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 2/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "IFNGR1",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.217999,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRi (SM inhibitor available: 1 drugs)"
+      },
+      {
+        "gene": "ZBTB49",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.170598,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "DZIP1",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.13886,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "GGA1",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.134156,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PACS1",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.129518,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "DENND4B",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.129476,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "BMAL1",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.129294,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "JAK2",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.129158,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 31,
+        "delivery_call": "CRISPRi (SM inhibitor available: 31 drugs)"
+      },
+      {
+        "gene": "TXNDC5",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.123385,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "DPYD",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.121328,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 2,
+        "delivery_call": "CRISPRi (SM inhibitor available: 2 drugs)"
+      },
+      {
+        "gene": "ZW10",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.119193,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "ENOX2",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.11798,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "DNTTIP1",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.1169,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TRAF1",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.116837,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TMEM87A",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.116411,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "AMPD3",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.126705,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SEPTIN2",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.126451,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "BST2",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.119639,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "MAGEH1",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.118238,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "MAL",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.115142,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "INF2",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.115091,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "TMEM184C",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.112594,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CHRAC1",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.107796,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZBTB22",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.104924,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SCAMP1",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.104618,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PARP12",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.104436,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ZDHHC18",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.104335,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CCNYL1",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.102398,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "HERC1",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.100612,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CMTM7",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.100091,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      }
+    ]
+  },
+  "toward_Th2_Stim48hr": {
+    "transition": "toward_Th2_Stim48hr",
+    "target": "toward_Th2",
+    "condition": "Stim48hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5299676411768143,
+    "signed_cosine": 0.7430418350516554,
+    "residual_norm": 0.8480178649683526,
+    "lof_fraction": 0.2808657006945165,
+    "gof_fraction": 0.2607190321747688,
+    "neither_fraction": 0.45841526713071473,
+    "optimal_k": 4,
+    "n_knockdown_support": 797,
+    "n_activation_support": 1264,
+    "knockdown_recipe": [
+      {
+        "gene": "IRF1",
+        "weight": 0.23390366564042442,
+        "rank": 1
+      },
+      {
+        "gene": "TMSB15B",
+        "weight": 0.1808251991046751,
+        "rank": 2
+      },
+      {
+        "gene": "GFI1",
+        "weight": 0.1652653433255394,
+        "rank": 3
+      },
+      {
+        "gene": "GBP5",
+        "weight": 0.16247047363744618,
+        "rank": 4
+      },
+      {
+        "gene": "DNTTIP1",
+        "weight": 0.16141156362416212,
+        "rank": 5
+      },
+      {
+        "gene": "TAFAZZIN",
+        "weight": 0.1576695354366349,
+        "rank": 6
+      },
+      {
+        "gene": "SERPINB1",
+        "weight": 0.15100587940204346,
+        "rank": 7
+      },
+      {
+        "gene": "MAP3K10",
+        "weight": 0.14085341141863236,
+        "rank": 8
+      },
+      {
+        "gene": "IRF9",
+        "weight": 0.13647692135238537,
+        "rank": 9
+      },
+      {
+        "gene": "ZNF213",
+        "weight": 0.13343701870540547,
+        "rank": 10
+      },
+      {
+        "gene": "HELZ2",
+        "weight": 0.12613103716640783,
+        "rank": 11
+      },
+      {
+        "gene": "SEC23IP",
+        "weight": 0.1255298499395241,
+        "rank": 12
+      },
+      {
+        "gene": "VKORC1",
+        "weight": 0.12469370771021421,
+        "rank": 13
+      },
+      {
+        "gene": "SAMD8",
+        "weight": 0.12295620320914324,
+        "rank": 14
+      },
+      {
+        "gene": "CBFA2T2",
+        "weight": 0.12127303034333657,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "FBXO32",
+        "weight": 0.18250383725840996,
+        "rank": 1
+      },
+      {
+        "gene": "AMPD3",
+        "weight": 0.11945738594309699,
+        "rank": 2
+      },
+      {
+        "gene": "ATG5",
+        "weight": 0.11930510155004324,
+        "rank": 3
+      },
+      {
+        "gene": "ICOS",
+        "weight": 0.11925806595758877,
+        "rank": 4
+      },
+      {
+        "gene": "YWHAQ",
+        "weight": 0.11885300260384993,
+        "rank": 5
+      },
+      {
+        "gene": "RNF139",
+        "weight": 0.11279602827649313,
+        "rank": 6
+      },
+      {
+        "gene": "KIF5B",
+        "weight": 0.11190574112906806,
+        "rank": 7
+      },
+      {
+        "gene": "LIMA1",
+        "weight": 0.11126417448457661,
+        "rank": 8
+      },
+      {
+        "gene": "SNX5",
+        "weight": 0.10917650854594271,
+        "rank": 9
+      },
+      {
+        "gene": "ZNF638",
+        "weight": 0.10915510555164702,
+        "rank": 10
+      },
+      {
+        "gene": "WASHC4",
+        "weight": 0.10879892795064672,
+        "rank": 11
+      },
+      {
+        "gene": "SPAG4",
+        "weight": 0.10790648137852778,
+        "rank": 12
+      },
+      {
+        "gene": "NME6",
+        "weight": 0.10697272195312954,
+        "rank": 13
+      },
+      {
+        "gene": "PRNP",
+        "weight": 0.10678342941683837,
+        "rank": 14
+      },
+      {
+        "gene": "PARD6B",
+        "weight": 0.10656796415334523,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "RSBN1L",
+        "k": 1,
+        "cosine_at_k": 0.1376487686898797,
+        "marginal_gain": 0.1376487686898797
+      },
+      {
+        "gene": "TMSB15B",
+        "k": 2,
+        "cosine_at_k": 0.18745479036947,
+        "marginal_gain": 0.04980602167959028
+      },
+      {
+        "gene": "IRF1",
+        "k": 3,
+        "cosine_at_k": 0.21641285671109772,
+        "marginal_gain": 0.02895806634162773
+      },
+      {
+        "gene": "TAFAZZIN",
+        "k": 4,
+        "cosine_at_k": 0.2457455314719472,
+        "marginal_gain": 0.02933267476084947
+      },
+      {
+        "gene": "ENTPD7",
+        "k": 5,
+        "cosine_at_k": 0.2605903781040955,
+        "marginal_gain": 0.014844846632148329
+      },
+      {
+        "gene": "IRF9",
+        "k": 6,
+        "cosine_at_k": 0.27208297319528923,
+        "marginal_gain": 0.011492595091193714
+      },
+      {
+        "gene": "SERPINB1",
+        "k": 7,
+        "cosine_at_k": 0.283926455028811,
+        "marginal_gain": 0.01184348183352174
+      },
+      {
+        "gene": "UFM1",
+        "k": 8,
+        "cosine_at_k": 0.29279097765609197,
+        "marginal_gain": 0.00886452262728099
+      },
+      {
+        "gene": "TSNARE1",
+        "k": 9,
+        "cosine_at_k": 0.30021646977507627,
+        "marginal_gain": 0.0074254921189843
+      },
+      {
+        "gene": "VKORC1",
+        "k": 10,
+        "cosine_at_k": 0.30809042282156085,
+        "marginal_gain": 0.007873953046484583
+      },
+      {
+        "gene": "MAPK14",
+        "k": 11,
+        "cosine_at_k": 0.3148696052882735,
+        "marginal_gain": 0.006779182466712663
+      },
+      {
+        "gene": "ZW10",
+        "k": 12,
+        "cosine_at_k": 0.3217542884173267,
+        "marginal_gain": 0.00688468312905316
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.53,
+      "realized_cosine": 0.2586,
+      "gap": 0.2714,
+      "heldout_z": 12.565,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.1591,
+      "recipe_donor_covered_frac": 0.2,
+      "confidence_label": "medium",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 4,
+      "n_clinical_drug_knockdown": 2,
+      "n_SM_druggable_activation": 3,
+      "headline_modality_message": "48% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 2/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "IRF1",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.233904,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TMSB15B",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.180825,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "GFI1",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.165265,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "GBP5",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.16247,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "DNTTIP1",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.161412,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TAFAZZIN",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.15767,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "SERPINB1",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.151006,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "MAP3K10",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.140853,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRi (SM inhibitor available: 1 drugs)"
+      },
+      {
+        "gene": "IRF9",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.136477,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ZNF213",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.133437,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "HELZ2",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.126131,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "SEC23IP",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.12553,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "VKORC1",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.124694,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 7,
+        "delivery_call": "CRISPRi (SM inhibitor available: 7 drugs)"
+      },
+      {
+        "gene": "SAMD8",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.122956,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CBFA2T2",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.121273,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FBXO32",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.182504,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "AMPD3",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.119457,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ATG5",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.119305,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ICOS",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.119258,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "YWHAQ",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.118853,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: High-Quality Pocket)"
+      },
+      {
+        "gene": "RNF139",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.112796,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "KIF5B",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.111906,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 2,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Approved Drug)"
+      },
+      {
+        "gene": "LIMA1",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.111264,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SNX5",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.109177,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF638",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.109155,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "WASHC4",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.108799,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SPAG4",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.107906,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "NME6",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.106973,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PRNP",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.106783,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PARD6B",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.106568,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      }
+    ]
+  },
+  "toward_younger_Rest": {
+    "transition": "toward_younger_Rest",
+    "target": "toward_younger",
+    "condition": "Rest",
+    "verdict": "partially reachable",
+    "reachable_cosine": 0.6261701403110038,
+    "signed_cosine": 0.7854455099410743,
+    "residual_norm": 0.7796864468380208,
+    "lof_fraction": 0.39208904461710214,
+    "gof_fraction": 0.21792202863541787,
+    "neither_fraction": 0.3899889267474799,
+    "optimal_k": 4,
+    "n_knockdown_support": 764,
+    "n_activation_support": 1201,
+    "knockdown_recipe": [
+      {
+        "gene": "COPS7B",
+        "weight": 0.0949856964215958,
+        "rank": 1
+      },
+      {
+        "gene": "CCND3",
+        "weight": 0.09382892783702824,
+        "rank": 2
+      },
+      {
+        "gene": "SEPTIN7",
+        "weight": 0.088232551299152,
+        "rank": 3
+      },
+      {
+        "gene": "CLINT1",
+        "weight": 0.08631306048039396,
+        "rank": 4
+      },
+      {
+        "gene": "HSPA1L",
+        "weight": 0.08616236392441678,
+        "rank": 5
+      },
+      {
+        "gene": "PBK",
+        "weight": 0.08421338199884532,
+        "rank": 6
+      },
+      {
+        "gene": "AGL",
+        "weight": 0.0826151184509566,
+        "rank": 7
+      },
+      {
+        "gene": "UHRF2",
+        "weight": 0.08248246232001312,
+        "rank": 8
+      },
+      {
+        "gene": "CREBRF",
+        "weight": 0.08180728909624164,
+        "rank": 9
+      },
+      {
+        "gene": "LMNB2",
+        "weight": 0.08136724647319357,
+        "rank": 10
+      },
+      {
+        "gene": "FBXO32",
+        "weight": 0.07740679946696877,
+        "rank": 11
+      },
+      {
+        "gene": "IL10RB",
+        "weight": 0.07166434423321817,
+        "rank": 12
+      },
+      {
+        "gene": "CAMK1",
+        "weight": 0.0695248449530678,
+        "rank": 13
+      },
+      {
+        "gene": "CCDC150",
+        "weight": 0.06930749119744739,
+        "rank": 14
+      },
+      {
+        "gene": "ECHS1",
+        "weight": 0.06879136072556928,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "TYW5",
+        "weight": 0.08295433170761109,
+        "rank": 1
+      },
+      {
+        "gene": "AGAP3",
+        "weight": 0.08099851818218164,
+        "rank": 2
+      },
+      {
+        "gene": "ZNF544",
+        "weight": 0.08078739510590038,
+        "rank": 3
+      },
+      {
+        "gene": "NAA80",
+        "weight": 0.07676344019484549,
+        "rank": 4
+      },
+      {
+        "gene": "PDE4B",
+        "weight": 0.06899604169394494,
+        "rank": 5
+      },
+      {
+        "gene": "PRPF38B",
+        "weight": 0.06723422866901047,
+        "rank": 6
+      },
+      {
+        "gene": "ACACA",
+        "weight": 0.06568621333798316,
+        "rank": 7
+      },
+      {
+        "gene": "SEC23IP",
+        "weight": 0.06474376868109634,
+        "rank": 8
+      },
+      {
+        "gene": "SAC3D1",
+        "weight": 0.0645542546888815,
+        "rank": 9
+      },
+      {
+        "gene": "STRADB",
+        "weight": 0.06442858392828832,
+        "rank": 10
+      },
+      {
+        "gene": "CDC14A",
+        "weight": 0.06260014173793288,
+        "rank": 11
+      },
+      {
+        "gene": "UBE2D2",
+        "weight": 0.06252674134362424,
+        "rank": 12
+      },
+      {
+        "gene": "SLC7A6",
+        "weight": 0.06235585862058635,
+        "rank": 13
+      },
+      {
+        "gene": "MOSPD2",
+        "weight": 0.06180281404837212,
+        "rank": 14
+      },
+      {
+        "gene": "BOLA1",
+        "weight": 0.060114532201761085,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "FAM98A",
+        "k": 1,
+        "cosine_at_k": 0.18715310081309683,
+        "marginal_gain": 0.18715310081309683
+      },
+      {
+        "gene": "DEPDC5",
+        "k": 2,
+        "cosine_at_k": 0.26415876311837827,
+        "marginal_gain": 0.07700566230528144
+      },
+      {
+        "gene": "NFAT5",
+        "k": 3,
+        "cosine_at_k": 0.30365826166110843,
+        "marginal_gain": 0.03949949854273016
+      },
+      {
+        "gene": "COIL",
+        "k": 4,
+        "cosine_at_k": 0.32869562581217704,
+        "marginal_gain": 0.02503736415106861
+      },
+      {
+        "gene": "SESN2",
+        "k": 5,
+        "cosine_at_k": 0.34492626193948145,
+        "marginal_gain": 0.01623063612730441
+      },
+      {
+        "gene": "ABHD3",
+        "k": 6,
+        "cosine_at_k": 0.3594508396281716,
+        "marginal_gain": 0.014524577688690143
+      },
+      {
+        "gene": "CHMP2B",
+        "k": 7,
+        "cosine_at_k": 0.37028116608923795,
+        "marginal_gain": 0.010830326461066353
+      },
+      {
+        "gene": "RGS1",
+        "k": 8,
+        "cosine_at_k": 0.38138985970966677,
+        "marginal_gain": 0.011108693620428822
+      },
+      {
+        "gene": "PAN2",
+        "k": 9,
+        "cosine_at_k": 0.3905779980213958,
+        "marginal_gain": 0.009188138311729044
+      },
+      {
+        "gene": "MLLT11",
+        "k": 10,
+        "cosine_at_k": 0.39864497111346886,
+        "marginal_gain": 0.008066973092073049
+      },
+      {
+        "gene": "HSPA1L",
+        "k": 11,
+        "cosine_at_k": 0.4063857001366082,
+        "marginal_gain": 0.0077407290231393255
+      },
+      {
+        "gene": "PPM1B",
+        "k": 12,
+        "cosine_at_k": 0.41312232670788446,
+        "marginal_gain": 0.006736626571276272
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.6262,
+      "realized_cosine": 0.4008,
+      "gap": 0.2253,
+      "heldout_z": 9.024,
+      "boot_reach_cos_lo": 0.6292,
+      "boot_reach_cos_hi": 0.6423,
+      "recipe_donor_repro_weight": 0.0756,
+      "recipe_donor_covered_frac": 0.2,
+      "confidence_label": "low",
+      "boot_reach_cos_mean": 0.6365
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 6,
+      "n_clinical_drug_knockdown": 0,
+      "n_SM_druggable_activation": 4,
+      "headline_modality_message": "36% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 0/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "COPS7B",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.094986,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CCND3",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.093829,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "SEPTIN7",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.088233,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CLINT1",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.086313,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "HSPA1L",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.086162,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PBK",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.084213,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "AGL",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.082615,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "UHRF2",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.082482,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CREBRF",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.081807,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "LMNB2",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.081367,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FBXO32",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.077407,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "IL10RB",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.071664,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 3,
+        "delivery_call": "CRISPRi or antibody blockade (surface; 3 drugs)"
+      },
+      {
+        "gene": "CAMK1",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.069525,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CCDC150",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.069307,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ECHS1",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.068791,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "TYW5",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.082954,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "AGAP3",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.080999,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF544",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.080787,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "NAA80",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.076763,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PDE4B",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.068996,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 28,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Approved Drug)"
+      },
+      {
+        "gene": "PRPF38B",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.067234,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ACACA",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.065686,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Advanced Clinical)"
+      },
+      {
+        "gene": "SEC23IP",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.064744,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SAC3D1",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.064554,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "STRADB",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.064429,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CDC14A",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.0626,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "UBE2D2",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.062527,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SLC7A6",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.062356,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "MOSPD2",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.061803,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "BOLA1",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.060115,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      }
+    ]
+  },
+  "toward_younger_Stim8hr": {
+    "transition": "toward_younger_Stim8hr",
+    "target": "toward_younger",
+    "condition": "Stim8hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5884804039690821,
+    "signed_cosine": 0.7632725895954856,
+    "residual_norm": 0.8085114805272622,
+    "lof_fraction": 0.34630918585561393,
+    "gof_fraction": 0.22789607918603988,
+    "neither_fraction": 0.42579473495834586,
+    "optimal_k": 4,
+    "n_knockdown_support": 813,
+    "n_activation_support": 1202,
+    "knockdown_recipe": [
+      {
+        "gene": "KLF3",
+        "weight": 0.11153474183536578,
+        "rank": 1
+      },
+      {
+        "gene": "VANGL1",
+        "weight": 0.08574931352288033,
+        "rank": 2
+      },
+      {
+        "gene": "CAMK1",
+        "weight": 0.07699963629800523,
+        "rank": 3
+      },
+      {
+        "gene": "JMJD4",
+        "weight": 0.07394032712397071,
+        "rank": 4
+      },
+      {
+        "gene": "VCPKMT",
+        "weight": 0.073030205054915,
+        "rank": 5
+      },
+      {
+        "gene": "PAN3",
+        "weight": 0.07284852894663976,
+        "rank": 6
+      },
+      {
+        "gene": "FBXO8",
+        "weight": 0.0704058334959624,
+        "rank": 7
+      },
+      {
+        "gene": "CWC27",
+        "weight": 0.06970482735887788,
+        "rank": 8
+      },
+      {
+        "gene": "ZNF260",
+        "weight": 0.0696731385711581,
+        "rank": 9
+      },
+      {
+        "gene": "ZNF224",
+        "weight": 0.06704868284488945,
+        "rank": 10
+      },
+      {
+        "gene": "TTC13",
+        "weight": 0.0641064943197343,
+        "rank": 11
+      },
+      {
+        "gene": "IL16",
+        "weight": 0.06358149352895608,
+        "rank": 12
+      },
+      {
+        "gene": "ADPRH",
+        "weight": 0.0628346736022025,
+        "rank": 13
+      },
+      {
+        "gene": "STRIP1",
+        "weight": 0.06252076568504815,
+        "rank": 14
+      },
+      {
+        "gene": "FERMT3",
+        "weight": 0.0614155826607086,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "C3orf38",
+        "weight": 0.08385583286705578,
+        "rank": 1
+      },
+      {
+        "gene": "SNRNP40",
+        "weight": 0.06425384018182188,
+        "rank": 2
+      },
+      {
+        "gene": "ABRAXAS1",
+        "weight": 0.06181331789109938,
+        "rank": 3
+      },
+      {
+        "gene": "AMER1",
+        "weight": 0.06175809480165461,
+        "rank": 4
+      },
+      {
+        "gene": "CD320",
+        "weight": 0.06147550738464549,
+        "rank": 5
+      },
+      {
+        "gene": "SBF1",
+        "weight": 0.06062631456457297,
+        "rank": 6
+      },
+      {
+        "gene": "CALM1",
+        "weight": 0.06016462803222573,
+        "rank": 7
+      },
+      {
+        "gene": "RNF144A",
+        "weight": 0.05967689555353018,
+        "rank": 8
+      },
+      {
+        "gene": "USP12",
+        "weight": 0.059141756369053396,
+        "rank": 9
+      },
+      {
+        "gene": "PRNP",
+        "weight": 0.058776600646833245,
+        "rank": 10
+      },
+      {
+        "gene": "ZNF579",
+        "weight": 0.05822952782042488,
+        "rank": 11
+      },
+      {
+        "gene": "GPR108",
+        "weight": 0.057616374093953704,
+        "rank": 12
+      },
+      {
+        "gene": "R3HDM4",
+        "weight": 0.056249606988393375,
+        "rank": 13
+      },
+      {
+        "gene": "SLC25A12",
+        "weight": 0.0560160904467427,
+        "rank": 14
+      },
+      {
+        "gene": "TTC32",
+        "weight": 0.0545079800499087,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "TRIT1",
+        "k": 1,
+        "cosine_at_k": 0.20326547363457192,
+        "marginal_gain": 0.20326547363457192
+      },
+      {
+        "gene": "HVCN1",
+        "k": 2,
+        "cosine_at_k": 0.2538631625964634,
+        "marginal_gain": 0.050597688961891485
+      },
+      {
+        "gene": "PAN3",
+        "k": 3,
+        "cosine_at_k": 0.28103380205532436,
+        "marginal_gain": 0.027170639458860946
+      },
+      {
+        "gene": "ALKBH1",
+        "k": 4,
+        "cosine_at_k": 0.30672255651467817,
+        "marginal_gain": 0.025688754459353813
+      },
+      {
+        "gene": "RELA",
+        "k": 5,
+        "cosine_at_k": 0.3231298531839261,
+        "marginal_gain": 0.01640729666924795
+      },
+      {
+        "gene": "VANGL1",
+        "k": 6,
+        "cosine_at_k": 0.3372536117239715,
+        "marginal_gain": 0.014123758540045384
+      },
+      {
+        "gene": "CENPB",
+        "k": 7,
+        "cosine_at_k": 0.3477566131839354,
+        "marginal_gain": 0.010503001459963912
+      },
+      {
+        "gene": "STK17A",
+        "k": 8,
+        "cosine_at_k": 0.35847172361392937,
+        "marginal_gain": 0.010715110429993957
+      },
+      {
+        "gene": "UBL4A",
+        "k": 9,
+        "cosine_at_k": 0.36733288469740555,
+        "marginal_gain": 0.008861161083476177
+      },
+      {
+        "gene": "BID",
+        "k": 10,
+        "cosine_at_k": 0.37417877515034564,
+        "marginal_gain": 0.0068458904529400955
+      },
+      {
+        "gene": "CD200",
+        "k": 11,
+        "cosine_at_k": 0.3816651418065605,
+        "marginal_gain": 0.007486366656214882
+      },
+      {
+        "gene": "PLPP1",
+        "k": 12,
+        "cosine_at_k": 0.38788699421674644,
+        "marginal_gain": 0.006221852410185913
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.5885,
+      "realized_cosine": 0.3495,
+      "gap": 0.239,
+      "heldout_z": 4.651,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.0675,
+      "recipe_donor_covered_frac": 0.133,
+      "confidence_label": "low",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 5,
+      "n_clinical_drug_knockdown": 0,
+      "n_SM_druggable_activation": 4,
+      "headline_modality_message": "40% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 0/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "KLF3",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.111535,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "VANGL1",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.085749,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CAMK1",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.077,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "JMJD4",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.07394,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "VCPKMT",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.07303,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PAN3",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.072849,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FBXO8",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.070406,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CWC27",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.069705,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ZNF260",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.069673,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ZNF224",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.067049,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TTC13",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.064106,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "IL16",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.063581,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "ADPRH",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.062835,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "STRIP1",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.062521,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "FERMT3",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.061416,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "C3orf38",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.083856,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SNRNP40",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.064254,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ABRAXAS1",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.061813,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "AMER1",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.061758,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CD320",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.061476,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "SBF1",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.060626,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CALM1",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.060165,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 2,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Approved Drug)"
+      },
+      {
+        "gene": "RNF144A",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.059677,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "USP12",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.059142,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PRNP",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.058777,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF579",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.05823,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "GPR108",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.057616,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "R3HDM4",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.05625,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SLC25A12",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.056016,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "TTC32",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.054508,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      }
+    ]
+  },
+  "toward_younger_Stim48hr": {
+    "transition": "toward_younger_Stim48hr",
+    "target": "toward_younger",
+    "condition": "Stim48hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5970152091936841,
+    "signed_cosine": 0.7738157170524192,
+    "residual_norm": 0.8022299171630424,
+    "lof_fraction": 0.35642716000857816,
+    "gof_fraction": 0.23161627271148671,
+    "neither_fraction": 0.4119565672799349,
+    "optimal_k": 4,
+    "n_knockdown_support": 852,
+    "n_activation_support": 1239,
+    "knockdown_recipe": [
+      {
+        "gene": "PLIN3",
+        "weight": 0.09374421261754338,
+        "rank": 1
+      },
+      {
+        "gene": "WDR62",
+        "weight": 0.0928905145409136,
+        "rank": 2
+      },
+      {
+        "gene": "CTNNA1",
+        "weight": 0.08727066839360997,
+        "rank": 3
+      },
+      {
+        "gene": "NXPE3",
+        "weight": 0.08697603609147893,
+        "rank": 4
+      },
+      {
+        "gene": "ZC3H12D",
+        "weight": 0.07927635604673362,
+        "rank": 5
+      },
+      {
+        "gene": "COX7A2L",
+        "weight": 0.07850123176558586,
+        "rank": 6
+      },
+      {
+        "gene": "NFATC2IP",
+        "weight": 0.07525359693370301,
+        "rank": 7
+      },
+      {
+        "gene": "UBASH3B",
+        "weight": 0.06674976110370667,
+        "rank": 8
+      },
+      {
+        "gene": "CSTPP1",
+        "weight": 0.06660865866489336,
+        "rank": 9
+      },
+      {
+        "gene": "ZNF224",
+        "weight": 0.06657484907222806,
+        "rank": 10
+      },
+      {
+        "gene": "STK39",
+        "weight": 0.06624548669612057,
+        "rank": 11
+      },
+      {
+        "gene": "POGZ",
+        "weight": 0.0656611756396084,
+        "rank": 12
+      },
+      {
+        "gene": "UAP1L1",
+        "weight": 0.06558230188605245,
+        "rank": 13
+      },
+      {
+        "gene": "TBC1D10A",
+        "weight": 0.0645599523293194,
+        "rank": 14
+      },
+      {
+        "gene": "SLC35F5",
+        "weight": 0.06414020263257546,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "ALDH3A2",
+        "weight": 0.08339160328504162,
+        "rank": 1
+      },
+      {
+        "gene": "CD2AP",
+        "weight": 0.07848577801659964,
+        "rank": 2
+      },
+      {
+        "gene": "TET2",
+        "weight": 0.07647116069417714,
+        "rank": 3
+      },
+      {
+        "gene": "CENPS",
+        "weight": 0.07538483951909472,
+        "rank": 4
+      },
+      {
+        "gene": "CNKSR2",
+        "weight": 0.06955628619208812,
+        "rank": 5
+      },
+      {
+        "gene": "KPNA3",
+        "weight": 0.06617295860375078,
+        "rank": 6
+      },
+      {
+        "gene": "ACADVL",
+        "weight": 0.06596933938374988,
+        "rank": 7
+      },
+      {
+        "gene": "RASGRP1",
+        "weight": 0.06171946469054411,
+        "rank": 8
+      },
+      {
+        "gene": "VCF2",
+        "weight": 0.06117364498741518,
+        "rank": 9
+      },
+      {
+        "gene": "BST2",
+        "weight": 0.060497868293422116,
+        "rank": 10
+      },
+      {
+        "gene": "NUDT9",
+        "weight": 0.060438990719469184,
+        "rank": 11
+      },
+      {
+        "gene": "ACTN1",
+        "weight": 0.05974406501379588,
+        "rank": 12
+      },
+      {
+        "gene": "ABCB8",
+        "weight": 0.05968204682812092,
+        "rank": 13
+      },
+      {
+        "gene": "TRAF4",
+        "weight": 0.059542838113554375,
+        "rank": 14
+      },
+      {
+        "gene": "OAT",
+        "weight": 0.059156015429887424,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "SLC9A1",
+        "k": 1,
+        "cosine_at_k": 0.19678784963998042,
+        "marginal_gain": 0.19678784963998042
+      },
+      {
+        "gene": "ATXN2",
+        "k": 2,
+        "cosine_at_k": 0.2503543076041165,
+        "marginal_gain": 0.05356645796413606
+      },
+      {
+        "gene": "MFSD10",
+        "k": 3,
+        "cosine_at_k": 0.2766969738343737,
+        "marginal_gain": 0.026342666230257217
+      },
+      {
+        "gene": "PLIN3",
+        "k": 4,
+        "cosine_at_k": 0.29705534291200186,
+        "marginal_gain": 0.02035836907762817
+      },
+      {
+        "gene": "SLC35F5",
+        "k": 5,
+        "cosine_at_k": 0.30978934136955105,
+        "marginal_gain": 0.01273399845754919
+      },
+      {
+        "gene": "PPP1R7",
+        "k": 6,
+        "cosine_at_k": 0.32218423154566156,
+        "marginal_gain": 0.012394890176110507
+      },
+      {
+        "gene": "UAP1L1",
+        "k": 7,
+        "cosine_at_k": 0.3337152243824892,
+        "marginal_gain": 0.011530992836827625
+      },
+      {
+        "gene": "ZC3H12D",
+        "k": 8,
+        "cosine_at_k": 0.344063098658366,
+        "marginal_gain": 0.0103478742758768
+      },
+      {
+        "gene": "ERG28",
+        "k": 9,
+        "cosine_at_k": 0.3521614690271794,
+        "marginal_gain": 0.00809837036881339
+      },
+      {
+        "gene": "PHF3",
+        "k": 10,
+        "cosine_at_k": 0.35950913279963,
+        "marginal_gain": 0.007347663772450608
+      },
+      {
+        "gene": "ZYG11B",
+        "k": 11,
+        "cosine_at_k": 0.3663777098301515,
+        "marginal_gain": 0.006868577030521517
+      },
+      {
+        "gene": "POGZ",
+        "k": 12,
+        "cosine_at_k": 0.3735052672889055,
+        "marginal_gain": 0.007127557458753986
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.597,
+      "realized_cosine": 0.3629,
+      "gap": 0.2341,
+      "heldout_z": 6.442,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.0376,
+      "recipe_donor_covered_frac": 0.067,
+      "confidence_label": "low",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 3,
+      "n_clinical_drug_knockdown": 0,
+      "n_SM_druggable_activation": 7,
+      "headline_modality_message": "39% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 0/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "PLIN3",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.093744,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "WDR62",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.092891,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CTNNA1",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.087271,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "NXPE3",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.086976,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "ZC3H12D",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.079276,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "COX7A2L",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.078501,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "NFATC2IP",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.075254,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "UBASH3B",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.06675,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CSTPP1",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.066609,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ZNF224",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.066575,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "STK39",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.066245,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "POGZ",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.065661,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "UAP1L1",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.065582,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TBC1D10A",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.06456,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "SLC35F5",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.06414,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "ALDH3A2",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.083392,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CD2AP",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.078486,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "TET2",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.076471,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "CENPS",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.075385,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CNKSR2",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.069556,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "KPNA3",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.066173,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ACADVL",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.065969,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "RASGRP1",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.061719,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "VCF2",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.061174,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "BST2",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.060498,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "NUDT9",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.060439,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ACTN1",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.059744,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ABCB8",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.059682,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "TRAF4",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.059543,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "OAT",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.059156,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      }
+    ]
+  },
+  "toward_older_Rest": {
+    "transition": "toward_older_Rest",
+    "target": "toward_older",
+    "condition": "Rest",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5963882768571203,
+    "signed_cosine": 0.7806270147130088,
+    "residual_norm": 0.8026960964321395,
+    "lof_fraction": 0.35567897677260557,
+    "gof_fraction": 0.2487372495939912,
+    "neither_fraction": 0.3955837736334033,
+    "optimal_k": 4,
+    "n_knockdown_support": 651,
+    "n_activation_support": 1253,
+    "knockdown_recipe": [
+      {
+        "gene": "KDM6A",
+        "weight": 0.09914266172178936,
+        "rank": 1
+      },
+      {
+        "gene": "AGAP3",
+        "weight": 0.08649167343212627,
+        "rank": 2
+      },
+      {
+        "gene": "MAP3K4",
+        "weight": 0.08619252139224871,
+        "rank": 3
+      },
+      {
+        "gene": "PRPF38B",
+        "weight": 0.08248223224632406,
+        "rank": 4
+      },
+      {
+        "gene": "TYW5",
+        "weight": 0.0820872754840138,
+        "rank": 5
+      },
+      {
+        "gene": "MOSPD2",
+        "weight": 0.08204380267914273,
+        "rank": 6
+      },
+      {
+        "gene": "SAC3D1",
+        "weight": 0.08144493402149776,
+        "rank": 7
+      },
+      {
+        "gene": "UBA2",
+        "weight": 0.07990736198285117,
+        "rank": 8
+      },
+      {
+        "gene": "PDE4B",
+        "weight": 0.07912284779226521,
+        "rank": 9
+      },
+      {
+        "gene": "CCDC127",
+        "weight": 0.07889681480592191,
+        "rank": 10
+      },
+      {
+        "gene": "MTRFR",
+        "weight": 0.0782239310400636,
+        "rank": 11
+      },
+      {
+        "gene": "ACACA",
+        "weight": 0.07816216777068327,
+        "rank": 12
+      },
+      {
+        "gene": "ADPRM",
+        "weight": 0.07814506750885125,
+        "rank": 13
+      },
+      {
+        "gene": "SMG1",
+        "weight": 0.07782492187177863,
+        "rank": 14
+      },
+      {
+        "gene": "NAA80",
+        "weight": 0.07707459256828114,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "TMEM265",
+        "weight": 0.07473708691930002,
+        "rank": 1
+      },
+      {
+        "gene": "H2AC11",
+        "weight": 0.07197445754701878,
+        "rank": 2
+      },
+      {
+        "gene": "HSPBP1",
+        "weight": 0.07055644860347442,
+        "rank": 3
+      },
+      {
+        "gene": "SEPTIN7",
+        "weight": 0.07048920635542556,
+        "rank": 4
+      },
+      {
+        "gene": "COPS7B",
+        "weight": 0.06596390069827339,
+        "rank": 5
+      },
+      {
+        "gene": "CCND3",
+        "weight": 0.06521923113231808,
+        "rank": 6
+      },
+      {
+        "gene": "STEEP1",
+        "weight": 0.06388408557933548,
+        "rank": 7
+      },
+      {
+        "gene": "AGL",
+        "weight": 0.06300548546896506,
+        "rank": 8
+      },
+      {
+        "gene": "PBK",
+        "weight": 0.061516520213683666,
+        "rank": 9
+      },
+      {
+        "gene": "CREBRF",
+        "weight": 0.061356818983439046,
+        "rank": 10
+      },
+      {
+        "gene": "ATMIN",
+        "weight": 0.061142031552628054,
+        "rank": 11
+      },
+      {
+        "gene": "CCDC150",
+        "weight": 0.06060997698344906,
+        "rank": 12
+      },
+      {
+        "gene": "FNDC3A",
+        "weight": 0.06022174627238786,
+        "rank": 13
+      },
+      {
+        "gene": "KDM5B",
+        "weight": 0.06006608814694038,
+        "rank": 14
+      },
+      {
+        "gene": "SERAC1",
+        "weight": 0.0576967480475083,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "C1D",
+        "k": 1,
+        "cosine_at_k": 0.24479846080561266,
+        "marginal_gain": 0.24479846080561266
+      },
+      {
+        "gene": "SMG1",
+        "k": 2,
+        "cosine_at_k": 0.3135936696457488,
+        "marginal_gain": 0.06879520884013615
+      },
+      {
+        "gene": "SUPT7L",
+        "k": 3,
+        "cosine_at_k": 0.35278689893282855,
+        "marginal_gain": 0.039193229287079745
+      },
+      {
+        "gene": "TARS2",
+        "k": 4,
+        "cosine_at_k": 0.3744710999112835,
+        "marginal_gain": 0.02168420097845497
+      },
+      {
+        "gene": "UBA2",
+        "k": 5,
+        "cosine_at_k": 0.3872515918022276,
+        "marginal_gain": 0.012780491890944101
+      },
+      {
+        "gene": "C19orf47",
+        "k": 6,
+        "cosine_at_k": 0.39775163195395,
+        "marginal_gain": 0.0105000401517224
+      },
+      {
+        "gene": "DCP2",
+        "k": 7,
+        "cosine_at_k": 0.4075968864222083,
+        "marginal_gain": 0.009845254468258291
+      },
+      {
+        "gene": "PLEKHA8",
+        "k": 8,
+        "cosine_at_k": 0.4154466598170139,
+        "marginal_gain": 0.007849773394805581
+      },
+      {
+        "gene": "BRF2",
+        "k": 9,
+        "cosine_at_k": 0.42303090141849026,
+        "marginal_gain": 0.00758424160147636
+      },
+      {
+        "gene": "DDX1",
+        "k": 10,
+        "cosine_at_k": 0.42987717811070325,
+        "marginal_gain": 0.006846276692212994
+      },
+      {
+        "gene": "STARD10",
+        "k": 11,
+        "cosine_at_k": 0.4360415576920542,
+        "marginal_gain": 0.006164379581350965
+      },
+      {
+        "gene": "MTRFR",
+        "k": 12,
+        "cosine_at_k": 0.4412222483107465,
+        "marginal_gain": 0.005180690618692307
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.5964,
+      "realized_cosine": 0.3902,
+      "gap": 0.2062,
+      "heldout_z": 14.257,
+      "boot_reach_cos_lo": 0.6034,
+      "boot_reach_cos_hi": 0.6121,
+      "recipe_donor_repro_weight": 0.1098,
+      "recipe_donor_covered_frac": 0.333,
+      "confidence_label": "medium",
+      "boot_reach_cos_mean": 0.6077
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 9,
+      "n_clinical_drug_knockdown": 2,
+      "n_SM_druggable_activation": 6,
+      "headline_modality_message": "41% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 2/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "KDM6A",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.099143,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "AGAP3",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.086492,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "MAP3K4",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.086193,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "PRPF38B",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.082482,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TYW5",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.082087,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "MOSPD2",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.082044,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "SAC3D1",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.081445,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "UBA2",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.079907,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PDE4B",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.079123,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 28,
+        "delivery_call": "CRISPRi (SM inhibitor available: 28 drugs)"
+      },
+      {
+        "gene": "CCDC127",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.078897,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "MTRFR",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.078224,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ACACA",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.078162,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 4,
+        "delivery_call": "CRISPRi (SM inhibitor available: 4 drugs)"
+      },
+      {
+        "gene": "ADPRM",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.078145,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "SMG1",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.077825,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "NAA80",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.077075,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "TMEM265",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.074737,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "H2AC11",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.071974,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "HSPBP1",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.070556,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "SEPTIN7",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.070489,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "COPS7B",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.065964,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CCND3",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.065219,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "STEEP1",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.063884,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "AGL",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.063005,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PBK",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.061517,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "CREBRF",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.061357,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ATMIN",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.061142,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CCDC150",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.06061,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "FNDC3A",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.060222,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "KDM5B",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.060066,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "SERAC1",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.057697,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      }
+    ]
+  },
+  "toward_older_Stim8hr": {
+    "transition": "toward_older_Stim8hr",
+    "target": "toward_older",
+    "condition": "Stim8hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5898741884012565,
+    "signed_cosine": 0.7629000263852694,
+    "residual_norm": 0.8074951652226523,
+    "lof_fraction": 0.3479515581420418,
+    "gof_fraction": 0.22620118998114142,
+    "neither_fraction": 0.4258472518768171,
+    "optimal_k": 4,
+    "n_knockdown_support": 664,
+    "n_activation_support": 1197,
+    "knockdown_recipe": [
+      {
+        "gene": "DCP2",
+        "weight": 0.103477748152578,
+        "rank": 1
+      },
+      {
+        "gene": "ZNF579",
+        "weight": 0.08912603595890607,
+        "rank": 2
+      },
+      {
+        "gene": "SNRNP40",
+        "weight": 0.08443492601295854,
+        "rank": 3
+      },
+      {
+        "gene": "GALC",
+        "weight": 0.08257586448848674,
+        "rank": 4
+      },
+      {
+        "gene": "C3orf38",
+        "weight": 0.07156183690719863,
+        "rank": 5
+      },
+      {
+        "gene": "NBN",
+        "weight": 0.06734886527011899,
+        "rank": 6
+      },
+      {
+        "gene": "PLEKHO1",
+        "weight": 0.0671758688180716,
+        "rank": 7
+      },
+      {
+        "gene": "CALM1",
+        "weight": 0.0665434686067534,
+        "rank": 8
+      },
+      {
+        "gene": "SMG1",
+        "weight": 0.06626997942700023,
+        "rank": 9
+      },
+      {
+        "gene": "ALKBH4",
+        "weight": 0.06488766411246712,
+        "rank": 10
+      },
+      {
+        "gene": "TOP3B",
+        "weight": 0.06413438377223876,
+        "rank": 11
+      },
+      {
+        "gene": "GPR15",
+        "weight": 0.06383761474147823,
+        "rank": 12
+      },
+      {
+        "gene": "RANBP3",
+        "weight": 0.06311858782026246,
+        "rank": 13
+      },
+      {
+        "gene": "GPRIN3",
+        "weight": 0.061199376174367014,
+        "rank": 14
+      },
+      {
+        "gene": "SLC38A10",
+        "weight": 0.06068763932502199,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "KLF3",
+        "weight": 0.10497309428061864,
+        "rank": 1
+      },
+      {
+        "gene": "CAMK1",
+        "weight": 0.08596879575453767,
+        "rank": 2
+      },
+      {
+        "gene": "VANGL1",
+        "weight": 0.08124413378582215,
+        "rank": 3
+      },
+      {
+        "gene": "ZNF260",
+        "weight": 0.07931742040694804,
+        "rank": 4
+      },
+      {
+        "gene": "JMJD4",
+        "weight": 0.07231270549560834,
+        "rank": 5
+      },
+      {
+        "gene": "CCDC43",
+        "weight": 0.07134321067230844,
+        "rank": 6
+      },
+      {
+        "gene": "CD58",
+        "weight": 0.06728237867611513,
+        "rank": 7
+      },
+      {
+        "gene": "IFT88",
+        "weight": 0.06429626382404928,
+        "rank": 8
+      },
+      {
+        "gene": "HPS4",
+        "weight": 0.062819348606821,
+        "rank": 9
+      },
+      {
+        "gene": "LRP10",
+        "weight": 0.061778945299397155,
+        "rank": 10
+      },
+      {
+        "gene": "ZNF785",
+        "weight": 0.059106933354310186,
+        "rank": 11
+      },
+      {
+        "gene": "VCPKMT",
+        "weight": 0.0557076434125318,
+        "rank": 12
+      },
+      {
+        "gene": "IL16",
+        "weight": 0.05335171047150387,
+        "rank": 13
+      },
+      {
+        "gene": "ETS2",
+        "weight": 0.05285565499105066,
+        "rank": 14
+      },
+      {
+        "gene": "PCMT1",
+        "weight": 0.052798300992123036,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "CD3D",
+        "k": 1,
+        "cosine_at_k": 0.3063266343687854,
+        "marginal_gain": 0.3063266343687854
+      },
+      {
+        "gene": "SMG1",
+        "k": 2,
+        "cosine_at_k": 0.35594803227730804,
+        "marginal_gain": 0.04962139790852266
+      },
+      {
+        "gene": "CROT",
+        "k": 3,
+        "cosine_at_k": 0.39164216638055344,
+        "marginal_gain": 0.0356941341032454
+      },
+      {
+        "gene": "DCP2",
+        "k": 4,
+        "cosine_at_k": 0.416509841816169,
+        "marginal_gain": 0.024867675435615577
+      },
+      {
+        "gene": "MIOS",
+        "k": 5,
+        "cosine_at_k": 0.42924618620822075,
+        "marginal_gain": 0.012736344392051735
+      },
+      {
+        "gene": "SNRNP40",
+        "k": 6,
+        "cosine_at_k": 0.43812131671196436,
+        "marginal_gain": 0.008875130503743611
+      },
+      {
+        "gene": "PLEKHO1",
+        "k": 7,
+        "cosine_at_k": 0.44581066481438614,
+        "marginal_gain": 0.007689348102421778
+      },
+      {
+        "gene": "ERGIC3",
+        "k": 8,
+        "cosine_at_k": 0.45190746416402194,
+        "marginal_gain": 0.006096799349635806
+      },
+      {
+        "gene": "C1D",
+        "k": 9,
+        "cosine_at_k": 0.45804149131392363,
+        "marginal_gain": 0.0061340271499016885
+      },
+      {
+        "gene": "DCAF6",
+        "k": 10,
+        "cosine_at_k": 0.46369368334291494,
+        "marginal_gain": 0.00565219202899131
+      },
+      {
+        "gene": "LIN37",
+        "k": 11,
+        "cosine_at_k": 0.4677768641844826,
+        "marginal_gain": 0.0040831808415676685
+      },
+      {
+        "gene": "GALC",
+        "k": 12,
+        "cosine_at_k": 0.4710222580750513,
+        "marginal_gain": 0.003245393890568715
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.5899,
+      "realized_cosine": 0.3618,
+      "gap": 0.2281,
+      "heldout_z": 11.509,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.1029,
+      "recipe_donor_covered_frac": 0.267,
+      "confidence_label": "medium",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 5,
+      "n_clinical_drug_knockdown": 1,
+      "n_SM_druggable_activation": 4,
+      "headline_modality_message": "39% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 1/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "DCP2",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.103478,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ZNF579",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.089126,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "SNRNP40",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.084435,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "GALC",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.082576,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "C3orf38",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.071562,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "NBN",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.067349,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "PLEKHO1",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.067176,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "CALM1",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.066543,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 2,
+        "delivery_call": "CRISPRi (SM inhibitor available: 2 drugs)"
+      },
+      {
+        "gene": "SMG1",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.06627,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ALKBH4",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.064888,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TOP3B",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.064134,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "GPR15",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.063838,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "RANBP3",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.063119,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "GPRIN3",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.061199,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "SLC38A10",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.060688,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "KLF3",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.104973,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CAMK1",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.085969,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "VANGL1",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.081244,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ZNF260",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.079317,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "JMJD4",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.072313,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CCDC43",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.071343,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CD58",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.067282,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "IFT88",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.064296,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "HPS4",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.062819,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "LRP10",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.061779,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF785",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.059107,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "VCPKMT",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.055708,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "IL16",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.053352,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ETS2",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.052856,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "PCMT1",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.052798,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      }
+    ]
+  },
+  "toward_older_Stim48hr": {
+    "transition": "toward_older_Stim48hr",
+    "target": "toward_older",
+    "condition": "Stim48hr",
+    "verdict": "weakly reachable",
+    "reachable_cosine": 0.5662342507172752,
+    "signed_cosine": 0.76293874981328,
+    "residual_norm": 0.8242443650487674,
+    "lof_fraction": 0.3206212266853539,
+    "gof_fraction": 0.2548881432741509,
+    "neither_fraction": 0.4244906300404948,
+    "optimal_k": 5,
+    "n_knockdown_support": 721,
+    "n_activation_support": 1291,
+    "knockdown_recipe": [
+      {
+        "gene": "TRAF4",
+        "weight": 0.08463788702260946,
+        "rank": 1
+      },
+      {
+        "gene": "RASGRP1",
+        "weight": 0.08110468226548218,
+        "rank": 2
+      },
+      {
+        "gene": "VCF2",
+        "weight": 0.08017278935294533,
+        "rank": 3
+      },
+      {
+        "gene": "CNKSR2",
+        "weight": 0.07901405063923139,
+        "rank": 4
+      },
+      {
+        "gene": "RMI1",
+        "weight": 0.07791768002954408,
+        "rank": 5
+      },
+      {
+        "gene": "KYAT1",
+        "weight": 0.07790394314076209,
+        "rank": 6
+      },
+      {
+        "gene": "ALDH3A2",
+        "weight": 0.07516010156324164,
+        "rank": 7
+      },
+      {
+        "gene": "CENPS",
+        "weight": 0.07397457646151695,
+        "rank": 8
+      },
+      {
+        "gene": "GOLGA1",
+        "weight": 0.0722087706086896,
+        "rank": 9
+      },
+      {
+        "gene": "CCDC90B",
+        "weight": 0.06848209507436549,
+        "rank": 10
+      },
+      {
+        "gene": "CCR4",
+        "weight": 0.06514246248101416,
+        "rank": 11
+      },
+      {
+        "gene": "ABCB8",
+        "weight": 0.06365583266626433,
+        "rank": 12
+      },
+      {
+        "gene": "MEN1",
+        "weight": 0.0630825183683462,
+        "rank": 13
+      },
+      {
+        "gene": "TET2",
+        "weight": 0.062397757323185817,
+        "rank": 14
+      },
+      {
+        "gene": "MLLT6",
+        "weight": 0.0617120259312223,
+        "rank": 15
+      }
+    ],
+    "activation_recipe": [
+      {
+        "gene": "TBC1D10A",
+        "weight": 0.0748695267392943,
+        "rank": 1
+      },
+      {
+        "gene": "NFATC2IP",
+        "weight": 0.0735834285686003,
+        "rank": 2
+      },
+      {
+        "gene": "COX7A2L",
+        "weight": 0.07326830878867804,
+        "rank": 3
+      },
+      {
+        "gene": "CTNNA1",
+        "weight": 0.06985991412090373,
+        "rank": 4
+      },
+      {
+        "gene": "FZD3",
+        "weight": 0.06482819788577297,
+        "rank": 5
+      },
+      {
+        "gene": "ZNF224",
+        "weight": 0.06389211126712009,
+        "rank": 6
+      },
+      {
+        "gene": "CSTPP1",
+        "weight": 0.06237819649673802,
+        "rank": 7
+      },
+      {
+        "gene": "ZNF583",
+        "weight": 0.062022247074274776,
+        "rank": 8
+      },
+      {
+        "gene": "SLC27A4",
+        "weight": 0.06157552611439444,
+        "rank": 9
+      },
+      {
+        "gene": "TIMM21",
+        "weight": 0.06143705932044471,
+        "rank": 10
+      },
+      {
+        "gene": "TACO1",
+        "weight": 0.05965221063614437,
+        "rank": 11
+      },
+      {
+        "gene": "CARMIL1",
+        "weight": 0.05894937439864478,
+        "rank": 12
+      },
+      {
+        "gene": "UBE2L6",
+        "weight": 0.05842132258805762,
+        "rank": 13
+      },
+      {
+        "gene": "ZSCAN22",
+        "weight": 0.05696012096918737,
+        "rank": 14
+      },
+      {
+        "gene": "LGALS1",
+        "weight": 0.055662497383168315,
+        "rank": 15
+      }
+    ],
+    "library": [
+      {
+        "gene": "ZAP70",
+        "k": 1,
+        "cosine_at_k": 0.27909765933877306,
+        "marginal_gain": 0.27909765933877306
+      },
+      {
+        "gene": "SMG1",
+        "k": 2,
+        "cosine_at_k": 0.31159787098950836,
+        "marginal_gain": 0.0325002116507353
+      },
+      {
+        "gene": "CROT",
+        "k": 3,
+        "cosine_at_k": 0.33082435966631896,
+        "marginal_gain": 0.019226488676810594
+      },
+      {
+        "gene": "WDFY1",
+        "k": 4,
+        "cosine_at_k": 0.34634954349424474,
+        "marginal_gain": 0.015525183827925781
+      },
+      {
+        "gene": "CD5",
+        "k": 5,
+        "cosine_at_k": 0.35794443649754465,
+        "marginal_gain": 0.011594893003299911
+      },
+      {
+        "gene": "C1D",
+        "k": 6,
+        "cosine_at_k": 0.36843787677971607,
+        "marginal_gain": 0.010493440282171418
+      },
+      {
+        "gene": "KEAP1",
+        "k": 7,
+        "cosine_at_k": 0.3763128300490367,
+        "marginal_gain": 0.00787495326932064
+      },
+      {
+        "gene": "MLLT6",
+        "k": 8,
+        "cosine_at_k": 0.3828910740027546,
+        "marginal_gain": 0.006578243953717866
+      },
+      {
+        "gene": "KYAT1",
+        "k": 9,
+        "cosine_at_k": 0.3890005940451551,
+        "marginal_gain": 0.006109520042400507
+      },
+      {
+        "gene": "TRIM14",
+        "k": 10,
+        "cosine_at_k": 0.3948702005372378,
+        "marginal_gain": 0.005869606492082735
+      },
+      {
+        "gene": "GPR108",
+        "k": 11,
+        "cosine_at_k": 0.4003146015986887,
+        "marginal_gain": 0.0054444010614508875
+      },
+      {
+        "gene": "ALDH3A2",
+        "k": 12,
+        "cosine_at_k": 0.40528524497652213,
+        "marginal_gain": 0.004970643377833428
+      }
+    ],
+    "calibration": {
+      "predicted_cosine": 0.5662,
+      "realized_cosine": 0.3309,
+      "gap": 0.2354,
+      "heldout_z": 6.912,
+      "boot_reach_cos_lo": null,
+      "boot_reach_cos_hi": null,
+      "recipe_donor_repro_weight": 0.1281,
+      "recipe_donor_covered_frac": 0.267,
+      "confidence_label": "low",
+      "boot_reach_cos_mean": null
+    },
+    "modality": {
+      "n_SM_druggable_knockdown": 7,
+      "n_clinical_drug_knockdown": 2,
+      "n_SM_druggable_activation": 4,
+      "headline_modality_message": "44% of the addressable shift needs INDUCTION (CRISPRa/ORF); a knockdown-only screen structurally cannot reach it. 2/15 knockdown targets have an approved/clinical drug for repurposing."
+    },
+    "moves": [
+      {
+        "gene": "TRAF4",
+        "direction": "knockdown",
+        "recipe_rank": 1,
+        "weight": 0.084638,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "RASGRP1",
+        "direction": "knockdown",
+        "recipe_rank": 2,
+        "weight": 0.081105,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "VCF2",
+        "direction": "knockdown",
+        "recipe_rank": 3,
+        "weight": 0.080173,
+        "OT_top_bucket": "undruggable (no handle)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/shRNA (no SM tractability)"
+      },
+      {
+        "gene": "CNKSR2",
+        "direction": "knockdown",
+        "recipe_rank": 4,
+        "weight": 0.079014,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "RMI1",
+        "direction": "knockdown",
+        "recipe_rank": 5,
+        "weight": 0.077918,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "KYAT1",
+        "direction": "knockdown",
+        "recipe_rank": 6,
+        "weight": 0.077904,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ALDH3A2",
+        "direction": "knockdown",
+        "recipe_rank": 7,
+        "weight": 0.07516,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CENPS",
+        "direction": "knockdown",
+        "recipe_rank": 8,
+        "weight": 0.073975,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "GOLGA1",
+        "direction": "knockdown",
+        "recipe_rank": 9,
+        "weight": 0.072209,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or antibody blockade (surface protein)"
+      },
+      {
+        "gene": "CCDC90B",
+        "direction": "knockdown",
+        "recipe_rank": 10,
+        "weight": 0.068482,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "CCR4",
+        "direction": "knockdown",
+        "recipe_rank": 11,
+        "weight": 0.065142,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRi (SM inhibitor available: 1 drugs)"
+      },
+      {
+        "gene": "ABCB8",
+        "direction": "knockdown",
+        "recipe_rank": 12,
+        "weight": 0.063656,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "MEN1",
+        "direction": "knockdown",
+        "recipe_rank": 13,
+        "weight": 0.063083,
+        "OT_top_bucket": "clinical drug",
+        "n_drugs": 3,
+        "delivery_call": "CRISPRi (SM inhibitor available: 3 drugs)"
+      },
+      {
+        "gene": "TET2",
+        "direction": "knockdown",
+        "recipe_rank": 14,
+        "weight": 0.062398,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi or SM inhibitor (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "MLLT6",
+        "direction": "knockdown",
+        "recipe_rank": 15,
+        "weight": 0.061712,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRi/degrader (no SM tractability; degrader PREDICTED only)"
+      },
+      {
+        "gene": "TBC1D10A",
+        "direction": "activation",
+        "recipe_rank": 1,
+        "weight": 0.07487,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "NFATC2IP",
+        "direction": "activation",
+        "recipe_rank": 2,
+        "weight": 0.073583,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "COX7A2L",
+        "direction": "activation",
+        "recipe_rank": 3,
+        "weight": 0.073268,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CTNNA1",
+        "direction": "activation",
+        "recipe_rank": 4,
+        "weight": 0.06986,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "FZD3",
+        "direction": "activation",
+        "recipe_rank": 5,
+        "weight": 0.064828,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF224",
+        "direction": "activation",
+        "recipe_rank": 6,
+        "weight": 0.063892,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CSTPP1",
+        "direction": "activation",
+        "recipe_rank": 7,
+        "weight": 0.062378,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "ZNF583",
+        "direction": "activation",
+        "recipe_rank": 8,
+        "weight": 0.062022,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "SLC27A4",
+        "direction": "activation",
+        "recipe_rank": 9,
+        "weight": 0.061576,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: High-Quality Ligand)"
+      },
+      {
+        "gene": "TIMM21",
+        "direction": "activation",
+        "recipe_rank": 10,
+        "weight": 0.061437,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "TACO1",
+        "direction": "activation",
+        "recipe_rank": 11,
+        "weight": 0.059652,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "CARMIL1",
+        "direction": "activation",
+        "recipe_rank": 12,
+        "weight": 0.058949,
+        "OT_top_bucket": "AB-tractable (surface)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "UBE2L6",
+        "direction": "activation",
+        "recipe_rank": 13,
+        "weight": 0.058421,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      },
+      {
+        "gene": "ZSCAN22",
+        "direction": "activation",
+        "recipe_rank": 14,
+        "weight": 0.05696,
+        "OT_top_bucket": "degrader-only (PREDICTED)",
+        "n_drugs": 0,
+        "delivery_call": "CRISPRa or ORF overexpression (activation, not SM-druggable)"
+      },
+      {
+        "gene": "LGALS1",
+        "direction": "activation",
+        "recipe_rank": 15,
+        "weight": 0.055662,
+        "OT_top_bucket": "SM-tractable (ligandable)",
+        "n_drugs": 1,
+        "delivery_call": "CRISPRa or SM agonist (ligandable: Structure with Ligand)"
+      }
+    ]
+  }
+}

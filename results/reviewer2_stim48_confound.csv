@@ -1,0 +1,7 @@
+target,condition,reachable_cosine,lof_fraction,gof_fraction,heldout_cosine,heldout_z,run_balanced
+toward_Th1,Rest,0.6266,0.3927,0.2535,0.4464,45.0,"YES (2/2 across R1,R2)"
+toward_Th1,Stim48hr,0.5329,0.284,0.263,0.2994,21.8,NO (all 4 on R2)
+toward_Th1,Stim8hr,0.5235,0.2741,0.2605,0.2927,12.7,YES (2/2)
+toward_Th2,Rest,0.6428,0.4132,0.2349,0.4584,20.9,"YES (2/2 across R1,R2)"
+toward_Th2,Stim48hr,0.53,0.2809,0.2607,0.2586,12.6,NO (all 4 on R2)
+toward_Th2,Stim8hr,0.537,0.2884,0.2493,0.3038,20.4,YES (2/2)

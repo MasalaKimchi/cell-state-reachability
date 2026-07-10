@@ -1,0 +1,13 @@
+target,condition,knee_k,cosine_at_knee,reliability_at_knee,cap_binds_at_k,cosine_at_cap,knee_is_safe
+toward_Th1,Rest,5,0.3791,0.9226,28,0.5025,True
+toward_Th1,Stim8hr,6,0.2852,0.9408,,,True
+toward_Th1,Stim48hr,4,0.252,0.9479,,,True
+toward_Th2,Rest,4,0.3216,0.9336,29,0.5023,True
+toward_Th2,Stim8hr,5,0.2417,0.9494,,,True
+toward_Th2,Stim48hr,4,0.2457,0.9491,,,True
+toward_younger,Rest,4,0.3287,0.96,,,True
+toward_younger,Stim8hr,4,0.3067,0.9627,,,True
+toward_younger,Stim48hr,4,0.2971,0.9642,,,True
+toward_older,Rest,4,0.3745,0.9547,,,True
+toward_older,Stim8hr,4,0.4165,0.95,,,True
+toward_older,Stim48hr,5,0.3579,0.9572,,,True

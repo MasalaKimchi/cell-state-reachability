@@ -1,0 +1,28 @@
+{
+  "target": "toward_Th2",
+  "condition": "Rest",
+  "n_readout": 6188,
+  "n_generators": 6871,
+  "reachable_cosine": 0.6428176245552623,
+  "residual_norm": 0.7660192566516392,
+  "lof_fraction": 0.41321449843887026,
+  "gof_fraction": 0.23492074964790557,
+  "neither_fraction": 0.3518647519132245,
+  "signed_cosine": 0.8080498130238551,
+  "kkt_viol": 1.048689278609447e-11,
+  "lof_support_size": 786,
+  "gof_support_size": 1308,
+  "greedy_order": [
+    "IRF1",
+    "RSBN1L",
+    "DENND4B",
+    "SFXN1",
+    "SIN3A",
+    "UBE2V2",
+    "UBAP2L",
+    "BCAP29",
+    "TESC",
+    "TTC17"
+  ],
+  "seconds": 46.3
+}

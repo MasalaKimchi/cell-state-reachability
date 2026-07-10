@@ -1,0 +1,14 @@
+gene,panel_class,expected_sign,alignment,rank,percentile
+IL12RB2,Th1 marker,-,0.103,142,97.9
+GATA3,Th2 driver (TF),+,0.1009,155,97.7
+BATF,Th2 driver (TF),+,0.072,478,93.0
+IL18RAP,Th1 marker,-,0.0602,706,89.7
+IL18R1,Th1 marker,-,0.0447,1121,83.7
+IL4R,Th2 marker,+,0.0323,1607,76.6
+STAT6,Th2 driver (TF),+,0.0033,3073,55.3
+CCR4,Th2 marker,+,-0.0027,3449,49.8
+MAF,Th2 driver (TF),+,-0.0105,3941,42.6
+RUNX3,Th1 driver (TF),-,-0.0196,4477,34.8
+STAT4,Th1 driver (TF),-,-0.0401,5510,19.8
+STAT1,Th1 driver (TF),-,-0.0513,5959,13.3
+TBX21,Th1 driver (TF),-,-0.0995,6775,1.4

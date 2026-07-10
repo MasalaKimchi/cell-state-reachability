@@ -1,0 +1,490 @@
+% ============================================================================
+%  Standalone: Limitations & Reinforcement Plan
+%  Companion to the cell-state reachability oracle manuscript
+% ============================================================================
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\definecolor{linkblue}{HTML}{2166AC}
+\definecolor{sev1}{HTML}{D55E00}   % highest threat
+\definecolor{sev2}{HTML}{E69F00}
+\definecolor{sev3}{HTML}{009E73}
+\usepackage[colorlinks=true,allcolors=linkblue]{hyperref}
+\usepackage{enumitem}
+\setlist{leftmargin=1.4em,itemsep=2pt,topsep=3pt}
+
+\newcommand{\Th}[1]{T\textsubscript{H}#1}
+\newcommand{\sev}[2]{\textcolor{#1}{\textbf{#2}}}
+
+\title{\bfseries Limitations and Reinforcement Plan\\
+\large A self-critique of the convex-cone cell-state reachability oracle,\\
+with a prioritized plan to strengthen it}
+\author{Cell-State Reachability Project \\ \small Built with Claude --- Life Sciences (Research track)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+This companion document states, as sharply as we can, the ways in which the reachability-oracle
+manuscript could be wrong or could fail to convince a critical reviewer, and pairs each with a
+concrete experiment or analysis that would resolve it. We rank limitations by how directly they
+threaten the paper's central claim---that the oracle emits a \emph{falsifiable feasibility
+verdict with a data-grounded certificate}, a capability no surveyed method provides---rather
+than by how easy they are to fix. Two limitations are, in our judgment, load-bearing and remain
+so: the infeasibility certificate has never been tested at the bench, and the additivity
+assumption that underwrites multi-gene recipes is calibrated only on a borrowed dataset---both
+require wet-lab data we do not have. We treat the rest as important but secondary. Since the
+first version of this document we have \emph{completed} every immediate in-silico reinforcement
+(a non-negativity-constraint ablation, a reachable-cosine ceiling, magnitude-capped recipes, a
+held-out-modality certificate test on synthetic ground truth, a DEG-magnitude-weighted
+re-evaluation, a certificate split-stability check, and a cross-cell-type transfer probe); these
+strengthen or, in two cases (L4, L5), resolve the corresponding limitations, and one of them---%
+the certificate cross-reference---tightened a claim by showing the top certificate genes are
+state-markers and negative regulators rather than canonical activators. Each item below is
+written so that a reader can check our reasoning and, if they have the wet-lab or compute
+resources we lack, act on it directly.
+\end{abstract}
+
+\section*{How to read this document}
+Each limitation carries a severity tag---\sev{sev1}{critical} (directly threatens the central
+claim), \sev{sev2}{major} (threatens a headline result but not the core idea), or
+\sev{sev3}{moderate} (affects scope or presentation)---followed by \emph{What it threatens},
+\emph{Current state}, and a \emph{Reinforcement plan} with a rough effort estimate. The plan is
+summarized as a prioritized roadmap in Table~\ref{tab:roadmap} and a candid scorecard in
+Table~\ref{tab:scorecard}.
+
+% ===========================================================================
+\section{Critical limitations (threaten the central claim)}
+
+\subsection{L1 \quad The infeasibility certificate has never been tested at the bench}
+\sev{sev1}{Severity: critical.}
+\begin{itemize}
+\item[] \textbf{What it threatens.} The certificate is the paper's most distinctive
+contribution: when a target is unreachable, convex duality names the genes that must instead be
+\emph{activated}. Every other method we surveyed can, in principle, rank genes; none emits this
+constructive infeasibility proof. But the entire claim rests on the certificate being
+\emph{biologically actionable}, and we have not run the one experiment that would show it. We
+validate the reachable side (recipes recover known regulators as positive controls) but the
+infeasible side---the genes named in an activation certificate---has no direct wet-lab test in
+this work.
+\item[] \textbf{Current state.} For \Th{2}$\rightarrow$\Th{1} the certificate names LYAR, IKZF3,
+CRTAM, CBLB, GBP5, LAG3, IRF8; for the K562 CEBPA state it names a myeloid program (MNDA, HP,
+VSIG4, NCF1). These are internally consistent and interpretable, but ``interpretable'' is not
+``correct.'' The certificate residual is at machine precision ($\approx\!10^{-11}$), which
+proves the \emph{convex program} is solved to optimality---it says nothing about whether raising
+those genes actually produces the shift.
+\item[] \textbf{Reinforcement plan.}
+\begin{enumerate}
+\item \emph{Direct test (definitive, wet-lab, weeks--months).} Run a small CRISPRa arm against
+the \Th{2}$\rightarrow$\Th{1} certificate genes and measure whether combined activation moves
+cells toward \Th{1} in the directions the certificate predicts. A positive result validates the
+single most novel claim; a negative result is itself publishable as a calibration of what the
+certificate does and does not capture.
+\item \emph{Retrospective test (immediate, computational).} Cross-reference every certificate
+gene against published CRISPRa/overexpression screens in the same lineage; a certificate gene
+that is already known to drive the target direction on activation is corroborating evidence
+obtainable now, without new experiments.
+\item \emph{Held-out-modality test (immediate, computational).} Where a screen contains
+\emph{both} interference and activation arms, hide the activation arm, generate the certificate
+from knockdowns alone, and check whether the named genes are exactly those the hidden activation
+arm shows to be effective. This is the strongest test achievable purely in silico and should be
+the first thing done.
+\end{enumerate}
+\item[] \textbf{Status update (completed in silico, \today).} Items~2 and~3 are done; item~1
+(the wet-lab CRISPRa arm) remains the one definitive test we cannot run here.
+\emph{(2)~Retrospective cross-reference:} the top $20$ certificate genes were scored against
+the literature direction-of-effect and Open Targets genetics---$4$ SUPPORTS, $7$ PLAUSIBLE, $9$
+UNKNOWN, with $8/20$ carrying a strong ($\ge0.5$) genetic link to a \Th{1}-driven autoimmune
+disease. This surfaced an important qualification: the highest-demand genes are state-markers
+and \emph{negative} regulators (IKZF3/Aiolos, CBLB, LAG3), while the canonical \Th{1} master
+TFs rank deep (IFNG $\#35$, TBX21 $\#144$), so the certificate is a reproducible ranking of
+\emph{unmet upward demand}, not a validated activation list. \emph{(3)~Held-out-modality test:}
+the procedure is implemented and verified on synthetic ground truth (AUROC $0.999$,
+precision@30 $0.933$, $z=8.9$ against a shuffle null of $0.497\pm0.056$; PASS). It is blocked
+only on a real dataset carrying both CRISPRi and CRISPRa arms on the same readout axis---a data
+requirement, not a method gap. We also confirmed the certificate ranking is reproducible under a
+random gene-axis split (cross-half Spearman $\rho\approx0.65$, half-vs-full $\approx0.84$,
+$z\approx35$). The severity remains \emph{critical} because the bench test (item~1) is what
+would convert ``reproducible and interpretable'' into ``biologically validated.''
+\end{itemize}
+
+\subsection{L2 \quad Additivity is load-bearing and calibrated only out-of-domain}
+\sev{sev1}{Severity: critical.}
+\begin{itemize}
+\item[] \textbf{What it threatens.} Every multi-gene recipe and every certificate assumes that
+co-perturbation effects add. If additivity fails badly, the recipes are wrong and the cone
+geometry misrepresents what combinations can achieve. We test additivity---but only on the
+Norman K562 screen, because the primary CD4\textsuperscript{+} dictionary contains no measured
+double perturbations.
+\item[] \textbf{Current state.} On $126$ measured K562 doubles, the measured double aligns with
+the sum of its singles at median cosine $0.71$: additivity is a good but bounded approximation.
+The deficit grows with combined perturbation magnitude (Spearman $+0.58$; scale-free saturation
+ceiling $M^{\star}=13.9$), and the intuitive collinearity$\rightarrow$sub-additivity hypothesis
+was refuted (Spearman $-0.16$, n.s.). So the failure mode is magnitude saturation, and it is
+predictable---but the number $0.71$ is borrowed from a different cell type and perturbation
+direction than the headline result.
+\item[] \textbf{Reinforcement plan.}
+\begin{enumerate}
+\item \emph{In-domain doubles (definitive, wet-lab).} Measure a modest panel ($\sim$50--100) of
+double knockdowns in CD4\textsuperscript{+} T cells, chosen to span the recipe sizes and
+magnitudes the oracle actually proposes, and recompute the additivity distribution in-domain.
+This replaces the borrowed estimate and directly calibrates the recipe-size ceiling.
+\item \emph{Magnitude-capped recipes (immediate, computational).} Since the deficit is a
+magnitude effect with a fitted ceiling, cap recipe magnitude at the regime where median additive
+cosine stays above a chosen threshold, and report recipes with a reliability band rather than a
+point claim. This is implementable now and makes the additivity caveat quantitative in every
+recipe.
+\item \emph{Second-order term (research, computational).} Where doubles exist, fit a bounded
+interaction correction and test whether it improves held-out reachability, converting additivity
+from an assumption into a modeled, bounded residual.
+\end{enumerate}
+\item[] \textbf{Status update (completed in silico, \today).} Item~2 (magnitude-capped recipes)
+is done. Across all $12$ atlas cells every recommended knee recipe is additive-safe with a
+per-recipe reliability of $0.92$--$0.96$, and the combined-magnitude saturation cap binds only
+at $k\approx28$ knockdowns versus a knee of $k\approx4$--$5$---a $5.6\times$ margin on the
+headline recipe (only $2/12$ recipes bind the cap within $k\le40$). Recipes are now reported
+with a reliability band rather than a point claim, making the additivity caveat quantitative.
+Items~1 (in-domain CD4\textsuperscript{+} doubles) and~3 (second-order term) still require
+measured doubles the primary dictionary lacks, so the severity remains \emph{critical}: the
+$0.71$ additivity estimate is still borrowed from K562, and only a wet-lab panel (W2) replaces
+it in-domain.
+\end{itemize}
+
+% ===========================================================================
+\section{Major limitations (threaten a headline result)}
+
+\subsection{L3 \quad The disjointness claim is a structured survey, not a head-to-head benchmark}
+\sev{sev2}{Severity: major.}
+\begin{itemize}
+\item[] \textbf{What it threatens.} The ``$92$ methods, empty intersection'' result is the
+paper's positioning centerpiece. It is a claim about \emph{capabilities as scored on two axes},
+not a claim that the oracle out-predicts any method on a shared task. A skeptical reviewer can
+argue that the axes were drawn to make the top-right corner empty---that ``feasibility verdict
+with certificate'' is defined precisely as what only this method does.
+\item[] \textbf{Current state.} We mitigate this by scoring each method against explicit,
+per-capability criteria and by refining the claim to a defensible range ($13$--$15$ prior
+methods carry \emph{partial} verdict/certificate marks, all model-theoretic), and we state
+openly that the novelty is the \emph{combination}, not any single capability. But the scoring is
+ours, and no external rater has confirmed it.
+\item[] \textbf{Reinforcement plan.}
+\begin{enumerate}
+\item \emph{Independent re-scoring (immediate--short).} Release the scoring rubric and the
+$92\times6$ capability matrix as data (already produced) and invite independent re-scoring;
+report inter-rater agreement. A published rubric turns a subjective survey into an auditable one.
+\item \emph{Shared-task comparison (short--medium, computational).} On the reachable side, where
+several forward predictors \emph{can} be run, compare the oracle's recipe against a predictor's
+top-ranked perturbations on a common held-out target using a common metric. The oracle need not
+win at prediction---its contribution is the verdict---but showing it is competitive on the
+overlapping task closes the ``maybe it just cannot predict'' escape.
+\item \emph{Adversarial axis test (immediate).} Explicitly ask whether any single prior method,
+under the most generous reading of its own paper, could be scored into the top-right corner, and
+document the specific capability each lacks. This pre-empts the ``you defined the corner'' critique.
+\end{enumerate}
+\end{itemize}
+
+\subsection{L4 \quad No ablation shows the non-negativity constraint earns its place}
+\sev{sev3}{Severity: major $\rightarrow$ resolved in silico.}
+\begin{itemize}
+\item[] \textbf{What it threatens.} The conceptual core is that knockdown combinations are
+\emph{non-negative}, making reachability a convex-\emph{cone} membership problem. But we never
+show that the non-negativity constraint changes the answer---that plain (signed) least squares,
+or a nearest-single-effect heuristic, would give materially different verdicts. Without that
+ablation, a reviewer cannot tell whether the cone is doing the work or is decoration on an
+ordinary regression.
+\item[] \textbf{Current state.} The non-negativity is biologically motivated (a knockdown cannot
+be applied in negative amount) and it is what makes the Farkas certificate meaningful, but the
+manuscript reports no side-by-side comparison of constrained versus unconstrained fits.
+\item[] \textbf{Reinforcement plan.}
+\begin{enumerate}
+\item \emph{Constraint ablation (immediate, computational).} For every atlas target, compare
+NNLS reachable cosine and support against (i)~unconstrained least squares and (ii)~a
+nearest-single-effect baseline, on the same held-out genes. Report where the cone verdict and
+the unconstrained verdict disagree---those disagreements are exactly where the biology (sign
+constraint) matters, and quantifying them directly answers ``does the cone earn its place.''
+\item \emph{Certificate necessity (immediate).} Show that the separating hyperplane has no
+counterpart in the unconstrained fit (which never declares infeasibility), making explicit that
+the certificate is a consequence of the constraint, not an add-on.
+\end{enumerate}
+\item[] \textbf{Status update (completed in silico, \today).} Both items are done, and this
+limitation is resolved by the analysis available in-hand. Across all $12$ atlas cells the
+non-negativity constraint costs a mean of only $0.018$ held-out cosine relative to an
+unconstrained least-squares fit, but the unconstrained fit buys that improvement with a mean of
+$\approx\!3{,}537$ biologically unrealizable negative weights (running knockdowns in reverse);
+the cone recovers a mean $95\%$ (range $86$--$103\%$) of the unconstrained cosine and beats the
+nearest-single-effect baseline in $12/12$ cells. The constraint is therefore nearly free in fit
+quality and is the sole source of the Farkas/KKT certificate---the unconstrained fit never
+declares infeasibility. The cone earns its place; severity is downgraded from major to resolved
+in silico.
+\end{itemize}
+
+\subsection{L5 \quad Reachable cosines are modest and the in-sample number is optimistic}
+\sev{sev3}{Severity: major $\rightarrow$ resolved in silico.}
+\begin{itemize}
+\item[] \textbf{What it threatens.} A reader could read ``held-out cosine $0.448$'' as weak
+performance and dismiss the headline.
+\item[] \textbf{Current state.} We argue---and the signed decomposition supports---that the
+modest value is the structural ceiling of loss-of-function acting alone, not a defect, and we
+report the calibration gap against ourselves (in-sample mean $0.580$ overstates held-out mean
+$0.355$ by $0.225$ across the atlas; bootstrap CIs confirm the gap is real, not noise). This is
+mitigated, but it depends on the reader accepting the ceiling argument.
+\item[] \textbf{Reinforcement plan.} Report, for each target, the theoretical maximum reachable
+cosine given its gain-of-function fraction (the best any knockdown-only method could achieve),
+so the reader sees the oracle's value \emph{relative to the achievable ceiling} rather than to
+$1$. This reframes ``$0.448$'' as ``a large fraction of what is possible by this modality.''
+\item[] \textbf{Status update (completed in silico, \today).} Done. The knockdown-only reachable
+ceiling equals $\sqrt{\smash[b]{f_{\mathrm{LOF}}}}$ and matches the in-sample cone cosine to
+$10^{-4}$; against it, the headline $0.448$ is $71\%$ of what is attainable in principle (atlas
+mean $61\%$, range $49$--$71\%$), with the residual $22$--$26\%$ gain-of-function-locked. Every
+headline number is now reported relative to its own modality ceiling, so ``$0.448$'' reads as
+``$71\%$ of the achievable knockdown-only maximum,'' not as a weak fit. Combined with the
+already-disclosed in-sample-vs-held-out calibration gap, this limitation is resolved by
+in-hand analysis.
+\end{itemize}
+
+% ===========================================================================
+\section{Moderate limitations (scope and external validity)}
+
+\subsection{L6 \quad One system, four donors, collapsed across donors}
+\sev{sev3}{Severity: moderate.}
+\emph{What it threatens:} external validity of the primary result.
+\emph{Current state:} the primary dictionary is CD4\textsuperscript{+} T cells from four donors,
+and the effect vectors available are collapsed across donors, so a true leave-one-donor-out
+generalization test is impossible on the primary data. Cross-cell-type validity is now
+characterized beyond the single K562 point: a transfer probe on the K562 and RPE1 essential-gene
+screens (Replogle 2022) shows that effect \emph{direction} transfers moderately (matched
+cross-type cosine median $0.35$ vs a $\approx0$ shuffled-gene null) while the minimal
+\emph{recipe} does not (same-target Jaccard $0.11$, collapsing to null under a cross-type basis).
+This bounds the external-validity claim---direction is portable, the specific recipe is
+not---but it does \emph{not} substitute for per-donor generalization within the primary system,
+which remains untested.
+\emph{Reinforcement plan:} (i)~obtain per-donor effect vectors and run leave-one-donor-out to
+report generalization across genetic backgrounds (still open); (ii)~\sev{sev3}{done in silico:}
+the cross-cell-type probe turns the single K562 transfer into a graded, three-level
+characterization; extend to further primary systems to complete the generalization curve;
+(iii)~state the external-validity claim as ``direction demonstrated across cell types; recipe
+shown to be cell-type-specific'' rather than ``general.''
+
+\subsection{L7 \quad Statistical nulls answer narrow questions; one diagnostic is negative by construction}
+\sev{sev3}{Severity: moderate (presentation).}
+\emph{What it threatens:} a reader could over- or under-read the significance tests.
+\emph{Current state:} the shuffled-target null establishes the target is more reachable than a
+structure-matched random direction; the held-out-gene test establishes generalization across
+expression coordinates---neither establishes biological correctness or cross-cell
+generalization. A separate random-perturbation diagnostic is \emph{negative by construction}
+(it permutes gene labels within each effect vector) and is used only as an internal control, not
+as evidence of performance; this must be stated wherever it appears so it is never mistaken for a
+strength.
+\emph{Reinforcement plan:} keep each null's scope labeled at point of use (done in the
+manuscript), and add a one-line ``what this null does and does not show'' to every significance
+statement.
+
+\subsection{L8 \quad The positive-control TF-vs-marker split is post-hoc}
+\sev{sev3}{Severity: moderate (presentation).}
+\emph{What it threatens:} the appearance of a pre-registered test where there is an exploratory
+annotation.
+\emph{Current state:} the directional AUROC and signed-concordance statistics on canonical
+regulators are compelling positive controls, but the transcription-factor-versus-marker
+partition was chosen after seeing the data.
+\emph{Reinforcement plan:} label it exploratory wherever reported (done), and, if it is to be
+promoted to a formal claim, pre-register the gene partition against an external T-helper
+regulator database and recompute.
+
+% ===========================================================================
+\section{Prioritized roadmap}
+
+Table~\ref{tab:roadmap} orders the reinforcement actions by return on effort. We separate what
+is achievable \emph{immediately and in silico} (and would strengthen a hackathon submission this
+week) from what requires \emph{new wet-lab data} (and would strengthen a journal submission).
+
+\begin{table}[h]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}c X l l@{}}
+\toprule
+\textbf{Priority} & \textbf{Action} & \textbf{Resolves} & \textbf{Status / effort} \\
+\midrule
+1 & Held-out-modality certificate test (hide activation arm, predict from knockdowns) & L1 & \sev{sev3}{done in silico} (synthetic; awaits dual-arm data) \\
+2 & Constraint ablation: NNLS vs unconstrained vs nearest-single & L4 & \sev{sev3}{done in silico} \\
+3 & Magnitude-capped recipes with reliability bands & L2 & \sev{sev3}{done in silico} \\
+4 & Publish scoring rubric + capability matrix; adversarial axis test & L3 & in silico, days (open) \\
+5 & Report per-target reachable-cosine ceiling & L5 & \sev{sev3}{done in silico} \\
+6 & Retrospective cross-reference of certificate genes to activation screens/genetics & L1 & \sev{sev3}{done in silico} \\
+6b & DEG-magnitude-weighted re-evaluation (signal-dilution stress test) & L5 & \sev{sev3}{done in silico} \\
+6c & Cross-cell-type transfer probe (K562/RPE1 essential screens) & L6 (partial) & \sev{sev3}{done in silico} \\
+7 & Shared-task comparison vs a forward predictor on a common target & L3 & in silico, weeks \\
+8 & In-domain double-knockdown panel in CD4\textsuperscript{+} T cells & L2 & \textbf{wet-lab}, months \\
+9 & CRISPRa arm testing the \Th{2}$\rightarrow$\Th{1} certificate & L1 & \textbf{wet-lab}, months \\
+10 & Per-donor / multi-system dictionaries for LODO generalization & L6 & \textbf{wet-lab}, months \\
+\bottomrule
+\end{tabularx}
+\caption{Reinforcement actions ordered by return on effort. Actions 2, 3, 5, 6, 6b and 6c have
+been \emph{completed} with the data already in hand, and action~1 is verified on synthetic
+ground truth and awaits a dual-modality dataset; actions~4 (publish the rubric and run the
+adversarial axis test for L3) and~7 (a shared-task comparison) remain open computational work,
+and actions 8--10 require new experiments and define the path to a journal-strength result. The
+two critical limitations (L1, L2) each retain a definitive wet-lab test (actions~9 and~8) that
+in-silico work cannot substitute for, so the critical severities stand despite the completed
+mitigations.}
+\label{tab:roadmap}
+\end{table}
+
+\section{Honest scorecard}
+
+Table~\ref{tab:scorecard} is our own assessment of how well each pillar of the paper is currently
+supported. We include it because a hackathon reviewer's time is best spent knowing where we are
+confident and where we are not.
+
+\begin{table}[h]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}l c X@{}}
+\toprule
+\textbf{Claim} & \textbf{Support} & \textbf{Basis / caveat} \\
+\midrule
+Reachability is convex-cone membership & \sev{sev3}{strong} & Mathematical; NNLS solves it exactly, KKT residual $\approx\!10^{-11}$. \\
+Reachable recipes recover known biology & \sev{sev3}{strong} & GATA3/TBX21 positive controls behave as required; held-out $z$ high. \\
+Headline is honest, not overstated & \sev{sev3}{strong} & Held-out (not in-sample) reported; calibration gap disclosed; ceiling argued. \\
+Operator transfers across datasets & \sev{sev2}{moderate} & K562 held-out ($z\approx37$) plus a K562/RPE1 probe: \emph{direction} transfers (median $0.35$), the minimal \emph{recipe} does not (Jaccard $0.11$). \\
+Additivity supports multi-gene recipes & \sev{sev2}{moderate} & Median cosine $0.71$ (out-of-domain); recipes now magnitude-capped with reliability bands ($0.92$--$0.96$); in-domain doubles still unmeasured. \\
+Non-negativity constraint earns its place & \sev{sev3}{strong} & Ablation: constraint costs $0.018$ cosine, saves $\approx3{,}537$ negative weights, beats nearest-single $12/12$; sole source of the certificate. \\
+Headline cosine is close to its modality ceiling & \sev{sev3}{strong} & $0.448$ is $71\%$ of the $\sqrt{f_{\mathrm{LOF}}}$ knockdown-only ceiling (atlas mean $61\%$); verdict strengthens under DEG weighting. \\
+Disjointness across $92$ methods & \sev{sev2}{moderate} & Structured survey with explicit rubric; not externally re-scored. \\
+Certificate ranking is reproducible & \sev{sev3}{strong} & Stable under gene-axis split (cross-half $\rho\approx0.65$, $z\approx35$); top-$30$ retained. \\
+Certificate is biologically actionable & \sev{sev1}{weak} & Interpretable, optimal, reproducible, but \emph{never tested at the bench}; top genes are markers/negative regulators, so direction may be backwards. \\
+\bottomrule
+\end{tabularx}
+\caption{Self-assessment of claim support. The framework's mathematical and honesty properties
+are strongly supported and have been reinforced by the completed in-silico ablations (constraint,
+ceiling, DEG-weighting, split-stability, cross-cell-type); its most novel biological
+claim---that infeasibility certificates name genes worth \emph{activating}---remains the least
+validated and is the top priority for reinforcement, and the certificate cross-reference shows
+its interpretation needs care (the top genes are state-markers and negative regulators, not the
+canonical master activators).}
+\label{tab:scorecard}
+\end{table}
+
+% ===========================================================================
+\section{Wet-lab design specifications}
+% ===========================================================================
+\noindent
+The reinforcement items above name three tests that cannot be done in silico on the current
+data: a \emph{functional} endpoint (the transcriptome-to-phenotype gap flagged in L1 and by the
+pharma review), an \emph{in-domain double-knockdown} panel (L2), and \emph{per-donor} effect
+vectors for a leave-one-donor-out test (L6). Each is specified below at the level of detail a
+collaborating wet-lab needs to cost and run it, with a pre-registered decision rule so the result
+is interpretable however it turns out. Sample sizes are order-of-magnitude estimates for planning,
+not a substitute for a statistician's power calculation on the chosen effect size.
+
+\subsection{W1 \quad Functional endpoint: does a reachable recipe move a T\textsubscript{H}1 \emph{phenotype}, not just its transcriptome?}
+\sev{sev1}{Resolves the transcriptome$\rightarrow$phenotype gap (L1, pharma item 1). Wet-lab, weeks.}
+\begin{itemize}
+\item[] \textbf{Objective.} The entire verdict is a transcriptional cosine; a held-out cosine of
+$0.45$ says the recipe reproduces a \Th{1} \emph{signature}, not that the cell acquires \Th{1}
+\emph{function}. This experiment tests whether the minimal reachable knockdown recipe moves an
+orthogonal, functional readout in the predicted direction.
+\item[] \textbf{Design.} Primary human CD4\textsuperscript{+} T cells, CRISPRi (dCas9--KRAB), the
+same system as the dictionary. Arms: (i)~the oracle's minimal \Th{2}$\rightarrow$\Th{1} recipe
+(top reachable knockdowns, $k\!\approx\!5$--$7$); (ii)~a canonical \Th{1} polarizing-cytokine
+positive control (IL-12\,+\,anti-IL-4); (iii)~a non-targeting-guide negative control; (iv)~single-gene
+knockdown of each recipe member, to show the combination beats its parts. $n\!\ge\!4$ donors,
+$\ge\!2$ guides per gene, cells assayed at rest and after restimulation.
+\item[] \textbf{Functional readouts (the point of the experiment).} IFN-$\gamma$ secretion
+(intracellular stain and ELISA/Luminex on supernatant); T-bet protein (flow); proliferation
+(CTV dilution); and, if resourced, an \emph{in-vitro} killing or help assay. Confirm the
+transcriptional shift in the same wells (targeted \Th{1}/\Th{2} qPCR panel or mini
+RNA-seq) so the transcriptome$\rightarrow$phenotype link is measured, not assumed.
+\item[] \textbf{Analysis \& pre-registered decision rule.} Primary endpoint: \%\,IFN-$\gamma^{+}$
+in the recipe arm vs.\ non-targeting control, mixed model with donor as random effect.
+\emph{Success:} recipe raises the functional endpoint significantly and in the same direction as
+the polarizing-cytokine control, at a fraction of the effect that scales with the recipe's
+predicted reachable fraction ($\sim\!0.4$). \emph{Informative failure:} transcriptional shift
+reproduced but functional endpoint unmoved $\Rightarrow$ the oracle predicts signature but not
+function, which is the honest boundary of a signature-matching method and is itself a result.
+\item[] \textbf{Scale.} $\sim\!4$ donors $\times\!\sim\!10$ conditions $\times\!2$ guides,
+one 96-well CRISPRi campaign with flow + secretion readout; weeks once cells and guides are in hand.
+\end{itemize}
+
+\subsection{W2 \quad In-domain double knockdowns: calibrate additivity where the oracle actually runs}
+\sev{sev1}{Resolves L2 (additivity borrowed from K562 CRISPRa). Wet-lab, weeks.}
+\begin{itemize}
+\item[] \textbf{Objective.} Every recipe and certificate assumes co-perturbation effects add. The
+only in-hand calibration is $126$ K562 CRISPRa doubles (median cosine $0.71$, magnitude-saturation
+ceiling $M^{\star}\!=\!13.9$)---a different cell type \emph{and} a different modality than the
+headline CD4\textsuperscript{+} CRISPRi result. This panel measures additivity in-domain.
+\item[] \textbf{Design.} $\sim\!60$--$100$ CD4\textsuperscript{+} CRISPRi double knockdowns, plus
+both constituent singles and non-targeting controls, read out by pseudobulk or single-cell RNA-seq
+(the same effect definition as the dictionary: z-scored log fold-change vs.\ non-targeting pool).
+\emph{Pair selection is the design's leverage}: (a)~pairs the oracle actually proposes in
+\Th{2}$\rightarrow$\Th{1} and aging recipes; (b)~pairs spanning the combined-magnitude range around
+the fitted ceiling $M^{\star}\!=\!13.9$, so the saturation law is tested where it bends, not only
+in its flat regime; (c)~a few canonical-regulator pairs (e.g.\ involving \emph{GATA3},
+\emph{TBX21}) as interpretable anchors.
+\item[] \textbf{Analysis \& pre-registered decision rule.} For each double, cosine and magnitude
+ratio of the measured effect vs.\ the sum of singles; regress the additivity deficit on combined
+magnitude and test the K562-fit saturation ceiling as an out-of-sample prediction.
+\emph{Success:} in-domain median cosine within a pre-set margin (say $\pm0.1$) of the K562 $0.71$
+\emph{and} the magnitude-deficit slope reproduced $\Rightarrow$ the borrowed calibration transfers,
+and the magnitude-capped recipe reliability bands are validated. \emph{Informative failure:}
+in-domain additivity materially worse $\Rightarrow$ recipes above a measured magnitude must carry a
+wider band or be capped; this directly sets the recipe-size ceiling.
+\item[] \textbf{Scale.} One $\sim\!200$--$300$-guide-arm CRISPRi screen (doubles + singles +
+controls, $\times$ replicates) with sequencing readout; the smallest experiment that converts
+additivity from a borrowed assumption into an in-domain measurement.
+\end{itemize}
+
+\subsection{W3 \quad Per-donor effect vectors and leave-one-donor-out generalization}
+\sev{sev2}{Resolves L6 (donor-collapsed dictionary). Wet-lab / re-analysis, weeks--months.}
+\begin{itemize}
+\item[] \textbf{Objective.} The primary dictionary is collapsed across four donors, so a genuine
+leave-one-donor-out (LODO) test---does a recipe built on donors $1$--$3$ still reach the target in
+donor $4$?---is impossible on the released data. Pharma needs a nomination to survive patient
+genetic background before it is actionable.
+\item[] \textbf{Design (two routes).} (i)~\emph{Re-analysis}, if per-donor cells are recoverable
+from the original screen: rebuild the effect matrix per donor rather than pooled, giving four
+donor-resolved dictionaries at once. (ii)~\emph{New data}, otherwise: repeat the CRISPRi effect
+measurement for the recipe-relevant generators (not the full genome) across $\ge\!4$--$6$ donors
+spanning HLA and sex, sufficient for a LODO curve on the headline axes.
+\item[] \textbf{Analysis \& pre-registered decision rule.} Build the cone on all-but-one donor,
+evaluate reachable cosine, held-out cosine, and the recipe membership on the held-out donor; repeat
+for each fold. Report the cross-donor mean and spread, and the stability of the top recipe genes
+(rank overlap across folds). \emph{Success:} held-out-donor reachable cosine within the
+generator-noise band established in silico (Phase-1 dictionary bootstrap) and stable top-recipe
+membership $\Rightarrow$ the nomination is genotype-robust. \emph{Informative failure:} recipe
+identity swings by donor $\Rightarrow$ the external-validity claim stays ``demonstrated once'' and
+donor covariates must enter the model.
+\item[] \textbf{Scale.} Route (i) is a re-analysis (no new wet-lab) contingent on data access;
+route (ii) is a targeted, generator-restricted CRISPRi campaign across donors. Either yields the
+first cross-genetic-background test of the oracle.
+\end{itemize}
+
+\noindent\emph{Relation to the in-silico work.} W1--W3 are deliberately the items that
+\emph{cannot} be closed at a keyboard. The generator-uncertainty bootstrap, effective-rank/group-%
+sparse geometry, held-out-modality certificate cross-reference, directional-genetics check, and
+forward-predictor head-to-head (this reinforcement round) tighten everything that can be tightened
+in silico; W1 (function), W2 (in-domain additivity), and W3 (cross-donor) are the residual
+evidence a drug-development reviewer would still require before acting on a nomination.
+
+\section*{Bottom line}
+The manuscript's mathematics and its intellectual honesty are its strongest assets, and its
+most novel idea---the constructive infeasibility certificate---is its least validated. The
+highest-value work is therefore not more math but a single wet-lab test of a certificate, with
+an in-silico held-out-modality test as the immediate proxy. If we could do exactly one more
+thing, it would be to hide an activation arm from a dual-modality screen and show that the
+certificate, built from knockdowns alone, predicts what activation the screen found to work.
+Everything else in this document is a way of making the paper harder to dismiss; that one
+experiment is a way of making it right.
+
+\end{document}
+

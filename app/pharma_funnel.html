@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Where drug programs fail — and where the oracle acts</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#161c24; --ink:#e8edf2; --dim:#8b97a6; --line:#2a333f;
+    --lof:#1f9e89; --gof:#d99b2b; --neither:#c7cdd6; --target:#e8edf2; --accent:#4aa3df;
+    --stop:#d9534f; --good:#4fd6c0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  header{padding:22px 26px 14px;border-bottom:1px solid var(--line)}
+  h1{margin:0 0 4px;font-size:19px;font-weight:650;letter-spacing:.2px}
+  header p{margin:0;color:var(--dim);font-size:13px;max-width:80ch}
+  .wrap{display:grid;grid-template-columns:minmax(420px,1fr) minmax(360px,1fr);gap:0}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+  .col{padding:20px 26px} .col.left{border-right:1px solid var(--line)}
+  .sub{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:var(--dim);margin:0 0 10px}
+  svg{width:100%;height:auto;display:block}
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:650;letter-spacing:.3px;margin-bottom:12px}
+  .badge.p{background:#123d38;color:#4fd6c0;border:1px solid #1f6a5f}
+  .badge.w{background:#3d3212;color:#e6bd5b;border:1px solid #6a561f}
+  .badge.s{background:#3d1a18;color:#f0a09c;border:1px solid #7a2f2b}
+  .stat{display:flex;gap:18px;margin:2px 0 16px;flex-wrap:wrap}
+  .stat div{font-size:12px;color:var(--dim)}
+  .stat b{display:block;font-size:20px;color:var(--ink);font-weight:650;font-variant-numeric:tabular-nums}
+  .bar{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:4px 0 6px;font-size:12px;font-weight:600}
+  .bar>span{display:flex;align-items:center;justify-content:center;color:#0d1117;min-width:0;transition:flex-basis .35s ease}
+  .barkey{display:flex;gap:16px;font-size:11px;color:var(--dim);margin-bottom:20px}
+  .barkey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  .tabs{display:flex;gap:4px;margin-bottom:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .tab{padding:7px 12px;cursor:pointer;font-size:13px;color:var(--dim);border-bottom:2px solid transparent}
+  .tab.on{color:var(--ink);border-bottom-color:var(--accent)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--dim);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.8px}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;color:var(--dim)}
+  .gene{font-weight:600}
+  .note{font-size:11.5px;color:var(--dim);margin-top:10px;line-height:1.5}
+  .hide{display:none}
+  .foot{padding:14px 26px 24px;color:var(--dim);font-size:11.5px;border-top:1px solid var(--line)}
+  .foot code{color:#9fb0c0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:10px 12px;cursor:pointer;transition:.12s}
+  .card:hover{border-color:#3d4a5a} .card.on{border-color:var(--accent);background:#182533}
+</style>
+<style>
+  .lever{position:relative;margin-bottom:12px;border-left:4px solid var(--tint,var(--line))}
+  .lever .lv-head{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .lever .lv-dot{width:9px;height:9px;border-radius:50%;background:var(--tint,var(--dim));flex:none}
+  .lever .lv-name{font-weight:650;font-size:14px}
+  .lever .lv-num{font-size:17px;font-weight:650;color:var(--tint,var(--ink));font-variant-numeric:tabular-nums;margin:2px 0 6px;line-height:1.3}
+  .lever .lv-how{font-size:12px;color:var(--dim);line-height:1.5}
+  .lever .lv-acts{font-size:10.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--dim);margin-top:8px}
+  .lever .lv-acts b{color:var(--tint,var(--ink));font-weight:650}
+  .lever.hi{border-color:var(--accent);background:#182533;box-shadow:0 0 0 1px var(--accent) inset}
+  .lever.dim{opacity:.35}
+  g[data-stage] polygon,g[data-stage] rect{transition:.15s}
+  g[data-stage].hi polygon,g[data-stage].hi rect{stroke:var(--accent);stroke-width:3}
+  g[data-stage].hi .acts-mark{fill:var(--accent);font-weight:700}
+  .legend{display:flex;gap:16px;font-size:11px;color:var(--dim);margin:14px 0 4px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  .hint{font-size:11.5px;color:var(--dim);margin:0 0 14px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Where drug programs fail — and where the oracle acts</h1>
+  <p id="thesis"></p>
+</header>
+
+<div class="wrap">
+  <div class="col left">
+    <p class="sub">Clinical attrition funnel — band width &prop; cumulative survival</p>
+    <svg id="funnel" viewBox="0 0 540 500" aria-label="drug development attrition funnel"></svg>
+    <div class="legend">
+      <span><i style="background:var(--lof)"></i>advances</span>
+      <span><i style="background:var(--stop)"></i>Phase II — lowest transition</span>
+      <span><i style="background:var(--line);border:1px dashed var(--dim)"></i>upstream decision (pre-clinical)</span>
+    </div>
+    <div class="stat" id="headstats"></div>
+  </div>
+
+  <div class="col right">
+    <p class="sub">Four value levers — where the oracle acts</p>
+    <p class="hint">Hover a funnel stage to light the lever(s) acting there; hover a lever to light its stage. The oracle concentrates at <b style="color:var(--ink)">target selection</b> — years before the Phase&nbsp;II cliff.</p>
+    <div id="levers"></div>
+  </div>
+</div>
+
+<div class="foot" id="foot"></div>
+
+<script>
+const DATA = {"meta": {"title": "Where drug programs fail — and where the oracle acts", "thesis": "Drug development is expensive because failure is the norm and it is paid for late. The highest-leverage place to intervene is target selection — the decision, made years before Phase II, of which gene to go after.", "approval_rate": "~10%", "phase2_transition": 0.307, "efficacy_share": "~half of Phase II/III failures", "autoimmune_pos": "~15%"}, "funnel": [{"stage": "Phase I", "transition": 0.632, "note": "63.2% advance", "lowest": false}, {"stage": "Phase II", "transition": 0.307, "note": "30.7% advance — the lowest transition of any phase; lack of efficacy causes ≈half of Phase II/III failures", "lowest": true}, {"stage": "Phase III", "transition": 0.581, "note": "58.1% advance", "lowest": false}, {"stage": "Approval", "transition": 0.859, "note": "~10% cumulative from Phase I (autoimmune ~15% PoS)", "lowest": false}], "levers": [{"id": "measured", "name": "Measured, not inferred effects", "number": "11–25% preclinical reproducibility (Amgen 6/53; Bayer ~25%)", "acts": "target selection", "how": "Dictionary rows are directly-measured genome-scale CRISPRi effects in the relevant primary human cell type — attacking the root cause of wrong-target efficacy failure.", "color": "lof"}, {"id": "genetics", "name": "Disease-genetics cross-reference", "number": "2.6× approval odds with genetic support (Minikel 2024)", "acts": "target selection", "how": "Cross-references nominations to disease genetics — 17 immune-mediated diseases, 185 significant GWAS-gene enrichments (FDR<0.05) — moving the portfolio toward the high-success quadrant.", "color": "gof"}, {"id": "stop", "name": "Provable 'unreachable' STOP", "number": "≈half of Phase II/III failures are efficacy; autoimmune PoS ~15%", "acts": "Phase II", "how": "When the target lies outside the knockdown cone, returns the specific genes that would have to be ACTIVATED instead — redirecting modality before the expensive phase, not after.", "color": "stop"}, {"id": "recipe", "name": "Minimal ranked recipe", "number": "screen slots / animal cohorts per arm", "acts": "preclinical", "how": "Ranks minimal knockdown sets so the scarcest preclinical resource is allocated to the most target-aligned directions.", "color": "accent"}], "refs": [{"k": "Minikel 2024", "t": "Refining the impact of genetic evidence on clinical success", "v": "Nature", "doi": "10.1038/s41586-024-07316-0"}, {"k": "Wong, Siah & Lo 2019", "t": "Estimation of clinical trial success rates", "v": "Biostatistics", "doi": "10.1093/biostatistics/kxx069"}, {"k": "Thomas 2016", "t": "Clinical Development Success Rates 2006–2015", "v": "BIO / Biomedtracker / Amplion", "doi": ""}, {"k": "Harrison 2016", "t": "Phase II and phase III failures: 2013–2015", "v": "Nat Rev Drug Discov", "doi": "10.1038/nrd.2016.184"}, {"k": "Begley & Ellis 2012", "t": "Raise standards for preclinical cancer research", "v": "Nature", "doi": "10.1038/483531a"}, {"k": "Prinz 2011", "t": "Believe it or not: how much can we rely on published data", "v": "Nat Rev Drug Discov", "doi": "10.1038/nrd3439-c1"}]};
+document.getElementById("thesis").textContent = DATA.meta.thesis;
+
+const F = DATA.funnel;
+// cumulative survival: cum[i] = fraction ENTERING stage i, cum[i+1] = fraction EXITING
+let cum=[1.0];
+F.forEach(s=>cum.push(cum[cum.length-1]*s.transition));
+
+// ---- geometry ----
+const cx=200, maxHalf=150;   // 100% -> 300px wide
+const half=f=>Math.max(f*maxHalf,3);
+const upstream=[
+  {key:"target selection", label:"Target selection", tag:"decision"},
+  {key:"preclinical",      label:"Preclinical",      tag:"decision"}
+];
+// which levers act at each stage-key (for the ◄ annotations)
+const actsAt={};
+DATA.levers.forEach(l=>{(actsAt[l.acts]=actsAt[l.acts]||[]).push(l.id);});
+
+function drawFunnel(){
+  let s=`<defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L10,4.5 L0,9 z" fill="var(--accent)"/></marker></defs>`;
+  let y=14;
+  // upstream decision bands (full-ish width, dashed)
+  upstream.forEach(u=>{
+    const w=300, x=cx-w/2, h=34;
+    const mark = actsAt[u.key] ? "\u25c4 "+actsAt[u.key].join(" \u00b7 ") : "";
+    s+=`<g data-stage="${u.key}">
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="7"
+        fill="#161c24" stroke="var(--dim)" stroke-width="1" stroke-dasharray="5 4"/>
+      <text x="${cx}" y="${y+h/2+1}" text-anchor="middle" dominant-baseline="middle"
+        fill="var(--ink)" font-size="12.5" font-weight="600">${u.label}</text>
+      <text class="acts-mark" x="${x+w+10}" y="${y+h/2+1}" dominant-baseline="middle"
+        fill="var(--dim)" font-size="11">${mark}</text>
+    </g>`;
+    y+=h+8;
+  });
+  y+=10; // gap before clinical funnel
+  const stageH=92;
+  F.forEach((st,i)=>{
+    const topF=cum[i], botF=cum[i+1];
+    const tl=cx-half(topF), tr=cx+half(topF), bl=cx-half(botF), br=cx+half(botF);
+    const y0=y, y1=y+stageH;
+    const isLow=st.lowest;
+    const fill=isLow?"var(--stop)":"var(--lof)";
+    const op=isLow?0.30:0.18;
+    const mark = actsAt[st.stage] ? "\u25c4 "+actsAt[st.stage].join(" \u00b7 ") : "";
+    s+=`<g data-stage="${st.stage}">
+      <polygon points="${tl},${y0} ${tr},${y0} ${br},${y1} ${bl},${y1}"
+        fill="${fill}" fill-opacity="${op}" stroke="${fill}" stroke-width="1.5"/>
+      <text x="${cx}" y="${y0+26}" text-anchor="middle" fill="var(--ink)"
+        font-size="13.5" font-weight="650">${st.stage}</text>
+      <text x="${cx}" y="${y0+46}" text-anchor="middle" fill="${isLow?'#f0a09c':'var(--good)'}"
+        font-size="16" font-weight="700" font-variant-numeric="tabular-nums">${(st.transition*100).toFixed(1)}%</text>
+      <text x="${cx}" y="${y0+62}" text-anchor="middle" fill="var(--dim)" font-size="10.5">advance</text>
+      <text x="${cx}" y="${y1-8}" text-anchor="middle" fill="var(--dim)" font-size="10"
+        font-variant-numeric="tabular-nums">${(topF*100).toFixed(0)}% &#8594; ${(botF*100).toFixed(0)}% of cohort</text>`;
+    if(mark){
+      s+=`<text class="acts-mark" x="${tr>br?tr:br}" dx="14" y="${(y0+y1)/2}" dominant-baseline="middle"
+        fill="var(--stop)" font-size="11" font-weight="600">${mark}</text>`;
+    }
+    s+=`</g>`;
+    y+=stageH;
+  });
+  document.getElementById("funnel").innerHTML=s;
+}
+
+// ---- headline stats ----
+document.getElementById("headstats").innerHTML=
+  `<div><b>${DATA.meta.approval_rate}</b>approval, Phase I &#8594; market</div>
+   <div><b>${(DATA.meta.phase2_transition*100).toFixed(1)}%</b>Phase II transition (lowest)</div>
+   <div><b>${DATA.meta.autoimmune_pos}</b>autoimmune Phase-I PoS</div>`;
+
+// ---- lever cards ----
+const tintMap={lof:"var(--lof)",gof:"var(--gof)",stop:"var(--stop)",accent:"var(--accent)"};
+const stageLabel={"target selection":"target selection","preclinical":"preclinical","Phase II":"Phase II"};
+const lc=document.getElementById("levers");
+DATA.levers.forEach(l=>{
+  const d=document.createElement("div");
+  d.className="lever card";
+  d.dataset.id=l.id; d.dataset.acts=l.acts;
+  d.style.setProperty("--tint",tintMap[l.color]||"var(--dim)");
+  d.innerHTML=`<div class="lv-head"><span class="lv-dot"></span><span class="lv-name">${l.name}</span></div>
+    <div class="lv-num">${l.number}</div>
+    <div class="lv-how">${l.how}</div>
+    <div class="lv-acts">acts at <b>${stageLabel[l.acts]||l.acts}</b></div>`;
+  lc.appendChild(d);
+});
+
+// ---- interaction ----
+const bands=()=>document.querySelectorAll('#funnel g[data-stage]');
+const levers=()=>document.querySelectorAll('.lever');
+function clearHi(){bands().forEach(b=>b.classList.remove('hi'));
+  levers().forEach(l=>{l.classList.remove('hi');l.classList.remove('dim');});}
+function lightStage(key){clearHi();
+  bands().forEach(b=>{if(b.dataset.stage===key)b.classList.add('hi');});
+  let any=false;
+  levers().forEach(l=>{if(l.dataset.acts===key){l.classList.add('hi');any=true;}});
+  if(any)levers().forEach(l=>{if(l.dataset.acts!==key)l.classList.add('dim');});}
+function lightLever(el){clearHi();
+  const key=el.dataset.acts;
+  bands().forEach(b=>{if(b.dataset.stage===key)b.classList.add('hi');});
+  levers().forEach(l=>{if(l.dataset.acts===key)l.classList.add('hi');else l.classList.add('dim');});}
+function bind(){
+  bands().forEach(b=>{b.style.cursor='pointer';
+    b.addEventListener('mouseenter',()=>lightStage(b.dataset.stage));
+    b.addEventListener('click',()=>lightStage(b.dataset.stage));});
+  levers().forEach(l=>{
+    l.addEventListener('mouseenter',()=>lightLever(l));
+    l.addEventListener('click',()=>lightLever(l));});
+  document.querySelector('.wrap').addEventListener('mouseleave',clearHi);
+}
+
+// ---- footer / provenance ----
+const refs=DATA.refs.map(r=>{
+  const cite=r.doi?`<a href="https://doi.org/${r.doi}" target="_blank">${r.k}</a>`:`${r.k}`;
+  return `${cite}, <i>${r.t}</i> (${r.v})`;
+}).join("; ");
+document.getElementById("foot").innerHTML=
+  `Attrition rates from clinical-trial success-rate studies. Phase transition and ~10% cumulative approval: `+
+  `<code>Thomas 2016 (BIO/Biomedtracker)</code>, <code>Wong, Siah &amp; Lo 2019</code>; `+
+  `Phase&nbsp;II is the lowest transition and lack of efficacy drives &#8776;half of Phase&nbsp;II/III failures `+
+  `(<code>Harrison 2016</code>); autoimmune Phase-I PoS &#8776;15% (<code>Wong 2019</code>). `+
+  `Value-lever evidence: genetic support gives 2.6&#215; approval odds (<code>Minikel 2024</code>); `+
+  `preclinical reproducibility 11&#8211;25% (<code>Begley &amp; Ellis 2012</code>, <code>Prinz 2011</code>). `+
+  `Framing from <code>IMPACT.md</code> &sect;1&#8211;&sect;4.<br><span style="color:#6c7887">References: ${refs}</span>`;
+
+drawFunnel(); bind();
+</script>
+</body>
+</html>

@@ -34,7 +34,7 @@ Both target-state signatures are provided directly by the dataset authors. The
 polarization signature ships from **two independent source contrasts** (Ota 2021,
 Höllbacher 2021), which we use for a cross-source robustness check in lieu of an
 arrayed wet-lab validation table (not present in our local data). See
-[`ROADMAP.md`](./ROADMAP.md) for the full rationale and the analysis catalog.
+[`ROADMAP.md`](./docs/ROADMAP.md) for the full rationale and the analysis catalog.
 
 ## How this maps to the hackathon (from the event page)
 
@@ -77,11 +77,11 @@ license.
 tractable on a laptop. We build on the authors' **precomputed derived artifacts**,
 and the work is split into two tiers by what's needed.
 
-**Tier 1 — already local (checked into `data/`, ~36 MB of CSVs):** enough for the
-**warm-up + zero-dependency fallback** (see the Tier note under Tier 2) — target
-signatures, per-perturbation QC/effect summaries, guide QC, off-target design,
-autoimmune-disease enrichment, and donor metadata. *Tier 1 is a 1-D diagonal proxy, not
-the headline method; the graded core is the Tier-2 reachability cone.*
+**Tier 1 — local (checked into `data/`, ~36 MB of CSVs):** the **warm-up layer** —
+target signatures, per-perturbation QC/effect summaries, guide QC, off-target design,
+autoimmune-disease enrichment, and donor metadata. Tier 1 supports a 1-D directional
+ranking (used as a sanity check in `notebooks/01`); the headline convex-cone method runs
+on the Tier-2 matrix below.
 
 | Local file | Rows | What it is |
 |---|---|---|
@@ -89,21 +89,23 @@ the headline method; the graded core is the Tier-2 reachability cone.*
 | `Th2_Th1_polarization_signature…csv` | 37,288 | Th2→Th1 target signature, two source contrasts |
 | `CD4T_aging_signature…csv` | 10,000 | Aged→young target signature |
 | `guide_kd_efficiency.suppl_table.csv` | 73,765 | Per-guide knockdown QC |
-| `sgrna_library_metadata.suppl_table.csv` | 31,110 | Guide design / off-target annotation |
+| `sgrna_library_metadata.suppl_table.csv` | 26,504 | Guide design / off-target annotation |
 | `cluster_autoimmune_enrichment…csv` | 5,236 | Perturbation-cluster × 17 autoimmune diseases |
 | `sample_metadata.suppl_table.csv` | 12 | 4 donors × 3 conditions, demographics |
 
-**Tier 2 — one download away (not local yet):** the full gene-level effect matrix,
-needed for the **reachability-cone + reconstruction solver** — i.e. the headline method.
-*The graded core should run here, not on the Tier-1 proxy (see the Tier note below).*
+**Tier 2 — local (`data/GWCD4i.DE_stats.h5ad`, 16.8 GB):** the full gene-level
+effect matrix that the **reachability cone runs on** — i.e. the headline method.
+This is where every result in [`RESULTS.md`](./docs/RESULTS.md) — the headline verdict, the
+modality triage, and the generalizability transfers — is computed.
 
 | Artifact | Shape | What it is |
 |---|---|---|
-| `GWCD4i.DE_stats.h5ad` | 33,983 pert×cond × 10,282 genes | Per-perturbation effect matrix (logFC, z-score, p) — **input to the reachability + reconstruction solver** |
-| `GWCD4i.pseudobulk_merged.h5ad` | guide×donor×cond × 18,129 genes | Pseudobulk expression profiles |
+| `GWCD4i.DE_stats.h5ad` | 33,983 pert×cond × 10,282 genes | Per-perturbation effect matrix (logFC, z-score, p) — **the reachability dictionary `E`** |
 
-Working from the ~34k × 10k matrix (subset to significant on-target perturbations +
-HVGs) is comfortably CPU-tractable once fetched. See [`data/README.md`](./data/README.md).
+The matrix is 16.8 GB on disk (not the ~1.4 GB the early data card estimated); on an
+18 GB-RAM laptop it is read selectively — subset to significant on-target perturbations
++ HVGs per condition and cached to `analysis_cache/atlas_work/inputs.npz` and `notebooks/cache/`, never
+loaded whole. See [`data/README.md`](./data/README.md).
 
 ## Method (baseline-first, honestly benchmarked)
 
@@ -178,50 +180,93 @@ the regulator lists themselves.
 - Outputs are **ranked, falsifiable hypotheses for future experimental validation** —
   not conclusions.
 
-## Status: docs live on `HEAD`; the validated prototype is one `git checkout` away
+## Status: built and validated
 
-The working tree currently holds the design docs plus the local Tier-1 data. The
-runnable pipeline (`src/`, `app/`, `tests/`, build config) is **not deleted — it is
-preserved in git history** and does **not** need to be rebuilt from scratch. It was
-removed from `HEAD` by the two "Remove legacy pipeline code" commits, so it lives intact
-at the commit immediately before them:
+The method is implemented, the Tier-2 matrix is local, and the full analysis has run.
+The headline Th2→Th1 verdict, the 12-cell reachability atlas, the modality triage of 102
+knockdown nodes, and a cross-dataset K562 CRISPRa transfer demo are all reproduced in the
+notebooks and written up in the results docs. Two later reinforcement passes harden the
+claims against their own stated limitations:
+
+- **Reinforcement battery** (`06_reinforcement_analyses.ipynb`, `analysis_cache/nb_out/REINFORCEMENT_RESULTS.md`) —
+  the non-negativity constraint costs only +0.018 held-out cosine but is the sole source of the
+  certificate (**L4**); the modest 0.448 cosine is **71% of the achievable knockdown ceiling** (**L5**);
+  every recommended recipe is additive-safe 12/12 with a 5.6× margin to the cap (**L2**); and a runnable
+  dual-modality certificate test verifies at AUROC 0.999 on synthetic ground truth (**L1**).
+- **Cross-cell-type transfer** (`07_cross_celltype_transfer.ipynb`, `analysis_cache/czi_data/CROSS_CELLTYPE_TRANSFER.md`) —
+  running the unchanged `reachability.py` on the Replogle 2022 K562 and RPE1 essential-gene screens
+  (via CZI) shows effect *direction* transfers across cell types while the specific minimal *recipe*
+  does not — a robustness result with a sharp, honest boundary.
+
+**Where to start reading:**
+
+| Doc | What it covers |
+|---|---|
+| [`RESULTS.md`](./docs/RESULTS.md) | The headline Th2→Th1 verdict + the full expansion: signed reachability, the 12-cell atlas, the genetics × druggability **modality triage**, **cross-dataset & cross-cell-type generalizability**, the **experimental-design toolkit** (`design_experiment()`), and the nine method-improvement in-silico results. **Start here.** |
+| [`NOVELTY.md`](./docs/NOVELTY.md) | What is scientifically new (the convex-cone-reachability delta), the **real-world / disease-impact** case, and the **field positioning** (why the inverse-feasibility question matters when forward-prediction models lose to linear baselines). |
+| [`RELATED_WORK.md`](./docs/RELATED_WORK.md) | The citation-grounded survey of 91 prior methods across three research communities, with the capability matrix and landscape map. |
+| [`CAUSAL.md`](./docs/CAUSAL.md) | The design-based causal-inference reframe, the IV/compliance trust layer, the A1–A6/B1–B4 research agenda, the assumption-by-assumption **validation ledger**, and an adversarial dataset critique. |
+| [`ROADMAP.md`](./docs/ROADMAP.md) | The 3-day hackathon build plan (packaging + cross-dataset replication of existing results). |
+| [`CLAUDE.md`](./CLAUDE.md) | Operating manual: verified facts, guardrails, repo map, literature anchors. |
+
+Secondary writeups referenced by the above live alongside their notebooks:
+[`analysis_cache/nb_out/REINFORCEMENT_RESULTS.md`](./analysis_cache/nb_out/REINFORCEMENT_RESULTS.md) (L1/L2/L4/L5 battery,
+notebook 06) and [`analysis_cache/czi_data/CROSS_CELLTYPE_TRANSFER.md`](./analysis_cache/czi_data/CROSS_CELLTYPE_TRANSFER.md)
+(Replogle 2022 K562/RPE1, notebook 07).
+
+**Reproduce:**
 
 ```bash
-# restore the entire validated prototype (~1,000 LOC) onto the working tree:
-git checkout 3f8db17 -- src app tests environment.yml requirements.txt data/fetch_de_stats.sh
-python -m src.data_loader --check          # schema gate should pass on all 7 CSVs
-pytest -q                                  # smoke tests should be green
+# the method module + the three run scripts drive everything:
+python scripts/run_atlas.py       # 12-cell atlas → analysis_cache/atlas_work/{point,cell}_*.json, results/atlas_reachability.csv
+python scripts/run_nulls.py       # held-out-gene significance per cell (lean pass)
+python scripts/run_bootstrap.py   # gene-panel subsampling CI on the headline verdict
+# or step through the notebooks:
+#   01 QC → 02 headline → 03 generalizability (K562 CRISPRa)
+#   04 experimental-design toolkit → 05 target-ID showcase
+#   06 reinforcement battery (L1/L2/L4/L5) → 07 cross-cell-type transfer (K562/RPE1)
 ```
 
-Recoverable at `3f8db17` ("Add Tier-2 fetch script and update pipeline modules"):
-
-| Path | ~LOC | What it is |
-|---|---|---|
-| `src/data_loader.py` | 170 | schema gate + CSV loaders |
-| `src/target_states.py` | 175 | target vectors, sign fix, cross-source concordance |
-| `src/counterfactual.py` | 208 | the ranking / reconstruction engine |
-| `src/confidence.py` | 123 | confidence decomposition |
-| `src/evidence.py` | 129 | PubMed / Open Targets / Enrichr |
-| `app/explorer.py` | 80 | Streamlit explorer |
-| `tests/test_counterfactual.py` | 46 | smoke tests |
-| `data/fetch_de_stats.sh` | 39 | Tier-2 (`GWCD4i.DE_stats.h5ad`) fetch script |
-| `environment.yml`, `requirements.txt` | — | pinned environment |
-
-**So the week's first move is `restore + green tests`, not `rewrite`.** Current tree:
+**Repository layout:**
 
 ```
 cell-state-reachability/
-├── README.md             # this file — framing, method, related work, hackathon fit
-├── ROADMAP.md            # 7-day plan, reachability reframe, risks, live checklist
-├── LICENSE               # MIT
+├── README.md                # this file — framing, method, related work, hackathon fit
+├── CLAUDE.md                # operating manual (verified facts, guardrails, repo map, refs)
+├── reachability.py          # the method: cone fit, signed decomposition, certificate, nulls, spectrum
+├── reproduce.sh             # one-command reproduce (pytest + in-module self-test)
+├── environment.yml          # conda environment
+├── requirements.txt         # pip pins (numpy/scipy/pandas/…)
+├── docs/                    # narrative writeups (start with RESULTS.md)
+│   ├── RESULTS.md           #   headline verdict + atlas + modality triage + generalizability ← primary
+│   ├── NOVELTY.md           #   method delta (vs prior art) + disease impact + field positioning
+│   ├── RELATED_WORK.md      #   the 91-prior-method survey (citation-grounded)
+│   ├── CAUSAL.md            #   causal-inference reframe + IV/compliance + validation ledger + critique
+│   ├── ROADMAP.md           #   the 3-day hackathon build plan
+│   ├── figures/             #   doc figures (roadmap timeline)
+│   └── process/             #   process notes (consolidation log, 5-day summary, reviewer-2 response)
+├── scripts/                 # analysis drivers: run_atlas/run_nulls/run_bootstrap/run_iv_compliance,
+│                            #   run_a1_sensitivity, run_deg_weighted_eval, build_effect_matrices, build_nbB
+├── notebooks/               # 01 EDA · 02 headline · 03 generalizability · 04 design toolkit
+│   └── figures/             #   · 05 target-ID showcase · 06 reinforcement · 07 cross-cell-type
+├── app/                     # interactive explorer — 8 self-contained HTML views + data + DEPLOY.md
+│   └── previews/            #   PNG previews of each view
+├── results/                 # atlas + modality + K562 tables, a-series outputs, generalizability survey
+├── manuscript/              # LaTeX manuscript (sections/ + figures/)
 ├── data/
-│   ├── README.md         # how the data is sourced (no-auth first)
-│   └── *.suppl_table.csv # Tier-1 supplementary tables (local, gitignored)
-└── notebooks/README.md   # notes for exploratory analysis (no notebooks yet)
+│   ├── README.md            # data provenance + tiers
+│   ├── GWCD4i.DE_stats.h5ad # Tier-2 effect matrix (16.8 GB, local, gitignored)
+│   └── *.suppl_table.csv    # Tier-1 supplementary tables (local, gitignored)
+└── analysis_cache/          # cached intermediates — heavy .npz gitignored, small tables tracked
+    ├── atlas_work/          #   cached inputs.npz + per-cell atlas JSONs + bootstrap_ci.json
+    ├── nb_out/              #   reinforcement outputs (L1–L5) + REINFORCEMENT_RESULTS.md + figR1
+    ├── czi_data/            #   K562/RPE1 aligned effects + CROSS_CELLTYPE_TRANSFER.md
+    └── czi_fig/             #   cross-cell-type transfer figures (nb07)
 ```
 
-The method, tiers, and analysis catalog live in [`ROADMAP.md`](./ROADMAP.md); the data
-provenance lives in [`data/README.md`](./data/README.md).
+The method delta, disease impact, and field positioning live in [`NOVELTY.md`](./docs/NOVELTY.md);
+the data provenance lives in [`data/README.md`](./data/README.md); the build plan and its
+risk log are in [`ROADMAP.md`](./docs/ROADMAP.md).
 
 ## License
 

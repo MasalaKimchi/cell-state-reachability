@@ -1,0 +1,4 @@
+condition,n_gen,dense_cos,heldout_cos,support,reach_frac,act_req_frac,t
+Rest,6871,0.6266,0.4482,715,0.393,0.309,26.7
+Stim8hr,7155,0.5235,0.2834,713,0.274,0.37,28.3
+Stim48hr,7195,0.5329,0.2684,793,0.284,0.38,32.3

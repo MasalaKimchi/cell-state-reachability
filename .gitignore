@@ -1,21 +1,36 @@
-# Data artifacts (large; fetch via data/README.md)
+# ── Large data artifacts (fetch / regenerate; see data/README.md) ────────────
 data/*.h5ad
 data/*.h5mu
 data/*.csv
 !data/README.md
 !data/.gitkeep
 
-# Python
+# ── Heavy regenerable analysis caches (rebuilt by scripts/; too large for git) ─
+# The small result tables, per-cell JSONs, figures and .md writeups under
+# analysis_cache/ ARE tracked — only these large binaries are excluded.
+analysis_cache/**/inputs.npz
+analysis_cache/**/cross_celltype_effects.npz
+analysis_cache/**/first_stage_compliance.csv
+
+# ── Python ───────────────────────────────────────────────────────────────────
 __pycache__/
 *.pyc
 .venv/
 .ipynb_checkpoints/
 .env
+.pytest_cache/
 
-# Outputs
+# ── Generated outputs ────────────────────────────────────────────────────────
 outputs/
 notebooks/figures/
+# Heavy regenerable per-condition effect matrices (150-160 MB each, > GitHub's
+# 100 MB limit); rebuilt by scripts/run_deg_weighted_eval.py + nb03/nb04.
+# The small design cards, QC tables and JSON under notebooks/cache/ stay tracked.
+notebooks/cache/*.npz
 *.log
 
-# macOS
+# ── Local tooling config (not part of the deliverable) ───────────────────────
+.claude/
+
+# ── OS cruft ─────────────────────────────────────────────────────────────────
 .DS_Store

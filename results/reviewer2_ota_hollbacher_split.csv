@@ -1,0 +1,4 @@
+target,n_readout,reachable_cosine,in_cone_fraction,held_out_cosine,held_out_z,null_mean,null_std
+merged (headline; sign-concordant),6188,0.6266,0.6266,0.4464,28.68,0.0067,0.0153
+Ota 2021 only,9491,0.5602,0.5602,0.4383,37.24,-0.0021,0.0118
+Höllbacher 2021 only,9290,0.5105,0.5105,0.3415,30.35,0.0011,0.0112
