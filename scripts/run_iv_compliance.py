@@ -94,7 +94,7 @@ def write_invariance_csv(path=f"{WORK}/late_rescaling_invariance.csv"):
     """Compute the ITT->LATE rescaling invariance for all 12 (target, condition) cells
     via late_rescaling_invariance() and write the per-cell table to CSV. This is the
     routine that produces atlas_work/late_rescaling_invariance.csv cited in
-    CAUSAL.md (IV/compliance layer) - self-contained (no dependence on the per-cell JSON pipeline)."""
+    the Technical Dossier (Part 4 — Trust & Causal Inference) (IV/compliance layer) - self-contained (no dependence on the per-cell JSON pipeline)."""
     rows = []
     for name in TARGETS:
         for cond in CONDS:

@@ -1,8 +1,0 @@
-{
-  "headline_condition": "Rest (run-balanced 2/2 across R1,R2)",
-  "rest_reachable_th1": 0.6266,
-  "rest_heldout_z_th1": 45.0,
-  "stim48_reachable_th1": 0.5329,
-  "stim48_run_balanced": false,
-  "interpretation": "The headline Th1/Th2 verdict is reported at Rest, which is run-balanced (2 libraries each on CD4i_R1 and CD4i_R2). Stim48hr \u2014 the only run-confounded condition (all 4 libraries on CD4i_R2) \u2014 gives WEAKER cosines (0.53 vs 0.63), so it cannot be inflating the headline. Any Stim48hr-SPECIFIC claim remains run-confounded and should be flagged; the headline is safe."
-}

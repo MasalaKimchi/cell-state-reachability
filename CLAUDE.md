@@ -6,7 +6,7 @@ guardrails, and literature anchors.*
 
 *This file deliberately does **not** repeat the repo map, the reproduce commands, or the doc
 index — those live once, in [`README.md`](./README.md). For **what the method found**, read
-[`docs/RESULTS.md`](./docs/RESULTS.md) first.*
+[Technical Dossier — Part 1 (Results)](./docs/Technical_Dossier.md) first.*
 
 ---
 
@@ -65,36 +65,43 @@ key columns `target_contrast_gene_name`, `culture_condition`, `ontarget_effect_s
 `ontarget_significant`, `offtarget_flag`, `crossdonor_correlation_mean/min`,
 `crossguide_correlation`. The aging join uses `gene_name`; polarization uses `variable`.
 
-> **Known inconsistency to resolve.** The signed split above (39/25/35) matches
-> `docs/figures/fig_central_illustration.png`, but `docs/figures/fig2_decomposition_certificate.png`
-> shows 39/31/30 for what reads as the same quantity. Establish which is right before
-> either number reaches the manuscript.
+> **Resolved (figure audit, 2026-07).** The canonical figure quantity is the *signed*
+> split 39/25/35, verified against `results/atlas_reachability.csv` (toward_Th1/Rest:
+> lof=0.393, gof=0.253, neither=0.354) and `manuscript_facts.json` `decomposition_signed`.
+> `docs/figures/fig2_decomposition_certificate.png` previously showed 39/31/30 (the
+> one-sided heuristic triple, mislabelled as the signed split) and has been regenerated
+> to 39/25/35, matching `fig_central_illustration.png`. The one-sided decomposition
+> (39% / 31% / 30%) is a *distinct, legitimate* quantity — kept in `manuscript_facts.json`
+> `decomposition_one_sided` and reconciled in the Technical Dossier (Part 1 — Results) §5.2 (the 0.31 is a
+> heuristic upper bound; the signed 0.25 GOF is what a non-negative activation cone
+> actually reaches). Do not "fix" the one-sided 0.31/0.30 numbers in the Technical Dossier (Part 1 — Results),
+> the Technical Dossier (Part 4 — Trust & Causal Inference), or the Technical Dossier (Appendix E — Response to Reviewer 2).
 
 ---
 
 ## 3. GUARDRAILS (non-negotiable — this project's credibility depends on them)
 
 - **Knockdown-only.** CRISPRi is loss-of-function. Never invent activation effects; keep
-  weights non-negative (`knockdown_only=True`). If a target needs a gene *up*, the honest
-  answer is "not reachable by knockdown; here is what a CRISPRa arm would test" — the
-  certificate, not a fabricated recipe.
+ weights non-negative (`knockdown_only=True`). If a target needs a gene *up*, the honest
+ answer is "not reachable by knockdown; here is what a CRISPRa arm would test" — the
+ certificate, not a fabricated recipe.
 - **Additivity is a calibrated assumption, not a free one.** Multi-gene sets assume no
-  epistasis; the `additivity_risk()` score (calibrated on Norman doubles — a magnitude-
-  saturation law, not collinearity) bounds the extrapolation. Flag every multi-gene
-  nomination as an extrapolation to be tested.
+ epistasis; the `additivity_risk()` score (calibrated on Norman doubles — a magnitude-
+ saturation law, not collinearity) bounds the extrapolation. Flag every multi-gene
+ nomination as an extrapolation to be tested.
 - **Nominations are hypotheses, not validated targets.** Always framed for wet-lab test.
 - **Claim novelty for the METHOD, not the regulator lists.** The source paper (Zhu et al.)
-  already reports Th1/Th2 + aging regulators; recovering them = validation, not discovery.
-  Novelty = the measured-effect convex-cone reachability verdict + certificate +
-  held-out-gene validation.
+ already reports Th1/Th2 + aging regulators; recovering them = validation, not discovery.
+ Novelty = the measured-effect convex-cone reachability verdict + certificate +
+ held-out-gene validation.
 - **Nulls before claims.** No reachability/alignment number is reported without its null
-  and CI. Report the held-out number as the headline, never the in-sample cosine.
-  *This applies to documentation too: a result with no committed figure or table is not a
-  reported result. See the §8.3 status table in `docs/RESULTS.md`.*
+ and CI. Report the held-out number as the headline, never the in-sample cosine.
+ *This applies to documentation too: a result with no committed figure or table is not a
+ reported result. See the §8.3 status table in the Technical Dossier (Part 1 — Results).*
 - **No invented judging rubric.** The event page publishes no scored criteria; do not
-  optimize for or cite an imagined rubric.
+ optimize for or cite an imagined rubric.
 - **Reproducibility hygiene.** Fixed seed everywhere; `fig, ax = plt.subplots()` then
-  `fig.savefig()` (never bare `plt.savefig()`); fetches in their own step; pin the env.
+ `fig.savefig()` (never bare `plt.savefig()`); fetches in their own step; pin the env.
 - **Do not commit the raw data** (`data/*` gitignored; never commit the Tier-2 h5ad).
 
 ---
@@ -102,21 +109,21 @@ key columns `target_contrast_gene_name`, `culture_condition`, `ontarget_effect_s
 ## 4. Literature anchors (verified — cite these exactly)
 
 - **Baseline-first justification:** Ahlmann-Eltze, Huber & Anders, *Nat Methods*
-  22:1657–1661 (2025), doi:10.1038/s41592-025-02772-6. Five foundation + two other DL
-  models vs deliberately simple baselines; none beat them. For double perturbations, all
-  models had prediction error *substantially higher* than the additive baseline (Fig. 1a,b).
-  (Verified against full text.) This is the field-level result `NOVELTY.md` uses to motivate
-  the inverse-feasibility reframe, not merely to license the linear model.
+ 22:1657–1661 (2025), doi:10.1038/s41592-025-02772-6. Five foundation + two other DL
+ models vs deliberately simple baselines; none beat them. For double perturbations, all
+ models had prediction error *substantially higher* than the additive baseline (Fig. 1a,b).
+ (Verified against full text.) This is the field-level result the Technical Dossier (Part 2 — Novelty & Impact) uses to motivate
+ the inverse-feasibility reframe, not merely to license the linear model.
 - **Prior art — Mogrify:** Rackham et al., *Nat Genet* 48:331–335 (2016). Minimal TF set →
-  cell conversion (gain-of-function + network). *Delta:* measured LOF vectors.
+ cell conversion (gain-of-function + network). *Delta:* measured LOF vectors.
 - **Prior art — CellOracle:** Kamimoto et al., *Nature* 614:742–751 (2023). Inferred-GRN
-  perturbation → cell-identity transition vector + randomized null. *Delta:* measured
-  effect matrix + convex-cone reachability verdict.
+ perturbation → cell-identity transition vector + randomized null. *Delta:* measured
+ effect matrix + convex-cone reachability verdict.
 - **Source dataset:** Zhu et al., bioRxiv, doi:10.64898/2025.12.23.696273.
 - **Cross-dataset generalization:** Norman et al. 2019 (K562 CRISPRa doubles, additivity
-  calibration); Replogle et al. 2022, *Cell*, doi:10.1016/j.cell.2022.05.013, PMID 35688146
-  (K562/RPE1 essential-gene screens, cross-cell-type transfer).
+ calibration); Replogle et al. 2022, *Cell*, doi:10.1016/j.cell.2022.05.013, PMID 35688146
+ (K562/RPE1 essential-gene screens, cross-cell-type transfer).
 - **External validation arms:** Shifrut et al., *Cell* (2018, PMID 30449619); Schmidt et al.,
-  *Science* (2022, PMID 35113687) — CRISPRa arm tests up-regulation hypotheses CRISPRi can't.
+ *Science* (2022, PMID 35113687) — CRISPRa arm tests up-regulation hypotheses CRISPRi can't.
 
-*The full 91-method survey with every DOI/PMID is in `docs/RELATED_WORK.md` and `results/references.csv`.*
+*The full 91-method survey with every DOI/PMID is in the Technical Dossier (Part 3 — Related Work) and `results/references.csv`.*

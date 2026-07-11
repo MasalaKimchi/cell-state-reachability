@@ -12,127 +12,66 @@ a falsifiable feasibility verdict computed directly from measured effects, which
 a 92-entry survey provides.
 
 \subsection{Interpretation}
-Three findings are worth restating for their scientific rather than methodological content.
-First, a real polarization shift (T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1) is only
-\emph{partly} reachable by knockdown (held-out cosine $0.448$; $39\%$ of the shift in the
-loss-of-function cone), and this pattern holds across a $12$-cell atlas where knockdown is
-never the majority modality (mean loss-of-function fraction $0.34$). The implication for
-practice is direct: a knockdown-only campaign, however well designed, addresses a minority of
-most cell-state transitions, and the remaining majority is a mix of required activation and an
-irreducible remainder. This gap is not a tuning shortfall: the headline held-out cosine is
-$71\%$ of the modality-imposed ceiling that a knockdown-only cone can attain in principle
-(atlas mean $61\%$), so most of what loss-of-function can supply is already captured. Second,
-the certificate turns this limitation into a plan---it names, reproducibly, which genes carry
-the unmet upward demand---so an infeasibility result redirects rather than terminates an
-experiment. We are deliberately careful about how that list is read: the highest-demand genes
-are state-markers and \emph{negative} regulators rather than the canonical master
-transcription factors (which are present but rank deep), so the certificate is a reproducible
-statement of \emph{where activation is required}, not a validated list of activation targets,
-and for some entries the useful intervention may be opposite in sign to naive activation.
-Third, the operator transfers unchanged to screens in other cell types, but transfer is
-graded: the \emph{direction} of a cell-state shift is portable across cell types while the
-\emph{specific minimal recipe} is not, so the framework is a property of the geometry whose
-quantitative recipe must still be re-derived per system.
+The central biological finding is that a real polarization shift
+(T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1) is only \emph{partly} reachable by
+knockdown (held-out cosine $0.448$; $39\%$ of the shift in the loss-of-function cone), and the
+same pattern recurs across the $12$-cell atlas, where knockdown never accounts for the
+majority of a transition (mean loss-of-function fraction $0.34$). A knockdown-only campaign,
+however well designed, therefore addresses a minority of most cell-state transitions; the
+remaining majority is a mix of required activation and an irreducible remainder. This is a
+property of the modality, not a shortfall of fit---the headline cosine is $71\%$ of the ceiling
+a knockdown-only cone can reach in principle (atlas mean $61\%$)---which is why a single
+reachability score would be misleading and we report a signed decomposition instead.
+
+The infeasibility certificate is what makes this limitation actionable: it names, reproducibly,
+the genes carrying the unmet upward demand, so a ``no'' redirects an experiment rather than
+ending it. Its reading has a specific caveat, though. The highest-demand genes are
+state-markers and \emph{negative} regulators, not the canonical master transcription factors
+(which are present but rank deep), so the certificate is best read as a reproducible statement
+of \emph{where} activation is required, not a validated list of activation targets---and for a
+negative regulator the useful intervention may be repression, the opposite of naive activation.
+Finally, the operator transfers unchanged to other cell types, but only in part: the
+\emph{direction} of a shift is portable while the \emph{specific minimal recipe} is not, so the
+feasibility geometry generalizes even where its quantitative prescription must be re-derived per
+system.
 
 \subsection{Limitations}
 \label{sec:limitations}
-The rigor of a feasibility claim rests on being explicit about what it does not establish. We
-group the principal limitations by severity; a detailed, actionable reinforcement plan
-accompanies this manuscript as a standalone document.
+Three limitations bound the conclusion; a fuller, item-by-item reinforcement plan accompanies
+the manuscript as a standalone document.
 
-\paragraph{The additivity assumption is load-bearing and only bounded.}
-Every multi-gene recipe assumes that co-perturbation effects add. On the $126$ measured
-double perturbations available (Norman K562), the measured double aligns with the sum of its
-singles at median cosine $0.71$---good, but not exact, and degrading with combined
-perturbation magnitude (Spearman $+0.58$ deficit-versus-magnitude; a scale-free saturation
-ceiling $M^{\star}=13.9$). The intuitive hypothesis that collinear perturbations should be most
-sub-additive was refuted (Spearman $-0.16$, not significant), so the departure is a magnitude
-effect, not a redundancy effect. This is the single most important caveat: recipes of more
-than a few knockdowns, or knockdowns of individually large effect, are extrapolations whose
-error is bounded but real, and the CD4\textsuperscript{+} T-cell dictionary itself contains no
-measured doubles with which to check additivity in-domain.
+The most consequential is that every multi-gene recipe assumes co-perturbation effects add.
+On the $126$ measured doubles available (Norman K562) the measured double aligns with the sum
+of its singles at median cosine $0.71$---bounded, not exact, and degrading with combined
+perturbation magnitude (Spearman $+0.58$; scale-free saturation ceiling $M^{\star}=13.9$)
+rather than with collinearity (Spearman $-0.16$, not significant). Recipes beyond a few
+knockdowns, or of individually large effect, are therefore extrapolations whose error is real,
+and the CD4\textsuperscript{+} T-cell dictionary contains no in-domain doubles against which to
+check them.
 
-\paragraph{The verdict is robust to measurement error but sensitive to coordinated bias.}
-Because the effect vectors are estimates, we ask how far they would have to be wrong to overturn
-a verdict, calibrated in units of the measured standard error (an E-value-style sensitivity
-analysis). Two failure modes separate cleanly. Resampling every effect within its measured
-standard error and re-solving leaves the polarization verdicts intact---the bootstrap
-$95\%$ interval of the reachable cosine clears the structure-matched null for both
-T\textsubscript{H}1 and T\textsubscript{H}2 (Stim48hr)---so \emph{random} measurement error is
-not the threat; undirected noise, if anything, inflates reachability by adding anisotropy that
-the null already corrects for. The verdict's genuine exposure is a \emph{coordinated}
-systematic bias against the target direction: a worst-case attenuation of only $\approx 8\%$ of
-the target-aligned signal ($\approx 0.03$ standard-error units) suffices to flip the
-T\textsubscript{H}1 verdict. This is precisely the failure mode a randomized interventional
-design is built to exclude, and it is why the design-based identification is load-bearing rather
-than incidental. The same analysis flags the imported CD4 aging axes as fragile at the
-differentiated state---at Stim48hr they sit below the anisotropy null and should not be read as
-reachable---a caveat the raw cosine alone would have hidden.
+The verdict's second exposure is not random measurement error but coordinated bias. Resampling
+each effect within its standard error and re-solving leaves the polarization verdicts
+intact---undirected noise, if anything, inflates reachability by adding anisotropy the null
+already corrects for---whereas a coordinated attenuation of only $\approx 8\%$ of the
+target-aligned signal ($\approx 0.03$ standard-error units) suffices to flip the
+T\textsubscript{H}1 verdict. This is exactly the failure mode a randomized interventional
+design excludes, which is what makes the design-based identification load-bearing rather than
+incidental; the same analysis flags the imported CD4 aging axes as fragile at the
+differentiated state, where at Stim48hr they fall below the anisotropy null and should not be
+read as reachable. External validity is otherwise bounded by provenance: the primary results
+come from one primary-cell system with four donors, collapsed across donors, so a true
+leave-one-donor-out test is impossible here and cross-genotype and cross-tissue generality
+rests on the K562 transfer rather than the primary system.
 
-\paragraph{Loss-of-function has a structural ceiling.}
-The modest absolute reachable cosine is not a tuning failure but a property of the modality:
-a non-negative combination of knockdowns cannot express directions that require increased
-expression, so any target with a substantial gain-of-function component is unreachable by
-construction. The knockdown-only ceiling equals $\sqrt{\smash[b]{f_{\mathrm{LOF}}}}$ and
-matches the in-sample cone cosine to $10^{-4}$; against it, the headline $0.448$ is $71\%$ of
-what is attainable in principle (atlas mean $61\%$, range $49$--$71\%$), with the residual
-$22$--$26\%$ gain-of-function-locked. This is why we report a signed decomposition rather than a
-single reachability score, and why the honest headline number is well below one \emph{yet}
-close to its own ceiling---a distinction we make explicitly so the number is not read as a
-failure of fit.
-
-\paragraph{One perturbation system, few donors, collapsed across donors.}
-The primary results derive from a single primary-cell system (CD4\textsuperscript{+} T cells)
-with four donors, and the effect vectors available to us are collapsed across donors, so we
-cannot perform a true leave-one-donor-out generalization test on the primary dictionary.
-External validity across genotypes, tissues, and laboratories is therefore asserted by the
-cross-dataset transfer to K562, not yet established within the primary system. The
-transcription-factor-versus-marker split in the positive-control analysis is likewise a
-post-hoc, exploratory annotation rather than a pre-registered test.
-
-\paragraph{Statistical nulls answer narrow questions.}
-The shuffled-target null establishes that a target is more reachable than a structure-matched
-random direction; it does not establish that the recipe is biologically correct. The
-held-out-gene analysis establishes generalization across expression coordinates; it does not
-establish generalization across cells or conditions. And the in-sample cosine systematically
-overstates the held-out value (mean gap $0.225$ across the atlas), which is why every headline
-number in this paper is the held-out one. A separate random-perturbation diagnostic is
-negative by construction and is used only as an internal control, not as evidence of
-performance.
-
-\paragraph{The certificate is reproducible but not yet a validated target list.}
-Under a random gene-axis split the top certificate genes hold their rank (cross-half Spearman
-$\rho\approx0.65$, half-versus-full $\approx0.84$, $z\approx35$ against a shuffle null), so the
-ranking is a stable property of the data and not of a particular fit. Its \emph{biological}
-interpretation is more guarded. A retrospective cross-reference of the top $20$ genes finds
-them dominated by state-markers and negative regulators, with the canonical
-T\textsubscript{H}1 master transcription factors present but ranked deep; four are
-literature-supported, seven plausible, nine unknown, and $8/20$ carry a strong genetic link to
-a T\textsubscript{H}1-driven autoimmune disease. We therefore read the certificate as a
-reproducible ranking of unmet upward demand, and we flag that for the negative regulators an
-``activate this gene'' reading may be directionally wrong---the correct intervention could be
-further repression. This cross-reference is exploratory and post-hoc, and it tempers rather
-than confirms the earlier ``immunologically credible activation certificate'' framing.
-
-\paragraph{Transfer is graded, and the recipe does not port across cell types.}
-Applying the operator to an independent pair of cell types (K562 and RPE1 essential-gene
-screens) shows that transfer is a spectrum, not a switch. Single-perturbation effect
-\emph{direction} transfers moderately (matched cross-type cosine median $0.35$ versus a
-$\approx0$ shuffled-gene null), and the reachability verdict transfers as a graded residual
-rather than a binary flip; but the minimal \emph{recipe} does not transfer (same-target
-Jaccard $0.11$, collapsing to the random null under a cross-type basis). The apparent
-$\approx100\%$ verdict-agreement rate across cell types is an artifact of an over-expressive
-$843$-atom cone and must be read as a residual, not a label. The practical bound is that a
-recipe derived in one cell type is a hypothesis, not a prescription, in another.
-
-\paragraph{The verdict is robust to the choice of evaluation metric.}
-Uniform-gene metrics can in principle dilute a real signal by averaging over unchanged genes.
-Reweighting every metric by target magnitude ($w_g=\lvert d_g\rvert$)---the correction called
-for by \citet{Mejia2026}---\emph{strengthens} rather than weakens the headline verdict (Tier-2
-rest reachable cosine $0.627\rightarrow0.803$; held-out $z$ remains far above the significance
-floor), and the calibrated dynamic-range placement is stable because the shuffled floor rises
-in step. We report the unweighted metric as the default because it reproduces the published
-numbers exactly, but the conclusion does not depend on that choice.
+The statistical scaffolding, finally, answers narrower questions than the word ``reachability''
+suggests. The shuffled-target null shows only that a target beats a structure-matched random
+direction, not that its recipe is biologically correct; held-out-gene validation generalizes
+across expression coordinates, not across cells or conditions; and because the in-sample cosine
+overstates the held-out value (mean gap $0.225$ across the atlas), every headline number here
+is the held-out one. The certificate ranking is reproducible under a gene-axis split
+(cross-half Spearman $\rho\approx0.65$, half-versus-full $\approx0.84$), but its biological
+reading---like the transcription-factor-versus-marker split in the positive control---is
+retrospective and post-hoc, and is offered as annotation rather than validation.
 
 \subsection{Outlook}
 The most valuable next experiments follow directly from the limitations. Measuring a modest

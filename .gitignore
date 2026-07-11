@@ -25,9 +25,29 @@ outputs/
 notebooks/figures/
 # Heavy regenerable per-condition effect matrices (150-160 MB each, > GitHub's
 # 100 MB limit); rebuilt by scripts/run_deg_weighted_eval.py + nb03/nb04.
-# The small design cards, QC tables and JSON under notebooks/cache/ stay tracked.
-notebooks/cache/*.npz
+# Excluded by exact name so the small cache files (design cards, QC tables,
+# norman_effect_bundle.npz 3.2 MB) stay tracked.
+notebooks/cache/E_Rest.npz
+notebooks/cache/E_Stim8hr.npz
+notebooks/cache/E_Stim48hr.npz
 *.log
+
+# ── LaTeX build scaffolding (manuscript/) ────────────────────────────────────
+# Local TeX toolchain + caches + preview renders; the compiled main.pdf and the
+# bundled .sty/.bst files ARE tracked so the paper stays self-contained.
+manuscript/.tinytex_dl/
+manuscript/icml_style/
+manuscript/.texcache/
+manuscript/.texshim/
+manuscript/.tectonic-cache/
+manuscript/.ttbin_path
+manuscript/_check_*.png
+manuscript/_v_*.png
+manuscript/*.aux
+manuscript/*.blg
+manuscript/*.out
+manuscript/*.txt
+manuscript/**/*.aux
 
 # ── Local tooling config (not part of the deliverable) ───────────────────────
 .claude/

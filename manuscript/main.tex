@@ -1,61 +1,33 @@
 % ============================================================================
 %  Cell-state reachability: a convex-cone oracle for feasibility verdicts
-%  Preprint manuscript — compiled with tectonic (pdflatex-compatible)
+%  ICML 2026 format (preprint mode) --- compiled with tectonic / pdflatex
 % ============================================================================
-\documentclass[11pt]{article}
+\documentclass{article}
 
-% ---- Geometry: preprint single-column ----
-\usepackage[letterpaper,margin=1in]{geometry}
+% ---- Encoding: accented author names in the bibliography (Barabási, Zañudo, ...) ----
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+
+% ---- Recommended figure / typesetting packages ----
 \usepackage{microtype}
-
-% ---- Math ----
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{bm}
-
-% ---- Figures & tables ----
 \usepackage{graphicx}
 \graphicspath{{figures/}}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{caption}
 \usepackage{subcaption}
-\captionsetup{font=small,labelfont=bf}
-\captionsetup[sub]{font=footnotesize}
+\usepackage{booktabs}
 
-% ---- Float placement: let large figures settle near their text ----
-\usepackage{placeins}
-\renewcommand{\topfraction}{0.9}
-\renewcommand{\bottomfraction}{0.85}
-\renewcommand{\textfraction}{0.08}
-\renewcommand{\floatpagefraction}{0.7}
-\setcounter{topnumber}{2}
-\setcounter{totalnumber}{3}
+% ---- hyperref (loaded before icml2026 as in the ICML template) ----
+\usepackage{hyperref}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
 
-% ---- Colours & links ----
-\usepackage{xcolor}
-\definecolor{linkblue}{HTML}{2166AC}
-\usepackage[colorlinks=true,allcolors=linkblue,breaklinks=true]{hyperref}
-\usepackage{url}
+% ---- ICML 2026 style: preprint mode (shows authors, honest "Preprint" footer) ----
+\usepackage[preprint]{icml2026}
 
-% ---- Bibliography: natbib numeric ----
-\usepackage[numbers,sort&compress,comma]{natbib}
-\bibliographystyle{unsrtnat}
-
-% ---- Headers ----
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{\small Cell-state reachability oracle}
-\lhead{\small Preprint}
-\cfoot{\thepage}
-\renewcommand{\headrulewidth}{0.2pt}
-
-% ---- Theorem-like environments (used lightly in Methods) ----
-\newtheorem{definition}{Definition}
-\newtheorem{proposition}{Proposition}
+% ---- Math ----
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{bm}
 
 % ---- Convenience macros ----
 \newcommand{\reach}{\textsc{Reach}}
@@ -64,21 +36,34 @@
 \newcommand{\dvec}{\mathbf{d}}
 \newcommand{\wvec}{\mathbf{w}}
 \newcommand{\Rnn}{\mathbb{R}_{\geq 0}}
-\newcommand{\Th}[1]{T\textsubscript{H}#1}
 
-% ---- Title ----
-\usepackage{authblk}
-\title{\bfseries A convex-cone reachability oracle for cell-state engineering:\\
-falsifiable feasibility verdicts and constructive certificates\\
-from measured genome-scale perturbation screens}
+% ---- Title (a short running form is required for the page header) ----
+\icmltitlerunning{A convex-cone reachability oracle for cell-state engineering}
 
-\author[1]{Cell-State Reachability Project}
-\affil[1]{\small Built with Claude --- Life Sciences (Research track)}
-\date{\today}
-
-% ============================================================================
 \begin{document}
-\maketitle
+
+\twocolumn[
+\icmltitle{A Convex-Cone Reachability Oracle for Cell-State Engineering:\\
+Falsifiable Feasibility Verdicts and Constructive Certificates\\
+from Measured Genome-Scale Perturbation Screens}
+
+\begin{icmlauthorlist}
+\icmlauthor{Cell-State Reachability Project}{bwc}
+\end{icmlauthorlist}
+
+\icmlaffiliation{bwc}{Built with Claude --- Life Sciences (Research Track)}
+
+\icmlcorrespondingauthor{Cell-State Reachability Project}%
+{github.com/MasalaKimchi/cell-state-reachability}
+
+\icmlkeywords{cell-state engineering, convex cone, non-negative least squares,
+Perturb-seq, feasibility verdict, CRISPRi, reachability}
+
+\vskip 0.3in
+]
+
+% must follow the closing ] of \twocolumn[ ...
+\printAffiliationsAndNotice{}
 
 \input{sections/00_abstract}
 
@@ -93,11 +78,12 @@ from measured genome-scale perturbation screens}
 \input{sections/50_discussion}
 
 % ---- Bibliography ----
-\FloatBarrier
 \bibliography{references}
+\bibliographystyle{icml2026}
 
-\clearpage
+\newpage
 \appendix
+\onecolumn
 \input{sections/90_supplement}
 
 \end{document}

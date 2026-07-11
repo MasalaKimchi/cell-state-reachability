@@ -4,13 +4,21 @@ Preprint manuscript + standalone Limitations & Reinforcement Plan for the
 convex-cone cell-state reachability oracle (Built with Claude, Life Sciences).
 
 ## Build
-Requires a TeX distribution with pdflatex + bibtex (natbib, authblk, subcaption,
-booktabs, tabularx, placeins). On this project a TinyTeX bundle was used.
+The paper is formatted with the **official ICML 2026 style** in `[preprint]` mode
+(two-column, non-anonymous, honest "Preprint" footer — no false acceptance notice).
+All required style files ship in this directory, so the build is self-contained and
+needs only a standard `pdflatex` + `bibtex` (e.g. a full TinyTeX/TeX Live):
 
 ```
 pdflatex main && bibtex main && pdflatex main && pdflatex main
 pdflatex limitations_and_reinforcement_plan   # (x2)
 ```
+
+Bundled style dependencies (do not delete): `icml2026.sty`, `icml2026.bst`,
+`fancyhdr.sty`, `algorithm.sty`, `algorithmic.sty`, plus `forloop.sty` and
+`multido.sty` (required by `icml2026.sty`, not always present in minimal TeX
+installs). `main.tex` also loads `fontenc`+`inputenc` so accented author names in
+the bibliography (Barabási, González-Blas, Zañudo, …) render correctly.
 
 ## Layout
 - `main.tex`                — preprint driver (preamble + \input of sections/)
@@ -21,7 +29,10 @@ pdflatex limitations_and_reinforcement_plan   # (x2)
                               verified by DOI (OpenAlex) and PMID (PubMed E-utilities);
                               Mejia2026 is the ICML 2026 poster "Needles in the Haystack"
                               (OpenReview XsrXLPxBJw), whose expanded preprint DOI
-                              10.1101/2025.10.20.683304 is cited in the entry note; 0 fabricated)
+                              10.1101/2025.10.20.683304 is cited in the entry note; 0 fabricated).
+                              Barabási author name corrected from a malformed "Albert-Ĺaszló"
+                              (U+0139) to "Albert-László" — the stray codepoint was truncated by
+                              8-bit bibtex into invalid UTF-8 in the .bbl.
 - `figures/`                — fig1-5 (main) + figS1-9 (supp), each as 300 dpi PNG + vector PDF
                               (figS5-9 added: DEG-weighting, calibration, cross-cell-type
                               transfer, certificate split-stability, certificate cross-reference)

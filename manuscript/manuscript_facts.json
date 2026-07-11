@@ -447,7 +447,7 @@
   "claim": "No prior method emits a feasibility VERDICT + a data-grounded CERTIFICATE on MEASURED effect vectors. 'measured-effects' methods are all forward-only predictors/rankers; 'verdict/certificate' methods are all model-theoretic (guarantee holds only inside a hand-built/inferred model). The two capabilities are DISJOINT; this method is the only entry at the intersection.",
   "measured_effects_methods_all_score": "no on verdict+certificate",
   "verdict_certificate_methods_all": "model-theoretic, none measured-grounded, span several families (NOT single-family)",
-  "provenance": "method_comparison_matrix.csv (92 rows), references.csv (91), lit_recent_methods.json; RELATED_WORK.md"
+  "provenance": "method_comparison_matrix.csv (92 rows), references.csv (91), lit_recent_methods.json; Technical_Dossier.md (Part 3)"
  },
  "pharma_impact": {
   "approval_rate": "~10% of clinical programs reach approval (BIO/Thomas 2006-2015: 9.6%)",
@@ -517,7 +517,7 @@
    "gof_locked_share_range": "0.22-0.26",
    "interpretation": "The knockdown-only reachable ceiling equals sqrt(LOF fraction) and matches the in-sample cone cosine to 1e-4; the headline 0.448 held-out cosine is 71% of the achievable knockdown-only ceiling (atlas mean 61%), and the residual gap to 1.0 is 22-26% GOF-locked (requires activation, not knockdown)."
   },
-  "provenance": "nb_out/L4_constraint_ablation.csv, nb_out/L5_reachable_cosine_ceiling.csv (nb06); aggregates recomputed this session; nb_out/REINFORCEMENT_RESULTS.md"
+  "provenance": "nb_out/L4_constraint_ablation.csv, nb_out/L5_reachable_cosine_ceiling.csv (nb06); aggregates recomputed this session; Technical_Dossier.md (Appendix C)"
  },
  "reinforcement_additivity_and_certificate_scaffold": {
   "_desc": "In-silico reinforcements L2 (magnitude-capped recipe reliability) and L1 (held-out-modality certificate test scaffold).",
@@ -542,7 +542,7 @@
    "real_data_requirement": "a single screen with BOTH CRISPRi and CRISPRa arms on the same readout axis",
    "interpretation": "The dual-modality certificate test (hide the activation arm, predict the activation-required genes from knockdowns alone) is verified on synthetic ground truth at AUROC 0.999, precision@30 0.933, z=8.9 vs a shuffle null of 0.497+/-0.056; it awaits a dual-arm dataset, not a method."
   },
-  "provenance": "nb_out/L2_magnitude_capped_recipes.csv, nb_out/L2_recipe_reliability_detail.csv, nb_out/L1_certificate_test_scaffold.json (nb06); nb_out/REINFORCEMENT_RESULTS.md"
+  "provenance": "nb_out/L2_magnitude_capped_recipes.csv, nb_out/L2_recipe_reliability_detail.csv, nb_out/L1_certificate_test_scaffold.json (nb06); Technical_Dossier.md (Appendix C)"
  },
  "cross_celltype_transfer": {
   "_desc": "Cross-cell-type transfer test: K562 vs RPE1 essential-gene Perturb-seq (Replogle 2022), reachability.py unchanged. Three-level hierarchy of what transfers.",
@@ -571,7 +571,7 @@
    "verdict": "the minimal RECIPE does NOT transfer across cell types"
   },
   "bounds": "Direction transfers, the specific minimal recipe does not. This is a cross-cell-type generalization probe on essential screens, NOT a second CD4+ T-cell polarization screen.",
-  "provenance": "nb07 (07_cross_celltype_transfer); czi_data/CROSS_CELLTYPE_TRANSFER.md; results cross-celltype CSVs"
+  "provenance": "nb07 (07_cross_celltype_transfer); Technical_Dossier.md (Appendix B); results cross-celltype CSVs"
  },
  "deg_weighted_evaluation": {
   "_desc": "DEG-weighted (w=|d|) evaluation addressing the signal-dilution critique of Mejia et al. (Needles in the Haystack, ICML 2026; expanded preprint bioRxiv 10.1101/2025.10.20.683304). The verdict STRENGTHENS under weighting rather than collapsing.",
@@ -619,7 +619,7 @@
   "unweighted_default_reproduces_published_numbers": "bit-for-bit",
   "calibration_scope": "dynamic-range calibration computed on the Rest condition only (Monte-Carlo cost)",
   "interpretation": "Under DEG-magnitude weighting the Th2->Th1 verdict strengthens (Tier-2 CD4 cosine 0.627->0.803 at Rest) and held-out z stays >>3; the dynamic-range fraction is stable because the shuffled floor rises in step, confirming the signal is not a dilution artifact.",
-  "provenance": "nb08 (08_deg_weighted_evaluation); RESULTS.md 6.5; results DEG-weighted CSVs; critique: Mejia2026 (ICML 2026; expanded preprint bioRxiv 10.1101/2025.10.20.683304)"
+  "provenance": "nb08 (08_deg_weighted_evaluation); Technical_Dossier.md (Part 1) 6.5; results DEG-weighted CSVs; critique: Mejia2026 (ICML 2026; expanded preprint bioRxiv 10.1101/2025.10.20.683304)"
  },
  "certificate_validation": {
   "_desc": "Two Jul-10 validations of the activation certificate: (A) gene-axis split-stability, (B) literature/genetics cross-reference. Together these TIGHTEN the certificate claim.",

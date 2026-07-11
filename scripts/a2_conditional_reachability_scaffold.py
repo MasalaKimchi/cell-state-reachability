@@ -4,7 +4,7 @@ STATUS: blocked in-sandbox. This is the code path and expected-output schema for
 conditional-reachability analysis; it does NOT run here because the raw single-cell count
 matrix is not available in the repo (only the DE-statistics summary GWCD4i.DE_stats.h5ad
 is present, whose rows are already <gene>_<condition> perturbations with the cells
-aggregated away — see CAUSAL.md agenda item A2). To execute, re-pull the raw counts
+aggregated away — see the Technical Dossier (Part 4 — Trust & Causal Inference) agenda item A2). To execute, re-pull the raw counts
 from the CZI Virtual Cell Platform source and point RAW_COUNTS at them.
 
 WHAT IT DOES (once data is available):

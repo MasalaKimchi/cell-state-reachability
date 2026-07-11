@@ -89,8 +89,7 @@ that loss-of-function alone accounts for well under half of the shift---is commo
 
 \subsection{Held-out validation and null models}
 \label{sec:methods-null}
-Two distinct null models guard against two distinct failure modes, and we are explicit about
-which each addresses.
+Two null models guard against two distinct failure modes, each addressing a different question.
 
 \paragraph{Held-out-gene generalization.} An in-sample reachable cosine can be inflated by a
 solver freely reweighting thousands of atoms to fit a fixed target; it measures expressivity
@@ -99,7 +98,7 @@ cosine: we fit the NNLS weights using only a random subset of measured genes (ro
 $\Emat$ and $\dvec$) and evaluate the reachable cosine on the held-out genes, so the recipe
 must generalize to expression coordinates it was not fit on. For
 T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1 the held-out cosine is $0.448$, against an
-in-sample value of $0.627$; the gap is the honest cost of generalization, and we quote the
+in-sample value of $0.627$; the gap is the cost of generalization, and we quote the
 held-out number as the headline throughout.
 
 \paragraph{Shuffled-target null.} To calibrate what reachable cosine arises by chance from a

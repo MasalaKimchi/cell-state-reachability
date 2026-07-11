@@ -50,20 +50,14 @@ infeasibility result is thus not a dead end but a constructive, falsifiable hypo
 says the move requires \emph{activation}, and it names the genes to activate, redirecting
 the experiment from a CRISPRi arm to a CRISPRa arm.
 
-\paragraph{Scope and honesty.}
-The oracle is a decision instrument, not an oracle of biological truth. It certifies
-feasibility \emph{relative to the measured dictionary} under an explicit additivity model,
-and its verdicts are hypotheses to be tested at the bench, not validated targets. We are
-correspondingly conservative about what we claim. We report held-out-gene cosines against a
-shuffled-target null rather than in-sample fits, because the in-sample number is optimistic;
-we show that the absolute reachable cosine of a real polarization shift is modest
-($0.448$ for T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1), which is the honest
-ceiling of loss-of-function acting alone, not a defect of the method; and we verify on
-measured double perturbations that the additivity assumption underpinning multi-gene recipes
-is a bounded approximation rather than an identity. The regulators the oracle surfaces in
+\paragraph{Scope.}
+The oracle is a decision instrument, not an oracle of biological truth: it certifies
+feasibility \emph{relative to the measured dictionary} under an explicit additivity model, and
+its verdicts are hypotheses for the bench, not validated targets. The regulators it surfaces in
 T cells and in the CEBPA program are already reported by the source screens
-\citep{Zhu2025,Norman2019}; we use them only as positive controls, and claim novelty for the
-measured-effect, certificate-carrying reachability \emph{decision} itself.
+\citep{Zhu2025,Norman2019} and enter here only as positive controls; the novelty we claim is
+the measured-effect, certificate-carrying reachability \emph{decision} itself, not the biology
+it recovers.
 
 \paragraph{Contributions.}
 This paper makes four contributions.
@@ -73,10 +67,10 @@ a target cell-state shift as membership in the convex cone of measured perturbat
 vectors, and solve it with NNLS so that a verdict, a minimal ranked recipe, and---on
 infeasibility---a Farkas/KKT activation certificate all fall out of one convex program
 (Section~\ref{sec:methods}).
-\item \textbf{A validated headline result with calibrated honesty.} On primary human
+\item \textbf{A validated headline result.} On primary human
 CD4\textsuperscript{+} T cells the oracle finds T\textsubscript{H}2$\rightarrow$%
-T\textsubscript{H}1 partly reachable by knockdown, far above a shuffled-target null but well
-below full reachability, with a signed loss-/gain-of-function decomposition and canonical
+T\textsubscript{H}1 partly reachable by knockdown---far above a shuffled-target null but well
+below full reachability---with a signed loss-/gain-of-function decomposition and canonical
 regulators recovered as positive controls (Section~\ref{sec:results-headline}).
 \item \textbf{Generality across transitions and datasets.} A 12-cell atlas shows knockdown
 is never the majority modality across four transitions and three activation states, and the

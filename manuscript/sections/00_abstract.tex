@@ -1,36 +1,24 @@
 \begin{abstract}
-\noindent
-Deciding whether a desired change in cell state can be produced by a given class of
-perturbation---and, if not, saying so before the experiment is run---is the central
-question of cell-state engineering and of pharmaceutical target selection. Existing
-computational methods either predict the response to a specified perturbation or rank
-candidate regulators; none returns a \emph{feasibility verdict} grounded in measured
-effects, and none can certify that a goal is unreachable. We introduce a convex-cone
-reachability oracle that treats a genome-scale CRISPRi Perturb-seq screen as a dictionary
-of measured effect vectors and asks whether a target cell-state shift lies in their
-non-negative combination. Because loss-of-function knockdowns combine additively and
-non-negatively, reachability is membership in a convex cone, decided by non-negative least
-squares; a reachable target yields a minimal ranked knockdown recipe, and an unreachable
-target yields a Farkas/KKT separating-hyperplane certificate that names the genes which
-would instead have to be \emph{activated}---a falsifiable gain-of-function hypothesis rather
-than a null result. Applied to a screen in primary human CD4\textsuperscript{+} T cells,
-the oracle finds the T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1 polarization shift
-partly reachable by knockdown (held-out cosine $0.448$ against a shuffled-target null of
-$-0.005$, $z\approx24$), with a signed decomposition attributing 39\% of the shift to
-loss-of-function, 25\% to required activation, and 35\% to an irreducible remainder;
-canonical regulators appear as expected positive controls (GATA3 reached, TBX21
-correctly anti-aligned). Across a 12-cell atlas of four transitions under three activation
-states, knockdown is never the majority modality (mean loss-of-function fraction $0.34$).
-The same operator transfers unchanged to a K562 CRISPRa combinatorial screen (held-out
-CEBPA cosine $0.878$), whose measured double perturbations show that the additivity
-assumption is a bounded approximation (median cosine $0.71$ to the sum of singles) rather
-than an identity. Against a 92-method survey (2011--2026), measured-effect grounding and a
-feasibility verdict with a certificate are held by disjoint sets of prior methods; their
-intersection is empty. The verdict is stable under stress: it strengthens rather than weakens
-when the metric is reweighted by target magnitude to guard against signal dilution, the
-non-negativity constraint costs little in fit yet supplies the certificate, and a
-cross-cell-type probe shows that the \emph{direction} of a shift transfers across cell types
-while the specific minimal \emph{recipe} does not. The oracle is a hypothesis-prioritization and experiment-triage
-instrument---it decides where a screen should spend its arms and where it should stop---not
-a target-validation engine, and every nomination is a falsifiable wet-lab hypothesis.
+Deciding whether a desired change in cell state is achievable with a given class of
+perturbation---and certifying when it is not---is central to cell-state engineering and
+drug-target selection, yet existing methods only predict responses or rank regulators, and
+none returns a feasibility verdict grounded in measured effects. We introduce a convex-cone
+reachability oracle that treats a genome-scale CRISPRi Perturb-seq screen as a dictionary of
+measured effect vectors and, because knockdowns combine additively and non-negatively,
+decides by non-negative least squares whether a target cell-state shift lies in their conic
+hull. A reachable target yields a minimal ranked knockdown recipe, while an unreachable one
+yields a Farkas/KKT separating-hyperplane certificate that names the genes which must instead
+be \emph{activated}---a falsifiable gain-of-function hypothesis rather than a null result. In
+primary human CD4\textsuperscript{+} T cells the T\textsubscript{H}2$\rightarrow$%
+T\textsubscript{H}1 polarization shift is only \emph{partly} reachable by knockdown (held-out
+cosine $0.448$ against a shuffled-target null, $z\approx24$), and across a 12-cell atlas
+knockdown is never the majority modality (mean loss-of-function fraction $0.34$), so an honest
+method must report that fraction rather than a single reachable/unreachable bit. The identical
+operator transfers without retuning to a K562 CRISPRa screen (held-out CEBPA cosine $0.878$),
+whose measured double perturbations show that the additivity assumption is a bounded
+approximation (median cosine $0.71$) rather than an identity. Against a survey of 92 methods
+(2011--2026) measured-effect grounding and a certificate-carrying verdict are held by disjoint
+method sets with empty intersection, so we position the oracle as an experiment-triage
+instrument---deciding where a screen should spend its arms and where it should stop---whose
+every nomination is a falsifiable wet-lab hypothesis, not a validated target.
 \end{abstract}

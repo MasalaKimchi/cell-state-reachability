@@ -3,7 +3,7 @@
 **Two tiers, both now local.** The no-login supplementary CSVs (this folder) are the
 **Tier-1 warm-up** — they need no CZI / Synapse / Wiley account. The **headline method
 runs on Tier-2**: the gene-level `GWCD4i.DE_stats.h5ad` effect matrix, which is **present
-locally at `data/GWCD4i.DE_stats.h5ad` (16.8 GB)**. Every result in `RESULTS.md`
+locally at `data/GWCD4i.DE_stats.h5ad` (16.8 GB)**. Every result in the Technical Dossier (Part 1 — Results)
 (the headline verdict, the modality triage, and the generalizability transfers) is computed on it. The raw ~22M-cell dataset is
 **not** needed (hundreds of GB — only this derived matrix). The fetch instructions below
 (Options A/B) are how to re-obtain both tiers on a fresh clone; you do not need to run
