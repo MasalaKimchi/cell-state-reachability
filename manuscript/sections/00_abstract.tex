@@ -1,24 +1,24 @@
 \begin{abstract}
-Deciding whether a desired change in cell state is achievable with a given class of
-perturbation---and certifying when it is not---is central to cell-state engineering and
-drug-target selection, yet existing methods only predict responses or rank regulators, and
-none returns a feasibility verdict grounded in measured effects. We introduce a convex-cone
-reachability oracle that treats a genome-scale CRISPRi Perturb-seq screen as a dictionary of
-measured effect vectors and, because knockdowns combine additively and non-negatively,
-decides by non-negative least squares whether a target cell-state shift lies in their conic
-hull. A reachable target yields a minimal ranked knockdown recipe, while an unreachable one
-yields a Farkas/KKT separating-hyperplane certificate that names the genes which must instead
-be \emph{activated}---a falsifiable gain-of-function hypothesis rather than a null result. In
-primary human CD4\textsuperscript{+} T cells the T\textsubscript{H}2$\rightarrow$%
-T\textsubscript{H}1 polarization shift is only \emph{partly} reachable by knockdown (held-out
-cosine $0.448$ against a shuffled-target null, $z\approx24$), and across a 12-cell atlas
-knockdown is never the majority modality (mean loss-of-function fraction $0.34$), so an honest
-method must report that fraction rather than a single reachable/unreachable bit. The identical
-operator transfers without retuning to a K562 CRISPRa screen (held-out CEBPA cosine $0.878$),
-whose measured double perturbations show that the additivity assumption is a bounded
-approximation (median cosine $0.71$) rather than an identity. Against a survey of 92 methods
-(2011--2026) measured-effect grounding and a certificate-carrying verdict are held by disjoint
-method sets with empty intersection, so we position the oracle as an experiment-triage
-instrument---deciding where a screen should spend its arms and where it should stop---whose
-every nomination is a falsifiable wet-lab hypothesis, not a validated target.
+Most perturbation methods ask what an intervention will do. A complementary question comes
+first: can the available intervention class even point the transcriptome in the desired
+direction? We introduce a convex-cone feasibility test that treats a genome-scale CRISPRi
+Perturb-seq screen as a dictionary of measured effect vectors. Under an explicit additive
+approximation, non-negative least squares projects a target direction onto combinations of
+knockdown effects whose orientation cannot be reversed. The projection yields a ranked
+mixture and a greedy sparse candidate panel; a non-zero residual yields a Farkas/KKT dual
+certificate that proves the full target direction lies outside the measured knockdown cone.
+Positive residual coordinates rank unmet readouts for CRISPRa or de-repression follow-up, but
+do not by themselves validate those interventions. In primary human
+CD4\textsuperscript{+} T cells, the T\textsubscript{H}2$\rightarrow$T\textsubscript{H}1
+direction is only partly captured by knockdown (fixed-split held-out cosine $0.448$, larger
+than all $60$ shuffled targets; empirical $p=1/61$). A staged, sign-symmetry proxy assigns
+$39\%$ of target energy to measured loss-of-function directions, $25\%$ to sign-flipped
+gain-of-function directions, and $35\%$ to neither. Across 12 target--condition cases,
+loss-of-function is never the majority component (mean $0.34$), although the eight-shuffle
+atlas nulls are screening estimates rather than precise tail probabilities. The same operator
+runs without retuning on a held-out CEBPA state in a K562 CRISPRa screen (cosine $0.878$);
+$126$ measured doubles show that additivity is bounded (median cosine $0.71$), not exact. A
+structured survey of $91$ prior methods found no prior method combining measured-effect
+grounding with this target-specific cone certificate. We therefore position the method as a
+directional experiment-triage instrument, not a proof of phenotypic rescue or target validity.
 \end{abstract}

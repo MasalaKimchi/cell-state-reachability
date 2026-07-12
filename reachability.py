@@ -16,21 +16,21 @@ Together, the reachable set is C = { E^T w : w >= 0 } — a finitely generated c
 cone. Testing d in C is a non-negative least squares (NNLS) problem.
 
 What makes the verdict falsifiable and honest:
-  * reachable  -> residual ~ 0; the weights w are the ranked minimal recipe.
+  * reachable  -> residual ~ 0; the weights w rank a candidate perturbation mixture.
   * outside    -> residual has a component NO non-negative mix can supply. We return the
-                  Farkas separating direction rho = d - E^T w*, whose positive, high-|z|
-                  coordinates are genes the target wants UP that knockdown cannot deliver
-                  => concrete CRISPRa hypotheses. This is the output no ranking method has.
+                  Farkas separating direction rho = d - E^T w*. Its positive coordinates
+                  rank readouts that remain under-delivered at the closest cone point. They
+                  motivate, but do not validate, concrete CRISPRa/de-repression hypotheses.
   * "meaningfully outside" is decided against a SHUFFLED-TARGET null, never a hardcoded
     threshold, because with P<<G most random targets are partly outside by construction.
 
 Signed / bidirectional extension (`signed_reachability`):
   The one-sided cone above answers "how far can KNOCKDOWN get?". The signed solver answers
-  the modality question: it fits the target in the JOINT loss-of-function (knockdown) +
-  gain-of-function (activation, modelled as the sign-flip of a measured effect vector) cone
-  and returns an EXACT three-way orthogonal split of the target norm into
+  the modality question: after fitting the measured loss-of-function (knockdown) cone, it
+  fits the remaining residual with hypothetical gain-of-function atoms modelled as sign-flips
+  of measured knockdown effects. It returns a sequential Pythagorean split of the target norm into
   LOF-reachable / GOF-only / neither (they sum to 1). This turns "31% needs activation" into
-  a certified variance decomposition with a knockdown recipe AND an activation recipe, and is
+  a model-based variance decomposition with a knockdown recipe AND a candidate activation recipe, and is
   the geometric basis for modality triage (inhibit/degrade vs activate/agonize vs undruggable).
 
 Dependencies: numpy, scipy.optimize.nnls. CPU-cheap (seconds at 34k x 2k). No GPU, no torch.
@@ -82,11 +82,12 @@ class ReachResult:
                 cos_hi: float = 0.9, resid_lo: float = 0.35) -> str:
         """reachable | partially-reachable | outside.
 
-        If a shuffled-target `null` is supplied the call is data-driven: 'outside' means
-        the observed cosine is NOT above the null (target is indistinguishable from a
-        shuffled one), 'reachable' means it clears the null's upper tail AND the residual
-        is small. Without a null we fall back to geometry thresholds and you MUST report
-        that the verdict was not null-calibrated.
+        If a shuffled-target `null` is supplied the call is data-driven: the label 'outside'
+        means no detectable directional reachability above this null, not merely the geometric
+        fact that a non-zero residual places a target outside the exact cone. 'reachable'
+        means the score clears the null's upper tail AND the residual is small. Without a null
+        we fall back to geometry thresholds and you MUST report that the verdict was not
+        null-calibrated.
         """
         if null is not None:
             if self.reachable_cosine <= null.p95:
@@ -115,7 +116,7 @@ class NullResult:
 
 @dataclass
 class ActivationCertificate:
-    """Constructive infeasibility certificate: what a knockdown screen CANNOT reach."""
+    """Constructive infeasibility certificate for the target direction as a whole."""
     gene_index: np.ndarray             # indices into the gene axis, ranked most-unmet first
     residual_value: np.ndarray         # rho_j at those genes (positive = wants up, unmet)
     target_value: np.ndarray           # d_j at those genes
@@ -124,13 +125,14 @@ class ActivationCertificate:
 
 @dataclass
 class SignedReachResult:
-    """Signed / bidirectional reachability: how far a target is reachable when BOTH
+    """Staged signed reachability: how far a target is reachable when BOTH
     loss-of-function (knockdown, measured) AND a *hypothetical* gain-of-function
     (activation, modelled as the sign-flip of a measured effect vector) are allowed.
 
-    The decomposition is an EXACT orthogonal (Pythagorean) split of the target norm into
-    three parts that sum to 1 -- so the fractions are honest variance shares, not
-    overlapping heuristics:
+    The decomposition is an exact *sequential* Pythagorean split of the target norm into
+    three parts that sum to 1: the LOF projection is orthogonal to its residual, and the
+    GOF-proxy projection is orthogonal to the final residual. The LOF and GOF fitted vectors
+    need not be pairwise orthogonal to each other.
 
         ||d||^2  =  ||fit_lof||^2  +  ||fit_gof||^2  +  ||resid||^2
                      \\_________/     \\_________/       \\______/
@@ -160,7 +162,7 @@ class SignedReachResult:
     residual: np.ndarray               # d - fit_lof - fit_gof  (the genuinely-unreachable direction)
     fitted_lof: np.ndarray             # E^T w
     fitted_gof: np.ndarray             # -E_gof^T u
-    cert_max_violation: float          # KKT check on the final residual against the signed cone
+    cert_max_violation: float          # maximum of the two staged NNLS KKT violations
     n_generators: int
     n_genes: int
 
@@ -301,7 +303,7 @@ def reachability(E: np.ndarray, d: np.ndarray, *,
         reach_cos = _cosine(fitted, d)
         # KKT / Farkas check: at the optimum, <e_p, rho> <= 0 for every generator p.
         # (equivalently E @ rho <= 0). The max positive violation certifies optimality.
-        cert_violation = float(np.max(E @ residual)) if E.shape[0] else 0.0
+        cert_violation = max(0.0, float(np.max(E @ residual))) if E.shape[0] else 0.0
     else:
         # All scalar scores in the weighted inner product <x,y>_w = sum_j w_j x_j y_j.
         dnw = np.sqrt(float(np.sum(wv * d * d)))
@@ -310,7 +312,7 @@ def reachability(E: np.ndarray, d: np.ndarray, *,
         reach_cos = _wcosine(fitted, d, wv)
         # Weighted KKT: gradient of the weighted objective is E @ (wv * rho); at the
         # weighted optimum its max over generators is <= 0.
-        cert_violation = float(np.max(E @ (wv * residual))) if E.shape[0] else 0.0
+        cert_violation = max(0.0, float(np.max(E @ (wv * residual)))) if E.shape[0] else 0.0
 
     support = np.where(w > weight_tol)[0]
     support = support[np.argsort(-w[support])]
@@ -335,12 +337,13 @@ def activation_certificate(res: ReachResult, d: np.ndarray, *,
                            gene_names: Optional[list] = None,
                            top: int = 25,
                            hvg_mask: Optional[np.ndarray] = None) -> ActivationCertificate:
-    """The genes that make the target unreachable by knockdown — CRISPRa hypotheses.
+    """Rank positive unmet readouts in the target's separating direction.
 
     A gene is an 'activation candidate' when the target wants it UP (d_j > 0) yet the
-    closest reachable point still under-delivers there (residual rho_j > 0). Those are
-    exactly the coordinates of the Farkas separating direction where no non-negative
-    knockdown mix can push the transcriptome the way the target demands.
+    closest reachable point still under-delivers there (residual rho_j > 0). The full
+    residual is a valid Farkas separating direction. An individual coordinate is not, by
+    itself, proof that no other cone point can raise that gene; it is a ranked contribution
+    to the whole-vector mismatch and therefore a hypothesis for follow-up.
     """
     d = np.asarray(d, dtype=float)
     if hvg_mask is not None:
@@ -350,10 +353,9 @@ def activation_certificate(res: ReachResult, d: np.ndarray, *,
     score = np.where((rho > 0) & (d > 0), rho, 0.0)
     order = np.argsort(-score)
     order = order[score[order] > 0][:top]
-    expl = (f"{len(order)} genes carry positive unmet demand: the target wants them "
-            f"higher than any non-negative knockdown combination can deliver. These are "
-            f"the falsifiable CRISPRa (gain-of-function) hypotheses the knockdown assay "
-            f"structurally cannot test.")
+    expl = (f"{len(order)} genes carry positive unmet demand at the closest cone point. "
+            f"Together they contribute to the separating direction; individually they are "
+            f"follow-up CRISPRa or de-repression hypotheses, not validated interventions.")
     return ActivationCertificate(
         gene_index=order,
         residual_value=rho[order],
@@ -474,9 +476,9 @@ def signed_reachability(E: np.ndarray, d: np.ndarray, *,
     # post-GOF and the LOF condition is defined on the pre-GOF residual r):
     #   * LOF optimal on d:  max_p <e_p, r>  <= tol   (Farkas certificate for the knockdown fit)
     #   * GOF optimal on r:  min gradient of NNLS(-E_gof, r)  >= -tol
-    viol_lof = float(np.max(E @ r)) if P else 0.0
+    viol_lof = max(0.0, float(np.max(E @ r))) if P else 0.0
     grad_gof = Agof.T @ (fit_gof - r)                  # = Agof^T (Agof u* - r), >= 0 at optimum
-    viol_gof = float(-grad_gof.min()) if grad_gof.size else 0.0
+    viol_gof = max(0.0, float(-grad_gof.min())) if grad_gof.size else 0.0
     cert_viol = max(viol_lof, viol_gof)
 
     lof_support = np.where(w > weight_tol)[0]
@@ -777,8 +779,9 @@ def reachability_spectrum(E: np.ndarray, d: np.ndarray, *, k_max: int = 12,
                           epistasis_penalty: float = 0.0,
                           median_single_norm: Optional[float] = None,
                           ceiling: float = SATURATION_CEILING) -> dict:
-    """Greedy forward selection under non-negativity: best reachable cosine vs. sparsity k.
-    The 'minimal set' is the knee of this curve. Returns arrays k, cosine, residual, order.
+    """Greedy forward selection under non-negativity: reachable cosine vs. sparsity k.
+    The knee is a compact candidate panel, not a proof of globally minimum cardinality.
+    Returns arrays k, cosine, residual, order.
 
     Two selection strategies (identical results on realistic P<G, mixed-sign dictionaries —
     verified in `_selftest`):
@@ -787,9 +790,11 @@ def reachability_spectrum(E: np.ndarray, d: np.ndarray, *, k_max: int = 12,
       score every candidate generator by its correlation with the current residual, add the
       best, then refit NNLS once on the small active set. Cost ~ O(k_max) NNLS solves plus
       k_max cheap (P x G)@(G,) scorings — seconds at P~7000.
-    * refit_full=True  (EXACT, SLOW): at each step, try adding each remaining generator and
+    * refit_full=True  (EXHAUSTIVE ONE-STEP GREEDY, SLOW): at each step, try adding each
+      remaining generator and
       pick the one that maximises the refit cosine. Cost ~ O(k_max x P) NNLS solves —
-      minutes-to-hours at P~7000. Use only as a correctness reference on small problems.
+      minutes-to-hours at P~7000. It is exact for each greedy step, not for the global
+      best subset of size k. Use only as a correctness reference on small problems.
 
     The fast path is what makes the spectrum usable on the full Tier-2 dictionary; the exact
     path is retained so the equivalence can be re-checked whenever the data shape changes.

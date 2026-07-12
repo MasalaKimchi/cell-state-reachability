@@ -1,11 +1,11 @@
 {
   "RULE": "These are the ONLY quantitative values either figure may display. Every number in a figure must appear verbatim here. Do NOT invent, round differently, or add any statistic not in this sheet. If a panel seems to need a number that is not here, use a qualitative label instead.",
-  "method_one_liner": "A convex-cone reachability ORACLE: compose MEASURED genome-scale CRISPRi effect vectors; return a reachable / provably-outside verdict + minimal knockdown recipe + Farkas/KKT activation certificate.",
+  "method_one_liner": "A convex-cone directional-feasibility test: compose measured CRISPRi effect vectors; return a model-relative cone verdict, ranked mixture, greedy sparse panel, and Farkas/KKT dual certificate.",
   "screen": {
     "assay": "genome-scale CRISPRi Perturb-seq",
     "cell_type": "primary human CD4+ T cells",
     "source": "Zhu et al. 2025 (Marson/Pritchard, CZI Virtual Cells Platform)",
-    "matrix_shape": "33,983 knockdowns x 10,282 genes",
+    "matrix_shape": "33,983 perturbation-condition profiles x 10,282 genes",
     "target_example": "Th2 -> Th1 polarization"
   },
   "th2_th1_headline": {
@@ -50,7 +50,7 @@
     "LAG3",
     "IRF8"
   ],
-  "activation_certificate_meaning": "genes Th1 needs RAISED that no non-negative knockdown mix delivers \u2014 falsifiable CRISPRa hypotheses",
+  "activation_certificate_meaning": "leading positive unmet readouts at the closest cone projection; the full residual certifies the mismatch, while individual genes are follow-up hypotheses",
   "transfer_norman_k562": {
     "dataset": "Norman et al. 2019 K562 CRISPRa combinatorial (GSE133344)",
     "target": "held-out CEBPA master-TF state",
@@ -64,7 +64,7 @@
   },
   "atlas": {
     "cells": "12 (4 transitions x 3 conditions)",
-    "all_significant_z_range": "4.7 to 45.0",
+    "eight_shuffle_screening_z_range": "4.7 to 45.0 (descriptive; not a formal permutation tail probability)",
     "mean_LOF_fraction": 0.34,
     "takeaway": "knockdown is never the majority modality; activation + irreducible always dominate"
   },
@@ -116,15 +116,15 @@
       "funnel_stage": "redirect modality before the expensive phase"
     },
     {
-      "lever": "Minimal ranked knockdown recipe",
+      "lever": "Greedy sparse knockdown panel",
       "number": "allocates scarce screen slots / animal cohorts per arm",
       "funnel_stage": "screen design"
     }
   ],
   "go_stop_redirect": {
-    "GO": "target reachable -> minimal ranked knockdown set -> put in the arrayed screen",
+    "GO": "above-null LOF alignment -> test a greedy sparse candidate panel in an arrayed screen",
     "STOP": "target provably outside the cone -> do NOT spend a CRISPRi arm on it",
-    "REDIRECT": "activation-required -> switch to CRISPRa/agonist -> certificate names the genes to test first"
+    "REDIRECT": "substantial residual or GOF-proxy demand -> measure another modality; residual coordinates prioritize hypotheses"
   },
   "honesty_guardrails": [
     "Nominations are HYPOTHESES for wet-lab testing, not validated targets.",

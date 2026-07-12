@@ -3,20 +3,21 @@
 **Two tiers, both now local.** The no-login supplementary CSVs (this folder) are the
 **Tier-1 warm-up** — they need no CZI / Synapse / Wiley account. The **headline method
 runs on Tier-2**: the gene-level `GWCD4i.DE_stats.h5ad` effect matrix, which is **present
-locally at `data/GWCD4i.DE_stats.h5ad` (16.8 GB)**. Every result in the Technical Dossier (Part 1 — Results)
-(the headline verdict, the modality triage, and the generalizability transfers) is computed on it. The raw ~22M-cell dataset is
+locally at `data/GWCD4i.DE_stats.h5ad` (16.8 GB)**. The primary T-cell verdict, atlas,
+and modality analyses are computed on it; the Norman and Replogle transfer analyses use
+their own datasets. The raw ~22M-cell dataset is
 **not** needed (hundreds of GB — only this derived matrix). The fetch instructions below
 (Options A/B) are how to re-obtain both tiers on a fresh clone; you do not need to run
 them if the files are already in `data/`.
 
-> Note (`.gitignore`): `data/*.csv` is currently ignored, so the 7 CSVs are present
-> locally but **not tracked** by git. To ship a self-contained repo, force-add them:
-> `git add -f data/*.suppl_table.csv`.
+> Note (`.gitignore`): all data files are intentionally local and untracked. Do not
+> force-add the supplementary CSVs or the Tier-2 H5AD; the repository ships acquisition
+> instructions and committed derived results instead.
 
 ## What is local
 
-Tier-1 **supplementary CSV tables (~36 MB total)**, present in this folder (gitignored;
-`git add -f` to ship). These drive the Tier-1 warm-up and the disease-genetics layer:
+Tier-1 **supplementary CSV tables (~38 MB total)**, present in this folder and gitignored.
+These drive the Tier-1 warm-up and the disease-genetics layer:
 
 | File | Rows | What it is |
 |---|---|---|
@@ -29,7 +30,7 @@ Tier-1 **supplementary CSV tables (~36 MB total)**, present in this folder (giti
 | `sample_metadata.suppl_table.csv` | 12 | Sample sheet: 4 donors × 3 conditions, donor demographics (age, sex, ethnicity). |
 
 **Tier-2 (local, the headline core):** `GWCD4i.DE_stats.h5ad` — the
-gene×perturbation *effect matrix*, present at `data/GWCD4i.DE_stats.h5ad` (16.8 GB,
+perturbation–condition × gene *effect matrix*, present at `data/GWCD4i.DE_stats.h5ad` (16.8 GB,
 gitignored). This is the reachability dictionary `E`: the headline Th2→Th1 verdict, the
 12-cell atlas, and the modality triage all run on it. It is read selectively (one layer,
 `float32`, subset to significant on-target perturbations + HVGs) and cached to

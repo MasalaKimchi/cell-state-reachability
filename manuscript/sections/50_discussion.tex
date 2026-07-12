@@ -4,8 +4,9 @@
 We have described a feasibility oracle that treats a genome-scale CRISPRi screen as a
 dictionary of measured effect vectors and decides, by convex geometry, whether a target
 cell-state shift can be reached by a non-negative combination of knockdowns. The decision is
-constructive on both sides: a reachable target returns a minimal ranked recipe, and an
-unreachable one returns a Farkas/KKT certificate that names the genes requiring activation.
+constructive on both sides: a reachable target returns a ranked mixture and greedy sparse
+panel, and an unreachable one returns a Farkas/KKT certificate whose positive coordinates
+rank unmet readouts for follow-up.
 The value of the framework is not a new list of T-cell regulators---those are already in the
 source screens and we use them only as positive controls---but a new \emph{kind of output}:
 a falsifiable feasibility verdict computed directly from measured effects, which no method in
@@ -18,12 +19,11 @@ knockdown (held-out cosine $0.448$; $39\%$ of the shift in the loss-of-function 
 same pattern recurs across the $12$-cell atlas, where knockdown never accounts for the
 majority of a transition (mean loss-of-function fraction $0.34$). A knockdown-only campaign,
 however well designed, therefore addresses a minority of most cell-state transitions; the
-remaining majority is a mix of required activation and an irreducible remainder. This is a
-property of the modality, not a shortfall of fit---the headline cosine is $71\%$ of the ceiling
-a knockdown-only cone can reach in principle (atlas mean $61\%$; equivalently, as that ceiling
-coincides with the in-sample cosine, the held-out fit recovers $71\%$ of the in-sample one, not
-an independent bound)---which is why a single reachability score would be misleading and we
-report a signed decomposition instead.
+remaining majority is a mix of sign-flipped GOF proxy and an irreducible remainder. This is a
+property of the measured dictionary under the additive model, not a universal limit of
+knockdown biology. The held-out cosine retains $71\%$ of the in-sample cone fit (atlas mean
+$61\%$); this is a generalization ratio, not an independent ceiling. A single score would
+therefore be misleading, and we report the staged decomposition alongside it.
 
 The infeasibility certificate is what makes this limitation actionable: it names, reproducibly,
 the genes carrying the unmet upward demand, so a ``no'' redirects an experiment rather than
@@ -32,8 +32,9 @@ state-markers and \emph{negative} regulators, not the canonical master transcrip
 (which are present but rank deep), so the certificate is best read as a reproducible statement
 of \emph{where} activation is required, not a validated list of activation targets---and for a
 negative regulator the useful intervention may be repression, the opposite of naive activation.
-Finally, the operator transfers unchanged to other cell types, but only in part: the
-\emph{direction} of a shift is portable while the \emph{specific minimal recipe} is not, so the
+Finally, the operator runs unchanged on other cell types, but only some structure transfers:
+the \emph{direction} of a shift is moderately portable while the \emph{specific greedy recipe}
+is not, so the
 feasibility geometry generalizes even where its quantitative prescription must be re-derived per
 system.
 
@@ -84,13 +85,15 @@ function) remains a separate wet-lab endpoint.
 The most valuable next experiments follow directly from the limitations. Measuring a modest
 panel of double knockdowns in the primary CD4\textsuperscript{+} system would replace the
 borrowed K562 additivity estimate with an in-domain one and calibrate the recipe-size ceiling.
-Running one CRISPRa arm against a certificate's named genes would provide the first direct test
-of an infeasibility prediction---the framework's most distinctive and least-validated claim.
+Running one CRISPRa arm guided by the certificate's unmet-readout ranking would provide the
+first direct test of the framework's most distinctive and least-validated biological
+interpretation.
 And extending the dictionary to additional cell types and donors would convert the transfer
 result from an existence proof into a generalization curve. In each case the framework's
-output is what makes the experiment efficient: it says not only what to test but where testing
-is unnecessary. We therefore position the oracle as an experiment-triage instrument---a way to
-decide where a screen should spend its arms and where it should stop---rather than a
+output is intended to make experiment selection more efficient by exposing modality mismatch
+before a combination screen. We therefore position the method as an experiment-triage
+instrument---a way to decide where a screen should spend its arms or seek a different
+dictionary---rather than a
 target-validation engine, and we release it in that spirit.
 
 \paragraph{A causal-inference agenda.}
@@ -104,7 +107,7 @@ polarization effects the target axis is built from; an arrayed-versus-pooled or 
 screen would bound this spillover directly and is the primary external-validity test. Second,
 \emph{mediation}: decomposing a recipe's effect through master-regulator intermediates would
 distinguish a direct lever from one acting only through a downstream factor, sharpening the
-minimal recipe into a mechanistic one. Third, \emph{dynamics}: the current verdict is static,
+sparse recipe into a mechanistic one. Third, \emph{dynamics}: the current verdict is static,
 whereas differentiation is a trajectory, so a time-resolved dictionary with g-methods (accounting
 for time-varying confounding) would convert a reachability verdict into a reachable
 \emph{schedule}. Fourth, \emph{transportability}: the aging axis in particular is a direction
@@ -115,4 +118,3 @@ outcomes, signed construct validity, weak-instrument-robust recipe intervals, an
 instrumental-variables treatment of guide non-compliance---is already implemented as a
 causal-validation dossier accompanying the code; the four experiments above are its wet-lab
 continuation.
-

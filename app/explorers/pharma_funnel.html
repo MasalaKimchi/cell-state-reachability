@@ -69,7 +69,7 @@
 </head>
 <body>
 <header>
-  <h1>Where drug programs fail — and where the oracle acts</h1>
+  <h1>Why early evidence matters — and where this test acts</h1>
   <p id="thesis"></p>
 </header>
 
@@ -86,7 +86,7 @@
   </div>
 
   <div class="col right">
-    <p class="sub">Four value levers — where the oracle acts</p>
+    <p class="sub">Four evidence layers — all upstream of clinical testing</p>
     <p class="hint">Hover a funnel stage to light the lever(s) acting there; hover a lever to light its stage. The oracle concentrates at <b style="color:var(--ink)">target selection</b> — years before the Phase&nbsp;II cliff.</p>
     <div id="levers"></div>
   </div>
@@ -96,6 +96,14 @@
 
 <script>
 const DATA = {"meta": {"title": "Where drug programs fail — and where the oracle acts", "thesis": "Drug development is expensive because failure is the norm and it is paid for late. The highest-leverage place to intervene is target selection — the decision, made years before Phase II, of which gene to go after.", "approval_rate": "~10%", "phase2_transition": 0.307, "efficacy_share": "~half of Phase II/III failures", "autoimmune_pos": "~15%"}, "funnel": [{"stage": "Phase I", "transition": 0.632, "note": "63.2% advance", "lowest": false}, {"stage": "Phase II", "transition": 0.307, "note": "30.7% advance — the lowest transition of any phase; lack of efficacy causes ≈half of Phase II/III failures", "lowest": true}, {"stage": "Phase III", "transition": 0.581, "note": "58.1% advance", "lowest": false}, {"stage": "Approval", "transition": 0.859, "note": "~10% cumulative from Phase I (autoimmune ~15% PoS)", "lowest": false}], "levers": [{"id": "measured", "name": "Measured, not inferred effects", "number": "11–25% preclinical reproducibility (Amgen 6/53; Bayer ~25%)", "acts": "target selection", "how": "Dictionary rows are directly-measured genome-scale CRISPRi effects in the relevant primary human cell type — attacking the root cause of wrong-target efficacy failure.", "color": "lof"}, {"id": "genetics", "name": "Disease-genetics cross-reference", "number": "2.6× approval odds with genetic support (Minikel 2024)", "acts": "target selection", "how": "Cross-references nominations to disease genetics — 17 immune-mediated diseases, 185 significant GWAS-gene enrichments (FDR<0.05) — moving the portfolio toward the high-success quadrant.", "color": "gof"}, {"id": "stop", "name": "Provable 'unreachable' STOP", "number": "≈half of Phase II/III failures are efficacy; autoimmune PoS ~15%", "acts": "Phase II", "how": "When the target lies outside the knockdown cone, returns the specific genes that would have to be ACTIVATED instead — redirecting modality before the expensive phase, not after.", "color": "stop"}, {"id": "recipe", "name": "Minimal ranked recipe", "number": "screen slots / animal cohorts per arm", "acts": "preclinical", "how": "Ranks minimal knockdown sets so the scarcest preclinical resource is allocated to the most target-aligned directions.", "color": "accent"}], "refs": [{"k": "Minikel 2024", "t": "Refining the impact of genetic evidence on clinical success", "v": "Nature", "doi": "10.1038/s41586-024-07316-0"}, {"k": "Wong, Siah & Lo 2019", "t": "Estimation of clinical trial success rates", "v": "Biostatistics", "doi": "10.1093/biostatistics/kxx069"}, {"k": "Thomas 2016", "t": "Clinical Development Success Rates 2006–2015", "v": "BIO / Biomedtracker / Amplion", "doi": ""}, {"k": "Harrison 2016", "t": "Phase II and phase III failures: 2013–2015", "v": "Nat Rev Drug Discov", "doi": "10.1038/nrd.2016.184"}, {"k": "Begley & Ellis 2012", "t": "Raise standards for preclinical cancer research", "v": "Nature", "doi": "10.1038/483531a"}, {"k": "Prinz 2011", "t": "Believe it or not: how much can we rely on published data", "v": "Nat Rev Drug Discov", "doi": "10.1038/nrd3439-c1"}]};
+DATA.meta.thesis = "Clinical attrition is context, not a causal claim about this tool. The reachability test acts upstream: it checks whether a measured perturbation dictionary can point along a target transcriptomic direction before a combination screen.";
+DATA.levers.find(x=>x.id==="measured").how = "Uses directly measured CRISPRi effect profiles in the relevant primary-cell screen; this strengthens target evidence without predicting clinical efficacy.";
+DATA.levers.find(x=>x.id==="stop").name = "Null-calibrated modality check";
+DATA.levers.find(x=>x.id==="stop").number = "screen-relative directional evidence";
+DATA.levers.find(x=>x.id==="stop").acts = "target selection";
+DATA.levers.find(x=>x.id==="stop").how = "If target alignment does not clear its null, seek a different dictionary or modality. A non-zero residual alone is not a clinical stop rule.";
+DATA.levers.find(x=>x.id==="recipe").name = "Greedy sparse candidate panel";
+DATA.levers.find(x=>x.id==="recipe").how = "Ranks compact follow-up panels; the knee is practical, not a proof of globally minimum cardinality.";
 document.getElementById("thesis").textContent = DATA.meta.thesis;
 
 const F = DATA.funnel;

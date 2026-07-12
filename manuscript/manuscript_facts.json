@@ -1,7 +1,7 @@
 {
  "_README": "manuscript_facts.json \u2014 THE single source of truth for every NUMBER in the manuscript. Each block carries a 'provenance' key naming the authoritative artifact/computation it was read from. Supersedes figure_facts.json (which locks only figure-displayed numbers). No number may appear in the manuscript text, tables, or captions that is not verbatim here. Aggregates were recomputed from the source CSVs, not eyeballed. Extended (Jul 10) with five reinforcement/robustness blocks: reinforcement_constraint_and_ceiling (L4/L5), reinforcement_additivity_and_certificate_scaffold (L2/L1), cross_celltype_transfer (nb07), deg_weighted_evaluation (nb08), certificate_validation (split-stability + literature/genetics cross-reference).",
  "method": {
-  "one_liner": "A convex-cone reachability ORACLE: compose MEASURED genome-scale CRISPRi effect vectors; return a reachable / provably-outside verdict + minimal knockdown recipe + Farkas/KKT activation certificate.",
+  "one_liner": "A convex-cone directional-feasibility test: compose measured genome-scale CRISPRi effect vectors; return a model-relative cone verdict, ranked mixture, greedy sparse panel, and Farkas/KKT dual certificate.",
   "solver": "non-negative least squares (NNLS; Lawson-Hanson active-set)",
   "certificate": "Farkas'/KKT optimality certificate of the NNLS program; max stationarity violation reported as numerical proof",
   "provenance": "reachability.py (module), figure_facts.json"
@@ -10,10 +10,12 @@
   "assay": "genome-scale CRISPRi Perturb-seq",
   "cell_type": "primary human CD4+ T cells",
   "source": "Zhu et al. 2025 (Marson/Pritchard, CZI Virtual Cells Platform)",
-  "matrix_shape": "33,983 knockdowns x 10,282 genes",
+  "matrix_shape": "33,983 perturbation-condition profiles x 10,282 genes",
   "target_example": "Th2 -> Th1 polarization",
-  "matrix_rows_knockdowns": 33983,
+  "matrix_rows_profiles": 33983,
   "matrix_cols_genes": 10282,
+  "distinct_targeted_genes": 11526,
+  "filtered_generators_by_condition": {"Rest": 6871, "Stim8hr": 7155, "Stim48hr": 7195},
   "n_donors": 4,
   "provenance": "figure_facts.json; Zhu et al. 2025 CD4+ T-cell CRISPRi Perturb-seq (CZI VCP); GWCD4i.DE_stats.h5ad shape"
  },
@@ -55,8 +57,17 @@
    "LAG3",
    "IRF8"
   ],
-  "activation_certificate_meaning": "genes Th1 needs RAISED that no non-negative knockdown mix delivers \u2014 falsifiable CRISPRa hypotheses",
+  "activation_certificate_meaning": "leading positive unmet readouts at the closest knockdown-cone projection; the full residual certifies the mismatch, while individual genes are CRISPRa/de-repression hypotheses rather than proven interventions",
   "provenance": "figure_facts.json (th2_th1_headline); results/atlas_reachability.csv toward_Th1/Rest; results/positive_control_*.csv"
+ },
+ "headline_heldout_split_stability": {
+  "n_splits": 12,
+  "mean_heldout_cosine": 0.4464,
+  "sd_heldout_cosine": 0.0101,
+  "min_heldout_cosine": 0.4326,
+  "max_heldout_cosine": 0.4587,
+  "note": "Repeats the same half-gene fit/test procedure across seeds 0-11 without recomputing permutation nulls; the 60-shuffle fixed-split null remains the inferential reference.",
+  "provenance": "results/headline_heldout_split_stability.csv; scripts/run_heldout_split_stability.py"
  },
  "positive_control_panel": {
   "directional_AUROC_Th2_over_Th1": 1.0,
@@ -76,7 +87,9 @@
    4.7,
    45.0
   ],
-  "all_cells_significant": true,
+  "all_cells_above_8_shuffle_controls": true,
+  "all_cells_significant": false,
+  "atlas_null_note": "Eight shuffles per cell support screening/prioritization but cannot estimate a conventional permutation tail probability; the 60-shuffle headline null is the inferential reference.",
   "mean_lof_fraction": 0.3377,
   "rest_is_most_reachable_all_axes": true,
   "takeaway": "knockdown (LOF) is never the majority modality; activation (GOF) + irreducible (neither) always dominate",
@@ -478,15 +491,15 @@
    "funnel_stage": "redirect modality before the expensive phase"
   },
   {
-   "lever": "Minimal ranked knockdown recipe",
+   "lever": "Greedy sparse knockdown panel",
    "number": "allocates scarce screen slots / animal cohorts per arm",
    "funnel_stage": "screen design"
   }
  ],
  "go_stop_redirect": {
-  "GO": "target reachable -> minimal ranked knockdown set -> put in the arrayed screen",
+  "GO": "target has above-null directional reachability -> test a greedy sparse knockdown panel in an arrayed screen",
   "STOP": "target provably outside the cone -> do NOT spend a CRISPRi arm on it",
-  "REDIRECT": "activation-required -> switch to CRISPRa/agonist -> certificate names the genes to test first"
+  "REDIRECT": "substantial GOF-proxy or residual demand -> consider a measured CRISPRa arm; residual coordinates prioritize hypotheses but are not the certificate itself"
  },
  "honesty_guardrails": [
   "Nominations are HYPOTHESES for wet-lab testing, not validated targets.",
@@ -568,9 +581,9 @@
    "same_target_recipe_jaccard_median": 0.11,
    "random_null_jaccard": 0.006,
    "cross_basis_jaccard": 0.05,
-   "verdict": "the minimal RECIPE does NOT transfer across cell types"
+   "verdict": "the greedy sparse candidate PANEL does NOT transfer across cell types"
   },
-  "bounds": "Direction transfers, the specific minimal recipe does not. This is a cross-cell-type generalization probe on essential screens, NOT a second CD4+ T-cell polarization screen.",
+  "bounds": "Direction transfers, the specific greedy candidate panel does not. This is a cross-cell-type generalization probe on essential screens, NOT a second CD4+ T-cell polarization screen.",
   "provenance": "nb07 (07_cross_celltype_transfer); Technical_Dossier.md (Appendix B); results cross-celltype CSVs"
  },
  "deg_weighted_evaluation": {
@@ -656,7 +669,7 @@
     "STAT4": 364,
     "STAT1": 473
    },
-   "interpretation": "The top certificate genes are state-markers and negative regulators, and the canonical Th1 master TFs (IFNG, TBX21, STAT4, STAT1) are in the certificate but rank deep. The certificate names an engineering answer, not a canonical-driver answer; for the negative regulators the direction may be backwards. This QUALIFIES the original 'immunologically credible activation certificate' framing."
+   "interpretation": "The largest positive residual coordinates are state markers and negative regulators, while canonical Th1 master TFs (IFNG, TBX21, STAT4, STAT1) rank deep. These coordinates prioritize follow-up readouts; they are not individual certificates or proven activation targets, and the negative-regulator direction may be backwards."
   },
   "provenance": "results/certificate_literature_crossref.csv, split-stability CSVs (Jul 10); METHOD_IMPROVEMENTS.md 1.6"
  }

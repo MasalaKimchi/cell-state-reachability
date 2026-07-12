@@ -1,7 +1,7 @@
 {
  "meta": {
   "dataset": "GWCD4i CRISPRi Perturb-seq \u00b7 primary human CD4+ T cells",
-  "matrix": "33,983 knockdowns \u00d7 10,282 genes",
+  "matrix": "33,983 perturbation-condition profiles \u00d7 10,282 readout genes",
   "headline": "Th2\u2192Th1, Rest"
  },
  "geometry": {

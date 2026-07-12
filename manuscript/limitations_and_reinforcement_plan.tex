@@ -70,13 +70,11 @@ Table~\ref{tab:scorecard}.
 \sev{sev1}{Severity: critical.}
 \begin{itemize}
 \item[] \textbf{What it threatens.} The certificate is the paper's most distinctive
-contribution: when a target is unreachable, convex duality names the genes that must instead be
-\emph{activated}. Every other method we surveyed can, in principle, rank genes; none emits this
-constructive infeasibility proof. But the entire claim rests on the certificate being
-\emph{biologically actionable}, and we have not run the one experiment that would show it. We
-validate the reachable side (recipes recover known regulators as positive controls) but the
-infeasible side---the genes named in an activation certificate---has no direct wet-lab test in
-this work.
+contribution: when a target is outside the measured knockdown cone, convex duality returns a
+separating residual direction. Large positive coordinates identify unmet readouts and motivate
+activation experiments, but they do not prove that activating those genes will generate the
+target state. The full vector is the mathematical certificate; its coordinate ranking is a
+biological hypothesis layer that has no direct wet-lab test in this work.
 \item[] \textbf{Current state.} For \Th{2}$\rightarrow$\Th{1} the certificate names LYAR, IKZF3,
 CRTAM, CBLB, GBP5, LAG3, IRF8; for the K562 CEBPA state it names a myeloid program (MNDA, HP,
 VSIG4, NCF1). These are internally consistent and interpretable, but ``interpretable'' is not
@@ -85,11 +83,10 @@ proves the \emph{convex program} is solved to optimality---it says nothing about
 those genes actually produces the shift.
 \item[] \textbf{Reinforcement plan.}
 \begin{enumerate}
-\item \emph{Direct test (definitive, wet-lab, weeks--months).} Run a small CRISPRa arm against
-the \Th{2}$\rightarrow$\Th{1} certificate genes and measure whether combined activation moves
-cells toward \Th{1} in the directions the certificate predicts. A positive result validates the
-single most novel claim; a negative result is itself publishable as a calibration of what the
-certificate does and does not capture.
+\item \emph{Direct test (wet-lab, weeks--months).} Run a small CRISPRa arm against selected
+unmet-readout hypotheses and measure whether activation moves cells toward \Th{1}. A positive
+result would support the coordinate-ranking heuristic; a negative result would not invalidate
+the separating certificate, but would calibrate what its biological interpretation can support.
 \item \emph{Retrospective test (immediate, computational).} Cross-reference every certificate
 gene against published CRISPRa/overexpression screens in the same lineage; a certificate gene
 that is already known to drive the target direction on activation is corroborating evidence
@@ -487,4 +484,3 @@ Everything else in this document is a way of making the paper harder to dismiss;
 experiment is a way of making it right.
 
 \end{document}
-

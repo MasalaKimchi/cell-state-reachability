@@ -5,7 +5,10 @@
 # Verifies the method end-to-end from a clean checkout:
 #   1. builds a minimal environment (numpy + scipy + pytest),
 #   2. runs the test suite (packaged 38-assert self-test + 10 property tests),
-#   3. regenerates and prints the headline reachability verdict.
+#   3. reruns the synthetic invariant battery with visible output.
+#
+# This verifies the software. It does not regenerate the real-data headline,
+# because the 16.8 GB Tier-2 matrix is intentionally not committed.
 #
 # Usage:
 #   ./reproduce.sh                 # uses `python` on PATH (needs numpy/scipy)
@@ -56,17 +59,16 @@ esac
 banner "2/3  Running the test suite (self-test + property tests)"
 $PY -m pytest tests/test_reachability.py -q
 
-banner "3/3  Regenerating the headline reachability verdict"
+banner "3/3  Re-running the synthetic invariant battery"
 $PY - <<'PYEOF'
 import reachability as rx
 # The packaged self-test already re-derives every invariant on synthetic
-# fixtures; here we surface the module-level verdict banner so a human sees
-# the method run and print a real result.
+# fixtures; here we surface its diagnostics so a human sees the method run.
 print("Running reachability._selftest() end-to-end ...\n")
 rx._selftest()
-print("\nReproduction complete: method imports, all invariants hold,")
+print("\nSoftware verification complete: method imports, all invariants hold,")
 print("verdicts / KKT certification / signed decomposition all reproduce.")
 PYEOF
 
 banner "DONE — reproduction succeeded"
-echo "All tests passed and the headline invariants reproduced from a clean build."
+echo "All tests passed and the synthetic method invariants reproduced."

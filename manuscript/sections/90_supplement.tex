@@ -46,12 +46,14 @@ annotation, not a pre-registered test.}
 \centering
 \includegraphics[width=\textwidth]{figS4}
 \caption{\textbf{Triage funnel and the three actions a verdict enables.}
-\textbf{(a)}~The oracle compresses $102$ ranked nominations to a testable set: $57$ carry a
-druggable handle and $10$ have a clinical-grade drug, while $45/102$ ($44\%$) are hard-to-drug.
-\textbf{(b)}~Each verdict maps to one action---GO (reachable, run the minimal knockdown
-screen), REDIRECT (activation-required, switch to a CRISPRa arm), or STOP (provably outside,
-do not spend the arm). Every call is a falsifiable wet-lab hypothesis; the instrument triages,
-it does not validate.}
+\textbf{(a)}~The union of top-10 greedy LOF panels contains $102$ unique candidates: $57$
+carry a druggable handle and $10$ have a clinical-grade drug, while $45/102$ ($44\%$) are
+hard-to-drug.
+\textbf{(b)}~Each state-level verdict maps to one action---GO (test a greedy sparse CRISPRi
+panel), REDIRECT (test the sign-flipped GOF hypothesis in a CRISPRa/de-repression arm), or STOP
+(no signal above the null; seek a different dictionary or modality). Candidate-level
+tractability annotations prioritize within the chosen arm. Every call is a falsifiable wet-lab
+hypothesis; the instrument triages, it does not validate.}
 \label{fig:supp-triage}
 \end{figure}
 
@@ -90,13 +92,13 @@ dynamic-range calibration is computed on the rest condition (Monte-Carlo cost).}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figS7}
-\caption{\textbf{Cross-cell-type transfer: direction transfers, the minimal recipe does not.}
+\caption{\textbf{Cross-cell-type transfer: direction transfers, the greedy recipe does not.}
 The unchanged operator applied to the \citet{Replogle2022} K562 and RPE1 essential-gene screens
 ($843$ shared perturbations, $2{,}832$ shared genes). \textbf{(a)}~A single perturbation's
 effect \emph{direction} transfers moderately (matched cross-type cosine median $0.35$; grey
 band, shuffled-gene null $\pm95\%$). \textbf{(b)}~The reachability \emph{verdict} transfers only
 as a graded residual: the median residual norm is systematically worse under a cross-type basis
-(hatched) than a within-type basis, for both K562 and RPE1 targets. \textbf{(c)}~The minimal
+(hatched) than a within-type basis, for both K562 and RPE1 targets. \textbf{(c)}~The greedy
 \emph{recipe} does not transfer---same-target Jaccard overlap ($0.11$) collapses toward the
 random-selection null ($0.05$) under a cross-type basis. Direction is portable across cell
 types; the specific recipe is not.}
@@ -134,4 +136,3 @@ validated list of activation targets; for the negative regulators, a useful inte
 opposite in sign to naive activation. This cross-reference is exploratory and post-hoc.}
 \label{fig:supp-crossref}
 \end{figure}
-

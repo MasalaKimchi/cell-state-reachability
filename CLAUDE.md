@@ -14,35 +14,35 @@ index — those live once, in [`README.md`](./README.md). For **what the method 
 
 Genome-scale CRISPRi Perturb-seq in primary human CD4+ T cells gives a *measured* causal
 effect vector for each gene knockdown. This project treats those vectors as a dictionary
-and asks a geometric question: **is a target transcriptomic state (e.g. Th2→Th1
-polarization) reachable by some non-negative combination of knockdowns, and if so, what
-is the smallest ranked set that reaches it?** Because knockdowns are loss-of-function and
-weights are non-negative, the reachable shifts form a **convex cone**; the headline
-output is a falsifiable **reachable / provably-outside-the-cone** verdict with a residual
-and — when outside — a constructive activation certificate, each nomination carrying a
-decomposable confidence score. This is *not* differential expression and *not* a
-similarity ranking — it is a reachability decision.
+and asks a geometric question: **how closely can non-negative combinations of measured
+knockdown effects point toward a target transcriptomic direction?** The non-negativity
+constraint fixes each measured effect's orientation; it does not mean every transcript
+decreases. Under an explicit additive approximation, the modelled directions form a
+**convex cone**. The output is a screen-relative directional verdict, a ranked mixture and
+greedy sparse panel, and—when outside—the full Farkas/KKT separating residual. Positive
+residual coordinates are follow-up hypotheses, not proven activation targets.
 
 ---
 
 ## 1. Current state
 
-The method is implemented in **`reachability.py`** (~1,200 LOC: cone fit, signed
+The method is implemented in **`reachability.py`** (~1,500 LOC: cone fit, signed
 LOF/GOF decomposition, Farkas/KKT certificate, honest nulls, reachability spectrum,
 additivity risk). The 16.8 GB Tier-2 effect matrix is local, and the full analysis has run.
 
 Everything runs CPU-only on an 18 GB laptop; compute is not a constraint (full solver +
 1,000-iteration null at 34k×2k is ~0.57 s, 1.4 GB RAM).
 
-Commands and the notebook order are in [`README.md`](./README.md#reproduce).
+Commands and the notebook order are in [`README.md`](./README.md#reproduce-the-analysis).
 
 **Public API of `reachability.py`** (verdict layer): `reachability(E, d)` →
 reachable_cosine / residual_norm / verdict / non-negative weights;
 `signed_reachability(...)` → LOF/GOF/neither split; `reachability_spectrum(...)` (with
 `epistasis_penalty`); `additivity_risk(...)`; the shuffled-target and
-random-perturbation nulls; `analytic_anisotropy_null(...)` (closed-form). Reconstruction
-helpers (`greedy_minimal_set`, `omp_minimal_set`), target-state construction, confidence
-decomposition, and the PubMed/Open Targets/Enrichr evidence layer round out the module.
+random-perturbation nulls; `analytic_anisotropy_null(...)` (closed-form approximation);
+`held_out_gene_validation(...)`; `run_reachability(...)`; and `design_experiment(...)`.
+`reachability_spectrum(...)` implements the greedy sparse-panel path; there are no public
+`greedy_minimal_set` or `omp_minimal_set` functions.
 
 ---
 
@@ -54,7 +54,7 @@ decomposition, and the PubMed/Open Targets/Enrichr evidence layer round out the 
 | Sign convention | `toward_Th1` → GATA3 ↓, TBX21/IFNG/STAT4/STAT1 ↑, IL4/IL5/IL13 ↓ | both source contrasts |
 | Cross-source concordance | 11,616 shared genes · 68.5% sign-concordant · ρ=0.562 (z-score) | ρ=0.533 on log-fc |
 | GATA3 rank (`toward_Th1`) | #1 Rest, #2 Stim8hr, #2 Stim48hr | positive control, NOT a discovery |
-| Headline Th2→Th1 verdict | held-out cosine 0.448 (in-sample 0.627), null z ≈ 24, KKT residual 1.1×10⁻¹¹ | partially reachable |
+| Headline Th2→Th1 verdict | held-out cosine 0.448 (12-split mean 0.446±0.010; in-sample 0.627), above all 60 shuffled targets, KKT residual 1.1×10⁻¹¹ | partially directionally reachable |
 | Signed split (Th2→Th1) | LOF 39% / GOF 25% / neither 35% | knockdown never the majority modality (atlas mean LOF 0.34) |
 | Solver speed @ 34k×2k | 0.57 s greedy + 1,000-null; 1.4 GB RAM | compute is not a constraint |
 | Autoimmune enrichment | 17 diseases, 185 hits FDR<0.05, top OR 58 (Crohn's) | disease-impact layer |

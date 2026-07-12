@@ -6,14 +6,15 @@
 Cell-state engineering poses an inverse-design question: given a starting state and a
 desired target state, which interventions move the cell there, and is the move even
 possible? This is the question behind directed differentiation, transdifferentiation, and
-T-cell engineering, and it is the question of pharmaceutical target selection. Getting it
-wrong is the dominant cost of drug development: only about one in ten clinical programmes
-reaches approval, and failure is paid for late \citep{Minikel2024,WongSiahLo2019}. Attrition concentrates
+T-cell engineering, and it is the question of pharmaceutical target selection. Wrong target
+or modality choice is one contributor to the cost of drug development: only about one in ten
+clinical programmes reaches approval, and failure is often paid for late
+\citep{Minikel2024,WongSiahLo2019}. Attrition concentrates
 at Phase~II, and roughly half of Phase~II/III failures are for lack of efficacy---the
 wrong target or mechanism rather than safety \citep{Harrison2016}. The two interventions
 with published evidence of improving those odds both point the same way: human genetic
 support raises the odds of approval about 2.6-fold \citep{Minikel2024,Nelson2015}, and
-\emph{measured} rather than inferred target effects are the direct antidote to the
+\emph{measured} rather than inferred target effects provide a stronger evidence layer amid the
 11--25\% preclinical reproducibility documented by the Amgen and Bayer audits
 \citep{BegleyEllis2012,Prinz2011}. A method for this problem should therefore (i)~work from
 measured effects in the relevant cell type, (ii)~answer achievability rather than merely
@@ -93,10 +94,10 @@ measured genome-scale CRISPRi effect vectors from a Perturb-seq screen in primar
 CD4$^+$ T cells \citep{Zhu2025} directly, with no inferred network. Because knockdown is
 loss-of-function and combinations are non-negative, reachability becomes membership in a
 convex cone, solved by non-negative least squares \citep{LawsonHanson1974}: ``reachable''
-returns the mixing weights (a minimal ranked recipe), and ``outside the cone'' is a theorem
-whose separating hyperplane---a Farkas/KKT certificate \citep{Farkas1902}---names the genes
-that would have to be \emph{activated} instead, a falsifiable CRISPRa hypothesis rather than
-a null result. We validate by held-out-gene generalisation against a shuffled-target null
+returns a ranked mixture and greedy sparse panel, and ``outside the cone'' is a model-relative
+theorem whose separating hyperplane---a Farkas/KKT certificate \citep{Farkas1902}---ranks
+positive unmet readouts for follow-up rather than proving a per-gene activation recipe. We
+validate by held-out-gene generalisation against a shuffled-target null
 (Th2$\rightarrow$Th1 held-out cosine $0.448$, null $z\approx24$; KKT residual
 $\approx\!10^{-11}$), and the operator transfers unchanged to the Norman K562 combinatorial
 CRISPR screen \citep{Norman2019} (held-out CEBPA cosine $0.878$), whose measured

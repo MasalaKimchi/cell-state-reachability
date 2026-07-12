@@ -8,10 +8,11 @@ Before committing reagents to such a program, the decisive question is not \emph
 this perturbation do} but \emph{can the desired change be achieved at all with the
 perturbations available, and if not, what is missing}. That question is rarely asked
 computationally, and its economic weight is large: only about one in ten clinical
-programs succeeds, most failures are for lack of efficacy rather than safety, and the
-interventions with demonstrated power to shift those odds---human genetic support and
-directly measured target effects---both argue for grounding target choice in real
-perturbation data rather than inferred models \citep{Minikel2024,Nelson2015,Harrison2016,%
+programs succeeds and many late-stage failures involve insufficient efficacy. That clinical
+context motivates better early evidence, but a transcriptomic screen cannot by itself explain
+or prevent clinical attrition. Human genetic support and directly measured target effects do,
+however, both argue for grounding target choice in real perturbation data rather than inferred
+models \citep{Minikel2024,Nelson2015,Harrison2016,%
 BegleyEllis2012,Prinz2011}.
 
 The computational tools available to answer it fall into two camps that, as we document in
@@ -31,24 +32,25 @@ predicting an unseen response.
 
 \paragraph{The convex-cone move.}
 We take the opposite starting point from model building: we do not infer a network at all.
-A genome-scale CRISPRi Perturb-seq screen \citep{Zhu2025} directly measures, for each of
-tens of thousands of single-gene knockdowns, the effect vector it produces in expression
+A genome-scale CRISPRi Perturb-seq screen \citep{Zhu2025} directly measures, for each
+perturbation--condition profile, the effect vector it produces in expression
 space. We treat these measured vectors as a fixed dictionary and ask a geometric question:
 does the desired cell-state shift lie in the set of shifts the dictionary can produce?
-Two facts about knockdowns make this question exactly a convex-geometry problem. A knockdown
-can only remove function, fixing the sign of each atom's contribution; and applying several
-knockdowns together produces, to first order, an additive combination with non-negative
-loadings. The set of achievable shifts is therefore the \emph{non-negative conic hull} of
+Two modelling choices make this a convex-geometry problem. A measured knockdown effect may be
+applied with non-negative weight but not reversed into an unmeasured ``negative knockdown'';
+and several knockdowns are approximated, to first order, by the sum of their single effects.
+Individual effect vectors may raise some transcripts and lower others. The set of directions
+allowed by this model is therefore the \emph{non-negative conic hull} of
 the measured effect vectors, and asking whether a target is reachable is asking whether it
-lies inside that cone---a question non-negative least squares (NNLS) answers exactly
+lies inside that model-relative cone---a question non-negative least squares (NNLS) answers exactly
 \citep{LawsonHanson1974}. This reframing turns an open-ended design search into a decision
-with a proof on both sides. When the target is inside the cone, the NNLS weights \emph{are}
-a minimal ranked knockdown recipe. When it is outside, convex duality supplies a separating
-hyperplane---a Farkas/KKT certificate \citep{Farkas1902,KuhnTucker1951}---whose positive coordinates name
-the genes the target requires but that no combination of knockdowns can supply. An
-infeasibility result is thus not a dead end but a constructive, falsifiable hypothesis: it
-says the move requires \emph{activation}, and it names the genes to activate, redirecting
-the experiment from a CRISPRi arm to a CRISPRa arm.
+with a checkable solution on both sides. When the target is inside the cone, the NNLS weights
+rank a feasible mixture and a greedy spectrum supplies compact candidate panels; neither is a
+global minimum-cardinality proof. When it is outside, convex duality supplies a separating
+hyperplane---a Farkas/KKT certificate \citep{Farkas1902,KuhnTucker1951}---whose full vector
+certifies the mismatch. Positive coordinates rank readouts under-delivered at the closest cone
+point. They motivate a CRISPRa or de-repression arm, but do not prove that activating any
+individual readout will cause the desired state.
 
 \paragraph{Scope.}
 The oracle is a decision instrument, not an oracle of biological truth: it certifies
@@ -63,9 +65,9 @@ it recovers.
 This paper makes four contributions.
 \begin{enumerate}
 \item \textbf{A feasibility oracle for cell-state engineering.} We formalize reachability of
-a target cell-state shift as membership in the convex cone of measured perturbation effect
-vectors, and solve it with NNLS so that a verdict, a minimal ranked recipe, and---on
-infeasibility---a Farkas/KKT activation certificate all fall out of one convex program
+a target cell-state direction as membership in the convex cone of measured perturbation effect
+vectors, and solve it with NNLS so that a verdict, a ranked mixture, a greedy sparse panel,
+and---on infeasibility---a Farkas/KKT dual certificate follow from one convex program
 (Section~\ref{sec:methods}).
 \item \textbf{A validated headline result.} On primary human
 CD4\textsuperscript{+} T cells the oracle finds T\textsubscript{H}2$\rightarrow$%
@@ -74,7 +76,7 @@ below full reachability---with a signed loss-/gain-of-function decomposition and
 regulators recovered as positive controls (Section~\ref{sec:results-headline}).
 \item \textbf{Generality across transitions and datasets.} A 12-cell atlas shows knockdown
 is never the majority modality across four transitions and three activation states, and the
-identical operator transfers without retuning to a K562 CRISPRa combinatorial screen, where
+identical operator runs without retuning on a K562 CRISPRa combinatorial screen, where
 we also quantify the additivity approximation directly on measured doubles
 (Sections~\ref{sec:results-atlas}--\ref{sec:results-transfer}).
 \item \textbf{An exact positioning against the literature.} Over 92 methods spanning
@@ -83,4 +85,3 @@ by disjoint method sets whose intersection is empty, and translate the resulting
 into a GO/REDIRECT/STOP triage over 102 real target nominations
 (Sections~\ref{sec:results-landscape}--\ref{sec:results-impact}).
 \end{enumerate}
-

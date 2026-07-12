@@ -2,177 +2,200 @@
 
 **Built with Claude — Life Sciences Hackathon · Research / Lab Track**
 
-*Given a genome-scale screen of gene perturbations, can we reach a desired cell state —
-and if not, what is provably stopping us?* This project answers that with a **convex-cone
-reachability oracle** (a decision instrument relative to the measured screen, not a claim
-of biological ground truth): it returns a falsifiable **reachable / provably-outside-the-cone**
-verdict for a real CRISPRi Perturb-seq screen in primary human CD4⁺ T cells, plus the
-minimal knockdown recipe, a numerical activation certificate, and a confidence score.
+## Can knockdown point a cell where you want it to go?
 
-> **New here?** [`SUBMISSION.md`](./SUBMISSION.md) is the 2-minute elevator view.
-> This README is the **full repository map** — what every file is and where to start.
+A GPS does more than suggest a route: it can tell you when the road you need is not on the
+map. This project asks the analogous question for cell engineering. Given a library of
+effects measured in a real perturbation screen, can non-negative combinations of those
+effects point the transcriptome toward a desired state—and where does the measured
+intervention class fall short?
 
----
+This is a **directional feasibility test relative to a measured screen**, not an oracle of
+biological truth. It returns a held-out, null-calibrated alignment; a ranked perturbation
+mixture and greedy sparse candidate panel; and, when the target lies outside the measured
+cone, a Farkas/KKT dual certificate for the full mismatched direction.
 
-## Start here — the five things worth opening
-
-| If you want… | Open |
-|---|---|
-| **The 2-minute pitch** | [`SUBMISSION.md`](./SUBMISSION.md) |
-| **The paper** (preprint PDF) | [`manuscript/main.pdf`](./manuscript/main.pdf) |
-| **All technical write-ups, merged** — method, novelty, related work, causal foundations + 5 appendices | [`docs/Technical_Dossier.pdf`](./docs/Technical_Dossier.pdf) (162 pp) · editable source [`docs/Technical_Dossier.md`](./docs/Technical_Dossier.md) |
-| **Interactive walkthrough** — one guided page threading all 7 explorers (no server) | [`app/index.html`](./app/index.html) · standalone explorers in [`app/explorers/`](./app/explorers/) |
-| **Reproduce it** | [`reproduce.sh`](./reproduce.sh) · [`notebooks/`](./notebooks/) |
+> **New here?** Start with the [2-minute pitch](./SUBMISSION.md), then open the
+> [interactive walkthrough](./app/index.html). The [validation report](./docs/VALIDATION_REPORT.md)
+> separates what is verified, what is model-dependent, and what still needs a wet-lab test.
 
 ---
 
-## What this is
+## The result in 30 seconds
 
-Each measured CRISPRi effect vector is a direction in expression space. Because knockdown
-only ever *subtracts*, the states reachable by any non-negative mix of knockdowns form a
-**convex cone**, and reachability becomes one geometric question — *does the target vector
-lie inside that cone?* — solved by non-negative least squares on the real effect matrix of
-**33,983 knockdowns × 10,282 genes**. The output is not a similarity score but a
-**falsifiable verdict** carrying (1) a minimal ranked knockdown recipe, (2) a Farkas/KKT
-activation certificate naming the genes no knockdown mix can deliver, and (3) a confidence
-score from the dataset's own reproducibility, a permutation null, and orthogonal
-literature/genetics evidence.
+For the flagship **Th2 → Th1** direction in resting primary human CD4⁺ T cells:
 
-For the flagship **Th2 → Th1** switch the verdict is *partially reachable*: **39% of the
-shift is reachable by knockdown (LOF), 25% provably requires activation (GOF), 35% is
-neither** — held-out cosine 0.448, KKT/Farkas residual 1.1 × 10⁻¹¹. Master-regulator
-controls land correctly (GATA3 recovered at rank 155/6871; TBX21 correctly anti-aligned
-under knockdown), the operator transfers unchanged (no retuning) to a K562 CRISPRa screen (Norman 2019;
-held-out CEBPA at cosine 0.878, z = 36.97 — a single held-out target; full cross-atlas
-transfer is future work), and across a 12-cell atlas knockdown is never
-the majority modality. Full numbers, tables, and figures are in the
-[Technical Dossier](./docs/Technical_Dossier.pdf) and the [manuscript](./manuscript/main.pdf).
+- Fixed-split held-out cosine: **0.448** (in-sample 0.627).
+- Shuffled-target control: larger than all **60** shuffles (plus-one empirical
+  **p = 1/61**; descriptive z ≈ 24).
+- Staged modality proxy: **39% measured LOF / 25% sign-flipped GOF proxy / 35% neither**.
+- KKT violation: **1.1 × 10⁻¹¹**, certifying the numerical cone projection—not biological
+  efficacy.
 
-## Scope, stated up front
+The result is **partly directionally reachable by knockdown**, not fully reachable as a
+cell phenotype. Positive residual coordinates rank unmet readouts for CRISPRa or
+de-repression follow-up; an individual gene on that list is not thereby proven causal.
 
-Nominations are **hypotheses for wet-lab testing**, not validated targets. CRISPRi is
-loss-of-function only (activation hypotheses need a separate CRISPRa arm); multi-gene
-recipes assume bounded additivity; the system is one primary-cell screen across four
-donors; matching a transcriptional signature is not functional rescue. This is an
-experiment-triage instrument, not a target-validation engine. The manuscript's
-[limitations PDF](./manuscript/limitations_and_reinforcement_plan.pdf) and the dossier's
-Appendix E (Response to Reviewer 2) treat these limits head-on.
+Across 12 transition–condition cases, knockdown is never the majority component (mean LOF
+fraction 0.34). Those atlas cells each exceed eight shuffled screening controls, but the
+eight-shuffle z range is descriptive rather than a formal permutation tail test.
 
-## Data
+## The method in plain language
 
-Marson & Pritchard labs, *Genome-scale Perturb-seq in primary human CD4⁺ T cells*
-(Zhu et al., bioRxiv 2025), on the CZI Virtual Cells Platform (MIT license).
+Each CRISPRi perturbation has a measured transcriptional fingerprint. A fingerprint can
+contain both increases and decreases in gene expression. The non-negativity constraint does
+**not** mean “knockdown only lowers expression”; it means the complete measured effect may
+be combined with non-negative weight but may not be reversed into an unmeasured
+“anti-knockdown.”
+
+Under a first-order additivity approximation, these combinations form a convex cone:
+
+1. Build a dictionary `E` of measured perturbation effects.
+2. Define a target direction `d = destination − source`.
+3. Project `d` onto `{Eᵀw : w ≥ 0}` with non-negative least squares.
+4. Evaluate the fitted weights on held-out genes and against shuffled targets.
+5. Use a greedy spectrum to propose compact panels. The knee is a practical sparse panel,
+   not a proof of globally minimum cardinality.
+6. If the residual is non-zero, use it as a separating direction. The complete residual is
+   the mathematical certificate; its largest positive coordinates are follow-up hypotheses.
+
+The signed decomposition is also explicitly model-based: after the measured LOF fit, the
+remaining residual is fitted with `-E`, treating the negative of each knockdown effect as a
+hypothetical activation effect. Real CRISPRa effects need not be exact mirrors of CRISPRi.
+
+## What the data actually contain
+
+The primary source is Zhu et al. 2025, *Genome-scale Perturb-seq in primary human CD4⁺ T
+cells* (Marson and Pritchard labs; CZI Virtual Cells Platform, MIT license).
 
 - Dataset card: https://virtualcellmodels.cziscience.com/dataset/genome-scale-tcell-perturb-seq
 - Preprint: https://www.biorxiv.org/content/10.64898/2025.12.23.696273v1
 
-The raw dataset (~22M cells) is not laptop-tractable; the work builds on the authors'
-precomputed derived artifacts, in two tiers (both local, both gitignored — see
-[`data/README.md`](./data/README.md)):
+The derived Tier-2 H5AD is **33,983 perturbation–condition profiles × 10,282 readout
+genes**, representing 11,526 distinct targeted genes over Rest, Stim8hr, and Stim48hr. It is
+not 33,983 unique knockdown genes. After source-screen quality filters, the working
+dictionaries contain 6,871, 7,155, and 7,195 generators respectively.
 
-- **Tier 1** (~36 MB of CSVs): target signatures, per-perturbation QC/effect summaries,
-  guide QC, off-target design, autoimmune-disease enrichment, donor metadata. Supports the
-  1-D directional sanity check in `notebooks/01`.
-- **Tier 2** (`data/GWCD4i.DE_stats.h5ad`, 16.8 GB): the full gene-level effect matrix —
-  33,983 pert×cond × 10,282 genes — that the reachability cone runs on. Read selectively
-  (subset to significant on-target perturbations + HVGs per condition, cached), never
-  loaded whole, on an 18 GB-RAM laptop.
+- **Tier 1** (~38 MB): seven supplementary CSVs for target signatures, quality control,
+  donor metadata, guide design, and immune-disease enrichment.
+- **Tier 2** (16.8 GB): `data/GWCD4i.DE_stats.h5ad`, read selectively and cached; the raw
+  ~22-million-cell dataset is not required.
 
-## Method, in four steps
+See [`data/README.md`](./data/README.md) for acquisition and exact grain. Raw data remain
+gitignored and must never be committed.
 
-1. **Perturbation dictionary** `E ∈ ℝ^{P×G}`: each row is one perturbation's measured
-   effect on the transcriptome (z-scored logFC), per stimulation condition.
-2. **Target direction** `d ∈ ℝ^G`: the desired shift (Th2→Th1 signature, or reverse-aging).
-3. **Reachability, then minimal set.** Non-negative weights → the reachable shifts form a
-   convex cone; a non-negative least-squares fit gives the reachable-vs-outside verdict,
-   closest point, and residual, after which sparse selection *within* the cone finds the
-   smallest perturbation set. Sparsity = "minimal"; non-negativity = "achievable by knockdown."
-4. **Confidence** = dataset-native reproducibility + bootstrap stability + held-out-donor
-   generalization + orthogonal literature/Open Targets evidence.
+## What is novel—and what is not
 
-A linear/additive baseline is the **primary** model, not a fallback: a 2025 *Nature Methods*
-benchmark shows current deep-learning perturbation predictors do not yet beat simple linear
-baselines, so any DL comparison here is explicitly optional and benchmarked, never assumed.
+Minimal regulator sets, network control, and cell-state conversion are established fields.
+The source paper already reports Th1/Th2 and aging regulators; their recovery here is a
+positive control, not a discovery.
 
-## Novelty delta
+The claimed delta is the combination of:
 
-"Minimal set of perturbations that moves a cell toward a target state" is a named problem
-(Mogrify 2016; CellOracle 2023). The delta here: **measured, not inferred** effect vectors
-(the empirical CRISPRi matrix, not a GRN inferred from wild-type data); a **convex-cone
-reachability verdict** with a provable outside-the-cone certificate rather than a similarity
-score; and a held-out-gene validity test plus a screen-native confidence decomposition. A
-survey of 91 prior methods (2011–2026; 92 including this work) finds none returning a
-feasibility verdict on measured effects. The regulator biology the pipeline recovers (Th1/Th2, aging) is what the
-source paper itself reports — so regulator recovery is treated as *validation the method
-works*, and novelty is claimed only for the method + decision layer. Full argument and the
-91-method survey: [Technical Dossier](./docs/Technical_Dossier.pdf), Parts 2–3.
+- directly measured perturbation-effect vectors rather than an inferred regulatory network;
+- a target-specific convex-cone directional verdict rather than only a similarity ranking;
+- a dual separating certificate for an outside-the-cone target direction;
+- held-out-gene and shuffled-target calibration; and
+- explicit modality and additivity caveats attached to every candidate panel.
+
+A structured survey of 91 prior methods found no prior entry combining measured-effect
+grounding with this target-specific certificate. That is a bounded literature-survey claim,
+not proof that no adjacent method exists.
+
+## Scope, stated before the repository map
+
+- Transcriptomic alignment is not functional rescue.
+- The cone is unbounded and the main score is directional; it does not establish an
+  achievable biological dose or magnitude.
+- Multi-gene combinations assume approximate additivity. In 126 Norman K562 CRISPRa
+  doubles, measured-versus-additive direction has median cosine 0.71; CD4⁺ combinations
+  remain unvalidated.
+- The primary effects are donor-collapsed across four donors, so true leave-one-donor-out
+  validation is unavailable.
+- The CEBPA transfer is one held-out state in a different screen; full cross-atlas transfer
+  remains future work.
+- Open Targets and literature annotations are saved snapshots and prioritization aids.
+- Every nomination is a wet-lab hypothesis, never a validated target.
+
+## Start here
+
+| If you want… | Open |
+|---|---|
+| **2-minute pitch** | [`SUBMISSION.md`](./SUBMISSION.md) |
+| **Guided interactive story** | [`app/index.html`](./app/index.html) |
+| **Paper** | [`manuscript/main.pdf`](./manuscript/main.pdf) |
+| **Validation report** | [`docs/VALIDATION_REPORT.md`](./docs/VALIDATION_REPORT.md) |
+| **Full technical record** | [`docs/Technical_Dossier.pdf`](./docs/Technical_Dossier.pdf) · [source](./docs/Technical_Dossier.md) |
+| **Verify core software** | [`reproduce.sh`](./reproduce.sh) |
+| **Re-run analyses** | [`notebooks/`](./notebooks/) · [`scripts/`](./scripts/) |
 
 ## Repository map
 
-```
+```text
 cell-state-reachability/
-├── SUBMISSION.md            # ← 2-minute pitch (problem → method → result → impact)
-├── README.md                # ← this file: full repo map + navigation
-├── CLAUDE.md                # operating manual: verified facts, guardrails, literature anchors
-├── DEMO_VIDEO_SCRIPT.md     # walkthrough script for the demo video
-├── reachability.py          # THE METHOD: cone fit, signed decomposition, certificate, nulls, spectrum
-├── reproduce.sh             # one-command reproduce (pytest + in-module self-test)
-├── environment.yml          # conda environment
-├── requirements.txt         # pip pins (numpy / scipy / pandas / …)
-├── LICENSE                  # MIT
+├── SUBMISSION.md            # accessible 2-minute pitch
+├── README.md                # orientation, scope, and reproduction routes
+├── AGENTS.md / CLAUDE.md    # enduring facts and scientific guardrails
+├── DEMO_VIDEO_SCRIPT.md     # 3-minute demo plan
+├── reachability.py          # cone fit, dual certificate, nulls, spectrum, additivity risk
+├── reproduce.sh             # software verification: 11 tests + synthetic self-test
+├── requirements.txt         # pinned core and analysis dependencies
 │
 ├── docs/
-│   ├── Technical_Dossier.pdf    # 162-pp merged dossier — all technical write-ups (READ THIS)
-│   ├── Technical_Dossier.md     #   editable source of the dossier
-│   └── figures/                 #   13 figures embedded by the dossier
+│   ├── VALIDATION_REPORT.md # audit findings, verified claims, and residual risks
+│   ├── Technical_Dossier.pdf
+│   ├── Technical_Dossier.md
+│   └── figures/
 │
-├── manuscript/              # LaTeX preprint (ICML style)
-│   ├── main.pdf                 #   the paper
-│   ├── main.tex + sections/     #   editable LaTeX source (00_abstract … 90_supplement)
-│   ├── figures/                 #   fig1–5, figS1–9 (png + pdf)
-│   ├── references.bib, main.bbl #   bibliography
-│   ├── limitations_and_reinforcement_plan.pdf   # honest-limitations companion
-│   └── manuscript_source.tar.gz #   self-contained source bundle
+├── manuscript/
+│   ├── main.pdf
+│   ├── main.tex + sections/
+│   ├── figures/
+│   └── manuscript_facts.json
 │
-├── notebooks/               # 01–09 + bring_your_own_target (+ README.md reading route)
-│   ├── figstyle.py, make_deg_figures.py   #   shared plotting helpers
-│   └── cache/                   #   small cached bundles + exported design cards
-│
-├── app/                     # interactive walkthrough — self-contained HTML, no server
-│   ├── index.html               #   the guided narrative (6 chapters, embeds all 7 explorers live)
-│   ├── explorers/               #   the 7 standalone explorers (open independently)
-│   ├── _build_index.py          #   regenerates index.html from the explorers
-│   └── previews/                #   PNG preview of each view
-│
-├── scripts/                 # analysis drivers (run_atlas / run_nulls / run_bootstrap /
-│                            #   run_a1_sensitivity / run_iv_compliance / run_deg_weighted_eval /
-│                            #   build_effect_matrices / a2_conditional_reachability_scaffold)
-├── results/                 # atlas + modality + K562 tables, a-series & reviewer-2 outputs,
-│                            #   references.csv (+ README.md cataloguing every file)
-├── tests/                   # test_reachability.py — 11 tests, run by reproduce.sh
-├── data/                    # README.md + Tier-1 CSVs + Tier-2 h5ad (data local & gitignored)
-└── analysis_cache/          # cached intermediates (heavy .npz gitignored, small tables tracked)
+├── app/                     # seven self-contained interactive explorers + guided index
+├── notebooks/               # 01–09 + bring_your_own_target
+├── scripts/                 # batch analysis and validation drivers
+├── results/                 # committed result tables and fact ledgers
+├── tests/                   # 11 method/property tests
+├── data/                    # local, gitignored Tier-1/Tier-2 data
+└── analysis_cache/          # large local intermediates and small tracked summaries
 ```
 
-## Reproduce
+## Verify the software
 
 ```bash
-bash reproduce.sh                     # pytest (11 tests) + reachability._selftest()
-
-# the method module + batch drivers produce every headline output:
-python scripts/run_atlas.py           # 12-cell atlas → results/atlas_reachability.csv
-python scripts/run_nulls.py           # held-out-gene significance per cell
-python scripts/run_bootstrap.py       # gene-panel subsampling CI on the headline verdict
-python scripts/run_a1_sensitivity.py  # A1 verdict sensitivity radius (feeds notebook 09)
-python scripts/run_iv_compliance.py   # IV / compliance layer         (feeds notebook 09)
+bash reproduce.sh
 ```
 
-Or step through the notebooks — [`notebooks/README.md`](./notebooks/README.md) has the reading
-route. Build order: `01` EDA → `02` headline → `03` generalizability (K562 CRISPRa) →
-`04` design toolkit → `05` target-ID showcase → `06` reinforcement battery →
-`07` cross-cell-type transfer → `08` DEG-weighted evaluation → `09` causal-validation dossier,
-plus `bring_your_own_target` for an arbitrary target signature.
+This runs the 11-test suite and the module's synthetic invariant battery. It verifies the
+implementation, KKT conditions, staged decomposition, null machinery, and design API. It
+does **not** regenerate the real-data headline from a fresh clone because the 16.8 GB Tier-2
+matrix is intentionally not committed.
+
+The synthetic test suite currently takes several minutes on the reference laptop; the core
+full-data cone solve itself is much faster once the reduced matrix is cached.
+
+## Reproduce the analysis
+
+After obtaining the data and building `analysis_cache/atlas_work/inputs.npz` through
+notebook 02:
+
+```bash
+python scripts/run_atlas.py
+python scripts/run_nulls.py
+python scripts/run_bootstrap.py
+python scripts/run_a1_sensitivity.py
+python scripts/run_iv_compliance.py
+python scripts/run_deg_weighted_eval.py
+python scripts/run_heldout_split_stability.py
+```
+
+The notebook route is documented in [`notebooks/README.md`](./notebooks/README.md): `01`
+EDA → `02` primary atlas → `03` K562 generalization → `04` design toolkit → `05` target-ID
+showcase → `06` reinforcement → `07` cross-cell-type transfer → `08` DEG weighting → `09`
+causal validation, plus `bring_your_own_target`.
 
 ## License
 
-MIT. Data: MIT (CZI Virtual Cells Platform). Please cite Zhu et al. 2025.
+MIT. Data: MIT via the CZI Virtual Cells Platform. Please cite Zhu et al. 2025.

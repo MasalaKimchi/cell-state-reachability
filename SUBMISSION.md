@@ -1,13 +1,107 @@
 # Cell-State Reachability
 
-### An oracle that tells you what a screen *can't* reach — before you run the experiment.
+### Can knockdown point a cell where you want it to go?
 
 **Built with Claude — Life Sciences Hackathon · Research / Lab Track**
 
-> Every AI model in biology predicts what a perturbation *will* do. We built the first
-> one we know of that returns a falsifiable **reachable / provably-outside-the-cone** verdict — plus
-> the minimal knockdown recipe and a numerical certificate — for a real genome-scale
-> CRISPRi screen in primary human CD4⁺ T cells.
+> A GPS is useful for two reasons: it finds a route, and it tells you when the road you
+> need is not on the map. This project brings that second answer to cell engineering.
+
+Most computational biology tools predict what a perturbation might do or rank genes that
+look promising. This project asks an earlier question: **given the effects a screen has
+actually measured, can non-negative combinations of this intervention class point the
+transcriptome toward the desired state?**
+
+The answer is deliberately narrower than “will this cure disease?” It is a falsifiable,
+screen-relative test of directional feasibility—and a way to avoid asking a knockdown
+screen to do a job that appears to require another modality.
+
+---
+
+## The idea, without the math
+
+Each CRISPRi perturbation leaves a measured transcriptional fingerprint: some genes rise,
+others fall. You can apply that knockdown effect, or combine it with others, but you cannot
+reverse the entire fingerprint and call it a “negative knockdown.” Under an explicit
+first-order additivity approximation, all non-negative combinations form a geometric cone.
+
+The target state is an arrow. The method asks how closely the cone can point along it.
+
+It returns four things:
+
+1. **A directional verdict** calibrated on held-out genes and shuffled targets.
+2. **A ranked mixture and greedy sparse panel** for follow-up—not a proof of the globally
+   smallest gene set.
+3. **A dual certificate** proving when the full target direction lies outside the measured
+   cone.
+4. **A ranked list of unmet readouts** that can motivate CRISPRa or de-repression tests.
+   Those genes are hypotheses, not validated activation targets.
+
+The source H5AD contains **33,983 perturbation–condition profiles across 10,282 readout
+genes** and 11,526 distinct targeted genes. After the source screen's quality filters, the
+resting-cell analysis uses **6,871 perturbation generators** and a 6,188-gene target
+signature.
+
+## What it found
+
+For the flagship **Th2 → Th1** direction in resting primary human CD4⁺ T cells:
+
+- The fixed-split held-out cosine is **0.448**, versus 0.627 in-sample.
+- It exceeds all **60** shuffled targets (plus-one empirical **p = 1/61**; descriptive
+  z ≈ 24).
+- The staged modality proxy assigns **39%** of target energy to measured knockdown
+  directions, **25%** to sign-flipped gain-of-function proxy directions, and **35%** to
+  neither.
+- The KKT residual is **1.1 × 10⁻¹¹**. That certifies numerical optimality of the cone
+  projection; it does not certify biological efficacy.
+
+Known regulators behave in the expected direction: GATA3, which should be reduced when
+moving away from Th2, ranks near the knockdown-aligned end; TBX21, which should rise for
+Th1, is anti-aligned when knocked down. These are positive controls, not discoveries.
+
+Across 12 transition–condition cases, knockdown is never the majority component (mean LOF
+fraction **0.34**). Each case exceeds its eight shuffled screening controls, but those
+eight-shuffle z values are prioritization evidence—not precise permutation p-values.
+
+The same optimization code also runs without retuning on a held-out CEBPA state in a K562
+CRISPRa screen (cosine **0.878**). More importantly, that dataset contains 126 measured
+double perturbations: the median cosine between a measured double and the sum of its
+singles is **0.71**. Additivity is useful, bounded, and absolutely not guaranteed.
+
+## Why this is interesting
+
+The novelty is not another regulator list. It is a different kind of output:
+
+> **“Not with this measured intervention dictionary, in this direction, under these
+> assumptions—and here is the separating direction that proves it.”**
+
+A structured survey of **91 prior methods** found no prior entry combining a
+target-specific feasibility certificate with directly measured perturbation effects. That
+is a survey-bounded novelty claim, not a claim that convex cones, network control, or
+cell-state engineering are new.
+
+The practical workflow has two levels:
+
+- At the **state level**, choose whether to test a focused CRISPRi panel, add a CRISPRa or
+  de-repression arm, or seek a better dictionary because the result does not clear its null.
+- At the **candidate level**, annotate the top greedy LOF panels for tractability and human
+  genetics. Their union contains **102 unique candidate knockdown nodes**: 45 lack a
+  conventional drug handle and 10 have a clinical-grade drug in the saved Open Targets
+  snapshot.
+
+This does not explain clinical attrition or validate a drug target. It can expose a
+modality mismatch before a costly combination experiment.
+
+## Scope that stays attached to every claim
+
+- The verdict is relative to one measured dictionary and a transcriptomic target direction.
+- Matching expression is not functional rescue.
+- Multi-gene recipes extrapolate from single perturbations and require wet-lab validation.
+- The GOF fraction uses `-E` as an activation proxy; CRISPRa is not generally the exact
+  mirror of CRISPRi.
+- The primary screen is one CD4⁺ T-cell system across four donors; donor-collapsed effects
+  prevent true leave-one-donor-out validation.
+- Every nomination is a hypothesis for testing, not a validated target.
 
 ---
 
@@ -15,84 +109,13 @@
 
 | If you want… | Open |
 |---|---|
-| **The paper** (preprint PDF) | [`manuscript/main.pdf`](manuscript/main.pdf) |
-| **Honest limitations + reinforcement plan** | [`manuscript/limitations_and_reinforcement_plan.pdf`](manuscript/limitations_and_reinforcement_plan.pdf) |
-| **Technical Dossier** — all technical write-ups merged (method, novelty, related work, causal foundations, appendices) | [`docs/Technical_Dossier.pdf`](docs/Technical_Dossier.pdf) · editable source [`docs/Technical_Dossier.md`](docs/Technical_Dossier.md) |
-| **Interactive explorers** (7 single-file, no server) | [`app/index.html`](app/index.html) |
-| **Reproducible notebooks** (`01`–`09` + `bring_your_own_target`) | [`notebooks/`](notebooks/) |
-| **Core library** | [`reachability.py`](reachability.py) |
-| **One-command reproduction** | [`reproduce.sh`](reproduce.sh) |
-| **Headline results & tables** | [`docs/Technical_Dossier.pdf`](docs/Technical_Dossier.pdf) · [`results/`](results/) |
+| **The guided interactive story** | [`app/index.html`](app/index.html) |
+| **The paper** | [`manuscript/main.pdf`](manuscript/main.pdf) |
+| **The validation report** | [`docs/VALIDATION_REPORT.md`](docs/VALIDATION_REPORT.md) |
+| **The full technical record** | [`docs/Technical_Dossier.pdf`](docs/Technical_Dossier.pdf) |
+| **Core method** | [`reachability.py`](reachability.py) |
+| **Verify the software** | [`reproduce.sh`](reproduce.sh) |
+| **Re-run the data analyses** | [`README.md`](README.md#reproduce-the-analysis) |
 
-*New here? This page is the elevator view. [`README.md`](README.md) is the full repo map.*
-
----
-
-## Problem
-
-Nine of ten clinical drug programs never reach approval, and **Phase II is the lowest
-transition of the pipeline (30.7%)** — where roughly **half of late-stage failures are
-lack of efficacy**,[^attrition] i.e. the target was never a way to move the biology. Every
-AI tool in this space is a *forward* predictor: it scores what a perturbation would do.
-**None can tell a team, from measured data, that a desired cell-state change is simply out
-of reach for the chosen modality** — so programs discover unreachability only after the
-screen, or after the trial.
-
-[^attrition]: Cumulative approval (~10%) and per-phase transition rates (Phase II 30.7%,
-    the lowest of any phase) are from Thomas et al., *Clinical Development Success Rates
-    2006–2015* (BIO / Biomedtracker / Amplion, 2016), corroborated by
-    [Wong, Siah & Lo 2019](https://doi.org/10.1093/biostatistics/kxx069) (*Biostatistics*).
-    That roughly half of Phase II/III failures are for lack of efficacy rather than safety
-    is from [Harrison 2016](https://doi.org/10.1038/nrd.2016.184) (*Nat. Rev. Drug Discov.*).
-
-## Method
-
-We treat each measured CRISPRi effect vector as a direction in expression space. Because
-knockdown only ever *subtracts*, the states reachable by any non-negative mix of
-knockdowns form a **convex cone**. Reachability becomes one geometric question — *does
-the target vector lie inside that cone?* — solved by **non-negative least squares
-(Lawson–Hanson)** on the real effect matrix of **33,983 knockdowns × 10,282 genes**. The
-output is not a similarity score but a **falsifiable verdict** carrying (1) a minimal
-ranked knockdown recipe, (2) a **Farkas'/KKT activation certificate** naming the genes no
-knockdown mix can deliver, and (3) a confidence score built from the dataset's own
-reproducibility, a permutation null, and orthogonal literature/genetics evidence.
-
-## Key result
-
-For the flagship **Th2 → Th1** polarization switch (resting CD4⁺ T cells), the verdict is
-**partially reachable**: **39% of the target shift is reachable by knockdown (loss-of-function), 25%
-provably requires gene *activation* (gain-of-function), 35% is neither** — with a held-out cosine of
-**0.448** and a KKT/Farkas optimality residual of **1.1 × 10⁻¹¹** as numerical proof.
-Master-regulator positive controls land correctly — the Th2 driver **GATA3** (must go
-down) is recovered at **rank 155/6871 (97.7th percentile)**, and the Th1 driver **TBX21**
-(must go up) is correctly anti-aligned under knockdown (**rank 6775/6871**). The operator
-generalizes unchanged: transferred to a different assay, cell type, and direction (Norman
-et al. 2019 K562 CRISPRa), it recovers a held-out **CEBPA** master-TF state at cosine
-**0.878** (permutation *z* = 36.97) — a single held-out target; full cross-atlas transfer remains future work. Across a **12-cell atlas** (4 transitions × 3
-activation conditions) every cell clears its null (held-out *z* = 4.7–45.0), and knockdown
-is *never* the majority modality — activation and irreducible components always dominate.
-
-## Impact
-
-The verdict converts a gene list into a **GO / STOP / REDIRECT** decision *before* the
-expensive step. On the flagship axis we take the **102 knockdown nominations** the oracle
-says are actually needed and cross them against Open Targets druggability × immune-disease
-genetics: **45/102 (44%) are hard-to-drug** and only **10 of 102 are clinical-grade
-today**. **IRF1** is the headline collision — a top-genetics node with no conventional
-drug handle; **JAK2** and **ICOS** are green-lit. A survey of **91 prior methods
-(2011–2026; 92 including this work)** finds **zero** that return a feasibility verdict on measured effects — this
-work is the sole occupant of the *measured × achievability* quadrant. Since **human
-genetic support carries 2.6× approval odds** (Minikel 2024), a feasibility-plus-genetics
-triage attacks failure exactly where the funnel leaks most.
-
-*Scope, stated up front: nominations are **hypotheses for wet-lab testing**, not validated
-targets; CRISPRi is loss-of-function only (activation hypotheses need a separate CRISPRa
-arm); multi-gene recipes assume bounded additivity; one primary-cell system, four donors.
-This is an experiment-triage instrument, not a target-validation engine.*
-
----
-
-**Dataset** · Genome-scale CRISPRi Perturb-seq in primary human CD4⁺ T cells — Zhu et al.
-2025 (Marson & Pritchard labs, CZI Virtual Cells Platform).
-**Built with Claude Science** · method, 91-method survey, manuscript, and 7 explorers in a
-one-week build.
+**Dataset:** Zhu et al. 2025, genome-scale CRISPRi Perturb-seq in primary human CD4⁺
+T cells (Marson and Pritchard labs; CZI Virtual Cells Platform, MIT license).

@@ -112,21 +112,20 @@ Consolidated into a single scrollytelling page while keeping each explorer fully
 ### Null-model reconciliation
 
 The demo script had flagged that the flagship explorer and Fig 1C report the null at different z-values
-(≈45 vs ≈24). This is not an error and was **not** overwritten: the explorer's `z = 45` (cosine 0.446)
-comes straight from the committed `results/atlas_reachability.csv` (an 8-shuffle null band); the
-manuscript headlines the *same* Th2→Th1 result at a conservative `z ≈ 24` (cosine 0.448) from a denser
-60-shuffle null. z scales with the number of shuffles; the cosine does not. The flagship explorer now
-carries a one-line note stating both bands, and the demo script's "consistency caveat" was rewritten to
-explain the reconciliation rather than warn around it.
+(≈45 vs ≈24). The cosine estimates describe the same result, but the original explanation of the z gap
+was incorrect. The explorer's `z = 45` (cosine 0.446) comes from only eight shuffles; the manuscript's
+`z ≈ 24` (cosine 0.448) uses 60. A z-score does not lawfully scale with shuffle count: eight draws give
+an unstable estimate of the null standard deviation. The current explorer labels the eight-shuffle z as
+descriptive and uses the 60-shuffle result (above all 60 controls; empirical p=1/61) for inference.
 
 ---
 
 ## Rebuilt artifacts
 
 - **`manuscript/main.pdf`** — rebuilt from corrected source (bundled TinyTeX; pdflatex → bibtex →
-  pdflatex ×2, zero undefined references). 24 pages. Citation graph is a clean 1:1 (69 cite keys, 69
+  Tectonic/BibTeX, zero undefined references). 25 pages. Citation graph is a clean 1:1 (69 cite keys, 69
   bibitems, none undefined, none unused).
-- **`docs/Technical_Dossier.pdf`** — rebuilt from corrected `.md` (pandoc → WeasyPrint). 162 pages.
+- **`docs/Technical_Dossier.pdf`** — rebuilt from corrected `.md` (pandoc → print-quality browser PDF). 101 pages after tighter, more readable typesetting.
   Protected one-sided decomposition numbers (0.31 / 0.30, "heuristic upper bound", 39/25/35) verified
   intact; digits render correctly.
 

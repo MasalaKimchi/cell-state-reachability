@@ -19,59 +19,56 @@ def load(name):
 CHAPTERS = [
   dict(
     id="problem", num="01", kicker="The problem",
-    title="Drug programs fail late, and mostly for the same reason",
-    lede=("About nine in ten clinical programmes never reach approval, and the failures cluster "
-          "where they cost the most. Phase II is the lowest transition in the whole pipeline — "
-          "roughly 30.7% — and about half of late-stage failures are for lack of efficacy: the "
-          "target simply was not a way to move the biology. Every AI tool in this space is a "
-          "<em>forward</em> predictor — it scores what a perturbation would do. None can tell a "
-          "team, from measured data, that a desired cell-state change is out of reach for the "
-          "chosen modality. So unreachability is discovered after the screen, or after the trial."),
+    title="Wrong turns are expensive; modality mismatch is testable early",
+    lede=("Clinical attrition shows why stronger early evidence matters, but this tool does not "
+          "explain or predict clinical failure. It asks a narrower question before a combination "
+          "screen: can the intervention effects already measured in the relevant system point "
+          "along the desired transcriptomic direction? That screen-relative question can expose "
+          "a mismatch between target direction and intervention class while the next experiment "
+          "is still cheap to change."),
     explorers=[("pharma_funnel", 620)],
     see=("The clinical attrition funnel, band width proportional to cumulative survival. Hover a "
          "stage to see which of four value levers a feasibility verdict pulls there."),
-    mean=("The leak is concentrated in the middle of the funnel, and human genetic support already "
-          "carries ~2.6&times; the approval odds (Minikel 2024). A test that flags unreachable "
-          "targets <em>before</em> the screen attacks the funnel exactly where it leaks — the "
-          "motivation for everything below."),
+    mean=("Phase II has historically been a low transition and human genetic support is associated "
+          "with ~2.6&times; approval odds (Minikel 2024). Those facts motivate early evidence; they do "
+          "not make a transcriptomic cone test a clinical predictor. The method below is an "
+          "experiment-triage layer."),
   ),
   dict(
     id="reframe", num="02", kicker="The reframe",
     title="Ask a different question of data you already have",
-    lede=("The fix is not a bigger model. A genome-scale Perturb-seq screen already measures an "
-          "average treatment effect for every gene knockdown. Stack those measured effect vectors "
-          "and one geometric question falls out: does the target state lie inside the cone of "
-          "everything the knockdowns can reach? That is a counterfactual query answered by "
-          "design-based causal inference — using constructs the analysis pipeline already builds."),
+    lede=("A genome-scale Perturb-seq screen already estimates a signed effect profile for every "
+          "perturbation–condition pair. Stack those profiles and one geometric question falls out: "
+          "does the target direction lie inside their non-negative cone under an additive model? "
+          "The randomised experimental design strengthens the effect estimates; the cone adds an "
+          "explicit compound-intervention assumption rather than learning a new network."),
     explorers=[("causal_reframe", 640)],
     see=("The pipeline as a chain — Perturb-seq &rarr; average treatment effect &rarr; non-negative "
          "cone &rarr; counterfactual query. Click any code object to see the causal-inference name "
          "it already implements."),
-    mean=("Nine of ten constructs the reframe needs were already in hand; the reframe &ldquo;costs "
-          "nothing.&rdquo; The novelty is the <em>question</em> — feasibility, not prediction — not "
-          "a new estimator."),
+    mean=("The reframe reuses measured effects and standard NNLS. The novelty claim is the "
+          "target-specific decision and dual certificate, not a new optimizer or a new regulator list."),
   ),
   dict(
     id="verdict", num="03", kicker="The instrument",
-    title="A falsifiable verdict on real CRISPRi effects",
-    lede=("Here is the oracle on the real 33,983-knockdown &times; 10,282-gene matrix. For the "
+    title="A directional verdict on real CRISPRi effects",
+    lede=("Here is the test on 33,983 perturbation–condition profiles &times; 10,282 readout genes. For the "
           "flagship Th2&rarr;Th1 switch in resting CD4&#8314; T cells the verdict is "
-          "<em>partially reachable</em>: knockdown can remove the Th2 program but cannot install "
-          "the Th1 one. The output is not a similarity score — it is a signed decomposition, a "
-          "minimal knockdown recipe, and a Farkas/KKT certificate naming the genes no knockdown "
-          "mix can deliver."),
+          "<em>partially directionally reachable</em>. The output combines held-out alignment, a "
+          "staged LOF/sign-flipped-GOF proxy decomposition, a greedy sparse panel, and a Farkas/KKT "
+          "certificate for the complete outside-the-cone residual."),
     explorers=[("reachability_explorer", 900)],
     see=("Left: the target's exact shadow in the plane of {reachable fit, residual} — the 2-D "
          "picture is the true projection of the high-dimensional NNLS fit, not a schematic. Right: "
          "pick any of the 12 atlas cells; read its verdict, the signed LOF/GOF/neither split, the "
-         "greedy recipe, and the activation certificate."),
-    mean=("For the flagship cell: <strong>39% reachable by knockdown, 25% provably needs "
-          "activation, 35% neither</strong>; held-out cosine 0.446 clearing its permutation null, "
+         "greedy sparse panel, and the dual certificate."),
+    mean=("For the flagship cell: <strong>39% measured LOF, 25% sign-flipped GOF proxy, 35% "
+          "neither</strong>; canonical held-out cosine 0.448 exceeds all 60 shuffled controls, "
           "KKT/Farkas residual 1&times;10&#8315;&#185;&#185;. Master-regulator controls land "
           "correctly (GATA3 recovered; TBX21 anti-aligned under knockdown), and across all 12 "
-          "atlas cells knockdown is <em>never</em> the majority modality — activation and "
-          "irreducible components always dominate. That last fact is the honest headline: the "
-          "method is most useful for saying what a knockdown screen <em>cannot</em> do."),
+          "atlas cells knockdown is <em>never</em> the majority component. The eight-shuffle atlas "
+          "z values are screening estimates. Positive residual genes are follow-up hypotheses, "
+          "not proven activation targets."),
   ),
   dict(
     id="trust", num="04", kicker="The trust layer",
@@ -85,50 +82,52 @@ CHAPTERS = [
          "robust / calibrated / caveat grade. Second panel: guide assignment as a randomized "
          "instrument and realized knockdown as the treatment — toggle intent-to-treat against the "
          "compliance-rescaled (LATE) verdict."),
-    mean=("The headline verdict is robust to the assumptions the design controls: a convex cone is "
-          "invariant to per-generator rescaling, so the ITT and LATE verdicts coincide to machine "
+    mean=("A convex cone is mathematically invariant to positive per-generator rescaling, so the "
+          "ITT and compliance-rescaled directional verdicts coincide to machine "
           "precision (|&Delta;cosine| = 2&times;10&#8315;&#185;&#8310;), and dropping invalid "
           "instruments moves it by &le;0.0004. The stack is honest about what it does <em>not</em> "
           "yet control — cytokine spillover (SUTVA) is named as the primary external-validity "
-          "caveat, and the effect-homogeneity test that needs raw single-cell counts is flagged as "
+          "caveat. This invariance is not evidence that exclusion, additivity, or homogeneity holds; "
+          "the effect-homogeneity test that needs raw single-cell counts is flagged as "
           "the single most useful next build."),
   ),
   dict(
     id="impact", num="05", kicker="The payoff",
-    title="From a verdict to a GO / STOP / REDIRECT shortlist",
-    lede=("A feasibility verdict earns its keep when it changes a decision. Take the 102 knockdown "
-          "nominations the oracle says are actually needed for the flagship axis and cross them "
+    title="Keep state decisions separate from candidate prioritisation",
+    lede=("At the state level, the verdict helps choose a focused CRISPRi test, an added CRISPRa or "
+          "de-repression arm, or a better dictionary. At the candidate level, the union of top-10 "
+          "greedy LOF panels across all 12 cases contains 102 unique genes, which can be annotated "
           "against Open Targets tractability and immune-disease genetics."),
     explorers=[("pharma_triage", 900)],
-    see=("Each point is a required knockdown node, placed by druggability against genetic support. "
-         "Filter by triage tier; the three tiers are the GO / STOP / REDIRECT buckets."),
+    see=("Each point is a greedy LOF candidate, placed by druggability against genetic support. "
+         "The colours are prioritisation annotations, not individual reachability verdicts."),
     mean=("45 of 102 (44%) are hard-to-drug and only 10 are clinical-grade today. <strong>IRF1</strong> "
           "is the headline collision — a top-genetics node with no conventional drug handle "
-          "(REDIRECT); <strong>JAK2</strong> and <strong>ICOS</strong> are green-lit (GO). This is a "
-          "shortlist triaged by feasibility, not a ranked gene list — the deliverable a target team "
-          "can act on."),
+          "; <strong>JAK2</strong> and <strong>ICOS</strong> combine tractability with genetic "
+          "support. Every point remains a wet-lab hypothesis from a saved evidence snapshot."),
   ),
   dict(
     id="novelty", num="06", kicker="The delta",
-    title="This capability was missing from fifteen years of methods",
+    title="The survey-defined capability gap",
     lede=("Is the feasibility verdict actually new? A survey of 91 prior methods (92 including this "
           "work), 2011&ndash;2026, places every one on two axes: does it use measured effects, and "
           "does it return an achievability verdict?"),
     explorers=[("pharma_capability", 760)],
     see=("The capability landscape. 14 methods use measured data; all of them only predict or rank. "
          "The measured &times; achievability quadrant — top-right — is empty."),
-    mean=("Zero of 91 return a feasibility verdict on measured effects. This work is the sole "
-          "occupant of that quadrant. The novelty is claimed for the method and its decision layer, "
+    mean=("No prior entry in this 91-method survey combines full measured-effect grounding with the "
+          "target-specific certificate used here. The novelty is claimed for that pairing and decision layer, "
           "not for the regulator biology it recovers — recovering GATA3/TBX21 is validation that "
-          "the instrument works, and the same operator transfers unchanged to a K562 CRISPRa screen "
+          "the instrument behaves sensibly, and the same operator runs unchanged on one held-out state in a K562 CRISPRa screen "
           "(held-out CEBPA at cosine 0.878)."),
   ),
 ]
 
 FOOT_LINKS = [
   ("The paper (preprint)", "../manuscript/main.pdf"),
-  ("Technical Dossier (162 pp)", "../docs/Technical_Dossier.pdf"),
-  ("Reproduce", "../reproduce.sh"),
+  ("Technical Dossier", "../docs/Technical_Dossier.pdf"),
+  ("Validation report", "../docs/VALIDATION_REPORT.md"),
+  ("Verify software", "../reproduce.sh"),
   ("Repository map", "../README.md"),
 ]
 
@@ -145,8 +144,8 @@ def chapter_html(c, idx):
           "causal_reframe":"The reframe that costs nothing",
           "causal_iv":"IV / convex-cone invariance",
           "causal_trust":"The six-assumption trust stack",
-          "pharma_funnel":"Attrition funnel + value levers",
-          "pharma_triage":"Modality triage — 102 nominations",
+          "pharma_funnel":"Clinical context + upstream evidence layers",
+          "pharma_triage":"Candidate triage — 102 greedy LOF nodes",
           "pharma_capability":"0 of 91 — the empty quadrant",
         }[exp_id]
         frames += f'''
@@ -256,20 +255,19 @@ DOC = f'''<!DOCTYPE html>
 
 <div class="hero">
   <p class="tag">Cell-State Reachability &middot; Built with Claude &mdash; Life Sciences</p>
-  <h1>What a knockdown screen <em>can&rsquo;t</em> reach &mdash; decided before you run it.</h1>
-  <p class="big">Every AI model in biology predicts what a perturbation <em>will</em> do. This one
-  returns a falsifiable <strong>reachable / provably-out-of-reach</strong> verdict &mdash; with the
-  minimal knockdown recipe and a numerical certificate &mdash; for a real genome-scale CRISPRi
-  Perturb-seq screen in primary human CD4&#8314; T cells.</p>
+  <h1>Can knockdown point the cell where you want it to go?</h1>
+  <p class="big">A GPS does not just suggest a route &mdash; it tells you when the road you need is
+  not on the map. This project asks that second question of a real genome-scale CRISPRi screen:
+  does the target direction lie inside the cone of measured perturbation effects?</p>
   <p class="small">Below is the whole argument as one walkthrough: why it matters, the reframe that
-  makes it work, the instrument on real data, why you can trust the verdict, what it changes for a
-  drug program, and why the capability was missing. Each panel is the live explorer &mdash; interact
+  makes it work, the instrument on real data, which assumptions bound the verdict, how it changes
+  the next experiment, and the survey-defined capability gap. Each panel is live &mdash; interact
   with it in place, or open it full-screen.</p>
   <div class="kpis">
     <div class="kpi"><b style="color:var(--lof)">39/25/35</b><span>LOF / GOF / neither</span></div>
-    <div class="kpi"><b>0.446</b><span>held-out cosine</span></div>
-    <div class="kpi"><b style="color:var(--gof)">0 of 91</b><span>priors with a verdict</span></div>
-    <div class="kpi"><b>102</b><span>nominations triaged</span></div>
+    <div class="kpi"><b>0.448</b><span>held-out cosine</span></div>
+    <div class="kpi"><b style="color:var(--gof)">60/60</b><span>shuffles below observed</span></div>
+    <div class="kpi"><b>102</b><span>unique LOF candidates</span></div>
   </div>
 </div>
 
@@ -279,9 +277,9 @@ DOC = f'''<!DOCTYPE html>
 
 <footer>
   <div class="fl">{footlinks}</div>
-  <p>Every number in every panel is computed by <code>reachability.py</code> on the real
-  <code>GWCD4i.DE_stats.h5ad</code> effect matrix and cross-checked against the committed
-  <code>results/</code> tables; each explorer embeds its own verified data payload and states its
+  <p>Primary T-cell numbers are computed from the real <code>GWCD4i.DE_stats.h5ad</code> effect
+  matrix and cross-checked against committed <code>results/</code> tables; transfer and external
+  evidence panels use their separately named sources. Each explorer embeds its saved payload and states its
   provenance in its own footer. Dataset: genome-scale CRISPRi Perturb-seq in primary human CD4&#8314;
   T cells (Zhu et al. 2025, Marson &amp; Pritchard labs, CZI Virtual Cells Platform). The seven
   explorers also live standalone under <code>app/explorers/</code>.</p>

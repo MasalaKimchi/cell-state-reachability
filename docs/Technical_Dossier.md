@@ -4,7 +4,9 @@
 
 *Cell-State Reachability Project · Built with Claude — Life Sciences (Research Track) · July 2026*
 
-> **Abstract.** This dossier consolidates the canonical technical write-ups of the cell-state reachability project. The method turns a genome-scale CRISPRi Perturb-seq screen in primary human CD4+ T cells (Zhu et al. 2025; effect matrix of 33,983 knockdowns × 10,282 genes) into a convex-cone reachability oracle: given a target transcriptional direction, it asks whether that direction lies inside the non-negative cone spanned by measured single-perturbation effect vectors (a plain NNLS / linear-algebra test, CPU-only, no training). The oracle returns a falsifiable verdict — reachable, with a minimal knockdown recipe and a null-calibrated confidence score, or provably outside the cone, with a Farkas infeasibility certificate naming the specific genes the target wants up that no non-negative combination can deliver. Part 1 reports what was run and found on the real Tier-2 data, including the Th2→Th1 polarization demo, the signed loss-/gain-of-function decomposition, the 12-cell atlas, and the design-toolkit. Part 2 states the novelty as a precise delta against prior art and makes the drug-development impact case. Part 3 is a citation-grounded survey positioning the method against the prior cell-fate-control literature. Part 4 is the trust and causal-inference dossier: it maps the oracle onto standard causal constructs, adds an instrumental-variables / compliance treatment of imperfect knockdown, and shows the headline verdict is robust to it. Four appendices carry the final generalizability survey, the cross-cell-type transfer test (the same code, unchanged, on the Norman 2019 K562 CRISPRa atlas), the reinforcement analyses, and an adversarial assessment of whether the non-negative-cone/NNLS formulation is the right one. Every number, table value, figure, and citation is preserved verbatim from the source documents.
+> **Abstract.** This dossier consolidates the technical record for a directional feasibility test built on a genome-scale CRISPRi Perturb-seq screen in primary human CD4+ T cells (Zhu et al. 2025). The source H5AD contains 33,983 perturbation–condition profiles across 10,282 readout genes; the resting analysis uses 6,871 quality-filtered generators. Given a target transcriptional direction, non-negative least squares projects it onto the cone of measured effects under an explicit additive approximation. The output is a held-out, null-calibrated alignment, a ranked mixture and greedy sparse candidate panel, and—when the target lies outside the measured cone—a Farkas/KKT dual certificate for the full mismatched direction. Positive residual coordinates rank unmet readouts for follow-up; they do not individually prove activation targets. The dossier reports the Th2→Th1 result, staged LOF/sign-flipped-GOF proxy decomposition, 12-case atlas, transfer probes, robustness analyses, literature positioning, and causal assumptions. It should be read as an experiment-triage record, not as proof of phenotypic rescue or clinical target validity.
+
+> **Interpretation key for the full dossier.** Some historical sections preserve earlier project language. The following definitions govern throughout: (1) “reachability” is directional and relative to the measured dictionary; (2) 33,983 counts perturbation–condition profiles, not unique knockdown genes; (3) “minimal recipe” means a greedy sparse candidate panel, not a global minimum-cardinality proof; (4) only the complete residual is the dual certificate, while named genes are unmet-readout hypotheses; (5) the 25% GOF share uses sign-flipped knockdown effects as a proxy; and (6) the eight-shuffle atlas z values are screening estimates, while the 60-shuffle headline null is the inferential reference. See [`VALIDATION_REPORT.md`](./VALIDATION_REPORT.md) for the audit trail.
 
 ---
 
@@ -100,7 +102,7 @@
 
 *What was run, what it found, what succeeded, what failed, why, and what to improve.
 Every number here is computed from the real `GWCD4i.DE_stats.h5ad` effect matrix
-(33,983 CRISPRi knockdowns × 10,282 genes, 16.8 GB) this session — reproduced by
+(33,983 perturbation–condition profiles × 10,282 genes, 16.8 GB) this session — reproduced by
 `notebooks/02_reachability_on_tier2.ipynb`, which runs end-to-end and was validated
 cell-by-cell. The method module is `reachability.py`.*
 
@@ -113,22 +115,24 @@ meaningful, honest verdict.** The Th2→Th1 polarization shift is **partially re
 CRISPRi knockdown, and the method's distinctive contribution — the part no differential-
 expression ranking produces — is that it says *which part* and *why*:
 
-> **Knockdown can remove the Th2 program but cannot install the Th1 program.**
-> GATA3 (the Th2 master driver) is reached; TBX21/IFN-γ (the Th1 drivers) land in the
-> activation certificate because you cannot raise a gene by knocking things down.
+> **The measured knockdown cone captures part of the Th2→Th1 direction and leaves a
+> certified full-vector residual.** GATA3 and TBX21 behave as expected positive controls;
+> positive residual coordinates rank follow-up readouts rather than proven activation targets.
 
 The headline number — a held-out reachable cosine of **0.45**, which clears its shuffled-target
-null at **z ≈ 24** (60 shuffles) — is the honest one: it survives held-out-gene validation, so it
+null (larger than all **60** shuffles; empirical **p = 1/61**, descriptive **z ≈ 24**) — is the
+headline one: it survives held-out-gene validation, so it
 is not an artifact of fitting 700+ non-negative weights. (The same cell's held-out-gene z is
-reported as 45 in the atlas below; that run used a tighter 8-shuffle null band, so z ≈ 24 is the
-conservative figure and the two are the same 0.45 cosine — see §5.7.)
+reported as 45 in the atlas below; that run used only eight shuffles, making its estimated null
+standard deviation unstable. Use the 60-shuffle result for inference — see §5.7.)
 
 **Post-hackathon (§8):** three methodological deepenings were added and validated against data —
 (1) the positive control broadened from 2 genes to a regulator panel (master-TF drivers give
 AUROC = 1.00, p = 0.014; induced receptors correctly do *not*); (2) an epistasis penalty
 calibrated on measured Norman doubles — collinearity is refuted, **magnitude saturation** is the
 real mechanism (scale-free ceiling M\* = 13.9), and the atlas recipes are shown to sit safely in
-the additive regime (risk 0.04–0.08 ≪ 0.5); (3) a **closed-form anisotropy-corrected null**,
+the low-risk region of the transferred saturation model (risk 0.04–0.08 ≪ 0.5), not proven
+additive-safe in CD4 cells; (3) a **closed-form anisotropy-corrected null**,
 `E[null cos] ≈ √((a·ρ₁)² + (1−a²)·κ)`, validated against the empirical shuffle null (Pearson
 0.995) and replacing ~1000 refits with ~10–20. All three are wired into `reachability.py` behind
 its self-test.
@@ -143,10 +147,10 @@ its self-test.
 | QC reproduction | Cross-source concordance, per-condition significant counts | ✅ reproduced exactly |
 | Target construction | `toward_Th1` and `aging` signatures mapped into E's gene space | ✅ validated by markers |
 | Cone fit | NNLS projection onto the knockdown cone + KKT/Farkas certificate | ✅ certified optimal |
-| Honesty | Held-out-gene validation + shuffled-target null (60 shuffles) | ✅ signal real (z≈24) |
-| Spectrum | Greedy minimal recipe + null band | ✅ above p99 at every k |
+| Honesty | Held-out-gene validation + shuffled-target null (60 shuffles) | ✅ above all shuffles (empirical p=1/61) |
+| Spectrum | Greedy sparse candidate panel + null band | ✅ above p99 at every k |
 | Positive control | GATA3↓ / TBX21↓ placement | ✅ both correct |
-| Activation certificate | Ranked unreachable-upward genes (CRISPRa hypotheses) | ✅ immunologically credible |
+| Dual certificate | Full separating residual + ranked positive unmet readouts | ✅ numerically valid; biology remains hypothetical |
 | Conditions + sensitivity | Rest/Stim8hr/Stim48hr × {z-score, log-fc} × {sig, all} | ✅ verdict stable |
 | Second axis | CD4 aging signature | ⚠️ ran; null correctly discounts it |
 | IV / compliance | Guide non-compliance as instrumental variables (ITT vs LATE; valid-instrument subset) | ✅ verdict invariant (max \|Δcos\|=2.2e-16 rescale, 4e-4 drop) |
@@ -178,11 +182,12 @@ For Rest / `toward_Th1` over 6,188 signature genes with 6,871 significant knockd
 | **held-out cosine** | **0.448** | **honest — generalizes to unseen genes** |
 | residual norm (relative) | 0.779 | most of the shift is *not* reached |
 | reachable fraction | 0.393 | ~39% of target norm is knockdown-reachable |
-| activation-required fraction | 0.309 | ~31% needs genes to go *up* |
+| positive-unmet one-sided fraction | 0.309 | heuristic upper bound; distinct from the signed 25% GOF proxy |
 | KKT/Farkas violation | 1.1 × 10⁻¹¹ | the "outside the cone" claim is certified |
 
-The KKT/Farkas violation near machine-zero matters: it means "partially outside the cone" is
-**proved** (the solver found the true cone projection), not asserted. The proof is inherited
+The KKT/Farkas violation near machine-zero matters: it means the model-relative cone projection
+is numerically optimal and a non-zero residual separates the full target direction from the
+cone. It does not prove biological efficacy or a per-gene intervention. The proof is inherited
 from convex-optimization theory — we verify the certificate numerically rather than proving
 theorems.
 
@@ -191,10 +196,11 @@ This is the result that separates a method from a coincidence. A 6,871-generator
 fit in 6,188-dimensional space *could* reach a lot by chance. It doesn't:
 
 - **Held-out-gene validation:** fit weights on half the genes, score on the other half →
-  cosine **0.448**. In-sample was 0.686, so there is overfitting, but the held-out value is
+  cosine **0.448**. The training-half cosine was 0.686, so there is optimism, but the held-out value is
   where the real structure lives.
 - **Shuffled-target null (60 permutations):** null mean **−0.005**, SD 0.019, **max 0.029**.
-  The observed 0.448 is **z ≈ 24** and ~15× the largest random draw.
+  The observed 0.448 exceeds all 60 draws (plus-one empirical **p = 1/61**) and is ~15×
+  the largest random draw. The corresponding **z ≈ 24** is descriptive, not a Gaussian tail p-value.
 - **Greedy spectrum vs null band:** the observed reachable cosine exceeds the 99th-percentile
   null at **every** sparsity k (k=1: 0.226 vs 0.059; k=15: 0.457 vs 0.161).
 
@@ -210,8 +216,9 @@ GATA3 was **not** hand-picked into this result; it emerges from the geometry. No
 positive *control*, not a discovery — the source screen already reports it.
 
 ### 2.5 The activation certificate is the constructive payoff
-The residual names **2,481 genes with positive unmet upward demand** — genes `toward_Th1`
-wants raised that no non-negative knockdown mix delivers. The top of that list is
+The residual has **2,481 positive coordinates** where the closest cone projection under-delivers
+the `toward_Th1` target. Only the complete residual is the separating certificate; individual
+coordinates are not impossibility proofs. The top of that ranking is
 **LYAR, IKZF3 (Aiolos), CRTAM, CBLB, GBP5, LAG3, IRF8** — and it must be read carefully.
 A Jul-10 literature/genetics cross-reference (20 genes; 4 SUPPORTS / 7 PLAUSIBLE / 9 UNKNOWN,
 with 8/20 carrying a strong ≥0.5 Open Targets link to a Th1-driven autoimmune disease) shows
@@ -221,10 +228,10 @@ way to boost T-cell function. So for those entries an "activate this gene" readi
 **directionally backwards**. The canonical Th1 master TFs are present but rank deep
 (**IFN-γ #35, TBX21 #144, STAT4 #364, STAT1 #473**), and GATA3, which must go *down*, is
 correctly **absent** (it is reached). The certificate is therefore best read as a **reproducible
-ranking of where activation is required** (stable under a gene-axis split: cross-half Spearman
+ranking of positive unmet readouts** (stable under a gene-axis split: cross-half Spearman
 ρ ≈ 0.65, half-vs-full ≈ 0.84, z ≈ 35), *not* as a validated list of activation targets. It is
-the "what to look at instead" that a bare infeasibility verdict lacks — each entry a falsifiable
-CRISPRa hypothesis whose sign must still be checked at the bench. See manuscript Fig. S9 and
+the "what to look at instead" that a bare infeasibility verdict lacks — each entry a follow-up
+hypothesis whose intervention and sign must still be established at the bench. See manuscript Fig. S9 and
 §8.3.6.
 
 ### 2.6 The verdict is robust
@@ -257,7 +264,7 @@ dense solution — not because GATA3 is unimportant, but because 6,871 effect ve
 correlated, so the solver distributes weight across many near-equivalent directions.
 **Why it matters:** the dense weight vector is *not* a usable experimental recipe, and reading
 biology off it is misleading. **The fix is already in place:** the *sparse greedy spectrum* is
-the object to read for the minimal set and the positive control — there, the recipe is
+the object to read for the greedy sparse panel and the positive control — there, the panel is
 interpretable (LAT2, ICOS, RARA … at the top) and the knee is at k≈7. Report the spectrum, not
 the dense support, as "the recipe."
 
@@ -435,13 +442,13 @@ held-out-gene validation (n = 8 shuffles). Full table:
 Table: `results/atlas_reachability.csv`. Figure:
 `notebooks/figures/fig_atlas_decomposition.png`.
 
-### 5.4 Modality triage — the required knockdown nodes are often undruggable
+### 5.4 Modality triage — many greedy LOF candidates are hard to drug
 
 The greedy knockdown recipe for every atlas cell yields a union of **102 unique
 LOF-node nominations**. Each was profiled through Open Targets (tractability +
 human genetics). Full table: `results/modality_intervention_map.csv`.
 
-**Druggability of the required knockdown nodes:**
+**Druggability of the greedy LOF candidate union:**
 
 | Modality tier | Count |
 |---|---|
@@ -451,9 +458,10 @@ human genetics). Full table: `results/modality_intervention_map.csv`.
 | Degrader-only (*predicted* ubiquitination, no real handle) | 33 |
 | Conventionally undruggable | 12 |
 
-**45 of 102 (44%) of the required knockdown nodes are hard-to-drug**, and only
-10 have a clinical-grade drug. The reachability cone repeatedly nominates genes
-the druggable genome cannot yet reach.
+**45 of 102 (44%) of these candidate genes are hard-to-drug**, and only 10 have
+a clinical-grade drug in this annotation snapshot. This is a modality filter on
+greedy follow-up hypotheses; it does not show that any candidate is necessary,
+sufficient, or therapeutically validated.
 
 **The collision — genetically-supported but undruggable.** Crossing reachability
 priority with immune-disease human genetics exposes nominations that are
@@ -640,11 +648,12 @@ master TFs spans **null-z ≈ 3 (IRF1, at the outside cutoff) → 37 (CEBPA) →
 identical `reachability.py` null. A positive verdict is informative because the oracle can and does
 say *outside*.
 
-**Minimal recipe is biologically coherent.** Greedy selection picks **CEBPE** — CEBPA's own
+**The greedy sparse panel is biologically coherent.** Greedy selection picks **CEBPE** — CEBPA's own
 C/EBP-family paralog — as the single best surrogate (cos 0.817); a 2-perturbation recipe reaches
 **96 % of the full-cone fit** (knee at k = 2; 0.843 / 0.878).
 
-**The certificate names what is missing.** The residual is a specific CEBPA-driven
+**The residual localizes what is missing.** The full residual is the certificate; its largest
+coordinates describe a specific CEBPA-driven
 myeloid-differentiation program no combination supplies: **MNDA, HP, VSIG4, ALOX5AP, PILRA, JAML,
 NCF1, SIGLEC14**. This — *what is missing*, not just *how close* — is the method's distinctive output.
 
@@ -675,13 +684,13 @@ correctly built. The result is a three-level answer:
 |---|---|---|---|
 | **Effect direction** | Does a single knockdown do the same thing in both cell types? | **Transfers (moderately)** | Matched cross-type cosine median **+0.35** vs ≈0 shuffled-gene null; survives deflating the shared essential-stress direction (96 % stay positive, 69 % gene-specific at p<0.05) |
 | **Reachability verdict** | Is a target reachable in both? | **Transfers (~100 %), but for a subtle reason** | Cross-type reachable cosines 0.50–0.73 stay above the null, so the binary verdict agrees — but within-type residuals (K562 0.61, RPE1 0.37) beat cross-type (0.87, 0.68), so the honest, discriminating signal is the **graded residual**, which does carry a cell-type penalty |
-| **Minimal recipe** | Are the *same knockdowns* the answer in both? | **Does NOT transfer** | Same-target recipes overlap at median Jaccard **0.11** — ≈20× above a random-subset null of **0.006** (so not random, but far from identity); and reaching the *same* target from the *other* cell type's basis collapses overlap to **0.05** |
+| **Greedy sparse panel** | Are the *same knockdowns* nominated in both? | **Does NOT transfer** | Same-target panels overlap at median Jaccard **0.11** — ≈20× above a random-subset null of **0.006** (so not random, but far from identity); and reaching the *same* target from the *other* cell type's basis collapses overlap to **0.05** |
 
 **What it means for the Th2→Th1 headline.** This is a robustness result with a sharp boundary. It
 **defends the method** — the convex cone produces coherent, above-null, partly cell-type-invariant
 structure in *three* human cell types (CD4⁺ T, K562, RPE1), so it is not an artifact of one dataset.
 It **bounds the prescription** — the *direction* toward a target state transfers, but the *specific
-minimal recipe* does not, so the GATA3↓/TBX21↓-style recipe is validated **for CD4⁺ T cells** and
+greedy sparse panel* does not, so the GATA3↓/TBX21↓-style panel is supported **for this CD4⁺ T-cell screen** and
 must be re-fit on another cell type's basis before it is trusted there. This is exactly what the
 project's philosophy (trust null-calibrated, held-out metrics; never the raw in-sample cosine) predicts.
 *Caveat: K562/RPE1 are two non-T lines, so this is evidence of general cell-type-invariance, not a
@@ -1726,7 +1735,7 @@ knockdown can produce.
 > **Figure (not in repo).** Reachability as convex geometry: a feasibility verdict, not a ranking
 
 *Left: the target shift `d` lies inside the cone spanned by the (non-negative) knockdown
-effect vectors — reachable, and the mixing weights are the minimal recipe. Right: `d`
+effect vectors — modeled as reachable, with NNLS mixing weights. Right: `d`
 lies outside the cone — no non-negative combination reaches it; the residual is a
 direction that requires gene **activation**, and the separating hyperplane is the
 infeasibility certificate. That right-hand panel is the output no existing method
@@ -1779,7 +1788,7 @@ theory of cell fate**, a decade-old, active line of work.
 
 ### 3.1 The comparison class that matters: control of cell fate
 
-This field asks *the exact question* — what is the minimal set of interventions that
+This field asks a closely related question — what sparse set of interventions might
 drives a cell to a target fate — and has a mature toolbox for it:
 
 | Prior method | What it does | What it controls | The basis it needs |
@@ -1810,7 +1819,7 @@ control-theory methods return ranked/heuristic intervention sets. None of them r
 *provable infeasibility result*. Because the reachable set is literally a convex cone,
 "unreachable" is not "we didn't find a good set" — it is a theorem: the target has a
 component in the orthogonal complement of the non-negative span, and the separating
-hyperplane is a checkable certificate. **"Provably outside the knockdown cone → this
+hyperplane is a checkable, dictionary-relative certificate. **"Outside the measured knockdown cone → this
 transition requires activation" is an output no method in the table above produces.** A
 negative result becomes a positive, falsifiable claim.
 
@@ -1821,20 +1830,14 @@ that the association/ranking framings structurally cannot run. Confidence decomp
 the screen's own reproducibility metrics (cross-guide, cross-donor), stability-selection
 frequency, and orthogonal literature/genetics evidence.
 
-**(4) A modality-resolved intervention verdict — the geometry answers "by which
-modality," and that answer is cross-verified against the druggable genome.** Because the
-cone is signed (knockdown = LOF, sign-flipped = GOF), every per-node requirement carries a
-*modality*: a node reachable in the LOF cone is a small-molecule / degrader / siRNA program;
-a node that only enters after allowing activation is an agonist / cytokine / cell-engineering
-program; a node reachable by neither is not a drug target at any modality. Crossing that
-requirement with Open Targets tractability turns the verdict into a **triage** — and the
-striking, decision-useful finding is the collision: **44% of the required knockdown nodes
-across the atlas are hard-to-drug, and the single strongest genetically-supported nomination
-among them (IRF1, 17 immune-disease genetic associations, top Th2 knockdown node) has no
-conventional handle at all.** No ranking, association, or model-control method returns
-"reachable + genetically supported + undruggable-at-this-modality," because none of them
-represent the modality requirement geometrically in the first place. (The full triage over
-102 real nominations — three actionable tiers with named genes — is in §5.4.)
+**(4) A modality-resolved state verdict, followed by candidate triage.** The measured
+CRISPRi cone tests the LOF route. A staged fit to sign-flipped effects estimates how much of
+the remaining direction has GOF-like sign symmetry, but it is not a measured CRISPRa cone.
+Separately, Open Targets annotations make the 102-gene union of greedy LOF panels useful for
+follow-up triage: **44% are hard-to-drug, and IRF1—the most genetically supported member of
+that subset—has no conventional handle in the annotation snapshot.** The state-level verdict
+and the gene-level candidate ranking answer different questions; neither proves therapeutic
+efficacy or that an individual gene is required.
 
 ### 3.3 What must NOT be claimed as novel (credibility depends on this)
 
@@ -1864,7 +1867,7 @@ represent the modality requirement geometrically in the first place. (The full t
 That sentence, as a figure — screen → convex cone → verdict + activation certificate →
 cross-dataset transfer:
 
-![Figure 1 — the reachability oracle end to end. (A) A genome-scale CRISPRi Perturb-seq in primary human CD4+ T cells gives a measured effect vector per knockdown (no inferred network). (B) Reachability = membership in the convex cone of non-negative combinations of those measured vectors; the Th2→Th1 target splits into an in-cone reachable component (teal) and an out-of-cone residual (amber), with "outside" certified by a separating hyperplane (Farkas/KKT). (C) The Th2→Th1 verdict: partly reachable (held-out cosine 0.448, null z ≈ 24, KKT residual 1.1×10⁻¹¹), signed decomposition LOF 39% / GOF 25% / neither 35%, and an activation certificate naming falsifiable CRISPRa hypotheses. (D) The operator transfers unchanged to the Norman 2019 K562 CRISPRa screen (held-out CEBPA cosine 0.878). This is the measured-effect, certificate-carrying reachability decision the sentence above claims as novel.](figures/fig_central_illustration.png)
+![Figure 1 — the reachability test end to end. (A) A genome-scale CRISPRi Perturb-seq in primary human CD4+ T cells gives measured single-knockdown effect vectors. (B) Directional reachability is the projection into the convex cone of their non-negative additive combinations; the residual is certified by KKT/Farkas conditions relative to that dictionary. (C) For Th2→Th1 the held-out cosine is 0.448 (larger than all 60 target shuffles; p=1/61; descriptive z≈24), with signed shares LOF 39% / sign-flipped GOF proxy 25% / neither 35%. Large residual coordinates are CRISPRa hypotheses, not the certificate itself. (D) The same operator runs on the Norman 2019 K562 CRISPRa screen (held-out CEBPA cosine 0.878).](figures/fig_central_illustration.png)
 
 ### 3.5 Positioning vs prior work — the full survey
 
@@ -2092,7 +2095,7 @@ The use cases below reduce to one decision diagram and one funnel: *what the ora
 team to do* (GO / STOP / REDIRECT, then a modality triage), and *where each value lever acts*
 on the attrition funnel.
 
-![How the reachability oracle is useful to a drug-development team. (A) The decision it makes — a desired cell-state change is routed to GO (reachable → minimal ranked knockdown set → arrayed screen), STOP (provably outside the cone → don't spend a CRISPRi arm), or REDIRECT (activation-required → switch to CRISPRa; the certificate names the genes to test). The GO branch feeds a modality triage over 102 real nominations (44% hard-to-drug; 10 with a clinical-grade drug): green-light (JAK2, ICOS, MAPK14, CD3D), tractable-but-untried (IL7R, ZAP70, TET2), and required-but-undruggable (IRF1, 17 immune-disease genetic associations, no conventional handle). (B) Four value levers mapped onto the drug-development attrition funnel — measured-not-inferred effects (attacks 11–25% preclinical reproducibility), disease-genetics cross-reference (2.6× approval odds), the provable "unreachable" STOP (redirects before the expensive phase; ~half of Phase II/III failures are efficacy), and the minimal ranked recipe (allocates scarce screen slots). ≈10% of programmes reach approval; Phase II is the lowest transition at 30.7%. Nominations are wet-lab hypotheses, not validated targets.](figures/fig_impact_usecase.png)
+![How the method can support experimental triage. (A) A desired state is scored for above-null directional reachability in the measured CRISPRi dictionary. A greedy sparse panel can be tested when LOF alignment is promising; substantial residual or sign-flipped alignment motivates measuring other modalities rather than treating them as inferred effects. The 102-gene union of greedy LOF panels is annotated for tractability: 45 are hard-to-drug and 10 have a clinical-stage drug. These are hypotheses, not required nodes or validated targets. (B) The analysis is positioned as an early route-selection aid, not a predictor of clinical success or a claimed hit-rate improvement.](figures/fig_impact_usecase.png)
 
 **Target triage for T-cell engineering & cell therapy (the nearest application).**
 The featured dataset is primary human CD4+ T cells, and **T-cell state engineering is a
@@ -2135,7 +2138,7 @@ no ranking or association method can serve.
 Framed the way Minikel frames genetic support — a probabilistic prioritisation signal, not
 a gate — the reachability verdict + confidence decomposition is a **portfolio-ranking
 instrument.** For any (target state, disease) pair, it returns a reachable/outside verdict,
-a minimal ranked set, a screen-native confidence score, and a disease-genetics
+a greedy sparse candidate panel, a screen-native confidence score, and a disease-genetics
 cross-reference. A discovery team can rank a whole slate of desired cell-state changes by
 *how reachable they are and how well-supported the drivers are* — before committing a
 single wet-lab FTE.
@@ -2145,19 +2148,19 @@ The expansion turned the "which modality" verdict into a **cross-verified triage
 over 102 real nominations**, and the empirical result is the sharpest impact claim in
 this document. Every knockdown node the atlas nominates was crossed against Open
 Targets tractability and immune-disease human genetics (see Part 1, Results). The finding:
-**44% (45/102) of the required knockdown nodes are hard-to-drug**, only 10 have a
-clinical-grade drug, and — the decision-relevant collision — the strongest
+**44% (45/102) of the greedy LOF candidates are hard-to-drug**, only 10 have a
+clinical-grade drug in this annotation snapshot, and — the decision-relevant collision — the strongest
 genetically-supported nomination among the hard-to-drug set, **IRF1** (17 immune-disease
 genetic associations, a top Th2-axis knockdown node), has *no conventional handle at
-all*. For a portfolio team this is exactly the signal that saves spend: it separates three
+all*. For a portfolio team this can inform route selection by separating three
 actionable tiers: **green-light** nominations already carrying a clinical-grade drug
 (JAK2, ICOS, MAPK14, CD3D — strong immune genetics *and* approved/candidate drugs);
 **tractable-but-untried** nominations with a plausible modality and strong genetics but
 no drug yet (IL7R, antibody-tractable, the single highest genetic support; ZAP70 and
 TET2, SM-tractable) — the highest-value *new* leads; and the
-**required-but-undruggable** nominations (IRF1 and the other degrader-only/undruggable
+**hard-to-drug candidate** nominations (IRF1 and the other degrader-only/undruggable
 nodes) that should route to a degrader-discovery or cell-engineering effort *before* a
-doomed small-molecule campaign is funded. This is the genetic-support odds argument of §5.2 and the modality-stop
+poorly matched small-molecule campaign is funded. This is the genetic-support odds argument of §5.2 and the modality-stop
 argument (STOP verdict, above), fused into one triage table.
 
 **A reusable operator for the Perturb-seq era (the general claim).**
@@ -2280,7 +2283,7 @@ Challenge, and the diffusion/flow-matching wave of 2025–26. It is a legitimate
 **not the question a drug or cell-engineering program actually faces**, which is inverse,
 combinatorial, and decision-shaped:
 
-> **Inverse feasibility.** Given a *target cell state* I want to reach, what is the minimal set
+> **Inverse feasibility.** Given a *target cell state* I want to approach, what sparse set
 > of interventions that gets there, **is it even possible**, and **how much can I trust that
 > answer**?
 
@@ -2495,7 +2498,7 @@ Our answer, in one figure: compose the *measured* effect vectors from a genome-s
 ask whether the target lies in their convex cone, and return a verdict with a checkable
 certificate — then show it transfers to a second screen unchanged.
 
-![Figure 1 — the reachability oracle end to end. (A) A genome-scale CRISPRi Perturb-seq in primary human CD4+ T cells yields a measured effect vector per knockdown — the empirical "dictionary", with no inferred network. (B) Reachability becomes membership in a convex cone of non-negative combinations of those measured vectors; the Th2→Th1 target decomposes into an in-cone reachable component (teal) and an out-of-cone residual (amber), with "outside" certified by a separating hyperplane (Farkas/KKT). (C) The verdict for Th2→Th1: partly reachable (held-out cosine 0.448, null z ≈ 24, KKT residual 1.1×10⁻¹¹), a signed decomposition (LOF 39% / GOF 25% / neither 35%), and an activation certificate naming falsifiable CRISPRa hypotheses. (D) The same operator transfers unchanged to the Norman 2019 K562 CRISPRa screen (held-out CEBPA cosine 0.878).](figures/fig_central_illustration.png)
+![Figure 1 — the reachability test end to end. Measured single-perturbation effects define a non-negative additive cone. The target's directional projection is evaluated on held-out genes and against target shuffles; the full residual is the KKT/Farkas certificate relative to the dictionary. For Th2→Th1, held-out cosine is 0.448 (p=1/61; descriptive z≈24) and the signed shares are LOF 39% / sign-flipped GOF proxy 25% / neither 35%. The same operator runs on Norman 2019 K562 CRISPRa data.](figures/fig_central_illustration.png)
 
 That question is expensive to get wrong. Only about 10% of clinical programmes reach
 approval, and the cost of drug development is driven primarily by failure that is paid for
@@ -2758,17 +2761,17 @@ four gaps:
    partially reachable (cosine 0.878, null z ≈37, held-out-gene z ≈23.5) and measured
    double-perturbations let us confirm additivity is a bounded approximation (median cosine
    0.71, sum-of-singles vs. measured) — a check the singles-only T-cell screen could not do.
-4. **A modality-resolved, druggability-cross-referenced triage (addresses the §5 single
-   druggability entry).** Because the cone is signed (LOF vs. GOF), every required node carries
-   a modality; crossing that with Open Targets tractability turns the verdict into a triage.
-   The decision-relevant finding: 44% of the required knockdown nodes across the atlas are
-   hard-to-drug, and the strongest genetically-supported node among them (IRF1, 17 immune-
-   disease genetic associations) has no conventional drug handle at all.
+4. **A state-level modality estimate plus druggability-cross-referenced candidate triage
+   (addresses the §5 single druggability entry).** The CRISPRi cone directly tests the LOF
+   route; a sign-flipped residual fit is explicitly a GOF proxy pending CRISPRa measurement.
+   Separately, 44% of the 102 genes in the greedy LOF candidate union are hard-to-drug, and
+   the strongest genetically-supported member of that subset (IRF1, 17 immune-disease
+   genetic associations) has no conventional drug handle in this annotation snapshot.
 
 The same four design choices, read as *decisions a drug-development team makes* rather than
 method properties, are what turn the oracle into a triage instrument:
 
-![How the oracle is useful to a drug-development team. (A) The decision it makes — a desired cell-state change is routed to GO (reachable → put the minimal ranked knockdown set in the screen), STOP (provably outside the cone → don't spend a CRISPRi arm), or REDIRECT (activation-required → switch to CRISPRa; the certificate names the genes). The GO branch feeds a modality triage over 102 real nominations (44% hard-to-drug; 10 with a clinical-grade drug), separating green-light (JAK2, ICOS, MAPK14, CD3D), tractable-but-untried (IL7R, ZAP70, TET2), and required-but-undruggable (IRF1) tiers. (B) Four value levers mapped onto the drug-development attrition funnel (≈10% reach approval; Phase II is the lowest transition at 30.7%; ~half of Phase II/III failures are lack of efficacy). Nominations are wet-lab hypotheses, not validated targets; this is a prioritisation-and-triage instrument, not a claimed hit rate.](figures/fig_impact_usecase.png)
+![How the analysis can support experiment planning. Above-null LOF alignment motivates testing a greedy sparse panel; substantial residual or GOF-proxy demand motivates measuring other modalities. The 102-gene union of greedy LOF panels is annotated for tractability (45 hard-to-drug; 10 with a clinical-stage drug). Nominations remain wet-lab hypotheses; this is a route-selection aid, not a target-validation engine or claimed clinical-success predictor.](figures/fig_impact_usecase.png)
 
 ### The two results that show the machinery working
 
@@ -2782,7 +2785,7 @@ And the decomposition + **activation certificate** is the output no prior method
 the target splits into what knockdown can reach and what it provably cannot, and the
 unreachable direction is resolved into named genes that a CRISPRa arm would have to test:
 
-![Left: the Th2→Th1 target splits into 39% reachable by knockdown, 25% activation-required, 35% orthogonal residual. Right: the activation certificate names the genes carrying the unmet upward demand (LYAR, IKZF3, CRTAM, LAG3, …) — concrete, wet-lab-testable CRISPRa hypotheses, with immune-function genes marked.](figures/fig2_decomposition_certificate.png)
+![Left: the Th2→Th1 target splits into 39% LOF alignment, 25% alignment to a sign-flipped GOF proxy, and 35% remaining residual. Right: large positive residual coordinates (LYAR, IKZF3, CRTAM, LAG3, …) prioritize wet-lab-testable CRISPRa hypotheses; the complete residual vector, not an individual gene, is the certificate.](figures/fig2_decomposition_certificate.png)
 
 ---
 
@@ -4123,8 +4126,8 @@ Thirteen public datasets spanning five perturbation modalities. All 13 are GEO s
 
 The input contract does not care whether a row of E came from a genetic edit or a compound. Substituting the perturbation basis with **drug effect vectors** (L1000 landmark-gene signatures) turns the same feasibility question into two therapeutic questions:
 
-1. **Drug-combination design.** With E = drug signatures and d = a desired transcriptional state, "is `d` in the cone?" returns the *minimal non-negative mixture of compounds* whose additive signature reaches the target — a combination-design recipe, with the null-calibrated verdict guarding against over-fitting a target into a high-dimensional drug space.
-2. **Disease-signature reversal.** Set `d = -(disease signature)` (the reverse of a case-vs-control shift). Reachability then asks whether some non-negative drug mixture *reverses* the disease signature (the Connectivity Map premise, generalized from single-drug to combinations). When it is **outside**, the Farkas certificate names the genes the reversal requires UP that no available drug delivers — i.e. the residual that needs a genetic or gain-of-function modality.
+1. **Drug-combination design.** With E = drug signatures and d = a desired transcriptional state, the cone fit returns the best non-negative additive projection and a greedy sparse candidate mixture. This is a screen-design hypothesis, not a globally minimal or experimentally validated combination.
+2. **Disease-signature reversal.** Set `d = -(disease signature)` (the reverse of a case-vs-control shift). Reachability then asks whether some non-negative additive drug mixture aligns with the reversal direction. When it is outside the measured cone, the complete residual is the certificate; its largest coordinates describe unmet readouts that may motivate a different measured modality.
 
 **Data-access caveat.** L1000 processed signatures (Level 5 GCTx) are large and primarily distributed via clue.io, which is not reachable here; the raw GEO series (GSE92742, GSE70138) *are* reachable over GEO FTP but require the L1000 processing stack to assemble signatures. So the L1000 mapping is architecturally in-contract and the accessions are live, but building the signature matrix is a data-engineering step outside this sandbox's network reach.
 
