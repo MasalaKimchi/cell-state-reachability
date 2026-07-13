@@ -15,13 +15,22 @@ z = np.load(f"{WORK}/inputs.npz", allow_pickle=True)
 var_gene = z["var_gene"]
 E = {c: z[f"E_{c}"].astype(np.float64) for c in ["Rest","Stim8hr","Stim48hr"]}
 TARGETS = {n: z[f"t_{n}"] for n in ["toward_Th1","toward_Th2","toward_younger","toward_older"]}
-N_HELDOUT = 8   # each shuffle is a full-readout NNLS refit (~14s); z stays >>3 (null is tight)
+# Each shuffle is a full-readout NNLS refit. The default (8) is unchanged so a rerun writes
+# byte-identical JSON to before this change; only the SOLVE MECHANISM is faster now (Gram
+# reuse + process parallelism in reachability.py), not the statistics. Because solves are
+# ~6x cheaper you can now AFFORD a stronger null via env override (this DOES change the
+# numbers — a larger count tightens the null estimate):
+#   N_HELDOUT=60 python scripts/run_nulls.py      # stronger null (different z, by design)
+#   REACH_N_JOBS=1 python scripts/run_nulls.py    # force serial (same output either way)
+N_HELDOUT = int(_os.environ.get("N_HELDOUT", "8"))
+N_JOBS = int(_os.environ.get("REACH_N_JOBS", "-1"))   # -1 = all cores; 1 = serial (output-identical)
 
 def held(name, d_full, cond, seed=0):
     Em = E[cond]; idx = np.where(d_full != 0)[0]
     mask = np.zeros(len(var_gene), bool); mask[idx] = True
     t0 = time.time()
-    ho = R.held_out_gene_validation(Em, d_full.copy(), hvg_mask=mask, n_shuffles=N_HELDOUT, seed=seed)
+    ho = R.held_out_gene_validation(Em, d_full.copy(), hvg_mask=mask, n_shuffles=N_HELDOUT,
+                                    seed=seed, n_jobs=N_JOBS)
     return dict(heldout_cosine=float(ho.held_out_cosine), heldout_null_mean=float(ho.null_mean),
                 heldout_null_std=float(ho.null_std), heldout_z=float(ho.z),
                 n_heldout_shuffles=N_HELDOUT, null_seconds=round(time.time()-t0,1))

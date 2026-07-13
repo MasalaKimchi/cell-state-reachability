@@ -33,6 +33,11 @@ N_HELDOUT_T2 = 40
 N_FLOOR_T2 = 40
 N_CEIL_T2 = 40
 SEED = 0
+# Gram-reuse + process-parallel fast path in reachability.py. -1 = all cores, 1 = serial.
+# Accelerates the UNWEIGHTED nulls; weighted nulls take n_jobs as a harmless no-op (their
+# per-iter matrix is rescaled by sqrt(weights) so it is not a fixed dictionary). Output is
+# identical to serial for both. Override with REACH_N_JOBS=1 to force serial.
+N_JOBS = int(os.environ.get("REACH_N_JOBS", "-1"))
 
 
 def calib_row(E, d, *, dataset, target, weights_scheme=None, n_floor=N_FLOOR,
@@ -40,8 +45,8 @@ def calib_row(E, d, *, dataset, target, weights_scheme=None, n_floor=N_FLOOR,
     """One fully-calibrated verdict row (unweighted OR weighted, per weights_scheme)."""
     wv = R.deg_weights(d, scheme=weights_scheme) if weights_scheme else None
     res = R.reachability(E, d, weights=wv)
-    ho = R.held_out_gene_validation(E, d, weights=wv, n_shuffles=n_heldout, seed=seed)
-    floor = R.shuffled_target_null(E, d, n_iter=n_floor, seed=seed, weights=wv)
+    ho = R.held_out_gene_validation(E, d, weights=wv, n_shuffles=n_heldout, seed=seed, n_jobs=N_JOBS)
+    floor = R.shuffled_target_null(E, d, n_iter=n_floor, seed=seed, weights=wv, n_jobs=N_JOBS)
     pc = R.positive_control_ceiling(E, weights_scheme=weights_scheme, n_targets=n_ceil,
                                     support_size=5, noise=0.25, seed=seed)
     cal = R.calibrate_reachability(res.reachable_cosine, floor.null_cosines.mean(),
@@ -72,7 +77,7 @@ def robust_row(E, d, *, dataset, target, weights_scheme=None, n_heldout=N_HELDOU
     Used where the full Monte-Carlo calibration is too expensive to repeat per condition."""
     wv = R.deg_weights(d, scheme=weights_scheme) if weights_scheme else None
     res = R.reachability(E, d, weights=wv)
-    ho = R.held_out_gene_validation(E, d, weights=wv, n_shuffles=n_heldout, seed=seed)
+    ho = R.held_out_gene_validation(E, d, weights=wv, n_shuffles=n_heldout, seed=seed, n_jobs=N_JOBS)
     row = dict(dataset=dataset, target=target,
                weighting=("DEG-weighted(|d|)" if weights_scheme else "unweighted"),
                n_generators=int(E.shape[0]), n_genes=int(E.shape[1]),

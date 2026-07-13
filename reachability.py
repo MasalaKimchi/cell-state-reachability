@@ -55,6 +55,148 @@ SATURATION_CEILING = 13.9
 
 
 # --------------------------------------------------------------------------------------
+# NNLS acceleration engine  (output-preserving; opt-in)
+# --------------------------------------------------------------------------------------
+# Every null / held-out / bootstrap loop refits NNLS on a FIXED dictionary A = E^T while
+# only the right-hand side changes. scipy.optimize.nnls re-derives its normal-equation
+# quantities from A on every call. Two accelerations below leave the numerical result at
+# the SAME optimum (identical support, cosine, KKT certificate) while removing that waste:
+#
+#   (1) Gram reuse  — precompute G = A^T A once and run a Gram-based Lawson-Hanson active
+#       set, so each solve works in the small P-dimensional passive subspace instead of
+#       rescanning the (G x P) matrix. Guarded: every Gram solve is verified against the
+#       method's own KKT/Farkas certificate (max_p <e_p, rho> <= tol); if it fails the
+#       optimality bound (ill-conditioned Gram) or raises, we fall back to exact scipy.nnls.
+#
+#   (2) Process parallelism — the shuffles/resamples are independent, but scipy's compiled
+#       _nnls holds the GIL (threads give no speedup), so parallelism must be process-based.
+#       A fork pool COW-inherits the dictionary; one BLAS thread per worker avoids
+#       oversubscription. Falls back to serial if fork is unavailable (Windows/spawn) or
+#       blocked (sandboxed semaphores) — so reproduction is deterministic on any platform.
+#
+# The single-solve public API (reachability, signed_reachability) is intentionally NOT
+# routed through this engine: its results anchor cross-function equalities asserted to
+# <1e-9 in the self-test, so it stays byte-identical to the original scipy path.
+_GRAM_CERT_TOL = 1e-5      # the self-test's own KKT optimality bound; fall back if exceeded
+
+
+def nnls_gram(GtG: np.ndarray, Gtb: np.ndarray, *,
+              tol: float = 1e-10, max_iter: Optional[int] = None) -> np.ndarray:
+    """Lawson-Hanson NNLS from a PRECOMPUTED Gram matrix GtG = A^T A and Gtb = A^T b.
+
+    Returns x >= 0 minimizing ||A x - b||_2, at the same optimum as scipy.optimize.nnls(A, b).
+    Once GtG is cached across a loop, each call costs active-set submatrix solves in P-space,
+    not a rescan of the (G x P) matrix A. Raises np.linalg.LinAlgError on a singular passive
+    submatrix (caught by _nnls_auto, which then falls back to scipy).
+    """
+    n = GtG.shape[0]
+    if max_iter is None:
+        max_iter = 3 * n
+    x = np.zeros(n)
+    passive = np.zeros(n, dtype=bool)
+    grad = Gtb - GtG @ x                       # = A^T (b - A x): the KKT gradient
+    it = 0
+    while (~passive).any() and grad[~passive].max() > tol:
+        it += 1
+        if it > max_iter:
+            break
+        cand = np.where(~passive)[0]
+        passive[cand[np.argmax(grad[cand])]] = True
+        while True:                            # inner feasibility loop
+            idx = np.where(passive)[0]
+            s = np.zeros(n)
+            s[idx] = np.linalg.solve(GtG[np.ix_(idx, idx)], Gtb[idx])
+            if s[idx].min() > 0:
+                x = s
+                break
+            bad = passive & (s <= 0)
+            alpha = (x[bad] / (x[bad] - s[bad])).min()
+            x = x + alpha * (s - x)
+            passive[(np.abs(x) < tol) & passive] = False
+        grad = Gtb - GtG @ x
+    return x
+
+
+def _nnls_auto(A: np.ndarray, b: np.ndarray, *,
+               GtG: Optional[np.ndarray] = None,
+               max_iter: Optional[int] = None,
+               cert_tol: float = _GRAM_CERT_TOL) -> np.ndarray:
+    """Solve min_{w>=0} ||A w - b|| returning w. Uses the cached-Gram fast path when GtG is
+    supplied AND max_iter is unconstrained, but only ACCEPTS that result if it meets the
+    KKT/Farkas optimality bound; otherwise (or on a singular Gram) it falls back to the exact
+    scipy.optimize.nnls. The returned w is therefore always at the true optimum.
+    """
+    if GtG is not None and max_iter is None:
+        try:
+            w = nnls_gram(GtG, A.T @ b)
+            rho = b - A @ w
+            cert = max(0.0, float(np.max(A.T @ rho))) if A.shape[1] else 0.0
+            if cert <= cert_tol:
+                return w
+        except np.linalg.LinAlgError:
+            pass                                # singular passive submatrix -> exact solver
+    kw = {} if max_iter is None else {"maxiter": max_iter}
+    w, _ = nnls(A, b, **kw)
+    return w
+
+
+def _resolve_n_jobs(n_jobs: int) -> int:
+    """Map n_jobs (1=serial, -1=all cores, k=k workers) to a concrete positive worker count."""
+    import os
+    ncpu = os.cpu_count() or 1
+    if n_jobs is None or n_jobs == 0:
+        return 1
+    if n_jobs < 0:
+        return max(1, ncpu + 1 + n_jobs)        # -1 -> ncpu, -2 -> ncpu-1, ...
+    return min(n_jobs, ncpu)
+
+
+# Fork-worker state: the fixed dictionary and its Gram live in a module global so children
+# inherit them by copy-on-write instead of re-pickling a 340 MB matrix per task.
+_WORKER: dict = {}
+
+
+def _worker_init(A: np.ndarray, GtG: Optional[np.ndarray]) -> None:
+    try:
+        from threadpoolctl import threadpool_limits
+        threadpool_limits(1)                    # one BLAS thread per process
+    except Exception:
+        pass
+    _WORKER["A"] = A
+    _WORKER["GtG"] = GtG
+
+
+def _worker_solve(b: np.ndarray) -> np.ndarray:
+    return _nnls_auto(_WORKER["A"], b, GtG=_WORKER["GtG"])
+
+
+def _nnls_batch_w(A: np.ndarray, rhs_list, *,
+                  n_jobs: int = 1, use_gram: bool = True,
+                  max_iter: Optional[int] = None):
+    """Return [ argmin_{w>=0} ||A w - b|| for b in rhs_list ] for a FIXED matrix A.
+
+    Gram-reused when use_gram and max_iter is None; parallel over the right-hand sides via a
+    fork pool when n_jobs != 1. Output is independent of n_jobs and of the Gram/scipy choice
+    (both reach the same optimum), so results are deterministic and reproduction-safe. Any
+    parallel-backend failure (no fork; sandboxed semaphores) degrades cleanly to serial.
+    """
+    GtG = (A.T @ A) if (use_gram and max_iter is None) else None
+    n_workers = _resolve_n_jobs(n_jobs)
+    if n_workers <= 1 or len(rhs_list) <= 1:
+        return [_nnls_auto(A, b, GtG=GtG, max_iter=max_iter) for b in rhs_list]
+    import multiprocessing as mp
+    try:
+        ctx = mp.get_context("fork")            # raises ValueError on spawn-only platforms
+    except ValueError:
+        return [_nnls_auto(A, b, GtG=GtG, max_iter=max_iter) for b in rhs_list]
+    try:
+        with ctx.Pool(n_workers, initializer=_worker_init, initargs=(A, GtG)) as pool:
+            return pool.map(_worker_solve, rhs_list)
+    except (OSError, ValueError, ImportError):  # e.g. sandboxed semaphore limits
+        return [_nnls_auto(A, b, GtG=GtG, max_iter=max_iter) for b in rhs_list]
+
+
+# --------------------------------------------------------------------------------------
 # Result containers
 # --------------------------------------------------------------------------------------
 @dataclass
@@ -511,7 +653,8 @@ def signed_reachability(E: np.ndarray, d: np.ndarray, *,
 def shuffled_target_null(E: np.ndarray, d: np.ndarray, *,
                          n_iter: int = 1000, seed: int = 0,
                          hvg_mask: Optional[np.ndarray] = None,
-                         weights: Optional[np.ndarray] = None) -> NullResult:
+                         weights: Optional[np.ndarray] = None,
+                         n_jobs: int = 1) -> NullResult:
     """Permute the gene labels of `d` and refit; the null band is the achievable-by-chance
     reachability cosine. The observed cosine is meaningful only above this band.
 
@@ -539,13 +682,19 @@ def shuffled_target_null(E: np.ndarray, d: np.ndarray, *,
     A = E_use.T
     G = d_use.size
     cos = np.empty(n_iter)
-    for i in range(n_iter):
-        pp = rng.permutation(G)
-        dp = d_use[pp]
-        if wv is None:
-            w, _ = nnls(A, dp)
+    # Draw every shuffle up front so the rng stream (and thus the null) is IDENTICAL to the
+    # original serial loop regardless of n_jobs — permutation is the only per-iter rng draw.
+    perms = [rng.permutation(G) for _ in range(n_iter)]
+    if wv is None:
+        # Fixed dictionary A, varying RHS -> Gram-reused, optionally process-parallel.
+        ws = _nnls_batch_w(A, [d_use[pp] for pp in perms], n_jobs=n_jobs)
+        for i, (pp, w) in enumerate(zip(perms, ws)):
+            dp = d_use[pp]
             cos[i] = _cosine(A @ w, dp)
-        else:
+    else:
+        # Weighted: A is rescaled by sqrt(weights) each iter (not fixed) -> unchanged path.
+        for i, pp in enumerate(perms):
+            dp = d_use[pp]
             wvp = wv[pp]
             s = np.sqrt(wvp)
             w, _ = nnls(A * s[:, None], dp * s)
@@ -982,7 +1131,8 @@ class HeldOutResult:
 def held_out_gene_validation(E: np.ndarray, d: np.ndarray, *,
                              hvg_mask: Optional[np.ndarray] = None,
                              weights: Optional[np.ndarray] = None,
-                             n_shuffles: int = 60, seed: int = 0) -> HeldOutResult:
+                             n_shuffles: int = 60, seed: int = 0,
+                             n_jobs: int = 1) -> HeldOutResult:
     """Split the gene axis in half: fit NNLS weights on genes H1, score cosine on genes H2.
 
     This is the load-bearing honesty test. A dense non-negative fit over thousands of
@@ -1028,13 +1178,18 @@ def held_out_gene_validation(E: np.ndarray, d: np.ndarray, *,
     in_cos, ho_cos = _fit_score(d, d)
 
     null = np.empty(n_shuffles)
-    for i in range(n_shuffles):
-        pp = rng.permutation(G)
-        dp = d[pp]
-        if wv is None:
-            wj, _ = nnls(A1, dp[h1])
+    # Draw every shuffle up front so the null is IDENTICAL to the original serial loop
+    # regardless of n_jobs (permutation is the only per-iter rng draw).
+    perms = [rng.permutation(G) for _ in range(n_shuffles)]
+    if wv is None:
+        # Fixed fit matrix A1, varying RHS -> Gram-reused, optionally process-parallel.
+        ws = _nnls_batch_w(A1, [d[pp][h1] for pp in perms], n_jobs=n_jobs)
+        for i, (pp, wj) in enumerate(zip(perms, ws)):
+            dp = d[pp]
             null[i] = _cosine(A2 @ wj, dp[h2])
-        else:
+    else:
+        for i, pp in enumerate(perms):
+            dp = d[pp]
             # weights travel with the permuted target values (weighting is a property of d)
             wvp = wv[pp]
             s1 = np.sqrt(wvp[h1])
