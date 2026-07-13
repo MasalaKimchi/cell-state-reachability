@@ -7,7 +7,8 @@ Cell-State Reachability turns measured Perturb-seq effects into a directional ve
 compact candidate panel, and a mathematical certificate of what the measured intervention
 dictionary misses.
 
-**[Explore the live result](https://raw.githack.com/MasalaKimchi/cell-state-reachability/5b96d535ba8e33e63c43f69b4a89b744ce7699e7/app/index.html)**
+**[Watch the 3-minute demo](https://www.youtube.com/watch?v=GJbxLxYUBMo)**
+· **[Explore the live result](https://raw.githack.com/MasalaKimchi/cell-state-reachability/5b96d535ba8e33e63c43f69b4a89b744ce7699e7/app/index.html)**
 · **[Read the 2-minute pitch](./SUBMISSION.md)**
 · [Open the paper](./manuscript/main.pdf)
 · [Bring your own target](./notebooks/bring_your_own_target.ipynb)
@@ -81,6 +82,7 @@ not committed.
 
 | Goal | Start here |
 |---|---|
+| Watch the project story | [3-minute demo on YouTube](https://www.youtube.com/watch?v=GJbxLxYUBMo) |
 | See the complete argument interactively | [Live walkthrough](https://raw.githack.com/MasalaKimchi/cell-state-reachability/5b96d535ba8e33e63c43f69b4a89b744ce7699e7/app/index.html) |
 | Read the submission narrative | [SUBMISSION.md](./SUBMISSION.md) |
 | Inspect the scientific result | [Paper](./manuscript/main.pdf) |

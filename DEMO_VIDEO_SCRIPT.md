@@ -4,6 +4,7 @@
 
 **Event:** Built with Claude — Life Sciences Hackathon (Research / Lab Track)
 **Runtime target:** 2:45–3:00 · **Voiceover:** ~360 words
+**Published video:** https://www.youtube.com/watch?v=GJbxLxYUBMo
 
 ## The one-sentence hook
 

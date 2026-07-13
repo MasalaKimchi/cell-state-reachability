@@ -111,6 +111,7 @@ modality mismatch before a costly combination experiment.
 
 | If you want… | Open |
 |---|---|
+| **The 3-minute demo** | [Watch on YouTube](https://www.youtube.com/watch?v=GJbxLxYUBMo) |
 | **The guided interactive story** | [Open live](https://raw.githack.com/MasalaKimchi/cell-state-reachability/5b96d535ba8e33e63c43f69b4a89b744ce7699e7/app/index.html) · [`app/index.html`](app/index.html) |
 | **The paper** | [`manuscript/main.pdf`](manuscript/main.pdf) |
 | **The validation report** | [`docs/VALIDATION_REPORT.md`](docs/VALIDATION_REPORT.md) |

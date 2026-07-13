@@ -124,6 +124,7 @@ CHAPTERS = [
 ]
 
 FOOT_LINKS = [
+  ("Watch the 3-minute demo", "https://www.youtube.com/watch?v=GJbxLxYUBMo"),
   ("The paper (preprint)", "../manuscript/main.pdf"),
   ("Technical Dossier", "../docs/Technical_Dossier.pdf"),
   ("Validation report", "../docs/VALIDATION_REPORT.md"),
