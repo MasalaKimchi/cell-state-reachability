@@ -1,176 +1,311 @@
-"""
-Build the 'at-a-glance' verdict scoreboard for Cell-State Reachability.
+"""Build the single repo-facing Cell-State Reachability storyboard.
 
-A complementary hero to fig_central_illustration.png (which is the method schematic).
-This one is the 5-second scoreboard a reviewer sees first: the reframe, the flagship
-verdict + headline numbers, the signed decomposition, the four outputs, and the honest
-scope line. Every number is taken verbatim from manuscript_facts.json.
+The figure deliberately separates what was measured, what the mathematical model
+does, what the retrospective case study showed, and what remains to be tested. All
+displayed numbers are loaded from the canonical findings ledger.
 
-Output: fig_at_a_glance.png (+ .pdf), matplotlib to match the repo's figure toolchain.
+Outputs: fig_at_a_glance.png and fig_at_a_glance.pdf
 """
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+
+os.environ.setdefault("SOURCE_DATE_EPOCH", "0")
+
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, Rectangle
+import numpy as np
 from matplotlib.lines import Line2D
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Polygon, Rectangle
 
-# ---- palette (matched to fig_central_illustration.png) ----------------------
-NAVY   = "#1F3A4D"   # primary text / rules
-INK    = "#2C4A5E"   # secondary text
-MUTE   = "#6B7C86"   # muted captions
-TEAL   = "#2E7D6B"   # LOF / reachable
-GOLD   = "#C0902F"   # GOF / activation-required
-GRAY   = "#B9B3A6"   # neither / residual
-PANEL  = "#EAF1F4"   # light panel fill
-PANELB = "#D3E1E8"   # panel border
-CREAM  = "#F6F3EC"   # warm band
-WHITE  = "#FFFFFF"
-GREENBG= "#E7F1EE"   # transfer badge fill
-GREENBD= "#8FBFB1"
 
-plt.rcParams.update({
-    "font.family": "DejaVu Sans",
-    "svg.fonttype": "none",
-    "pdf.fonttype": 42,
-})
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+RESULTS = ROOT / "results"
+findings = json.loads((RESULTS / "findings.json").read_text(encoding="utf-8"))
+if findings.get("schema_version") != "1.0.0":
+    raise ValueError("unsupported findings schema")
+headline = findings["headline"]
+observed = float(headline["historical_fixed_split_cosine"])
+n_null = int(headline["diagnostic_target_shuffles"])
+split_values = [float(value) for value in headline["split_values"]]
+split_mean = float(headline["held_out_cosine_mean"])
+split_sd = float(headline["held_out_cosine_sd"])
+finding_by_id = {entry["id"]: entry for entry in findings["updated_findings"]}
+target_scope = finding_by_id["target_observation_scope"]["values"]
+target_total = int(target_scope["target_genes_total"])
+target_measured = int(target_scope["target_genes_in_screen"])
+top_50_measured = int(target_scope["top_50_surviving"])
+if len(split_values) != 12 or n_null != 60:
+    raise ValueError("unexpected registered split/shuffle counts")
 
-W, H = 14.0, 8.0
-fig = plt.figure(figsize=(W, H), dpi=200)
-ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 100)
+
+# restrained, print-safe palette
+NAVY = "#17324D"
+INK = "#31506A"
+MUTE = "#526675"
+TEAL = "#1F6A5C"
+TEAL_LIGHT = "#E7F2EF"
+BLUE = "#3D6697"
+BLUE_LIGHT = "#EAF0F8"
+GOLD = "#805600"
+GOLD_LIGHT = "#F6F0E2"
+GRAY = "#A9B1B7"
+GRAY_LIGHT = "#F0F2F3"
+BORDER = "#CCD8DF"
+WHITE = "#FFFFFF"
+
+plt.rcParams.update(
+    {
+        "font.family": "DejaVu Sans",
+        "pdf.fonttype": 42,
+        "axes.unicode_minus": False,
+    }
+)
+
+fig = plt.figure(figsize=(14, 7), dpi=200, facecolor=WHITE)
+ax = fig.add_axes([0, 0, 1, 1])
+ax.set_xlim(0, 100)
+ax.set_ylim(0, 100)
 ax.axis("off")
-fig.patch.set_facecolor(WHITE)
 
 
-def rbox(x, y, w, h, *, fc=WHITE, ec=PANELB, lw=1.4, r=0.9, z=1):
-    ax.add_patch(FancyBboxPatch(
-        (x, y), w, h, boxstyle=f"round,pad=0,rounding_size={r}",
-        fc=fc, ec=ec, lw=lw, zorder=z, mutation_aspect=H / W))
+def box(x, y, w, h, *, fc=WHITE, ec=BORDER, lw=1.3, radius=0.8, z=1):
+    patch = FancyBboxPatch(
+        (x, y),
+        w,
+        h,
+        boxstyle=f"round,pad=0,rounding_size={radius}",
+        facecolor=fc,
+        edgecolor=ec,
+        linewidth=lw,
+        mutation_aspect=0.5,
+        zorder=z,
+    )
+    ax.add_patch(patch)
+    return patch
 
 
-def txt(x, y, s, *, size=11, color=NAVY, weight="normal", ha="left", va="center",
-        style="normal", z=5, spacing=None):
-    t = ax.text(x, y, s, fontsize=size, color=color, fontweight=weight, ha=ha, va=va,
-                style=style, zorder=z)
-    if spacing:
-        t.set_linespacing(spacing)
-    return t
+def label(
+    x,
+    y,
+    text,
+    *,
+    size=10,
+    color=INK,
+    weight="normal",
+    ha="left",
+    va="center",
+    style="normal",
+    z=5,
+    linespacing=1.2,
+):
+    artist = ax.text(
+        x,
+        y,
+        text,
+        fontsize=size,
+        color=color,
+        fontweight=weight,
+        ha=ha,
+        va=va,
+        style=style,
+        zorder=z,
+    )
+    artist.set_linespacing(linespacing)
+    return artist
 
 
-# ============================ TITLE BAND =====================================
-txt(4.0, 94.4, "Cell-State Reachability", size=27, color=NAVY, weight="bold")
-txt(4.2, 89.0, "Can knockdown point a cell where you want it to go?",
-    size=15.5, color=TEAL, weight="bold", style="italic")
-txt(96.0, 94.2, "Built with Claude", size=10.5, color=MUTE, ha="right", weight="bold")
-txt(96.0, 90.6, "Life-Sciences Hackathon · Research / Lab track",
-    size=9.5, color=MUTE, ha="right")
-ax.add_line(Line2D([4.0, 96.0], [86.4, 86.4], color=PANELB, lw=1.3, zorder=1))
+def step_header(x, number, title, subtitle):
+    label(x + 1.7, 78.2, str(number), size=11, color=WHITE, weight="bold", ha="center")
+    ax.add_patch(plt.Circle((x + 1.7, 78.2), 1.45, facecolor=NAVY, edgecolor=NAVY, zorder=3))
+    label(x + 4.0, 79.4, title, size=11.5, color=NAVY, weight="bold")
+    label(x + 4.0, 76.3, subtitle, size=8.6, color=MUTE)
 
-# ============================ REFRAME LINE ===================================
-rbox(4.0, 77.6, 92.0, 7.6, fc=CREAM, ec="#E4DCC8", lw=1.2, r=0.8)
-txt(6.0, 83.2, "THE REFRAME", size=9.5, color=GOLD, weight="bold")
-txt(6.0, 80.55,
-    "Most tools rank what a perturbation might do.  This asks an earlier question — can non-negative combinations of a screen's",
-    size=11.3, color=INK)
-txt(6.0, 78.35,
-    "measured effects point the transcriptome toward the target — and it certifies when they provably cannot.",
-    size=11.3, color=INK)
 
-# ============================ FLAGSHIP (left) ================================
-FX, FW = 4.0, 55.0
-rbox(FX, 40.0, FW, 35.2, fc=WHITE, ec=PANELB, lw=1.5, r=0.9)
-txt(FX + 2.2, 71.9, "FLAGSHIP  ·  Th2 → Th1,  resting primary human CD4⁺ T cells",
-    size=12.0, color=NAVY, weight="bold")
-ax.add_line(Line2D([FX + 2.2, FX + FW - 2.2], [69.4, 69.4], color=PANELB, lw=1.1))
+# Title
+label(4, 94.0, "Cell-State Reachability", size=25, color=NAVY, weight="bold")
+label(
+    4,
+    89.1,
+    "A screen-relative test of transcriptomic direction — not a state-conversion claim",
+    size=13.2,
+    color=TEAL,
+    weight="bold",
+)
+label(
+    96,
+    93.5,
+    "MEASURED  →  MODELLED  →  TEST NEXT",
+    size=9.0,
+    color=MUTE,
+    weight="bold",
+    ha="right",
+)
+ax.add_line(Line2D([4, 96], [85.2, 85.2], color=BORDER, lw=1.2))
 
-# big verdict stat
-txt(FX + 2.4, 62.6, "0.448", size=40, color=TEAL, weight="bold", va="center")
-txt(FX + 20.5, 65.4, "held-out cosine", size=12.5, color=NAVY, weight="bold")
-txt(FX + 20.5, 61.7, "in-sample 0.627 · the honest,", size=10.3, color=MUTE)
-txt(FX + 20.5, 58.9, "held-out-gene score", size=10.3, color=MUTE)
 
-# verdict chip
-rbox(FX + 2.4, 49.6, 34.0, 5.6, fc=GREENBG, ec=GREENBD, lw=1.3, r=0.7)
-txt(FX + 4.0, 52.4, "VERDICT:  PARTIALLY REACHABLE", size=11.5, color="#1E6B58", weight="bold")
+# Four peer panels
+xs = [4.0, 27.5, 51.0, 74.5]
+pw, py, ph = 21.5, 23.7, 59.0
+for x in xs:
+    box(x, py, pw, ph, fc=WHITE, ec=BORDER, lw=1.3, radius=0.8)
 
-# two small stat tiles
-rbox(FX + 2.4, 41.2, 25.2, 6.9, fc=PANEL, ec=PANELB, lw=1.1, r=0.6)
-txt(FX + 3.6, 45.7, "> all 60 shuffled targets", size=10.2, color=NAVY, weight="bold")
-txt(FX + 3.6, 43.0, "empirical p = 1/61  ·  z ≈ 24", size=9.6, color=MUTE)
 
-rbox(FX + 29.2, 41.2, 23.4, 6.9, fc=PANEL, ec=PANELB, lw=1.1, r=0.6)
-txt(FX + 30.4, 45.7, "KKT optimality violation", size=10.2, color=NAVY, weight="bold")
-txt(FX + 30.4, 43.0, "1.1 × 10⁻¹¹  (cone optimality)", size=9.6, color=MUTE)
+# 1. Inputs
+x = xs[0]
+step_header(x, 1, "Inputs", "two separately sourced objects")
 
-# ============================ DECOMPOSITION (right) ==========================
-DX, DW = 61.5, 34.5
-rbox(DX, 40.0, DW, 35.2, fc=WHITE, ec=PANELB, lw=1.5, r=0.9)
-txt(DX + 2.2, 71.9, "SIGNED DECOMPOSITION", size=12.0, color=NAVY, weight="bold")
-txt(DX + 2.2, 68.6, "of the target direction", size=10.2, color=MUTE)
+box(x + 1.7, 60.0, pw - 3.4, 11.0, fc=BLUE_LIGHT, ec="#C9D7E8", lw=1.0, radius=0.6)
+label(x + 3.0, 68.0, "TARGET DIRECTION  d", size=8.4, color=BLUE, weight="bold")
+label(x + 3.0, 64.5, "Constructed external Th1-vs-Th2\ndirection (two source contrasts)", size=9.2, color=NAVY)
 
-# stacked horizontal bar  (exact fractions: 0.393 + 0.253 + 0.354 = 1.000)
-bx, by, bw, bh = DX + 2.4, 59.4, DW - 4.8, 6.4
-segs = [(0.393, TEAL, "39%"), (0.253, GOLD, "25%"), (0.354, GRAY, "35%")]
-cur = bx
-for frac, col, lab in segs:
-    ax.add_patch(Rectangle((cur, by), bw * frac, bh, fc=col, ec=WHITE, lw=1.6, zorder=3))
-    tc = WHITE if col != GRAY else NAVY
-    txt(cur + bw * frac / 2, by + bh / 2, lab, size=12.5, color=tc, weight="bold", ha="center")
-    cur += bw * frac
+box(x + 1.7, 44.7, pw - 3.4, 11.0, fc=TEAL_LIGHT, ec="#BDD9D2", lw=1.0, radius=0.6)
+label(x + 3.0, 52.7, "EFFECT DICTIONARY  E", size=8.4, color=TEAL, weight="bold")
+label(x + 3.0, 49.2, "Screen-derived CRISPRi DE z-scores\nin resting primary CD4 cells", size=9.2, color=NAVY)
 
-# legend rows (single line each)
-def legrow(y, col, name):
-    ax.add_patch(Rectangle((DX + 2.4, y - 0.95), 2.0, 2.0, fc=col, ec=WHITE, lw=1, zorder=3))
-    txt(DX + 5.6, y, name, size=10.4, color=NAVY, va="center")
+label(
+    x + 1.8,
+    36.8,
+    f"Only {target_measured:,} / {target_total:,} target genes\n"
+    f"intersect the screen ({top_50_measured} / top 50)\n"
+    "Dictionary is donor-collapsed; not\nmeasured in polarized Th2 cells",
+    size=8.7,
+    color=MUTE,
+    style="italic",
+    va="top",
+    linespacing=1.35,
+)
 
-legrow(54.2, TEAL, "LOF 39% — reachable by knockdown")
-legrow(49.6, GOLD, "GOF proxy 25% — sign-flipped effect")
-legrow(45.0, GRAY, "neither 35% — unmatched by either proxy")
 
-txt(DX + 2.2, 41.4, "knockdown is never the majority modality  (atlas mean LOF 0.34)",
-    size=9.3, color=MUTE, style="italic")
+# 2. Projection geometry
+x = xs[1]
+step_header(x, 2, "Projection", "what the model computes")
 
-# ============================ FOUR OUTPUTS ===================================
-txt(4.0, 35.7, "FOUR OUTPUTS, EVERY RUN", size=11.5, color=NAVY, weight="bold")
-cards = [
-    ("①  Directional verdict", "held-out + null-calibrated,\nnot a similarity ranking"),
-    ("②  Ranked sparse panel", "greedy mixture → compact\nknockdown candidate set"),
-    ("③  Dual certificate", "Farkas/KKT proof when the\ntarget is outside the cone"),
-    ("④  Unmet-readout list", "ranked CRISPRa / de-repression\nhypotheses — to be tested"),
+origin = np.array([x + 4.2, 34.0])
+cone = np.array(
+    [
+        origin,
+        [x + 18.8, 46.5],
+        [x + 15.2, 65.0],
+    ]
+)
+ax.add_patch(Polygon(cone, closed=True, facecolor=BLUE_LIGHT, edgecolor="none", zorder=1))
+
+for end in [(x + 17.5, 45.4), (x + 15.9, 53.0), (x + 14.4, 62.0)]:
+    ax.add_patch(
+        FancyArrowPatch(
+            origin,
+            end,
+            arrowstyle="-|>",
+            mutation_scale=10,
+            color=BLUE,
+            lw=1.6,
+            zorder=3,
+        )
+    )
+
+target = np.array([x + 10.0, 69.5])
+projection = np.array([x + 13.3, 57.0])
+ax.add_patch(
+    FancyArrowPatch(origin, target, arrowstyle="-|>", mutation_scale=12, color=NAVY, lw=2.3, zorder=4)
+)
+ax.add_patch(
+    FancyArrowPatch(origin, projection, arrowstyle="-|>", mutation_scale=12, color=TEAL, lw=2.8, zorder=5)
+)
+ax.add_patch(
+    FancyArrowPatch(projection, target, arrowstyle="-|>", mutation_scale=10, color=GOLD, lw=2.0, zorder=5)
+)
+label(target[0] - 0.2, target[1] + 2.1, "target", size=8.2, color=NAVY, weight="bold", ha="center")
+label(x + 13.5, 54.5, "projected\nmodel fit", size=8.1, color=TEAL, weight="bold")
+label(x + 11.6, 64.1, "unmatched\nresidual", size=8.1, color=GOLD, weight="bold")
+label(
+    x + 1.7,
+    28.0,
+    "Non-negative linear combinations\nin screen z-score space\nResidual is model-relative",
+    size=8.6,
+    color=MUTE,
+    va="bottom",
+    linespacing=1.3,
+)
+
+
+# 3. Retrospective challenge
+x = xs[2]
+step_header(x, 3, "Challenge", "frozen retrospective diagnostics")
+
+label(x + 1.8, 66.5, f"{split_mean:.3f} ± {split_sd:.3f}", size=23, color=TEAL, weight="bold")
+label(x + 1.9, 61.7, "mean ± SD, 12 fixed random-gene splits", size=8.8, color=NAVY, weight="bold")
+label(x + 1.9, 58.5, "external Th1-like direction", size=8.5, color=MUTE)
+
+# compact split-stability strip
+sx0, sx1, sy = x + 2.0, x + pw - 2.0, 48.5
+lo, hi = 0.425, 0.465
+ax.add_line(Line2D([sx0, sx1], [sy, sy], color=BORDER, lw=1.5, zorder=2))
+for value in split_values:
+    px = sx0 + (value - lo) / (hi - lo) * (sx1 - sx0)
+    ax.add_line(Line2D([px, px], [sy - 1.5, sy + 1.5], color=BLUE, lw=1.2, zorder=3))
+mean_x = sx0 + (split_mean - lo) / (hi - lo) * (sx1 - sx0)
+ax.add_line(Line2D([mean_x, mean_x], [sy - 2.4, sy + 2.4], color=NAVY, lw=2.5, zorder=4))
+label(x + 1.9, 44.3, f"historical fixed split: {observed:.3f}", size=8.7, color=NAVY, weight="bold")
+
+box(x + 1.7, 31.1, pw - 3.4, 8.5, fc=GRAY_LIGHT, ec="#D8DDE0", lw=1.0, radius=0.6)
+label(x + 3.0, 37.5, f"{n_null}/{n_null} diagnostic target shuffles\nbelow observed", size=8.5, color=NAVY, weight="bold", linespacing=1.1)
+label(x + 3.0, 32.8, f"plus-one empirical p = 1/{n_null + 1}", size=8.4, color=MUTE)
+
+label(
+    x + 1.8,
+    29.0,
+    "Retrospective directional evidence;\nnot donor or functional validation",
+    size=8.4,
+    color=MUTE,
+    style="italic",
+    va="top",
+)
+
+
+# 4. Decision boundary
+x = xs[3]
+step_header(x, 4, "Decide", "what this result changes")
+
+rows = [
+    (TEAL_LIGHT, TEAL, "REPLICATION NEEDED", "Donor-resolved, polarized\nTh2 starting-state study"),
+    (GOLD_LIGHT, GOLD, "MEASURE NEXT", "Matched modalities, combinations\n+ functional readouts"),
+    (GRAY_LIGHT, MUTE, "NOT ESTABLISHED", "State conversion, rescue,\nor target validation"),
 ]
-cw, gap = 21.9, 1.45
-x0 = 4.0
-for i, (head, body) in enumerate(cards):
-    x = x0 + i * (cw + gap)
-    rbox(x, 24.0, cw, 9.7, fc=PANEL, ec=PANELB, lw=1.2, r=0.7)
-    txt(x + 1.5, 31.0, head, size=11.0, color=TEAL, weight="bold")
-    txt(x + 1.5, 27.0, body, size=9.4, color=INK, spacing=1.28, va="center")
+for i, (fill, accent, heading, body) in enumerate(rows):
+    ry = 59.5 - i * 14.4
+    box(x + 1.7, ry, pw - 3.4, 11.2, fc=fill, ec=accent, lw=1.0, radius=0.6)
+    ax.add_patch(Rectangle((x + 1.7, ry), 0.8, 11.2, facecolor=accent, edgecolor="none", zorder=3))
+    label(x + 3.2, ry + 8.2, heading, size=8.0, color=accent, weight="bold")
+    label(x + 3.2, ry + 4.0, body, size=9.2, color=NAVY, weight="bold", linespacing=1.25)
 
-# ============================ TRANSFER BADGE =================================
-rbox(4.0, 14.6, 92.0, 6.9, fc=GREENBG, ec=GREENBD, lw=1.3, r=0.8)
-txt(6.0, 19.1, "SAME OPERATOR, NO RETUNING", size=9.8, color="#1E6B58", weight="bold")
-txt(6.0, 16.3,
-    "Transfers unchanged to a Norman K562 CRISPRa screen (held-out CEBPA state, cosine 0.878).   "
-    "Additivity guardrail: 126 doubles, median cos 0.71 (bounded, not exact).",
-    size=10.4, color=INK)
 
-# ============================ SCOPE FOOTER ===================================
-ax.add_line(Line2D([4.0, 96.0], [11.2, 11.2], color=PANELB, lw=1.1, zorder=1))
-txt(4.0, 8.2, "SCOPE  ", size=9.5, color=GOLD, weight="bold", va="center")
-txt(11.2, 8.3,
-    "Directional feasibility relative to one measured screen — not functional rescue.  Combinations assume bounded additivity.",
-    size=10.2, color=MUTE, va="center")
-txt(11.2, 5.4,
-    "Recovered regulators (GATA3↓, TBX21↑) are positive controls, not discoveries.  Every nomination is a wet-lab hypothesis, never a validated target.",
-    size=10.2, color=MUTE, va="center")
+# Footer: the durable boundary
+box(4, 7.0, 92, 11.8, fc=GRAY_LIGHT, ec=BORDER, lw=1.1, radius=0.7)
+label(6.0, 15.1, "CLAIM BOUNDARY", size=8.8, color=GOLD, weight="bold")
+label(
+    6.0,
+    11.1,
+    "Screen-relative directional support  •  measured subset only  •  model-relative geometry ≠ biological efficacy",
+    size=10.7,
+    color=NAVY,
+    weight="bold",
+)
+label(
+    96,
+    3.4,
+    "Values loaded from results/findings.json; source hashes recorded in results/manifest.json",
+    size=8.2,
+    color=MUTE,
+    ha="right",
+)
 
-# source data footnote
-txt(96.0, 2.2, "Source: Zhu et al. 2025, genome-scale CRISPRi Perturb-seq in CD4⁺ T cells (CZI VCP)  ·  numbers verbatim from manuscript_facts.json",
-    size=8.2, color="#9AA6AD", ha="right", va="center")
-
-import os
-out = os.path.dirname(os.path.abspath(__file__))
-fig.savefig(f"{out}/fig_at_a_glance.png", dpi=200, facecolor=WHITE,
-            bbox_inches="tight", pad_inches=0.12)
-fig.savefig(f"{out}/fig_at_a_glance.pdf", facecolor=WHITE,
-            bbox_inches="tight", pad_inches=0.12)
+fig.savefig(HERE / "fig_at_a_glance.png", dpi=200, facecolor=WHITE, bbox_inches="tight", pad_inches=0.12)
+fig.savefig(HERE / "fig_at_a_glance.pdf", facecolor=WHITE, bbox_inches="tight", pad_inches=0.12)
 print("wrote fig_at_a_glance.png / .pdf")

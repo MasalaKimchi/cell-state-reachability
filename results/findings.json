@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-07-17",
+  "claim_boundary": "Retrospective, screen-relative directional evidence under a non-negative linear-combination model; not state conversion, functional rescue, or target validation.",
+  "dataset_context": {
+    "system": "donor-collapsed primary human CD4 perturbation-condition profiles",
+    "condition": "Rest",
+    "modality": "CRISPRi",
+    "effect_scale": "screen-derived differential-expression z-score profiles",
+    "target": "constructed external Th1-vs-Th2 direction from two source contrasts",
+    "not_measured": [
+      "established polarized Th2 starting cells",
+      "CRISPRa for the same target",
+      "selected combinations in this system",
+      "donor-held-out effects",
+      "protein, cytokine, chromatin, durability, or phenotype rescue"
+    ]
+  },
+  "headline": {
+    "held_out_cosine_mean": 0.44643982288328815,
+    "held_out_cosine_sd": 0.010056164714740098,
+    "held_out_cosine_min": 0.4326044027815377,
+    "held_out_cosine_max": 0.4586710312457158,
+    "n_fixed_random_gene_splits": 12,
+    "historical_fixed_split_cosine": 0.4481542318283321,
+    "diagnostic_target_shuffles": 60,
+    "diagnostic_target_shuffles_below_observed": 60,
+    "diagnostic_plus_one_p": 0.01639344262295082,
+    "split_values": [
+      0.44641146051041847,
+      0.4584154720625527,
+      0.45544471823580146,
+      0.45867103124571584,
+      0.4326044027815377,
+      0.4497566105510432,
+      0.4527119907585761,
+      0.43583375308672034,
+      0.43483986056124035,
+      0.4547454022543877,
+      0.4447286977056362,
+      0.4331144748458274
+    ],
+    "sources": [
+      "results/evidence/headline_heldout_split_stability.csv",
+      "results/evidence/historical_fixed_split_null.csv"
+    ]
+  },
+  "updated_findings": [
+    {
+      "id": "baseline_position",
+      "finding": "The cone beats mean, PCA-1, PCA-5, and the matched random-cone mean on the registered split; PCA-20, unconstrained least squares, and ridge score higher. Utility is constrained interpretability, not predictive superiority.",
+      "values": {
+        "cone": 0.4464114605104187,
+        "predict_mean": -0.022141081192861643,
+        "pca_1": 0.0059661839293087575,
+        "pca_5": 0.22527975935604344,
+        "matched_random_cone_mean": 0.3997982926187167,
+        "pca_20": 0.5041815858309373,
+        "unconstrained_ls": 0.4893695618459245,
+        "ridge_100": 0.5070623488282529
+      },
+      "source": "results/evidence/baseline_comparison.csv"
+    },
+    {
+      "id": "metric_calibration",
+      "finding": "A circular held-out-to-in-sample ceiling claim was retired. The replacement floor-to-synthetic-reachable-reference dynamic-range fraction is 0.463 under uniform weighting and 0.615 under transition-specificity weighting.",
+      "values": {"uniform": 0.46268945092548447, "specificity": 0.6151593455423952},
+      "source": "results/evidence/metric_calibration.csv"
+    },
+    {
+      "id": "context",
+      "finding": "Rest is the strongest observed context. Stimulated held-out scores are weaker, and Stim48hr is sequencing-run confounded.",
+      "values": {"Rest": 0.4464114605104187, "Stim8hr": 0.29267912536606966, "Stim48hr": 0.29940175368152105},
+      "source": "results/evidence/context_condition_comparison.csv"
+    },
+    {
+      "id": "specific_challenges",
+      "finding": "Cell-cycle ablation changes held-out cosine by about -0.002; the cone exceeds a norm-matched null; positive per-generator rescaling leaves the cone point invariant. These checks do not eliminate all confounding.",
+      "values": {"cell_cycle_delta": -0.0016514216831973, "norm_matched_null_z": 2.8479991055797687, "max_rescaling_delta": 2.220446049250313e-16},
+      "source": "results/evidence/confounder_robustness_summary.json"
+    },
+    {
+      "id": "generator_filter",
+      "finding": "All 6,871 Rest generators were already source-flagged significant; restricting further to the top half by effect size improved held-out cosine from 0.4464 to 0.4580.",
+      "values": {"n_generators": 6871, "fraction_source_significant": 1.0, "top_half_held_out": 0.45795950513173184},
+      "source": "results/evidence/generator_significance_summary.json"
+    },
+    {
+      "id": "ranking_scope",
+      "finding": "The directional ranking beats an effect-magnitude baseline on a curated 13-gene polarization panel. This is not full GRN validation.",
+      "values": {"cone_directional_auroc": 1.0, "magnitude_directional_auroc": 0.5, "n_panel": 13},
+      "source": "results/evidence/ranking_validation_summary.json"
+    },
+    {
+      "id": "combination_scope",
+      "finding": "Across 126 Norman K562 CRISPRa doubles, one retired legacy-v0 threshold label and 100 staged E-to-negative-E proxy labels flip. These are sensitivity diagnostics for removed heuristics, not mechanistic modality labels or validation of CD4 CRISPRi combinations.",
+      "values": {"n": 126, "threshold_flips": 1, "modality_flips": 100, "median_measured_additive_cosine": 0.7119866324793709},
+      "source": "results/evidence/additivity_verdict_flip_summary.json"
+    },
+    {
+      "id": "target_source_agreement",
+      "finding": "The two external target sources have cosine 0.689 across 11,616 shared genes, with 68.5% sign concordance. Exact magnitude depends on target construction.",
+      "values": {"between_source_cosine": 0.689, "shared_genes": 11616, "sign_concordance_percent": 68.5},
+      "source": "results/evidence/reviewer2_ota_hollbacher_meta.json"
+    },
+    {
+      "id": "target_observation_scope",
+      "finding": "The case study sees only the screen-intersecting, sign-concordant target subset: 9,831 of 25,672 target genes intersect the screen and 38 of the 50 strongest target DE genes survive. Source-only held-out cosines are 0.438 for Ota and 0.342 for Hollbacher, versus 0.446 for the concordant merge.",
+      "values": {
+        "target_genes_total": 25672,
+        "target_genes_in_screen": 9831,
+        "top_50_surviving": 38,
+        "ota_only_held_out": 0.4383,
+        "hollbacher_only_held_out": 0.3415,
+        "merged_held_out": 0.4464
+      },
+      "sources": [
+        "results/evidence/reviewer2_deg_survival.csv",
+        "results/evidence/reviewer2_ota_hollbacher_split.csv"
+      ]
+    }
+  ],
+  "open_requirements": [
+    "grouped or module-level holdouts and claim-bearing structured nulls",
+    "true donor-held-out evaluation",
+    "measured in-domain perturbation combinations",
+    "paired measured CRISPRi and CRISPRa dictionaries",
+    "chromatin and functional readouts",
+    "prospective validation from an established polarized starting state"
+  ]
+}

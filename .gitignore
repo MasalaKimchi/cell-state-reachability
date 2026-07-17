@@ -1,63 +1,25 @@
-# ── Large data artifacts (fetch / regenerate; see data/README.md) ────────────
-data/*.h5ad
-data/*.h5mu
-data/*.csv
-!data/README.md
+# External scientific data: retain instructions, never commit payloads.
+data/*
 !data/.gitkeep
+!data/README.md
+!data/fetch_de_stats.sh
 
-# ── Heavy regenerable analysis caches (rebuilt by scripts/; too large for git) ─
-# The small result tables, per-cell JSONs, figures and .md writeups under
-# analysis_cache/ ARE tracked — only these large binaries are excluded.
-analysis_cache/**/inputs.npz
-analysis_cache/**/cross_celltype_effects.npz
-analysis_cache/**/first_stage_compliance.csv
-
-# ── Python ───────────────────────────────────────────────────────────────────
-__pycache__/
-*.pyc
-.venv/
-.ipynb_checkpoints/
-.env
-.pytest_cache/
-
-# ── Generated outputs ────────────────────────────────────────────────────────
+# Removed analysis surfaces must not reappear as local caches.
+analysis_cache/
 outputs/
-notebooks/figures/
-# Heavy regenerable per-condition effect matrices (150-160 MB each, > GitHub's
-# 100 MB limit); rebuilt by scripts/run_deg_weighted_eval.py + nb03/nb04.
-# Excluded by exact name so the small cache files (design cards, QC tables,
-# norman_effect_bundle.npz 3.2 MB) stay tracked.
-notebooks/cache/E_Rest.npz
-notebooks/cache/E_Stim8hr.npz
-notebooks/cache/E_Stim48hr.npz
+
+# Python and environments.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+
+# Generated/editor/OS debris.
 *.log
-
-# ── LaTeX build scaffolding (manuscript/) ────────────────────────────────────
-# Local TeX toolchain + caches + preview renders; the compiled main.pdf and the
-# bundled .sty/.bst files ARE tracked so the paper stays self-contained.
-manuscript/.tinytex_dl/
-manuscript/icml_style/
-manuscript/.texcache/
-manuscript/.texshim/
-manuscript/.tectonic-cache/
-manuscript/.ttbin_path
-manuscript/_check_*.png
-manuscript/_v_*.png
-manuscript/*.aux
-manuscript/*.blg
-manuscript/*.out
-manuscript/*.txt
-manuscript/**/*.aux
-
-# ── Local tooling config (not part of the deliverable) ───────────────────────
-.claude/
-
-# ── OS cruft ─────────────────────────────────────────────────────────────────
 .DS_Store
 
-# ── Process / operating docs — kept local, not part of the deliverable ─────────
+# Local agent operating manuals.
 AGENTS.md
 CLAUDE.md
-
-# ── Phase 2 planning doc — local only, never push (post-hackathon internal plan) ─
-phase2_plan.md
+.claude/

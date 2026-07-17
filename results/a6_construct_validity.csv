@@ -1,8 +1,0 @@
-regulator,role,kd_cos_toward_Th1,kd_cos_toward_Th2,null_z,expected,sign_correct
-TBX21,Th1-driver,-0.0122,0.0122,-0.43,away_from_Th1,True
-GATA3,Th2-driver,0.0186,-0.0186,0.38,away_from_Th2,True
-STAT4,Th1-driver,0.0551,-0.0551,1.34,away_from_Th1,False
-STAT6,Th2-driver,0.1202,-0.1202,3.04,away_from_Th2,True
-STAT1,Th1-driver,-0.0236,0.0236,-0.72,away_from_Th1,True
-BCL6,other,-0.0019,0.0019,-0.16,—,
-FOXP3,other,0.0354,-0.0354,0.82,—,

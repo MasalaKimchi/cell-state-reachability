@@ -1,0 +1,47 @@
+{
+  "n_doubles": 126,
+  "verdict_flip_count": 1,
+  "verdict_flip_rate": 0.007936507936507936,
+  "modality_flip_count": 100,
+  "modality_flip_rate": 0.7936507936507936,
+  "median_cos_measured_vs_additive": 0.7119866324793709,
+  "median_magnitude_ratio": 0.9604683997889691,
+  "legacy_v0_label_definition": {
+    "status": "retired sensitivity diagnostic; not part of the maintained API",
+    "threshold_label": "legacy reachability verdict calibrated with 200 target shuffles per target",
+    "proxy_label": "dominant component from staged non-negative fits to E and then -E",
+    "mechanistic_modality_claim": false
+  },
+  "by_magnitude_quartile": [
+    {
+      "mag_q": "Q1",
+      "n": 32,
+      "verdict_flip_rate": 0.0,
+      "modality_flip_rate": 0.8125,
+      "median_cos_ma": 0.6487660975008169
+    },
+    {
+      "mag_q": "Q2",
+      "n": 31,
+      "verdict_flip_rate": 0.0,
+      "modality_flip_rate": 0.8709677419354839,
+      "median_cos_ma": 0.7223055165825832
+    },
+    {
+      "mag_q": "Q3",
+      "n": 31,
+      "verdict_flip_rate": 0.0,
+      "modality_flip_rate": 0.9032258064516129,
+      "median_cos_ma": 0.7221489590748909
+    },
+    {
+      "mag_q": "Q4",
+      "n": 32,
+      "verdict_flip_rate": 0.03125,
+      "modality_flip_rate": 0.59375,
+      "median_cos_ma": 0.7630429848073859
+    }
+  ],
+  "interpretation": "magnitude_ratio<1 => measured double SHORTER than additive sum (saturation) => additive cone conservative",
+  "seconds": 58.8
+}

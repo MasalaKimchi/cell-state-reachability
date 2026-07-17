@@ -1,5 +1,0 @@
-dataset,weighting,ceiling,ceiling_p25,ceiling_p75,floor_mean
-Norman2019_K562_CRISPRa,DEG-weighted(|d|),0.9868,0.986,0.9874,0.3889666666666667
-Norman2019_K562_CRISPRa,unweighted,0.9719,0.9712,0.9722,0.25943333333333335
-Tier2_CD4_CRISPRi,DEG-weighted(|d|),0.9883,0.9879,0.9889,0.619
-Tier2_CD4_CRISPRi,unweighted,0.9739,0.9734,0.9742,0.3456

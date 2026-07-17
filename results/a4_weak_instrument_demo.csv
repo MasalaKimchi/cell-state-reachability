@@ -1,4 +1,0 @@
-gene,pi,n_guides,role,pi_ci_lo,pi_ci_hi,weight_mult_lo,weight_mult_med,weight_mult_hi,weak_instrument
-SNX5,0.069,2,stress-test weak instrument,0.0025,0.2299,4.35,14.493,397.991,True
-RARA,0.462,2,"headline recipe, moderate pi",0.2331,0.6999,1.429,2.165,4.291,False
-KIF5B,0.441,2,"headline recipe, moderate pi",0.2155,0.6804,1.47,2.268,4.639,False

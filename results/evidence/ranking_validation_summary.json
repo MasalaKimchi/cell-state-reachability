@@ -1,0 +1,12 @@
+{
+  "n_generators": 6871,
+  "n_panel": 13,
+  "cone_directional_auroc": 1.0,
+  "magnitude_directional_auroc": 0.5,
+  "cone_beats_magnitude_directional": true,
+  "cone_signed_concordance": 0.6153846153846154,
+  "signed_concordance_note": "signed_concordance is reported ONLY for the signed cone ranking; for the non-negative magnitude / abs-correlation baselines it is undefined (sign is always +, collapsing to the fixed Th2-label fraction), so it is NaN in the CSV.",
+  "verdict": "cone ranking beats magnitude baseline on direction",
+  "note": "Directional ranking validated against a curated 13-gene polarization panel; the effect-magnitude ranking is the GRN-naive baseline. A full GRN reference (CellOracle/CellNet) comparison is noted as a stronger future control.",
+  "seconds": 0.1
+}

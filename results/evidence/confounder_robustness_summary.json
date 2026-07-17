@@ -1,0 +1,135 @@
+{
+  "cellcycle_ablation": {
+    "baseline_cosine": 0.6266290274312786,
+    "ablated_cosine": 0.6283422785425148,
+    "cosine_delta": 0.0017132511112362137,
+    "baseline_heldout": 0.4464114605104187,
+    "ablated_heldout": 0.4447600388272214,
+    "baseline_z": 29.129291741316994,
+    "ablated_z": 25.902381839533486,
+    "n_cellcycle_genes_removed": 46,
+    "frac_target_norm_on_cellcycle": 0.07284809554952695,
+    "verdict": "cell-cycle NOT load-bearing"
+  },
+  "magnitude_deconfound": {
+    "cone_heldout": 0.4464114605104187,
+    "norm_matched_null_mean": 0.39711749553064324,
+    "norm_matched_null_z": 2.8479991055797687,
+    "weight_norm_spearman_rho": 0.0346118882760355,
+    "verdict": "direction-driven (beats norm-matched null)"
+  },
+  "guide_efficiency": {
+    "late_rescaling_invariance": [
+      {
+        "target": "Th1",
+        "cond": "Rest",
+        "cos_ITT": 0.6266290274312786,
+        "cos_LATE": 0.6266290274312788,
+        "abs_delta": 2.220446049250313e-16,
+        "scale_median": 1.1455257695250054,
+        "scale_max": 16.6803895180064
+      },
+      {
+        "target": "Th1",
+        "cond": "Stim8hr",
+        "cos_ITT": 0.5235240543878785,
+        "cos_LATE": 0.5235240543878784,
+        "abs_delta": 1.1102230246251563e-16,
+        "scale_median": 1.1523322930985611,
+        "scale_max": 17.097976147855753
+      },
+      {
+        "target": "Th1",
+        "cond": "Stim48hr",
+        "cos_ITT": 0.5328836947832118,
+        "cos_LATE": 0.5328836947832118,
+        "abs_delta": 0.0,
+        "scale_median": 1.1920478864847468,
+        "scale_max": 19.706760699298275
+      },
+      {
+        "target": "Th2",
+        "cond": "Rest",
+        "cos_ITT": 0.6428176245552623,
+        "cos_LATE": 0.6428176245552623,
+        "abs_delta": 0.0,
+        "scale_median": 1.1455257695250054,
+        "scale_max": 16.6803895180064
+      },
+      {
+        "target": "Th2",
+        "cond": "Stim8hr",
+        "cos_ITT": 0.5369907235618406,
+        "cos_LATE": 0.5369907235618409,
+        "abs_delta": 2.220446049250313e-16,
+        "scale_median": 1.1523322930985611,
+        "scale_max": 17.097976147855753
+      },
+      {
+        "target": "Th2",
+        "cond": "Stim48hr",
+        "cos_ITT": 0.5299676411768143,
+        "cos_LATE": 0.5299676411768143,
+        "abs_delta": 0.0,
+        "scale_median": 1.1920478864847468,
+        "scale_max": 19.706760699298275
+      },
+      {
+        "target": "younger",
+        "cond": "Rest",
+        "cos_ITT": 0.6261701403110038,
+        "cos_LATE": 0.6261701403110039,
+        "abs_delta": 1.1102230246251563e-16,
+        "scale_median": 1.1455257695250054,
+        "scale_max": 16.6803895180064
+      },
+      {
+        "target": "younger",
+        "cond": "Stim8hr",
+        "cos_ITT": 0.5884804039690821,
+        "cos_LATE": 0.5884804039690821,
+        "abs_delta": 0.0,
+        "scale_median": 1.1523322930985611,
+        "scale_max": 17.097976147855753
+      },
+      {
+        "target": "younger",
+        "cond": "Stim48hr",
+        "cos_ITT": 0.5970152091936841,
+        "cos_LATE": 0.5970152091936841,
+        "abs_delta": 0.0,
+        "scale_median": 1.1920478864847468,
+        "scale_max": 19.706760699298275
+      },
+      {
+        "target": "older",
+        "cond": "Rest",
+        "cos_ITT": 0.5963882768571203,
+        "cos_LATE": 0.5963882768571205,
+        "abs_delta": 2.220446049250313e-16,
+        "scale_median": 1.1455257695250054,
+        "scale_max": 16.6803895180064
+      },
+      {
+        "target": "older",
+        "cond": "Stim8hr",
+        "cos_ITT": 0.5898741884012565,
+        "cos_LATE": 0.5898741884012566,
+        "abs_delta": 1.1102230246251563e-16,
+        "scale_median": 1.1523322930985611,
+        "scale_max": 17.097976147855753
+      },
+      {
+        "target": "older",
+        "cond": "Stim48hr",
+        "cos_ITT": 0.5662342507172752,
+        "cos_LATE": 0.5662342507172751,
+        "abs_delta": 1.1102230246251563e-16,
+        "scale_median": 1.1920478864847468,
+        "scale_max": 19.706760699298275
+      }
+    ]
+  },
+  "single_cell_CATE_status": "NOT executable in-sandbox: needs raw counts + per-cell guide calls (a2_conditional_reachability_scaffold.py). Gene-axis ablation is the available proxy; documented as a remaining gap.",
+  "seconds": 290.6
+}

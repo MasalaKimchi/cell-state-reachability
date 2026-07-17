@@ -1,0 +1,4 @@
+test,variant,n_readout,reachable_cosine,residual_norm,heldout_cosine,heldout_z,n_cc_genes_removed,frac_target_norm_cc,complexity_K,weight_norm_spearman_rho,weight_norm_spearman_p,norm_matched_null_mean,norm_matched_null_p95,norm_matched_null_z
+A_cellcycle_ablation,baseline_all_readout,6188.0,0.6266290274312786,0.7793176900215535,0.4464114605104187,29.129291741316994,,,,,,,,
+A_cellcycle_ablation,cellcycle_genes_removed,6142.0,0.6283422785425148,0.7779370032309822,0.4447600388272214,25.902381839533486,46.0,0.07284809554952695,,,,,,
+B_magnitude_deconfound,cone_vs_norm_matched_null,,0.4464114605104187,,,,,,691.0,0.0346118882760355,0.35540217258368567,0.39711749553064324,0.4230492683293689,2.8479991055797687

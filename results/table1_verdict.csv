@@ -1,2 +1,0 @@
-target,condition,n_generators,n_signature_genes,reachable_cosine,residual_norm,heldout_cosine,null_mean,null_z,kkt_farkas_violation,reachable_fraction,activation_required_fraction,verdict
-toward_Th1,Rest,6871,6188,0.6266,0.7793,0.4482,-0.0053,24.44,1.13e-11,0.393,0.309,"PARTIALLY REACHABLE — knockdown removes Th2 program, cannot install Th1 program"

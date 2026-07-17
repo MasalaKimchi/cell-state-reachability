@@ -1,0 +1,4 @@
+ranking,panel_at_top_auroc,directional_auroc,directional_perm_p,signed_concordance
+cone_alignment,0.5946227875361734,1.0,0.009,0.6153846153846154
+effect_norm,0.6314579267335173,0.5,0.565,
+abs_target_corr,0.5946227875361734,0.4375,0.66,

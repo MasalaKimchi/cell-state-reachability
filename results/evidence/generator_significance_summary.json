@@ -1,0 +1,16 @@
+{
+  "condition": "Rest",
+  "n_generators_total": 6871,
+  "frac_generators_significant": 1.0,
+  "frac_cone_weight_on_significant": 1.0,
+  "effect_size_median": 9.858993408821776,
+  "heldout_z_all": 29.129291741316994,
+  "heldout_z_significant": 29.129291741316994,
+  "cosine_all": 0.6266290274312786,
+  "cosine_significant": 0.6266290274312786,
+  "verdict": "CONFIRMED concern already addressed: generator significance filtering is built into the atlas; the cone does not admit non-significant perturbations. A graded effect-size filter further improves held-out generalization.",
+  "note": "Significance from GWCD4i.DE_stats.h5ad ontarget_significant (upstream single-cell test); full per-cell E-distance permutation would need the 16.8GB raw matrix.",
+  "seconds": 233.0,
+  "key_finding": "The atlas Rest generator set (6871) is EXACTLY the set of genes flagged ontarget_significant in the DE-stats file (6871 of 11287 Rest perturbations, 60.9%). The significance filter WI-7 requests is ALREADY APPLIED upstream in the atlas construction: every generator admitted to the cone has a significant on-target effect. Hence 'all' and 'significant' rows are identical by construction (frac_generators_significant=1.000).",
+  "graded_filter_finding": "Restricting FURTHER to the top-50% by |effect_size| (3436 generators) IMPROVES held-out cosine 0.4464->0.4580 (z 29.1->23.4, still highly significant) while in-sample cosine drops 0.6266->0.5935 \u2014 the held-out signal concentrates in stronger-effect generators, consistent with weaker generators adding in-sample flexibility that does not generalize."
+}

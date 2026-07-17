@@ -1,0 +1,64 @@
+{
+  "reviewer2_stim48_confound": [
+    {
+      "target": "toward_Th1",
+      "condition": "Rest",
+      "reachable_cosine": 0.6266,
+      "lof_fraction": 0.3927,
+      "gof_fraction": 0.2535,
+      "heldout_cosine": 0.4464,
+      "heldout_z": 45.0,
+      "run_balanced": "YES (2/2 across R1,R2)"
+    },
+    {
+      "target": "toward_Th1",
+      "condition": "Stim48hr",
+      "reachable_cosine": 0.5329,
+      "lof_fraction": 0.284,
+      "gof_fraction": 0.263,
+      "heldout_cosine": 0.2994,
+      "heldout_z": 21.8,
+      "run_balanced": "NO (all 4 on R2)"
+    },
+    {
+      "target": "toward_Th1",
+      "condition": "Stim8hr",
+      "reachable_cosine": 0.5235,
+      "lof_fraction": 0.2741,
+      "gof_fraction": 0.2605,
+      "heldout_cosine": 0.2927,
+      "heldout_z": 12.7,
+      "run_balanced": "YES (2/2)"
+    },
+    {
+      "target": "toward_Th2",
+      "condition": "Rest",
+      "reachable_cosine": 0.6428,
+      "lof_fraction": 0.4132,
+      "gof_fraction": 0.2349,
+      "heldout_cosine": 0.4584,
+      "heldout_z": 20.9,
+      "run_balanced": "YES (2/2 across R1,R2)"
+    },
+    {
+      "target": "toward_Th2",
+      "condition": "Stim48hr",
+      "reachable_cosine": 0.53,
+      "lof_fraction": 0.2809,
+      "gof_fraction": 0.2607,
+      "heldout_cosine": 0.2586,
+      "heldout_z": 12.6,
+      "run_balanced": "NO (all 4 on R2)"
+    },
+    {
+      "target": "toward_Th2",
+      "condition": "Stim8hr",
+      "reachable_cosine": 0.537,
+      "lof_fraction": 0.2884,
+      "gof_fraction": 0.2493,
+      "heldout_cosine": 0.3038,
+      "heldout_z": 20.4,
+      "run_balanced": "YES (2/2)"
+    }
+  ]
+}

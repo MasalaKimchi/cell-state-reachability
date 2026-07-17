@@ -1,154 +1,163 @@
-"""
-Test suite for the cell-state-reachability method (reachability.py).
-
-Two layers:
-  1. test_packaged_selftest — runs reachability._selftest(), the module's own
-     end-to-end invariant battery (38 asserts). One green check here means the
-     whole method reproduces: verdicts, KKT/Farkas certification, the signed
-     LOF/GOF/neither decomposition, the greedy spectrum, held-out validation,
-     the analytic anisotropy null, and DEG-weighting.
-  2. Independent property tests — re-derive the load-bearing mathematical
-     invariants from scratch on small fixtures, so the suite still has teeth
-     if the internals of _selftest ever change. These encode the claims the
-     manuscript actually makes.
-
-Requires only numpy + scipy (the core method's only dependencies) + pytest.
-
-    pytest -q                      # run everything
-    pytest -q -k selftest          # just the packaged battery
-    pytest -q -k property          # just the independent property tests
-"""
-import os
-import sys
-
 import numpy as np
 import pytest
 
-# make reachability.py importable regardless of where pytest is invoked
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import reachability as rx  # noqa: E402
+import reachability as rx
 
 
-# ---------------------------------------------------------------------------
-# Layer 1 — the packaged self-test (the canonical reproduction check)
-# ---------------------------------------------------------------------------
-def test_packaged_selftest(capsys):
-    """The module's own 38-assert invariant battery must pass end-to-end."""
-    rx._selftest()
-    out = capsys.readouterr().out
-    assert "ALL SELF-TESTS PASSED" in out
+def test_exact_orthant_geometry():
+    effects = np.eye(4)
+
+    inside = rx.project_cone(effects, np.array([1.0, 2.0, 3.0, 4.0]))
+    np.testing.assert_allclose(inside.fitted, [1, 2, 3, 4], atol=1e-12)
+    assert inside.geometry_status == "inside_tolerance"
+    assert inside.dual_separator is None
+    assert inside.kkt_violation < 1e-10
+
+    boundary = rx.project_cone(effects, np.array([1.0, 0.0, 0.0, 0.0]))
+    np.testing.assert_allclose(boundary.fitted, [1, 0, 0, 0], atol=1e-12)
+    assert boundary.geometry_status == "inside_tolerance"
+
+    outside = rx.project_cone(effects, np.array([1.0, 0.0, -1.0, 0.0]))
+    np.testing.assert_allclose(outside.fitted, [1, 0, 0, 0], atol=1e-12)
+    np.testing.assert_allclose(outside.residual, [0, 0, -1, 0], atol=1e-12)
+    assert outside.geometry_status == "outside_model_cone"
+    assert outside.separation_margin > 0
 
 
-# ---------------------------------------------------------------------------
-# Fixtures for the independent property tests
-# ---------------------------------------------------------------------------
-@pytest.fixture
-def cone_fixture():
-    """A small non-negative generator dictionary E (P x G) and two targets:
-    one built INSIDE the non-negative cone, one deliberately outside it."""
-    rng = np.random.default_rng(0)
-    P, G = 12, 40
-    E = rng.standard_normal((P, G))
-    # an in-cone target: a strictly non-negative mix of a few generators
-    w_true = np.zeros(P)
-    w_true[[1, 4, 7]] = [0.8, 1.3, 0.5]
-    d_in = w_true @ E
-    # an out-of-cone target: point AGAINST a generator (needs negative weight)
-    d_out = -1.0 * E[2] + 0.2 * rng.standard_normal(G)
-    return E, d_in, d_out, w_true
+def test_weighted_separator_uses_metric_residual():
+    effects = np.array([[1.0, 1.0]])
+    target = np.array([2.0, 1.0])
+    q = np.array([1.0, 4.0])
+    result = rx.project_cone(effects, target, gene_weights=q)
+
+    np.testing.assert_allclose(result.coefficients, [1.2], atol=1e-12)
+    np.testing.assert_allclose(result.residual, [0.8, -0.2], atol=1e-12)
+    np.testing.assert_allclose(result.dual_separator, [0.8, -0.8], atol=1e-12)
+    assert effects @ result.dual_separator <= 1e-12
+    assert abs(result.fitted @ result.dual_separator) < 1e-12
+    assert target @ result.dual_separator > 0
+    assert result.polarity_violation < 1e-12
+    assert result.orthogonality_error < 1e-12
 
 
-# ---------------------------------------------------------------------------
-# Layer 2 — independent property tests
-# ---------------------------------------------------------------------------
-def test_property_incone_is_fully_reachable(cone_fixture):
-    """A target that is literally a non-negative mix of rows must be recovered
-    with cosine ~1 and ~0 residual."""
-    E, d_in, _, _ = cone_fixture
-    r = rx.reachability(E, d_in)
-    assert r.reachable_cosine > 0.999
-    assert r.residual_norm < 1e-3
+def test_zero_weight_coordinates_are_explicitly_excluded():
+    effects = np.array([[1.0, 99.0], [0.0, -50.0]])
+    target = np.array([1.0, 1_000.0])
+    result = rx.project_cone(effects, target, gene_weights=np.array([1.0, 0.0]))
+    np.testing.assert_allclose(result.fitted, [1.0, 0.0], atol=1e-12)
+    np.testing.assert_allclose(result.residual, [0.0, 0.0], atol=1e-12)
 
 
-def test_property_kkt_certified_at_optimum(cone_fixture):
-    """The NNLS optimum must satisfy the KKT/Farkas conditions to ~machine
-    precision — this is the certificate the method's guarantee rests on."""
-    E, d_in, d_out, _ = cone_fixture
-    for d in (d_in, d_out):
-        r = rx.reachability(E, d)
-        assert r.cert_max_violation < 1e-5
+@pytest.mark.parametrize("scale", [1e-6, 1.0, 1e6])
+def test_target_scale_invariance(scale):
+    effects = np.eye(3)
+    target = np.array([1.0, -1.0, 0.5])
+    base = rx.project_cone(effects, target)
+    scaled = rx.project_cone(effects, scale * target)
+    np.testing.assert_allclose(scaled.fitted / scale, base.fitted, rtol=1e-9, atol=1e-10)
+    assert scaled.cosine == pytest.approx(base.cosine, abs=1e-10)
+    assert scaled.residual_fraction == pytest.approx(base.residual_fraction, abs=1e-10)
 
 
-def test_property_right_triangle_identity(cone_fixture):
-    """The headline geometric identity: at the NNLS optimum the residual is
-    orthogonal to the fit, so reachable_cosine**2 + residual_norm**2 == 1
-    for ANY target. This is what makes the 2D cone picture exact."""
-    E, d_in, d_out, _ = cone_fixture
-    for d in (d_in, d_out):
-        r = rx.reachability(E, d)
-        assert abs(r.reachable_cosine**2 + r.residual_norm**2 - 1.0) < 1e-6
+def test_atom_scale_duplicate_and_zero_atom_do_not_change_fit():
+    effects = np.array([[1.0, 0.0], [1.0, 1.0]])
+    target = np.array([0.0, 1.0])
+    base = rx.project_cone(effects, target)
+
+    scaled = effects.copy()
+    scaled[1] *= 7.0
+    np.testing.assert_allclose(rx.project_cone(scaled, target).fitted, base.fitted, atol=1e-10)
+
+    augmented = np.vstack([effects, effects[1], np.zeros(2)])
+    np.testing.assert_allclose(rx.project_cone(augmented, target).fitted, base.fitted, atol=1e-10)
 
 
-def test_property_outcone_fits_worse(cone_fixture):
-    """A target pointing against a generator cannot be reached as well as an
-    in-cone target."""
-    E, d_in, d_out, _ = cone_fixture
-    r_in = rx.reachability(E, d_in)
-    r_out = rx.reachability(E, d_out)
-    assert r_out.reachable_cosine < r_in.reachable_cosine
+@pytest.mark.parametrize("maximum_scale", [1e4, 1e8, 1e12, 1e16])
+def test_positive_atom_rescaling_stress_grid(maximum_scale):
+    rng = np.random.default_rng(7)
+    effects = rng.normal(size=(5, 8))
+    target = rng.normal(size=8)
+    base = rx.project_cone(effects, target)
+    scales = np.geomspace(1.0, maximum_scale, effects.shape[0])
+    stressed = rx.project_cone(effects * scales[:, None], target)
+
+    np.testing.assert_allclose(stressed.fitted, base.fitted, rtol=1e-8, atol=1e-9)
+    assert np.isfinite(stressed.kkt_violation)
+    assert stressed.kkt_violation < 1e-8
 
 
-def test_property_nonnegative_weights(cone_fixture):
-    """The whole point of the cone: fitted weights are non-negative (no
-    unrealizable 'anti-perturbations')."""
-    E, d_in, _, _ = cone_fixture
-    r = rx.reachability(E, d_in)
-    assert np.all(r.weights >= -1e-9)
+def test_held_out_coefficients_are_frozen_before_scoring():
+    effects = np.array([[1.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 1.0]])
+    target = np.array([2.0, 2.0, 0.0, 0.0])
+    result = rx.held_out_alignment(effects, target, [0, 2], [1, 3])
+    np.testing.assert_allclose(result.coefficients, [2.0, 0.0], atol=1e-12)
+    assert result.fit_cosine == pytest.approx(1.0)
+    assert result.held_out_cosine == pytest.approx(1.0)
 
 
-def test_property_signed_decomposition_sums_to_one(cone_fixture):
-    """The signed LOF/GOF/neither decomposition is a 3-way orthogonal split of
-    the target and must sum to 1."""
-    E, _, d_out, _ = cone_fixture
-    s = rx.signed_reachability(E, d_out)
-    total = s.lof_fraction + s.gof_fraction + s.neither_fraction
-    assert abs(total - 1.0) < 0.02
+@pytest.mark.parametrize(
+    "effects,target,fit_idx,score_idx,weights",
+    [
+        (np.ones(4), np.ones(4), [0], [1], None),
+        (np.eye(4), np.ones(3), [0], [1], None),
+        (np.eye(4), np.ones(4), [0, 0], [1], None),
+        (np.eye(4), np.ones(4), [0], [0], None),
+        (np.eye(4), np.ones(4), [0], [4], None),
+        (np.eye(4), np.ones(4), [0.9], [1], None),
+        (np.eye(4), np.ones(4), [True], [1], None),
+        (np.eye(4), np.ones(4), [0], [1], np.ones(3)),
+        (np.eye(4), np.ones(4), [0], [1], [1.0, 0.0, 1.0, 1.0]),
+    ],
+)
+def test_invalid_held_out_problems_fail_closed(effects, target, fit_idx, score_idx, weights):
+    with pytest.raises(rx.InputError):
+        rx.held_out_alignment(
+            effects,
+            target,
+            fit_idx,
+            score_idx,
+            gene_weights=weights,
+        )
 
 
-def test_property_pure_lof_target_is_knockdown_reachable(cone_fixture):
-    """A target built as a non-negative (LOF) mix must be ~fully explained by
-    the knockdown direction, needing ~no activation."""
-    E, d_in, _, _ = cone_fixture
-    s = rx.signed_reachability(E, d_in)
-    assert s.lof_fraction > 0.99
-    assert s.gof_fraction < 0.01
+def test_empirical_p_is_plus_one_and_counts_ties():
+    assert rx.empirical_p(1.0, [0.1, 1.0, 2.0]) == pytest.approx(3 / 4)
+    assert rx.empirical_p(3.0, [0.1, 1.0, 2.0]) == pytest.approx(1 / 4)
 
 
-def test_property_negated_target_needs_activation(cone_fixture):
-    """Negating an in-cone target should flip it into the activation (GOF)
-    half of the joint cone."""
-    E, d_in, _, _ = cone_fixture
-    s = rx.signed_reachability(E, -d_in)
-    assert s.gof_fraction > s.lof_fraction
+@pytest.mark.parametrize(
+    "effects,target,weights",
+    [
+        (np.eye(2), np.zeros(2), None),
+        (np.eye(2), np.array([np.nan, 1.0]), None),
+        (np.eye(2), np.ones(3), None),
+        (np.eye(2), np.ones(2), np.array([1.0, -1.0])),
+        (np.eye(2), np.ones(2), np.zeros(2)),
+    ],
+)
+def test_invalid_problems_fail_closed(effects, target, weights):
+    with pytest.raises(rx.InputError):
+        rx.project_cone(effects, target, gene_weights=weights)
 
 
-def test_property_design_experiment_end_to_end(cone_fixture):
-    """The one-call researcher API must return a coherent design card: verdict,
-    a knee within k_max, and a library that mirrors the spectrum."""
-    E, d_in, _, _ = cone_fixture
-    names = [f"P{i}" for i in range(E.shape[0])]
-    genes = [f"g{j}" for j in range(E.shape[1])]
-    dz = rx.design_experiment(E, d_in, perturbation_names=names, readout_names=genes,
-                              k_max=8, top=10, n_shuffles=10, seed=0)
-    assert 1 <= dz.optimal_k <= 8
-    assert len(dz.library) == dz.spectrum["k"].size
-    assert dz.reachable_cosine > 0.9  # in-cone target designs a strong recipe
+@pytest.mark.parametrize("tolerance", [-1.0, np.nan, np.inf])
+def test_invalid_separator_tolerance_fails_closed(tolerance):
+    with pytest.raises(rx.InputError):
+        rx.project_cone(np.eye(2), np.ones(2), separator_tolerance=tolerance)
 
 
-def test_property_spectrum_is_monotone(cone_fixture):
-    """Cumulative reachable cosine must be non-decreasing as generators are
-    added to the greedy recipe."""
-    E, d_in, _, _ = cone_fixture
-    spec = rx.reachability_spectrum(E, d_in, k_max=8)
-    cos = np.asarray(spec["cosine"] if isinstance(spec, dict) else spec.cosine)
-    assert np.all(np.diff(cos) >= -1e-9)
+@pytest.mark.parametrize("mask", [[1, 0], [np.nan, 0]])
+def test_non_boolean_gene_masks_fail_closed(mask):
+    with pytest.raises(rx.InputError):
+        rx.project_cone(np.eye(2), np.ones(2), gene_mask=mask)
+
+
+def test_legacy_decision_apis_are_removed():
+    for name in (
+        "signed_reachability",
+        "design_experiment",
+        "reachability_spectrum",
+        "activation_certificate",
+        "analytic_anisotropy_null",
+    ):
+        assert not hasattr(rx, name)
