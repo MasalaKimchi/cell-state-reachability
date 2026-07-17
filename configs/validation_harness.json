@@ -1,16 +1,34 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "seed": 20260717,
+  "scenario_seeds": {
+    "active_set_oracle": 11,
+    "degenerate_cones": 23,
+    "grouped_gene_holdout": 37,
+    "maxT_null_calibration": 53,
+    "structured_specificity_calibration": 71
+  },
   "oracle_trials": 48,
   "grouped_splits": 12,
-  "null_trials": 200,
+  "null_trials": 500,
   "null_resamples": 499,
   "n_hypotheses": 5,
+  "structured_trials": 120,
+  "structured_modules": 32,
+  "structured_genes_per_module": 16,
+  "structured_atoms": 12,
+  "structured_common_strength": 2.0,
+  "structured_nuisance_strength": 1.2,
   "thresholds": {
     "max_oracle_fitted_error": 1e-08,
     "max_oracle_objective_error": 1e-10,
     "max_degenerate_fitted_error": 1e-08,
     "max_group_leakage": 0,
-    "max_null_familywise_error_rate": 0.1
+    "max_null_familywise_error_upper_95": 0.075,
+    "min_nuisance_raw_cosine": 0.70,
+    "min_random_gene_optimism_gap": 0.03,
+    "max_null_module_improvement": 0.03,
+    "min_alternative_module_improvement": 0.03,
+    "min_sign_selection_inflation": 0.40
   }
 }

@@ -28,22 +28,20 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 RESULTS = ROOT / "results"
 findings = json.loads((RESULTS / "findings.json").read_text(encoding="utf-8"))
-if findings.get("schema_version") != "1.0.0":
+if findings.get("schema_version") != "2.0.0":
     raise ValueError("unsupported findings schema")
-headline = findings["headline"]
-observed = float(headline["historical_fixed_split_cosine"])
-n_null = int(headline["diagnostic_target_shuffles"])
-split_values = [float(value) for value in headline["split_values"]]
-split_mean = float(headline["held_out_cosine_mean"])
-split_sd = float(headline["held_out_cosine_sd"])
-finding_by_id = {entry["id"]: entry for entry in findings["updated_findings"]}
-target_scope = finding_by_id["target_observation_scope"]["values"]
-target_total = int(target_scope["target_genes_total"])
-target_measured = int(target_scope["target_genes_in_screen"])
-target_analyzed = int(target_scope["final_analyzed_genes"])
-top_50_measured = int(target_scope["top_50_surviving"])
-if len(split_values) != 12 or n_null != 60:
-    raise ValueError("unexpected registered split/shuffle counts")
+alignment = findings["source_bound_alignment"]
+split_values = [float(value) for value in alignment["split_values"]]
+split_mean = float(alignment["held_out_cosine_mean"])
+split_sd = float(alignment["held_out_cosine_sd"])
+target_scope = findings["target_lineage"]
+target_total = int(target_scope["union_genes"])
+target_measured = int(target_scope["shared_screen_genes"])
+target_analyzed = int(target_scope["registered_genes"])
+transfer = findings["cross_source_directional_transfer"]
+arce = findings["arce_external_validation"]["spearman"]
+if len(split_values) != 12:
+    raise ValueError("unexpected source-bound split count")
 
 
 # restrained, print-safe palette
@@ -164,7 +162,7 @@ step_header(x, 1, "Inputs", "source objects reused from Zhu workflow")
 
 box(x + 1.7, 60.0, pw - 3.4, 11.0, fc=BLUE_LIGHT, ec="#C9D7E8", lw=1.0, radius=0.6)
 label(x + 3.0, 68.0, "TARGET DIRECTION  d", size=8.4, color=BLUE, weight="bold")
-label(x + 3.0, 64.5, "External Th1-vs-Th2 population contrast\n(not an observed trajectory)", size=9.2, color=NAVY)
+label(x + 3.0, 64.5, "Source-study-reused population contrast\n(not independent or a trajectory)", size=9.2, color=NAVY)
 
 box(x + 1.7, 44.7, pw - 3.4, 11.0, fc=TEAL_LIGHT, ec="#BDD9D2", lw=1.0, radius=0.6)
 label(x + 3.0, 52.7, "EFFECT DICTIONARY  E", size=8.4, color=TEAL, weight="bold")
@@ -173,7 +171,7 @@ label(x + 3.0, 49.2, "Screen-derived CRISPRi DE z-scores\nin post-expansion Rest
 label(
     x + 1.8,
     36.8,
-    f"Raw screen overlap: {target_measured:,} / {target_total:,}\n"
+    f"Target union: {target_total:,}; shared screen: {target_measured:,}\n"
     f"Final merged analysis: {target_analyzed:,} genes\n"
     "Dictionary is donor-collapsed; not\nmeasured in polarized Th2 cells",
     size=8.7,
@@ -228,7 +226,7 @@ label(x + 11.6, 64.1, "unmatched\nresidual", size=8.1, color=GOLD, weight="bold"
 label(
     x + 1.7,
     28.0,
-    "Non-negative linear combinations\nin screen z-score space\nResidual is model-relative",
+    "Non-negative linear combinations\nin declared effect space\nResidual is model-relative",
     size=8.6,
     color=MUTE,
     va="bottom",
@@ -238,31 +236,40 @@ label(
 
 # 3. Retrospective challenge
 x = xs[2]
-step_header(x, 3, "Challenge", "frozen retrospective diagnostics")
+step_header(x, 3, "Challenge", "source-bound + independent tests")
 
 label(x + 1.8, 66.5, f"{split_mean:.3f} ± {split_sd:.3f}", size=23, color=TEAL, weight="bold")
-label(x + 1.9, 61.7, "mean ± SD, 12 fixed random-gene splits", size=8.8, color=NAVY, weight="bold")
-label(x + 1.9, 58.5, "external Th1-like direction", size=8.5, color=MUTE)
+label(x + 1.9, 61.7, "mean ± SD, 12 hash-frozen gene splits", size=8.8, color=NAVY, weight="bold")
+label(x + 1.9, 58.5, "selected population contrast; not trajectory", size=8.5, color=MUTE)
 
 # compact split-stability strip
 sx0, sx1, sy = x + 2.0, x + pw - 2.0, 48.5
-lo, hi = 0.425, 0.465
+lo, hi = min(split_values) - 0.005, max(split_values) + 0.005
 ax.add_line(Line2D([sx0, sx1], [sy, sy], color=BORDER, lw=1.5, zorder=2))
 for value in split_values:
     px = sx0 + (value - lo) / (hi - lo) * (sx1 - sx0)
     ax.add_line(Line2D([px, px], [sy - 1.5, sy + 1.5], color=BLUE, lw=1.2, zorder=3))
 mean_x = sx0 + (split_mean - lo) / (hi - lo) * (sx1 - sx0)
 ax.add_line(Line2D([mean_x, mean_x], [sy - 2.4, sy + 2.4], color=NAVY, lw=2.5, zorder=4))
-label(x + 1.9, 44.3, f"historical fixed split: {observed:.3f}", size=8.7, color=NAVY, weight="bold")
+label(x + 1.9, 44.3, f"range: {min(split_values):.3f}–{max(split_values):.3f}", size=8.7, color=NAVY, weight="bold")
 
 box(x + 1.7, 31.1, pw - 3.4, 8.5, fc=GRAY_LIGHT, ec="#D8DDE0", lw=1.0, radius=0.6)
-label(x + 3.0, 37.5, f"{n_null}/{n_null} diagnostic target shuffles\nbelow observed", size=8.5, color=NAVY, weight="bold", linespacing=1.1)
-label(x + 3.0, 32.8, f"plus-one empirical p = 1/{n_null + 1}", size=8.4, color=MUTE)
+label(x + 3.0, 37.2, "Cross-source cosine gain", size=8.5, color=NAVY, weight="bold")
+label(
+    x + 3.0,
+    33.2,
+    f"+{transfer['ota_to_hollbacker']['mean_cosine_improvement_over_test_selected_better_baseline']:.3f} / "
+    f"+{transfer['hollbacker_to_ota']['mean_cosine_improvement_over_test_selected_better_baseline']:.3f}\n"
+    "magnitude error not improved",
+    size=8.2,
+    color=MUTE,
+)
 
 label(
     x + 1.8,
     29.0,
-    "Retrospective directional evidence;\nnot donor or functional validation",
+    f"Arce rank alignment: {arce['Resting_Teff']:.3f} / {arce['Stimulated_Teff']:.3f} / {arce['Resting_Treg']:.3f}\n"
+    "not donor or state validation",
     size=8.4,
     color=MUTE,
     style="italic",

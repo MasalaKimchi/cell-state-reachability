@@ -1,160 +1,100 @@
 # Updated Findings
 
-This is the human-readable companion to [`results/findings.json`](../results/findings.json).
-The JSON ledger controls displayed values; [`results/manifest.json`](../results/manifest.json)
-controls artifact identity.
+This narrative is controlled by [`results/findings.json`](../results/findings.json); the
+artifact identities are controlled by [`results/manifest.json`](../results/manifest.json).
 
 ## Claim boundary
 
-The current evidence is a retrospective, screen-relative test of transcriptional
-direction under a non-negative linear-combination model. It does not demonstrate cell-state
-conversion, functional rescue, intervention efficacy, biological necessity, or target
-validation.
+The project tests directional support under a non-negative linear-combination model. The
+primary dictionary contains donor-collapsed primary-CD4 CRISPRi differential-expression
+profiles from the source study's post-expansion `Rest` condition. The target is a
+source-study-reused, selectively constructed cross-sectional population contrast oriented
+toward the reported Th1 centroid. It is not independent, an observed trajectory, or a
+measurement from established polarized Th2 cells.
 
-The dictionary contains donor-collapsed primary-CD4 CRISPRi differential-expression
-z-score profiles measured in the source study's post-expansion `Rest` condition. The target is constructed from two external
-Th1-vs-Th2 source contrasts. The perturbations were not applied to established polarized
-Th2 cells.
+## 1. Source-bound directional alignment is variable across gene splits
 
-## 1. Split-stable directional alignment
+With the gene universe ordered lexicographically, split IDs hashed, and NumPy
+`default_rng(seed)` frozen for seeds 0–11, held-out cosine is **0.444 ± 0.018** (mean ±
+SD; range **0.417–0.473**) over 12 half-gene splits. This is split variability, not donor
+uncertainty. Correlated genes make these splits neither independent replicates nor a
+substitute for module holdout.
 
-Across 12 fixed random-gene splits, the held-out cosine is **0.446 ± 0.010** (mean ± SD;
-range 0.433–0.459). The older fixed split gives **0.448**. All 60 diagnostic target
-shuffles fall below that fixed-split value, yielding a conservative plus-one empirical
-**p = 1/61**.
+The earlier **0.446 ± 0.010** table is retired: its script consumed an unhashed, deleted
+`analysis_cache/atlas_work/inputs.npz`, and that object's gene ordering was not preserved.
+The separately archived fixed split (**0.448154**) agrees with the new source-bound seed-0
+split within `3e-10`, confirming source alignment but not reconstructing the old multisplit
+protocol. Its 60 target shuffles were not regenerated and **p = 1/61 is no longer a current
+finding**.
 
-These tests show stability to these particular random gene partitions and shuffles. Genes
-are correlated, so neither test substitutes for module holdout, donor replication, or a
-structured biological null.
+Source: [`source_reconstruction.json`](../results/source_reconstruction.json).
 
-Source: [`headline_heldout_split_stability.csv`](../results/evidence/headline_heldout_split_stability.csv).
+## 2. Target construction materially narrows the estimand
 
-## 2. The cone is interpretable, not the best predictor
+The target table has 25,672 genes in the source union, 11,616 shared by Ota and
+Höllbacher, 7,960 with concordant effect signs, and 6,188 remaining after screen
+intersection. Across the 8,950 shared, screen-measured genes used for leakage-safe source
+transfer, between-source cosine is **0.791** for log fold change and **0.698** for z-score.
+These sources differ in cohort, assay, and preprocessing; agreement is not independence
+from the source study.
 
-On the registered split, held-out cosines are:
+## 3. Cross-source transfer is directional, not magnitude accurate
 
-| Method | Held-out cosine |
-|---|---:|
-| Mean direction | -0.022 |
-| PCA-1 | 0.006 |
-| PCA-5 | 0.225 |
-| Matched random-cone mean | 0.400 |
-| Non-negative cone | **0.446** |
-| Unconstrained least squares | 0.489 |
-| PCA-20 | 0.504 |
-| Ridge (λ=100) | 0.507 |
+The cone is fit to one target source and evaluated against the other without selecting
+genes by held-out-source sign. On log fold change, cone cosine exceeds the better of the
+mean-response ray and best single atom in every one of six correlated random-gene splits:
 
-The cone is useful when non-negativity and measured-effect orientation are part of the
-question. It is not supported as a generally superior predictor.
+| Direction | Mean cone cosine | Mean cosine gain | Mean cone nRMSE | Best-single nRMSE |
+|---|---:|---:|---:|---:|
+| Ota → Höllbacher | 0.255 | +0.087 | 1.185 | 1.003 |
+| Höllbacher → Ota | 0.290 | +0.090 | 1.020 | 0.981 |
 
-Source: [`baseline_comparison.csv`](../results/evidence/baseline_comparison.csv).
+The directional gain is consistent across these splits, but magnitude error is worse than
+the best single and sometimes worse than zero prediction. Baselines remain incomplete
+(no nested PCA, ridge, unconstrained least squares, or matched random cone), and selecting
+the better baseline on the test coordinates is disclosed. This is a construction-sensitivity
+diagnostic, not predictive superiority, donor generalization, or biological validation.
+Z-score results are sensitivity-only.
 
-## 3. A circular calibration claim was retired
+## 4. Independent Arce transfer is modest and context dependent
 
-The previous “71% of modality ceiling” statement divided held-out cosine by a quantity
-that was numerically the in-sample cosine. It was not an independent biological ceiling.
-The retained descriptive replacement is a floor-to-synthetic-reachable-reference dynamic-range
-fraction: **0.463** under the primary uniform metric. An opaque secondary weighting was
-removed rather than interpreted biologically.
+The compact Arce benchmark compares the frozen negative Zhu IL2RA log-fold-change score
+with an independent CRISPR-KO CD25/IL2RA screen. Selection uses only four-guide coverage
+in every Arce context and source-side Rest admission, leaving 480 targets. No Arce outcome
+is used for selection or choosing the sign; orientation is fixed from assay semantics.
 
-The reference comprises 40 reachable-by-construction noisy synthetic targets; it is not a
-biological positive control. This is a sensitivity description, not a probability that the
-target is attainable.
+| Context | Signed Spearman | Signed Kendall | Direction agreement | Magnitude top-25 overlap |
+|---|---:|---:|---:|---:|
+| Resting Teff | 0.148 | 0.102 | 0.538 | 8 |
+| Stimulated Teff | 0.084 | 0.057 | 0.521 | 9 |
+| Resting Treg | 0.088 | 0.061 | 0.535 | 5 |
 
-Sources: [`metric_calibration.csv`](../results/evidence/metric_calibration.csv) and
-[`metric_calibration_provenance.json`](../results/evidence/metric_calibration_provenance.json).
+Resting-Teff rank association is strongest; the other contexts are weaker. Top-k overlap
+ranks absolute magnitudes, while global Spearman/Kendall retain the prespecified sign.
+Permutations exchange target labels, not donors. All 18 context-by-metric permutation
+p-values are unadjusted exploratory diagnostics across correlated tests and support no
+FWER- or FDR-controlled inference. The result supports only modest cross-study,
+cross-modality ranking alignment, not state reachability, donor generalization, or causal
+treatment validation.
 
-## 4. Rest is the strongest observed context
+Sources: [`arce_external_validation_meta.json`](../results/evidence/arce_external_validation_meta.json)
+and [`arce_il2ra_context_predictions.csv`](../results/evidence/arce_il2ra_context_predictions.csv).
 
-Held-out cosine is **0.446** in Rest, **0.293** at Stim8hr, and **0.299** at Stim48hr.
-Stim48hr is run-confounded because all four relevant libraries are on the same sequencing
-run. Rest remains the case-study context; the result is not a polarization time-course
-claim.
+## 5. The systemic harness exposes nonspecific success modes
 
-Sources: [`context_condition_comparison.csv`](../results/evidence/context_condition_comparison.csv)
-and [`context_runbalance_caveat.json`](../results/evidence/context_runbalance_caveat.json).
-
-## 5. Registered confounder challenges
-
-- Removing 46 cell-cycle genes changes held-out cosine by about **-0.002**.
-- The registered cone exceeds a norm-matched null (descriptive z ≈ **2.85**).
-- Positive per-generator rescaling changes fitted cone geometry by at most numerical
-  roundoff in the tested cases.
-
-These checks address specific mechanisms. They do not establish absence of batch,
-cell-state-composition, donor, or other biological confounding.
-
-Source: [`confounder_robustness_summary.json`](../results/evidence/confounder_robustness_summary.json).
-
-## 6. The generator filter was already active
-
-All **6,871** Rest generators in the frozen dictionary were source-flagged significant.
-A stricter top-half effect-size filter improves held-out cosine from 0.4464 to about
-**0.4580**. This addresses generator admission under the source test; it does not turn
-the dictionary into noise-free causal effects.
-
-Source: [`generator_significance_summary.json`](../results/evidence/generator_significance_summary.json).
-
-## 7. Directional ranking has a narrow curated benchmark
-
-On a curated 13-gene polarization panel, the signed cone ranking has directional AUROC
-**1.0**, versus **0.5** for an effect-magnitude baseline. The panel is small and curated;
-this does not replace comparison with a frozen GRN-derived ranking or prospective assay.
-
-Source: [`ranking_validation_summary.json`](../results/evidence/ranking_validation_summary.json).
-
-## 8. Combination semantics are unstable
-
-Across 126 Norman K562 CRISPRa doubles, one retired legacy-v0 threshold label flips when
-measured doubles replace additive approximations, and **100/126 staged proxy labels flip**.
-Those labels used 200 target shuffles and a sequential non-negative `E` then `-E`
-dominant-component heuristic; they are not mechanistic modality assignments. Median
-cosine between measured and additive double effects is 0.712.
-
-This is a useful failure demonstration: a coarse threshold can look stable while the
-retired staged proxy changes. It does not validate primary-CD4 CRISPRi combinations.
-
-Source: [`combination_additivity_sensitivity.json`](../results/evidence/combination_additivity_sensitivity.json).
-
-## 9. Target construction matters
-
-The two external source contrasts have cosine **0.689** across 11,616 shared genes, with
-68.5% sign concordance. This supports a shared direction while also showing that exact
-magnitude depends on source and filtering choices.
-
-Sources: [`reviewer2_ota_hollbacher_meta.json`](../results/evidence/reviewer2_ota_hollbacher_meta.json)
-and [`reviewer2_ota_hollbacher_split.csv`](../results/evidence/reviewer2_ota_hollbacher_split.csv).
-
-Only **9,831/25,672** genes in the union of target-source tables intersect the screen, and
-**38/50** strongest target-table DE genes survive that coverage check. The registered
-merged estimand is narrower: the sources share **11,616** genes, **7,960** have concordant
-signs, and **6,188** remain after screen intersection. Source-only held-out cosines are
-**0.438** for Ota and **0.342** for Höllbacher, versus 0.446 for the concordant merge. The
-headline therefore applies only to those 6,188 measured, jointly signed coordinates; it
-is not evidence about the excluded or unobserved target coordinates.
-
-Source: [`reviewer2_deg_survival.csv`](../results/evidence/reviewer2_deg_survival.csv).
-
-## Input provenance
-
-The target contrasts trace to Ota et al., *Cell* 2021,
-doi:10.1016/j.cell.2021.03.056 (NBDC E-GEAD-397), and Höllbacher et al.,
-*ImmunoHorizons* 2020, doi:10.4049/immunohorizons.2000037 (GEO GSE149090). The
-dictionary is Zhu et al. 2025, doi:10.64898/2025.12.23.696273 (SRP643211 / GSE314342).
-The cross-system combination diagnostic is Norman et al., *Science* 2019,
-doi:10.1126/science.aax4438 (GSE133344). Exact transformations are in
-[`METHODS.md`](METHODS.md).
+The data-free harness independently checks the NNLS solver and fails closed on axis and
+provenance corruption. Its structured-specificity scenario produces high raw cosine from
+a nuisance common response, shows random-gene optimism relative to module holdout, and
+shows large sign-selection inflation while retaining power for a sparse true alternative.
+The fast maxT check has 24/500 false family rejections; its exact one-sided 95% upper bound
+is 0.067 under the declared 0.075 gate. This certifies software and synthetic statistical
+contracts only.
 
 ## What remains unknown
 
-Claim-bearing biological evidence still requires:
-
-- grouped/module holdouts and structured null calibration;
-- true donor-held-out effects;
-- measured in-domain combinations;
-- paired measured CRISPRi and CRISPRa dictionaries;
-- chromatin, protein/cytokine, viability, durability, and phenotype readouts;
-- prospective validation from an established polarized starting state.
-
-Until then, the appropriate output is a model-relative direction test and a reasoned next
+Claim-bearing biological evidence still requires donor- and guide-held-out effects,
+module/pathway holdouts, stronger nested baselines, calibrated structured nulls, measured
+in-domain combinations, paired CRISPRi/CRISPRa, chromatin and protein/function endpoints,
+durability and fitness, and prospective testing from an established polarized starting
+state. Until then the appropriate output is a model-relative direction test and the next
 measurement—not a reachability verdict or intervention recommendation.

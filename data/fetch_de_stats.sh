@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FILE="${1:-GWCD4i.DE_stats.h5ad}"
 PREFIX="s3://genome-scale-tcell-perturb-seq/marson2025_data"
-TARGET_URL="https://raw.githubusercontent.com/emdann/GWT_perturbseq_analysis_2025/master/metadata/suppl_tables/Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv"
+TARGET_URL="https://raw.githubusercontent.com/emdann/GWT_perturbseq_analysis_2025/848d62fc2b7027f7218d6fc5f5b0c37255dc94af/metadata/suppl_tables/Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv"
 OUT="$ROOT/data/$FILE"
 PART="$OUT.part"
 

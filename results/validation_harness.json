@@ -1,10 +1,10 @@
 {
-  "config_sha256": "f1c5e385409adc4befcd7b91ecb2ae020d83b2ba8dc74566a44e0780357e95a1",
+  "config_sha256": "99c1b8b02593b3a2238f1656bb9baefff2f2661b80c3e85ed5c3bc8440fba90c",
   "generated_on": "2026-07-17",
   "scenarios": {
     "active_set_oracle": {
-      "max_relative_fitted_error": 1.717646194249641e-14,
-      "max_relative_objective_error": 2.220446049250313e-16,
+      "max_relative_fitted_error": 4.4430670093426134e-15,
+      "max_relative_objective_error": 1.6653345369377348e-16,
       "status": "PASS",
       "trials": 48
     },
@@ -13,14 +13,14 @@
         "atom_rescaling_1e-8_to_1e8",
         "duplicate_near_duplicate_zero"
       ],
-      "max_relative_fitted_error": 6.58921342300315e-17,
+      "max_relative_fitted_error": 2.748479588402769e-17,
       "status": "PASS"
     },
     "grouped_gene_holdout": {
       "group_leakage_count": 0,
-      "held_out_cosine_mean": 0.9979767161533704,
-      "held_out_cosine_min": 0.9919873924392736,
-      "held_out_cosine_sd": 0.00259911043389256,
+      "held_out_cosine_mean": 0.9956544280823891,
+      "held_out_cosine_min": 0.9857849751799165,
+      "held_out_cosine_sd": 0.003981782227979772,
       "splits": 12,
       "status": "PASS"
     },
@@ -32,14 +32,32 @@
     },
     "maxT_null_calibration": {
       "adjusted_p_never_below_marginal": true,
-      "familywise_error_rate_at_0.05": 0.035,
+      "familywise_error_rate_at_0.05": 0.048,
+      "familywise_error_upper_95": 0.0668432840812102,
+      "familywise_rejections": 24,
       "hypotheses_per_trial": 5,
       "resamples_per_trial": 499,
       "status": "PASS",
-      "trials": 200
+      "trials": 500
+    },
+    "structured_specificity_calibration": {
+      "alternative_module_holdout_improvement_mean": 0.04279191345091244,
+      "atoms": 12,
+      "common_strength": 2.0,
+      "genes_per_module": 16,
+      "modules": 32,
+      "nuisance_strength": 1.2,
+      "null_common_response_cosine_mean": 0.8616534643726418,
+      "null_module_holdout_improvement_mean": -0.023847333113280897,
+      "null_random_gene_improvement_mean": 0.027582598127370444,
+      "null_raw_random_gene_cosine_mean": 0.8892360625000123,
+      "random_gene_optimism_gap": 0.051429931240651344,
+      "sign_selection_cosine_inflation_mean": 0.6427917338322368,
+      "status": "PASS",
+      "trials": 120
     }
   },
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "scope": "deterministic synthetic software/statistical contract; not biological validation",
   "status": "PASS"
 }

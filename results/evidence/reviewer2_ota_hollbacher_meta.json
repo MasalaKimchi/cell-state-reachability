@@ -1,8 +1,0 @@
-{
-  "between_study_cosine": 0.689,
-  "between_study_pearson": 0.689,
-  "genes_shared": 11616,
-  "genes_sign_concordant_kept": 7960,
-  "pct_concordant": 68.5,
-  "interpretation": "The sources share a broad direction, but sign-concordance selects mutually agreeing genes and the merged analysis is not an independent source-transfer test."
-}

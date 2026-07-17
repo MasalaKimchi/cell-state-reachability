@@ -1,0 +1,256 @@
+{
+  "attrition": {
+    "analysis_eligible": 480,
+    "four_guide_eligible": 1347,
+    "generator_available_eligible": 1259,
+    "screen_rows": 1351
+  },
+  "benchmark": "arce_il2ra_context_transfer_v1",
+  "claim_ceiling": "cross-study/cross-modality ranking alignment, not state reachability/donor generalization/causal validation",
+  "config_sha256": "217ab5ded9ef4cb49a1ed7ff8230f03a1383a422895260d1d23d35f7db22f05e",
+  "contexts": {
+    "Resting_Teff": {
+      "n_targets": 480,
+      "permutation_seed": 20260717,
+      "point": {
+        "directional_agreement": 0.5375,
+        "directional_n": 480,
+        "kendall": 0.10194850382741821,
+        "spearman": 0.14834927668956896,
+        "top_k": {
+          "100": {
+            "jaccard": 0.19760479041916168,
+            "overlap": 33
+          },
+          "25": {
+            "jaccard": 0.19047619047619047,
+            "overlap": 8
+          },
+          "50": {
+            "jaccard": 0.16279069767441862,
+            "overlap": 14
+          }
+        }
+      },
+      "target_label_permutation": {
+        "directional_agreement": {
+          "null_center": 0.498046875,
+          "null_lower": 0.45416666666666666,
+          "null_upper": 0.5416666666666666,
+          "observed": 0.5375,
+          "permutation_p": 0.09495252373813093
+        },
+        "kendall": {
+          "null_center": 0.0,
+          "null_lower": -0.05938761308281141,
+          "null_upper": 0.05949982602644397,
+          "observed": 0.10194850382741821,
+          "permutation_p": 0.0009995002498750624
+        },
+        "spearman": {
+          "null_center": 0.0,
+          "null_lower": -0.08839030605601585,
+          "null_upper": 0.08847287748644736,
+          "observed": 0.14834927668956896,
+          "permutation_p": 0.0009995002498750624
+        },
+        "top_k": {
+          "100": {
+            "null_lower": 14.0,
+            "null_upper": 28.0,
+            "observed_overlap": 33,
+            "permutation_p": 0.0009995002498750624
+          },
+          "25": {
+            "null_lower": 0.0,
+            "null_upper": 4.0,
+            "observed_overlap": 8,
+            "permutation_p": 0.0004997501249375312
+          },
+          "50": {
+            "null_lower": 2.0,
+            "null_upper": 10.0,
+            "observed_overlap": 14,
+            "permutation_p": 0.0009995002498750624
+          }
+        }
+      }
+    },
+    "Resting_Treg": {
+      "n_targets": 480,
+      "permutation_seed": 20260719,
+      "point": {
+        "directional_agreement": 0.5354166666666667,
+        "directional_n": 480,
+        "kendall": 0.0611522368867681,
+        "spearman": 0.0879813436680143,
+        "top_k": {
+          "100": {
+            "jaccard": 0.14942528735632185,
+            "overlap": 26
+          },
+          "25": {
+            "jaccard": 0.1111111111111111,
+            "overlap": 5
+          },
+          "50": {
+            "jaccard": 0.1111111111111111,
+            "overlap": 10
+          }
+        }
+      },
+      "target_label_permutation": {
+        "directional_agreement": {
+          "null_center": 0.500625,
+          "null_lower": 0.45625,
+          "null_upper": 0.5479166666666667,
+          "observed": 0.5354166666666667,
+          "permutation_p": 0.15542228885557222
+        },
+        "kendall": {
+          "null_center": 0.0,
+          "null_lower": -0.05838516340829286,
+          "null_upper": 0.0588831670443906,
+          "observed": 0.0611522368867681,
+          "permutation_p": 0.04097951024487756
+        },
+        "spearman": {
+          "null_center": 0.0,
+          "null_lower": -0.08846292537418389,
+          "null_upper": 0.08782119892128443,
+          "observed": 0.0879813436680143,
+          "permutation_p": 0.050974512743628186
+        },
+        "top_k": {
+          "100": {
+            "null_lower": 14.0,
+            "null_upper": 28.0,
+            "observed_overlap": 26,
+            "permutation_p": 0.09045477261369315
+          },
+          "25": {
+            "null_lower": 0.0,
+            "null_upper": 4.0,
+            "observed_overlap": 5,
+            "permutation_p": 0.00399800099950025
+          },
+          "50": {
+            "null_lower": 2.0,
+            "null_upper": 9.0,
+            "observed_overlap": 10,
+            "permutation_p": 0.020989505247376312
+          }
+        }
+      }
+    },
+    "Stimulated_Teff": {
+      "n_targets": 480,
+      "permutation_seed": 20260718,
+      "point": {
+        "directional_agreement": 0.5208333333333334,
+        "directional_n": 480,
+        "kendall": 0.0567158726176,
+        "spearman": 0.0835239130553906,
+        "top_k": {
+          "100": {
+            "jaccard": 0.14285714285714285,
+            "overlap": 25
+          },
+          "25": {
+            "jaccard": 0.21951219512195122,
+            "overlap": 9
+          },
+          "50": {
+            "jaccard": 0.13636363636363635,
+            "overlap": 12
+          }
+        }
+      },
+      "target_label_permutation": {
+        "directional_agreement": {
+          "null_center": 0.500859375,
+          "null_lower": 0.45416666666666666,
+          "null_upper": 0.5458333333333333,
+          "observed": 0.5208333333333334,
+          "permutation_p": 0.4052973513243378
+        },
+        "kendall": {
+          "null_center": 0.0,
+          "null_lower": -0.05891143799316476,
+          "null_upper": 0.058859245472350996,
+          "observed": 0.0567158726176,
+          "permutation_p": 0.06046976511744128
+        },
+        "spearman": {
+          "null_center": 0.0,
+          "null_lower": -0.08844549772598298,
+          "null_upper": 0.08854816066628773,
+          "observed": 0.0835239130553906,
+          "permutation_p": 0.06446776611694154
+        },
+        "top_k": {
+          "100": {
+            "null_lower": 14.0,
+            "null_upper": 28.0,
+            "observed_overlap": 25,
+            "permutation_p": 0.16141929035482258
+          },
+          "25": {
+            "null_lower": 0.0,
+            "null_upper": 4.0,
+            "observed_overlap": 9,
+            "permutation_p": 0.0004997501249375312
+          },
+          "50": {
+            "null_lower": 1.9750000000000014,
+            "null_upper": 9.0,
+            "observed_overlap": 12,
+            "permutation_p": 0.0024987506246876563
+          }
+        }
+      }
+    }
+  },
+  "generated_on": "2026-07-17",
+  "input_verification": {
+    "arce": {
+      "archive_bytes": 57967623,
+      "archive_md5": "886ed0fea0b9dc0625355c2e4928077c",
+      "archive_path": "data/Arce_data_tables.zip",
+      "archive_sha256": "dc9e2efb04d24f1a6d4b8db6a8b1d5cd01c935777c3740088be339de5b5062b4",
+      "member_bytes": 384225,
+      "member_path": "data_tables/S1_all_screens_gene_summary.xlsx",
+      "member_sha256": "f03aa438d0a3a555129bb16e6d24d94b11b9f896e72a425e84256ab36fc5c82e",
+      "sheet": "S1_all_screens_gene_summary"
+    },
+    "zhu_generator": {
+      "admitted_rows": 6871,
+      "bytes": 16786240107,
+      "condition": "Rest",
+      "condition_rows": 11287,
+      "full_file_sha256_verified": false,
+      "identity_note": "The exact used target/effect/admission projection is hash-bound; the 16.8 GB container is byte-bound.",
+      "layer": "log_fc",
+      "path": "data/GWCD4i.DE_stats.h5ad",
+      "predictor_sha256": "1b449a7719d11cf2a5b5835780209904e7fdd5652651ae09dbd5facb525a17b2",
+      "target_gene": "IL2RA"
+    }
+  },
+  "limitations": [
+    "S1 is an aggregate functional screen and does not expose donor-level effects.",
+    "The Zhu predictor is donor-collapsed CRISPRi whereas Arce S1 is CRISPR-KO CD25/IL2RA screening.",
+    "Permutation intervals quantify target-label exchangeability, not biological donor uncertainty.",
+    "All context-by-metric permutation p-values are unadjusted exploratory diagnostics across correlated tests; they support no FWER- or FDR-controlled inference."
+  ],
+  "permutation_inference": "none; all permutation p-values are unadjusted exploratory diagnostics across correlated metrics and contexts",
+  "schema_version": "1.0.0",
+  "selection_contract": {
+    "generator_eligibility": "Rest row exists and ontarget_significant is true",
+    "orientation_rationale": "S1 positive LFC denotes enrichment of perturbations that lower CD25/IL2RA, so the biologically matched regulator score is negative Zhu IL2RA log_fc; this sign is fixed before outcome scoring.",
+    "outcome_fields_used_for_selection": [],
+    "predictor_orientation_multiplier": -1.0,
+    "rank_association": "signed_after_prespecified_orientation",
+    "screen_eligibility": "exactly four S1 guides in every registered context",
+    "top_k_ranking": "absolute_magnitude"
+  }
+}

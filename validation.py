@@ -13,6 +13,7 @@ import re
 from typing import Iterable
 
 import numpy as np
+from scipy.stats import beta
 
 from reachability import InputError
 
@@ -64,6 +65,14 @@ class AlignedProblem:
     target_provenance: Provenance
     effects_gene_fraction: float
     target_gene_fraction: float
+
+
+@dataclass(frozen=True)
+class LabeledNullColumn:
+    """One null-score column with explicit synchronized resample identities."""
+
+    values: np.ndarray
+    resample_ids: tuple[str, ...]
 
 
 def _validate_provenance(provenance: Provenance) -> None:
@@ -279,3 +288,83 @@ def max_t_empirical_p(observed: Iterable[float], null_scores: np.ndarray) -> np.
     return np.asarray(
         [(1 + np.count_nonzero(maxima >= value)) / (null.shape[0] + 1) for value in values]
     )
+
+
+def stack_synchronized_nulls(
+    columns: Iterable[tuple[str, LabeledNullColumn]],
+) -> tuple[tuple[str, ...], tuple[str, ...], np.ndarray]:
+    """Stack hypothesis-wise null scores only when resample rows align exactly."""
+
+    materialized = tuple(columns)
+    if not materialized:
+        raise InputError("at least one labelled null column is required")
+    hypotheses = tuple(name for name, _ in materialized)
+    if any(not isinstance(name, str) or not name.strip() for name in hypotheses):
+        raise InputError("null hypothesis labels must be non-empty strings")
+    if len(set(hypotheses)) != len(hypotheses):
+        raise InputError("null hypothesis labels must be unique")
+
+    reference_ids: tuple[str, ...] | None = None
+    values = []
+    for _, column in materialized:
+        vector = np.asarray(column.values, dtype=float)
+        identifiers = tuple(column.resample_ids)
+        if vector.ndim != 1 or vector.size == 0 or not np.all(np.isfinite(vector)):
+            raise InputError("each labelled null column must be a non-empty finite vector")
+        if len(identifiers) != vector.size:
+            raise InputError("null resample IDs must match the score vector")
+        if any(not isinstance(item, str) or not item.strip() for item in identifiers):
+            raise InputError("null resample IDs must be non-empty strings")
+        if len(set(identifiers)) != len(identifiers):
+            raise InputError("null resample IDs must be unique")
+        if reference_ids is None:
+            reference_ids = identifiers
+        elif identifiers != reference_ids:
+            raise InputError("null resample rows are not synchronized across hypotheses")
+        values.append(vector)
+    assert reference_ids is not None
+    return hypotheses, reference_ids, np.column_stack(values)
+
+
+def holm_adjusted_p(p_values: Iterable[float]) -> np.ndarray:
+    """Holm familywise adjusted p-values for valid marginal p-values."""
+
+    values = np.asarray(tuple(p_values), dtype=float)
+    if (
+        values.ndim != 1
+        or values.size == 0
+        or not np.all(np.isfinite(values))
+        or np.any(values < 0)
+        or np.any(values > 1)
+    ):
+        raise InputError("p_values must be a non-empty finite vector in [0, 1]")
+    order = np.argsort(values, kind="mergesort")
+    ranked = values[order]
+    adjusted_ranked = np.maximum.accumulate(
+        (values.size - np.arange(values.size)) * ranked
+    )
+    adjusted = np.empty_like(values)
+    adjusted[order] = np.minimum(adjusted_ranked, 1.0)
+    return adjusted
+
+
+def binomial_upper_confidence_bound(
+    successes: int, trials: int, *, confidence: float = 0.95
+) -> float:
+    """One-sided exact Clopper-Pearson upper confidence bound."""
+
+    if (
+        not isinstance(successes, int)
+        or isinstance(successes, bool)
+        or not isinstance(trials, int)
+        or isinstance(trials, bool)
+        or trials < 1
+        or successes < 0
+        or successes > trials
+    ):
+        raise InputError("successes and trials must be integers with 0 <= successes <= trials")
+    if not np.isfinite(confidence) or not 0 < confidence < 1:
+        raise InputError("confidence must be in (0, 1)")
+    if successes == trials:
+        return 1.0
+    return float(beta.ppf(confidence, successes + 1, trials - successes))

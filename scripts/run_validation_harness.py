@@ -24,6 +24,7 @@ from validation import (
     Provenance,
     active_set_oracle,
     align_labeled_problem,
+    binomial_upper_confidence_bound,
     grouped_gene_splits,
     max_t_empirical_p,
 )
@@ -39,6 +40,30 @@ def _sha256(path: Path) -> str:
 
 def _gate(value: float, threshold: float) -> bool:
     return bool(np.isfinite(value) and value <= threshold)
+
+
+def _cosine(first: np.ndarray, second: np.ndarray) -> float:
+    norm_first = float(np.linalg.norm(first))
+    norm_second = float(np.linalg.norm(second))
+    if norm_first == 0 or norm_second == 0:
+        return 0.0
+    return float((first / norm_first) @ (second / norm_second))
+
+
+def _specificity_scores(
+    effects: np.ndarray,
+    target: np.ndarray,
+    fit: np.ndarray,
+    score: np.ndarray,
+) -> tuple[float, float, float]:
+    cone = project_cone(effects[:, fit], target[fit])
+    cone_prediction = cone.coefficients @ effects
+    common_direction = np.mean(effects, axis=0, keepdims=True)
+    common = project_cone(common_direction[:, fit], target[fit])
+    common_prediction = common.coefficients @ common_direction
+    cone_cosine = _cosine(cone_prediction[score], target[score])
+    common_cosine = _cosine(common_prediction[score], target[score])
+    return cone_cosine, common_cosine, cone_cosine - common_cosine
 
 
 def _oracle_scenario(config: dict[str, Any], rng: np.random.Generator) -> dict[str, Any]:
@@ -212,8 +237,9 @@ def _null_scenario(config: dict[str, Any], rng: np.random.Generator) -> dict[str
         adjusted_not_below_marginal &= bool(np.all(adjusted >= marginal))
         rejections += int(np.any(adjusted <= 0.05))
     rate = rejections / config["null_trials"]
+    upper = binomial_upper_confidence_bound(rejections, config["null_trials"])
     passed = adjusted_not_below_marginal and _gate(
-        rate, config["thresholds"]["max_null_familywise_error_rate"]
+        upper, config["thresholds"]["max_null_familywise_error_upper_95"]
     )
     return {
         "status": "PASS" if passed else "FAIL",
@@ -221,25 +247,155 @@ def _null_scenario(config: dict[str, Any], rng: np.random.Generator) -> dict[str
         "hypotheses_per_trial": config["n_hypotheses"],
         "resamples_per_trial": config["null_resamples"],
         "familywise_error_rate_at_0.05": rate,
+        "familywise_rejections": rejections,
+        "familywise_error_upper_95": upper,
         "adjusted_p_never_below_marginal": adjusted_not_below_marginal,
     }
 
 
+def _structured_specificity_scenario(
+    config: dict[str, Any], rng: np.random.Generator
+) -> dict[str, Any]:
+    """Expose common-response, module-leakage, and sign-selection optimism."""
+
+    trials = config["structured_trials"]
+    n_modules = config["structured_modules"]
+    genes_per_module = config["structured_genes_per_module"]
+    n_atoms = config["structured_atoms"]
+    common_strength = config["structured_common_strength"]
+    nuisance_strength = config["structured_nuisance_strength"]
+    n_genes = n_modules * genes_per_module
+    module_ids = np.repeat(np.arange(n_modules), genes_per_module)
+
+    null_raw = []
+    null_common = []
+    null_random_delta = []
+    null_group_delta = []
+    alternative_group_delta = []
+    selection_inflation = []
+
+    for _ in range(trials):
+        common = np.repeat(rng.normal(size=n_modules), genes_per_module)
+        common += rng.normal(scale=0.15, size=n_genes)
+        common /= np.std(common)
+
+        atom_modules = rng.normal(size=(n_atoms, n_modules))
+        atom_modules -= np.mean(atom_modules, axis=0, keepdims=True)
+        specific = np.repeat(atom_modules, genes_per_module, axis=1)
+        specific += rng.normal(scale=0.05, size=(n_atoms, n_genes))
+        effects = common_strength * common + specific
+
+        nuisance = np.repeat(rng.normal(size=n_modules), genes_per_module)
+        null_target = common_strength * common + nuisance_strength * nuisance
+        null_target += rng.normal(scale=0.10, size=n_genes)
+
+        random_order = rng.permutation(n_genes)
+        random_fit = np.sort(random_order[: n_genes // 2])
+        random_score = np.sort(random_order[n_genes // 2 :])
+        module_order = rng.permutation(n_modules)
+        fit_modules = set(module_order[: n_modules // 2])
+        group_fit = np.flatnonzero(
+            np.fromiter((item in fit_modules for item in module_ids), dtype=bool)
+        )
+        group_score = np.flatnonzero(
+            np.fromiter((item not in fit_modules for item in module_ids), dtype=bool)
+        )
+
+        random_metrics = _specificity_scores(
+            effects, null_target, random_fit, random_score
+        )
+        group_metrics = _specificity_scores(
+            effects, null_target, group_fit, group_score
+        )
+        null_raw.append(random_metrics[0])
+        null_common.append(random_metrics[1])
+        null_random_delta.append(random_metrics[2])
+        null_group_delta.append(group_metrics[2])
+
+        support = rng.choice(n_atoms, size=3, replace=False)
+        support_weights = rng.dirichlet(np.ones(3))
+        alternative_target = support_weights @ effects[support]
+        alternative_target += rng.normal(scale=0.10, size=n_genes)
+        alternative_group_delta.append(
+            _specificity_scores(
+                effects, alternative_target, group_fit, group_score
+            )[2]
+        )
+
+        source_a = rng.normal(size=n_genes)
+        source_b = rng.normal(size=n_genes)
+        unselected = _cosine(source_a, source_b)
+        selected = np.sign(source_a) == np.sign(source_b)
+        selected_cosine = _cosine(source_a[selected], source_b[selected])
+        selection_inflation.append(selected_cosine - unselected)
+
+    summary = {
+        "trials": trials,
+        "modules": n_modules,
+        "genes_per_module": genes_per_module,
+        "atoms": n_atoms,
+        "common_strength": common_strength,
+        "nuisance_strength": nuisance_strength,
+        "null_raw_random_gene_cosine_mean": float(np.mean(null_raw)),
+        "null_common_response_cosine_mean": float(np.mean(null_common)),
+        "null_random_gene_improvement_mean": float(np.mean(null_random_delta)),
+        "null_module_holdout_improvement_mean": float(np.mean(null_group_delta)),
+        "random_gene_optimism_gap": float(
+            np.mean(null_random_delta) - np.mean(null_group_delta)
+        ),
+        "alternative_module_holdout_improvement_mean": float(
+            np.mean(alternative_group_delta)
+        ),
+        "sign_selection_cosine_inflation_mean": float(np.mean(selection_inflation)),
+    }
+    thresholds = config["thresholds"]
+    passed = (
+        summary["null_raw_random_gene_cosine_mean"]
+        >= thresholds["min_nuisance_raw_cosine"]
+        and summary["random_gene_optimism_gap"]
+        >= thresholds["min_random_gene_optimism_gap"]
+        and summary["null_module_holdout_improvement_mean"]
+        <= thresholds["max_null_module_improvement"]
+        and summary["alternative_module_holdout_improvement_mean"]
+        >= thresholds["min_alternative_module_improvement"]
+        and summary["sign_selection_cosine_inflation_mean"]
+        >= thresholds["min_sign_selection_inflation"]
+    )
+    return {"status": "PASS" if passed else "FAIL", **summary}
+
+
 def run(config_path: Path) -> dict[str, Any]:
     config = json.loads(config_path.read_text(encoding="utf-8"))
-    if config.get("schema_version") != "1.0.0":
+    if config.get("schema_version") != "1.1.0":
         raise ValueError("unsupported harness config schema")
-    rng = np.random.default_rng(config["seed"])
+    scenario_seeds = config["scenario_seeds"]
+    generators = {
+        name: np.random.default_rng(
+            np.random.SeedSequence([config["seed"], scenario_seeds[name]])
+        )
+        for name in scenario_seeds
+    }
     scenarios = {
-        "active_set_oracle": _oracle_scenario(config, rng),
-        "degenerate_cones": _degeneracy_scenario(config, rng),
+        "active_set_oracle": _oracle_scenario(
+            config, generators["active_set_oracle"]
+        ),
+        "degenerate_cones": _degeneracy_scenario(
+            config, generators["degenerate_cones"]
+        ),
         "label_and_provenance_faults": _label_scenario(),
-        "grouped_gene_holdout": _grouped_split_scenario(config, rng),
-        "maxT_null_calibration": _null_scenario(config, rng),
+        "grouped_gene_holdout": _grouped_split_scenario(
+            config, generators["grouped_gene_holdout"]
+        ),
+        "maxT_null_calibration": _null_scenario(
+            config, generators["maxT_null_calibration"]
+        ),
+        "structured_specificity_calibration": _structured_specificity_scenario(
+            config, generators["structured_specificity_calibration"]
+        ),
     }
     status = "PASS" if all(item["status"] == "PASS" for item in scenarios.values()) else "FAIL"
     return {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "generated_on": "2026-07-17",
         "config_sha256": _sha256(config_path),
         "status": status,

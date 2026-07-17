@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-07-17",
+  "claim_ceiling": "cross-study/cross-modality ranking alignment, not state reachability/donor generalization/causal validation",
+  "dataset": {
+    "doi": "10.5281/zenodo.13924126",
+    "record_url": "https://zenodo.org/records/13924126",
+    "license": "CC-BY-4.0",
+    "archive": {
+      "path": "data/Arce_data_tables.zip",
+      "bytes": 57967623,
+      "md5": "886ed0fea0b9dc0625355c2e4928077c",
+      "sha256": "dc9e2efb04d24f1a6d4b8db6a8b1d5cd01c935777c3740088be339de5b5062b4"
+    },
+    "screen_member": {
+      "path": "data_tables/S1_all_screens_gene_summary.xlsx",
+      "bytes": 384225,
+      "sha256": "f03aa438d0a3a555129bb16e6d24d94b11b9f896e72a425e84256ab36fc5c82e",
+      "sheet": "S1_all_screens_gene_summary"
+    }
+  },
+  "generator": {
+    "path": "data/GWCD4i.DE_stats.h5ad",
+    "bytes": 16786240107,
+    "condition": "Rest",
+    "condition_field": "culture_condition",
+    "perturbation_field": "target_contrast_gene_name",
+    "admission_field": "ontarget_significant",
+    "gene_field": "gene_name",
+    "target_gene": "IL2RA",
+    "layer": "log_fc",
+    "predictor_sha256": "1b449a7719d11cf2a5b5835780209904e7fdd5652651ae09dbd5facb525a17b2"
+  },
+  "benchmark": {
+    "name": "arce_il2ra_context_transfer_v1",
+    "contexts": [
+      "Resting_Teff",
+      "Stimulated_Teff",
+      "Resting_Treg"
+    ],
+    "required_guides_per_context": 4,
+    "observed_lfc_prefix": "pos|lfc.",
+    "parallel_lfc_prefix": "neg|lfc.",
+    "positive_fdr_prefix": "pos|fdr.",
+    "negative_fdr_prefix": "neg|fdr.",
+    "predictor_multiplier": -1.0,
+    "orientation_rationale": "S1 positive LFC denotes enrichment of perturbations that lower CD25/IL2RA, so the biologically matched regulator score is negative Zhu IL2RA log_fc; this sign is fixed before outcome scoring.",
+    "rank_association": "signed_after_prespecified_orientation",
+    "top_k_ranking": "absolute_magnitude",
+    "top_k": [25, 50, 100],
+    "permutations": 2000,
+    "permutation_seed": 20260717,
+    "permutation_interval": [0.025, 0.975],
+    "multiplicity": "none; all permutation p-values are unadjusted exploratory diagnostics across correlated metrics and contexts"
+  },
+  "expected": {
+    "screen_rows": 1351,
+    "four_guide_eligible": 1347,
+    "generator_condition_rows": 11287,
+    "generator_admitted_rows": 6871,
+    "generator_available_eligible": 1259,
+    "analysis_eligible": 480,
+    "effect_rows": 33983,
+    "effect_genes": 10282
+  },
+  "outputs": {
+    "predictions": "results/evidence/arce_il2ra_context_predictions.csv",
+    "metadata": "results/evidence/arce_external_validation_meta.json"
+  }
+}

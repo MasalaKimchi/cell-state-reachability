@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "inputs": {
+    "de_stats": {
+      "path": "data/GWCD4i.DE_stats.h5ad",
+      "bytes": 16786240107,
+      "sha256": "c355f535ff32cf7ba1edc49cf9c6039fe84f2c9ebe4d005515cba75790cfbb62"
+    },
+    "target_table": {
+      "path": "data/Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv",
+      "bytes": 6155771,
+      "sha256": "c47d2df21414ca85e7aa255f4148904eec700fbcd9debc2f734ec97049698444"
+    }
+  },
+  "target": {
+    "gene_field": "variable",
+    "contrast_field": "contrast",
+    "sources": {
+      "hollbacker": "Th2_vs_Th1 (Hollbacker 2021)",
+      "ota": "Th2_vs_Th1 (Ota 2021)"
+    },
+    "value_fields": ["zscore", "log_fc"],
+    "orientation_multiplier": -1.0
+  },
+  "screen": {
+    "condition": "Rest",
+    "condition_field": "culture_condition",
+    "perturbation_field": "target_contrast_gene_name",
+    "admission_field": "ontarget_significant",
+    "gene_field": "gene_name",
+    "layers": ["zscore", "log_fc"]
+  },
+  "expected_profile": {
+    "effect_rows": 33983,
+    "effect_genes": 10282,
+    "rest_admitted_atoms": 6871,
+    "target_union_genes": 25672,
+    "target_shared_genes": 11616,
+    "target_sign_concordant_genes": 7960,
+    "target_screen_overlap_genes": 9831,
+    "target_shared_screen_genes": 8950,
+    "target_final_genes": 6188
+  },
+  "source_bound_splits": {
+    "layer": "zscore",
+    "gene_order": "lexicographic_gene_symbol",
+    "rng": "numpy.default_rng(seed)",
+    "split_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "expected_held_out_cosines": [
+      0.44815423152876266,
+      0.46381374270062015,
+      0.43724497046624927,
+      0.4372725613087182,
+      0.42935595062820325,
+      0.4727581557752738,
+      0.4447651169772037,
+      0.41725801603744844,
+      0.44525035739293745,
+      0.42002655505105535,
+      0.43485920384745963,
+      0.4726663710571365
+    ],
+    "absolute_tolerance": 1e-9,
+    "retired_archived_comparison": {
+      "mean": 0.44643982288328815,
+      "sd": 0.010056164714740098,
+      "fixed_split_cosine": 0.4481542318283321,
+      "reason": "The archived multisplit table depended on a deleted, unhashed inputs.npz whose gene ordering was not preserved. It is retained only as provenance, not a source-reconstructable result."
+    }
+  },
+  "source_transfer": {
+    "layers": ["log_fc", "zscore"],
+    "split_seeds": [0, 1, 2, 3, 4, 5]
+  }
+}

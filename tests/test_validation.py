@@ -1,18 +1,26 @@
 from dataclasses import replace
+import json
+from pathlib import Path
 
 import numpy as np
 import pytest
 
 from reachability import InputError, project_cone
 from validation import (
+    LabeledNullColumn,
     LabeledEffects,
     LabeledTarget,
     Provenance,
     active_set_oracle,
     align_labeled_problem,
+    binomial_upper_confidence_bound,
     grouped_gene_splits,
+    holm_adjusted_p,
     max_t_empirical_p,
+    stack_synchronized_nulls,
 )
+
+from scripts.run_validation_harness import run as run_validation_harness
 
 
 @pytest.fixture
@@ -120,3 +128,62 @@ def test_max_t_is_plus_one_and_no_less_conservative_than_marginal():
     marginal = np.array([2 / 4, 3 / 4])
     np.testing.assert_allclose(adjusted, [3 / 4, 1.0])
     assert np.all(adjusted >= marginal)
+
+
+def test_null_columns_require_identical_resample_order():
+    first = LabeledNullColumn(np.array([0.1, 0.2]), ("r1", "r2"))
+    second = LabeledNullColumn(np.array([0.3, 0.4]), ("r2", "r1"))
+    with pytest.raises(InputError, match="not synchronized"):
+        stack_synchronized_nulls((("h1", first), ("h2", second)))
+
+
+def test_synchronized_null_columns_stack_with_labels():
+    first = LabeledNullColumn(np.array([0.1, 0.2]), ("r1", "r2"))
+    second = LabeledNullColumn(np.array([0.3, 0.4]), ("r1", "r2"))
+    hypotheses, resamples, matrix = stack_synchronized_nulls(
+        (("h1", first), ("h2", second))
+    )
+    assert hypotheses == ("h1", "h2")
+    assert resamples == ("r1", "r2")
+    np.testing.assert_allclose(matrix, [[0.1, 0.3], [0.2, 0.4]])
+
+
+def test_holm_adjustment_is_monotone_in_ranked_order():
+    adjusted = holm_adjusted_p([0.03, 0.01, 0.5])
+    np.testing.assert_allclose(adjusted, [0.06, 0.03, 0.5])
+
+
+def test_exact_binomial_upper_gate_for_frozen_max_t_run():
+    assert binomial_upper_confidence_bound(7, 200) == pytest.approx(
+        0.06470, abs=5e-5
+    )
+
+
+@pytest.mark.parametrize(
+    "successes,trials", [(-1, 10), (11, 10), (1, 0), (True, 10), (1.0, 10)]
+)
+def test_invalid_binomial_counts_fail_closed(successes, trials):
+    with pytest.raises(InputError):
+        binomial_upper_confidence_bound(successes, trials)
+
+
+def test_harness_scenarios_have_independent_rng_streams(tmp_path):
+    root = Path(__file__).resolve().parents[1]
+    config = json.loads(
+        (root / "configs" / "validation_harness.json").read_text(encoding="utf-8")
+    )
+    baseline_path = tmp_path / "baseline.json"
+    baseline_path.write_text(json.dumps(config), encoding="utf-8")
+    baseline = run_validation_harness(baseline_path)
+
+    config["oracle_trials"] += 1
+    changed_path = tmp_path / "changed.json"
+    changed_path.write_text(json.dumps(config), encoding="utf-8")
+    changed = run_validation_harness(changed_path)
+    for scenario in (
+        "degenerate_cones",
+        "grouped_gene_holdout",
+        "maxT_null_calibration",
+        "structured_specificity_calibration",
+    ):
+        assert changed["scenarios"][scenario] == baseline["scenarios"][scenario]

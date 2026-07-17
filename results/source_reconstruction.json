@@ -1,0 +1,951 @@
+{
+  "claim_ceiling": "Source transfer uses donor-collapsed effects and shared target-table coordinates. It tests construction sensitivity, not donor generalization or state conversion.",
+  "config_sha256": "644bac55dd0feb94dbd3bb86a8b5803763701c14c184e6da5197fa8fbd77e8af",
+  "data_quality": {
+    "h5ad": {
+      "condition_counts": {
+        "Rest": 11287,
+        "Stim48hr": 11281,
+        "Stim8hr": 11415
+      },
+      "effect_genes": 10282,
+      "effect_rows": 33983,
+      "grain": "one perturbation-condition DE profile by measured gene",
+      "inference_unit_warning": "Rows are donor-collapsed perturbation-condition summaries, not donor replicates.",
+      "layers": {
+        "log_fc": {
+          "dtype": "float64",
+          "shape": [
+            33983,
+            10282
+          ]
+        },
+        "zscore": {
+          "dtype": "float64",
+          "shape": [
+            33983,
+            10282
+          ]
+        }
+      },
+      "selected_admitted_atoms": 6871,
+      "selected_condition": "Rest"
+    },
+    "input_verification": {
+      "de_stats": {
+        "bytes": 16786240107,
+        "hash_verified": true,
+        "path": "data/GWCD4i.DE_stats.h5ad",
+        "sha256_actual": "c355f535ff32cf7ba1edc49cf9c6039fe84f2c9ebe4d005515cba75790cfbb62",
+        "sha256_expected": "c355f535ff32cf7ba1edc49cf9c6039fe84f2c9ebe4d005515cba75790cfbb62"
+      },
+      "target_table": {
+        "bytes": 6155771,
+        "hash_verified": true,
+        "path": "data/Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv",
+        "sha256_actual": "c47d2df21414ca85e7aa255f4148904eec700fbcd9debc2f734ec97049698444",
+        "sha256_expected": "c47d2df21414ca85e7aa255f4148904eec700fbcd9debc2f734ec97049698444"
+      }
+    },
+    "target_lineage": {
+      "log_fc": {
+        "between_source_cosine": 0.7567983386799586,
+        "between_source_screen_cosine": 0.7905978929805006,
+        "counts": {
+          "final": 6188,
+          "screen_overlap": 9831,
+          "shared": 11616,
+          "shared_screen": 8950,
+          "sign_concordant": 7960,
+          "union": 25672
+        }
+      },
+      "zscore": {
+        "between_source_cosine": 0.6889055241501802,
+        "between_source_screen_cosine": 0.6977901594206073,
+        "counts": {
+          "final": 6188,
+          "screen_overlap": 9831,
+          "shared": 11616,
+          "shared_screen": 8950,
+          "sign_concordant": 7960,
+          "union": 25672
+        }
+      }
+    },
+    "target_table_rows": 37288
+  },
+  "generated_on": "2026-07-17",
+  "schema_version": "1.0.0",
+  "scope": "source-bound aggregate-screen reconstruction and cross-source diagnostic; not donor, guide, trajectory, or biological validation",
+  "source_bound_splits": {
+    "effect_quality": {
+      "atom_norm_max": 254.1995676151637,
+      "atom_norm_median": 80.34742319625025,
+      "atom_norm_min": 58.412934380599715,
+      "finite_fraction": 1.0,
+      "shape": [
+        6871,
+        6188
+      ],
+      "zero_fraction": 0.0,
+      "zero_norm_atoms": 0
+    },
+    "held_out_cosine_max": 0.4727581557752738,
+    "held_out_cosine_mean": 0.44361876939758904,
+    "held_out_cosine_min": 0.41725801603744844,
+    "held_out_cosine_sd": 0.018433640467017103,
+    "max_absolute_error_vs_frozen_splits": 0.0,
+    "protocol": {
+      "gene_order": "lexicographic_gene_symbol",
+      "rng": "numpy.default_rng(seed)"
+    },
+    "retired_archived_comparison": {
+      "fixed_split_absolute_error": 2.9956942482201043e-10,
+      "fixed_split_cosine": 0.4481542318283321,
+      "mean": 0.44643982288328815,
+      "mean_delta_source_bound_minus_archived": -0.00282105348569911,
+      "reason": "The archived multisplit table depended on a deleted, unhashed inputs.npz whose gene ordering was not preserved. It is retained only as provenance, not a source-reconstructable result.",
+      "sd": 0.010056164714740098,
+      "status": "RETIRED_UNRECONSTRUCTABLE_PROTOCOL"
+    },
+    "splits": [
+      {
+        "fit_cosine": 0.6854872646937376,
+        "fit_gene_sha256": "08230f922e8da87775e7c4c529deed8dd206f427b8a93a362f75a722abdbe81b",
+        "held_out_cosine": 0.44815423152876266,
+        "score_gene_sha256": "e35e4102561a0216c6ed6c9d646b7c54439fad210948e2cb6e34c490b90b6e9f",
+        "seed": 0,
+        "support_size": 708
+      },
+      {
+        "fit_cosine": 0.6692134672822332,
+        "fit_gene_sha256": "dcedc37a56e388ce27181cd2d6e15a9279c21676c535b7d50f268555376762d3",
+        "held_out_cosine": 0.46381374270062015,
+        "score_gene_sha256": "7d09045520706f9bb0f1cca4af349325c321bf9bbbb33e78bac978e7a8075d63",
+        "seed": 1,
+        "support_size": 716
+      },
+      {
+        "fit_cosine": 0.6998588179427605,
+        "fit_gene_sha256": "e8718d84be4905f19988bbc8ad3c69e7ff2f5edc9f4270abb8276b6f391d6521",
+        "held_out_cosine": 0.43724497046624927,
+        "score_gene_sha256": "7cb660bc8af2d730e11aac2def9d50b71f44bf986c8767804cd3c6c8aa1b0431",
+        "seed": 2,
+        "support_size": 726
+      },
+      {
+        "fit_cosine": 0.6818371649426139,
+        "fit_gene_sha256": "5e44281a88fcf548ee52013e7259a1ff714548762bcd3da19fb23c47fa891212",
+        "held_out_cosine": 0.4372725613087182,
+        "score_gene_sha256": "159a183e953b45cc9a43c200698160e4f1947079e6a7ecb3731381b08b99cf05",
+        "seed": 3,
+        "support_size": 745
+      },
+      {
+        "fit_cosine": 0.6929325522779546,
+        "fit_gene_sha256": "1b125c1ca9b515a4fcb74b4bed269774d96b3d009988cb6c10cea7721634268b",
+        "held_out_cosine": 0.42935595062820325,
+        "score_gene_sha256": "2ced82f4c5f9d8607e8f76b4e176202a69bd356db7b068bcd5226d750cf541a7",
+        "seed": 4,
+        "support_size": 740
+      },
+      {
+        "fit_cosine": 0.6758328579788203,
+        "fit_gene_sha256": "c0351d5224f694ec66972ec2677da64aae859d34e1c6bfce258df905a98acf1d",
+        "held_out_cosine": 0.4727581557752738,
+        "score_gene_sha256": "2f969b40b0016c7ba74ffb03575c5a3b27fe196d9ea292ad894de908a8d26516",
+        "seed": 5,
+        "support_size": 691
+      },
+      {
+        "fit_cosine": 0.6846617518256645,
+        "fit_gene_sha256": "be9b99b787f5ca92d80e177b169f98189e7abdf91af5e589a4dd4921cbf36a13",
+        "held_out_cosine": 0.4447651169772037,
+        "score_gene_sha256": "5802f8625c31f1a0d3f4bdb3b3a0957644bc5f6b3d4201e75af47410817f7557",
+        "seed": 6,
+        "support_size": 701
+      },
+      {
+        "fit_cosine": 0.7007858366002873,
+        "fit_gene_sha256": "e0a22449ec85ff9d2cb408c2db30b2500ade0b61f05f13d21cf990ab368e1bca",
+        "held_out_cosine": 0.41725801603744844,
+        "score_gene_sha256": "59d06e8dacfed743791122aa0e8aa5d9a2cf621e89cc6d328289633376cba890",
+        "seed": 7,
+        "support_size": 711
+      },
+      {
+        "fit_cosine": 0.688305598289974,
+        "fit_gene_sha256": "6b63d3d9d9e7768b0e9f04188d35cc4ba50a559e03d6dbaf134edfda32722dd7",
+        "held_out_cosine": 0.44525035739293745,
+        "score_gene_sha256": "c2c80b3412fb425d72c66a49f3ddbd950c96d75a76ca2efa5c5e8b21bf9ed39d",
+        "seed": 8,
+        "support_size": 721
+      },
+      {
+        "fit_cosine": 0.6954862647545771,
+        "fit_gene_sha256": "83f6576b2c523347e331253292aa507866a714bfe6b5a3caddeb4ea5cbec4dc8",
+        "held_out_cosine": 0.42002655505105535,
+        "score_gene_sha256": "06e241212d44048bde5600d293e5ea0616b812e502e21322c839ac6fff917188",
+        "seed": 9,
+        "support_size": 797
+      },
+      {
+        "fit_cosine": 0.6897309464244524,
+        "fit_gene_sha256": "26173677e66f98eb677a5039003a23b090c866fa54ceb6e517c5b4f4364ef9a1",
+        "held_out_cosine": 0.43485920384745963,
+        "score_gene_sha256": "e5a4a2f19910eb4ba59439c2ba4a9d4981de420bab8671fd907ee9467f5849e6",
+        "seed": 10,
+        "support_size": 729
+      },
+      {
+        "fit_cosine": 0.67380524167626,
+        "fit_gene_sha256": "953dc877f51e1f4bb0c508d46c4fb1aebe3cd0b9eb64bad3966ca2d2cce74955",
+        "held_out_cosine": 0.4726663710571365,
+        "score_gene_sha256": "1d0c9d007002fe6a5108180de084a50c88c64606c789a6f0c7ee33648bc07069",
+        "seed": 11,
+        "support_size": 696
+      }
+    ],
+    "status": "PASS"
+  },
+  "source_transfer": {
+    "log_fc": {
+      "between_source_screen_target_cosine": 0.7905978929805006,
+      "between_source_target_cosine": 0.7567983386799586,
+      "directions": {
+        "hollbacker_to_ota": {
+          "all_improvements_positive": true,
+          "cosine_improvement_mean": 0.09042224098140081,
+          "cosine_improvement_sd": 0.05773264940693107,
+          "splits": [
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 344,
+              "cosine_improvement_over_best_baseline": 0.15615760342153043,
+              "fit_gene_sha256": "a90434f02c6c023689e6a8ac81c06d427fccb88d6eadff32ea353ed7812dd6c3",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.1938879729432371,
+                  "norm_ratio": 0.1984185570763028,
+                  "normalized_rmse": 0.9810341381116925,
+                  "sign_agreement": 0.5150837988826815
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.3500455763647675,
+                  "norm_ratio": 0.5613573370070246,
+                  "normalized_rmse": 0.9602711880782373,
+                  "sign_agreement": 0.5573184357541899
+                }
+              },
+              "score_gene_sha256": "6dd215dbb81e92b796c3befa589ccae51c44af629a14b10af867760ffb44c613",
+              "seed": 0
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 356,
+              "cosine_improvement_over_best_baseline": 0.1579473166350305,
+              "fit_gene_sha256": "66d37c6175e8505198cc8c80b8eb89e4131aacf9b64a0f72eba5b0e28e9d1e32",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.17209628901768495,
+                  "norm_ratio": 0.24372796533151495,
+                  "normalized_rmse": 0.9876811045868349,
+                  "sign_agreement": 0.518659217877095
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.33004360565271545,
+                  "norm_ratio": 0.6885680194057645,
+                  "normalized_rmse": 1.009757878713864,
+                  "sign_agreement": 0.5608938547486033
+                }
+              },
+              "score_gene_sha256": "48476629960a5a93431fbcecca256af5dab40d58b42ffa42c7d04f7b742374b2",
+              "seed": 1
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 386,
+              "cosine_improvement_over_best_baseline": 0.05416426736088353,
+              "fit_gene_sha256": "1ed190fd0e4106680a8af190dde221ff5d30586a43751176b8e007715f78b83a",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.2445557529510175,
+                  "norm_ratio": 0.22061747805631987,
+                  "normalized_rmse": 0.969930680359939,
+                  "sign_agreement": 0.5494972067039107
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.29872002031190104,
+                  "norm_ratio": 0.5754748645351003,
+                  "normalized_rmse": 0.993659696911304,
+                  "sign_agreement": 0.56
+                }
+              },
+              "score_gene_sha256": "532d84864b081e2ba581ad4d01f12c724068ede459df36256688cba8d3b77727",
+              "seed": 2
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 371,
+              "cosine_improvement_over_best_baseline": 0.012493805668618019,
+              "fit_gene_sha256": "6c52e16ad517bf485e3b0fc0e9bc6405e39421f002ae2b6ef5df3e59e1954cf1",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.259214801951414,
+                  "norm_ratio": 0.1871583111918416,
+                  "normalized_rmse": 0.9685039103224488,
+                  "sign_agreement": 0.5575418994413408
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.271708607620032,
+                  "norm_ratio": 0.616071371308154,
+                  "normalized_rmse": 1.0221350916391168,
+                  "sign_agreement": 0.5510614525139664
+                }
+              },
+              "score_gene_sha256": "0cba66cc0f1adc45887f20ad34b57ae16464b1a7309783e8c7b7c1728a04da48",
+              "seed": 3
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 354,
+              "cosine_improvement_over_best_baseline": 0.09125656539338306,
+              "fit_gene_sha256": "6dffeb1bd29a3dba3fae32f70589c5898c69e1445d14f2ccc7bcc8bc0aa37dd7",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.13811189036784963,
+                  "norm_ratio": 0.2442144974289774,
+                  "normalized_rmse": 0.9960837660378709,
+                  "sign_agreement": 0.5206703910614525
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.2293684557612327,
+                  "norm_ratio": 0.704053309049985,
+                  "normalized_rmse": 1.08292004388296,
+                  "sign_agreement": 0.5602234636871508
+                }
+              },
+              "score_gene_sha256": "a703b18aba84a2cf50e1197e5caadbaa226ef1ab0c95e0226f64ca1b397faef1",
+              "seed": 4
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 362,
+              "cosine_improvement_over_best_baseline": 0.07051388740895928,
+              "fit_gene_sha256": "b661887fbaf728dad167444b60145970beae805ab468024b0e06d82cf20ccb1d",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.1897445070850927,
+                  "norm_ratio": 0.1988107889691766,
+                  "normalized_rmse": 0.9818753584331548,
+                  "sign_agreement": 0.5224581005586593
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.26025839449405197,
+                  "norm_ratio": 0.6739578336729601,
+                  "normalized_rmse": 1.050434573913255,
+                  "sign_agreement": 0.5693854748603352
+                }
+              },
+              "score_gene_sha256": "ab2d8d7871d232e3a10dfb390978af9b27e2437ddf5d6bda8d7addef2b864418",
+              "seed": 5
+            }
+          ]
+        },
+        "ota_to_hollbacker": {
+          "all_improvements_positive": true,
+          "cosine_improvement_mean": 0.08675331437181583,
+          "cosine_improvement_sd": 0.034666968181631286,
+          "splits": [
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 317,
+              "cosine_improvement_over_best_baseline": 0.11548980919016469,
+              "fit_gene_sha256": "a90434f02c6c023689e6a8ac81c06d427fccb88d6eadff32ea353ed7812dd6c3",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.19051689875239894,
+                  "norm_ratio": 0.32848804454197256,
+                  "normalized_rmse": 0.9913321080043044,
+                  "sign_agreement": 0.49854748603351956
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.3060067079425636,
+                  "norm_ratio": 0.8686603557339921,
+                  "normalized_rmse": 1.1058657341952292,
+                  "sign_agreement": 0.5622346368715084
+                }
+              },
+              "score_gene_sha256": "6dd215dbb81e92b796c3befa589ccae51c44af629a14b10af867760ffb44c613",
+              "seed": 0
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 334,
+              "cosine_improvement_over_best_baseline": 0.06164934087021834,
+              "fit_gene_sha256": "66d37c6175e8505198cc8c80b8eb89e4131aacf9b64a0f72eba5b0e28e9d1e32",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.17738982436393905,
+                  "norm_ratio": 0.3706540148459485,
+                  "normalized_rmse": 1.0029376339208724,
+                  "sign_agreement": 0.5023463687150838
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.23903916523415739,
+                  "norm_ratio": 1.0317253789197085,
+                  "normalized_rmse": 1.2534798406242074,
+                  "sign_agreement": 0.5564245810055866
+                }
+              },
+              "score_gene_sha256": "48476629960a5a93431fbcecca256af5dab40d58b42ffa42c7d04f7b742374b2",
+              "seed": 1
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 355,
+              "cosine_improvement_over_best_baseline": 0.06901527330237656,
+              "fit_gene_sha256": "1ed190fd0e4106680a8af190dde221ff5d30586a43751176b8e007715f78b83a",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.14355458516158773,
+                  "norm_ratio": 0.356661426512252,
+                  "normalized_rmse": 1.0123273220206692,
+                  "sign_agreement": 0.5007821229050279
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.21256985846396428,
+                  "norm_ratio": 0.8264063065919268,
+                  "normalized_rmse": 1.1539537427137037,
+                  "sign_agreement": 0.5568715083798883
+                }
+              },
+              "score_gene_sha256": "532d84864b081e2ba581ad4d01f12c724068ede459df36256688cba8d3b77727",
+              "seed": 2
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 362,
+              "cosine_improvement_over_best_baseline": 0.06125072701742937,
+              "fit_gene_sha256": "6c52e16ad517bf485e3b0fc0e9bc6405e39421f002ae2b6ef5df3e59e1954cf1",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.17285470072431916,
+                  "norm_ratio": 0.3298812211696904,
+                  "normalized_rmse": 0.9973858734515382,
+                  "sign_agreement": 0.5155307262569833
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.23410542774174853,
+                  "norm_ratio": 0.9216704350790792,
+                  "normalized_rmse": 1.1907729792099906,
+                  "sign_agreement": 0.5602234636871508
+                }
+              },
+              "score_gene_sha256": "0cba66cc0f1adc45887f20ad34b57ae16464b1a7309783e8c7b7c1728a04da48",
+              "seed": 3
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 337,
+              "cosine_improvement_over_best_baseline": 0.14399783171431613,
+              "fit_gene_sha256": "6dffeb1bd29a3dba3fae32f70589c5898c69e1445d14f2ccc7bcc8bc0aa37dd7",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.12996225285410223,
+                  "norm_ratio": 0.3428416024500787,
+                  "normalized_rmse": 1.0141141110927756,
+                  "sign_agreement": 0.5237988826815643
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.27396008456841836,
+                  "norm_ratio": 1.0303856799728628,
+                  "normalized_rmse": 1.22357082077264,
+                  "sign_agreement": 0.5640223463687151
+                }
+              },
+              "score_gene_sha256": "a703b18aba84a2cf50e1197e5caadbaa226ef1ab0c95e0226f64ca1b397faef1",
+              "seed": 4
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 348,
+              "cosine_improvement_over_best_baseline": 0.0691169041363899,
+              "fit_gene_sha256": "b661887fbaf728dad167444b60145970beae805ab468024b0e06d82cf20ccb1d",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.1951782469406562,
+                  "norm_ratio": 0.3829732955132006,
+                  "normalized_rmse": 0.998585215286876,
+                  "sign_agreement": 0.4963128491620112
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.2642951510770461,
+                  "norm_ratio": 0.9462650988316542,
+                  "normalized_rmse": 1.181199002182776,
+                  "sign_agreement": 0.5675977653631284
+                }
+              },
+              "score_gene_sha256": "ab2d8d7871d232e3a10dfb390978af9b27e2437ddf5d6bda8d7addef2b864418",
+              "seed": 5
+            }
+          ]
+        }
+      },
+      "effect_quality": {
+        "atom_norm_max": 90.07567350482948,
+        "atom_norm_median": 25.778673520557195,
+        "atom_norm_min": 17.120892046825556,
+        "finite_fraction": 1.0,
+        "shape": [
+          6871,
+          8950
+        ],
+        "zero_fraction": 0.0,
+        "zero_norm_atoms": 0
+      }
+    },
+    "zscore": {
+      "between_source_screen_target_cosine": 0.6977901594206073,
+      "between_source_target_cosine": 0.6889055241501802,
+      "directions": {
+        "hollbacker_to_ota": {
+          "all_improvements_positive": true,
+          "cosine_improvement_mean": 0.2427895590175294,
+          "cosine_improvement_sd": 0.05645036838155922,
+          "splits": [
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 719,
+              "cosine_improvement_over_best_baseline": 0.30133673439791614,
+              "fit_gene_sha256": "a90434f02c6c023689e6a8ac81c06d427fccb88d6eadff32ea353ed7812dd6c3",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.057120082522147474,
+                  "norm_ratio": 0.0456696968295736,
+                  "normalized_rmse": 0.9984329759704329,
+                  "sign_agreement": 0.4947486033519553
+                },
+                "common_response": {
+                  "cosine": -0.035776579384440774,
+                  "norm_ratio": 0.01669977443908884,
+                  "normalized_rmse": 1.0007366307266672,
+                  "sign_agreement": 0.4846927374301676
+                },
+                "cone": {
+                  "cosine": 0.3584568169200636,
+                  "norm_ratio": 0.16243038655946954,
+                  "normalized_rmse": 0.9539051691879313,
+                  "sign_agreement": 0.5881564245810056
+                }
+              },
+              "score_gene_sha256": "6dd215dbb81e92b796c3befa589ccae51c44af629a14b10af867760ffb44c613",
+              "seed": 0
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 693,
+              "cosine_improvement_over_best_baseline": 0.17793643626475644,
+              "fit_gene_sha256": "66d37c6175e8505198cc8c80b8eb89e4131aacf9b64a0f72eba5b0e28e9d1e32",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.1615460638059871,
+                  "norm_ratio": 0.05186917730873683,
+                  "normalized_rmse": 0.9929410298202629,
+                  "sign_agreement": 0.5425698324022347
+                },
+                "common_response": {
+                  "cosine": -0.010832602313160978,
+                  "norm_ratio": 0.010374057130839748,
+                  "normalized_rmse": 1.000166174758925,
+                  "sign_agreement": 0.4860335195530726
+                },
+                "cone": {
+                  "cosine": 0.33948250007074354,
+                  "norm_ratio": 0.17268894205972216,
+                  "normalized_rmse": 0.9552861995965891,
+                  "sign_agreement": 0.5814525139664805
+                }
+              },
+              "score_gene_sha256": "48476629960a5a93431fbcecca256af5dab40d58b42ffa42c7d04f7b742374b2",
+              "seed": 1
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 751,
+              "cosine_improvement_over_best_baseline": 0.2977448739734647,
+              "fit_gene_sha256": "1ed190fd0e4106680a8af190dde221ff5d30586a43751176b8e007715f78b83a",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.05097832370785739,
+                  "norm_ratio": 0.04231532983186771,
+                  "normalized_rmse": 0.9987373318219525,
+                  "sign_agreement": 0.5003351955307263
+                },
+                "common_response": {
+                  "cosine": -0.029168542781620063,
+                  "norm_ratio": 0.01738210685512288,
+                  "normalized_rmse": 1.0006578631548355,
+                  "sign_agreement": 0.4864804469273743
+                },
+                "cone": {
+                  "cosine": 0.3487231976813221,
+                  "norm_ratio": 0.15822034821769218,
+                  "normalized_rmse": 0.956390854751695,
+                  "sign_agreement": 0.5711731843575419
+                }
+              },
+              "score_gene_sha256": "532d84864b081e2ba581ad4d01f12c724068ede459df36256688cba8d3b77727",
+              "seed": 2
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 758,
+              "cosine_improvement_over_best_baseline": 0.2527773071039987,
+              "fit_gene_sha256": "6c52e16ad517bf485e3b0fc0e9bc6405e39421f002ae2b6ef5df3e59e1954cf1",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.07657302066944294,
+                  "norm_ratio": 0.05037920603432669,
+                  "normalized_rmse": 0.9974079849443243,
+                  "sign_agreement": 0.52
+                },
+                "common_response": {
+                  "cosine": -0.04499398453725665,
+                  "norm_ratio": 0.02280611668611005,
+                  "normalized_rmse": 1.0012853714507972,
+                  "sign_agreement": 0.48223463687150836
+                },
+                "cone": {
+                  "cosine": 0.32935032777344164,
+                  "norm_ratio": 0.16870542442968067,
+                  "normalized_rmse": 0.9577761463754736,
+                  "sign_agreement": 0.5754189944134078
+                }
+              },
+              "score_gene_sha256": "0cba66cc0f1adc45887f20ad34b57ae16464b1a7309783e8c7b7c1728a04da48",
+              "seed": 3
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 725,
+              "cosine_improvement_over_best_baseline": 0.17187458453717486,
+              "fit_gene_sha256": "6dffeb1bd29a3dba3fae32f70589c5898c69e1445d14f2ccc7bcc8bc0aa37dd7",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.16537638887480144,
+                  "norm_ratio": 0.05097771538020483,
+                  "normalized_rmse": 0.9928432436694393,
+                  "sign_agreement": 0.5521787709497207
+                },
+                "common_response": {
+                  "cosine": -0.013547974990347102,
+                  "norm_ratio": 0.014337214887958125,
+                  "normalized_rmse": 1.000296973997327,
+                  "sign_agreement": 0.49139664804469274
+                },
+                "cone": {
+                  "cosine": 0.3372509734119763,
+                  "norm_ratio": 0.16058101361423743,
+                  "normalized_rmse": 0.9578486600855104,
+                  "sign_agreement": 0.5894972067039106
+                }
+              },
+              "score_gene_sha256": "a703b18aba84a2cf50e1197e5caadbaa226ef1ab0c95e0226f64ca1b397faef1",
+              "seed": 4
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 786,
+              "cosine_improvement_over_best_baseline": 0.2550674178278655,
+              "fit_gene_sha256": "b661887fbaf728dad167444b60145970beae805ab468024b0e06d82cf20ccb1d",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.08601992628990267,
+                  "norm_ratio": 0.04184823190455884,
+                  "normalized_rmse": 0.9972721348087261,
+                  "sign_agreement": 0.506145251396648
+                },
+                "common_response": {
+                  "cosine": -0.025887410055579065,
+                  "norm_ratio": 0.017640776040175894,
+                  "normalized_rmse": 1.0006120851685747,
+                  "sign_agreement": 0.4956424581005587
+                },
+                "cone": {
+                  "cosine": 0.3410873441177682,
+                  "norm_ratio": 0.1638435226425448,
+                  "normalized_rmse": 0.9565954191474204,
+                  "sign_agreement": 0.5910614525139665
+                }
+              },
+              "score_gene_sha256": "ab2d8d7871d232e3a10dfb390978af9b27e2437ddf5d6bda8d7addef2b864418",
+              "seed": 5
+            }
+          ]
+        },
+        "ota_to_hollbacker": {
+          "all_improvements_positive": true,
+          "cosine_improvement_mean": 0.21032807096216435,
+          "cosine_improvement_sd": 0.027766544137198007,
+          "splits": [
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 698,
+              "cosine_improvement_over_best_baseline": 0.1820909606277265,
+              "fit_gene_sha256": "a90434f02c6c023689e6a8ac81c06d427fccb88d6eadff32ea353ed7812dd6c3",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.13642570263146298,
+                  "norm_ratio": 0.8105043358059776,
+                  "normalized_rmse": 1.1982362168470515,
+                  "sign_agreement": 0.5211173184357542
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.3185166632591895,
+                  "norm_ratio": 2.304824208823936,
+                  "normalized_rmse": 2.2009009066274854,
+                  "sign_agreement": 0.5781005586592178
+                }
+              },
+              "score_gene_sha256": "6dd215dbb81e92b796c3befa589ccae51c44af629a14b10af867760ffb44c613",
+              "seed": 0
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 721,
+              "cosine_improvement_over_best_baseline": 0.17185205653523242,
+              "fit_gene_sha256": "66d37c6175e8505198cc8c80b8eb89e4131aacf9b64a0f72eba5b0e28e9d1e32",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.12966359266061342,
+                  "norm_ratio": 0.8100240652589811,
+                  "normalized_rmse": 1.2025297191390398,
+                  "sign_agreement": 0.5284916201117319
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.30151564919584584,
+                  "norm_ratio": 2.4604575927000667,
+                  "normalized_rmse": 2.3601098764065593,
+                  "sign_agreement": 0.568268156424581
+                }
+              },
+              "score_gene_sha256": "48476629960a5a93431fbcecca256af5dab40d58b42ffa42c7d04f7b742374b2",
+              "seed": 1
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 732,
+              "cosine_improvement_over_best_baseline": 0.24446535216826243,
+              "fit_gene_sha256": "1ed190fd0e4106680a8af190dde221ff5d30586a43751176b8e007715f78b83a",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.08929230892718192,
+                  "norm_ratio": 0.7730008452305653,
+                  "normalized_rmse": 1.2080911580590963,
+                  "sign_agreement": 0.5007821229050279
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.33375766109544436,
+                  "norm_ratio": 2.2889054340629125,
+                  "normalized_rmse": 2.1705318790102455,
+                  "sign_agreement": 0.5720670391061452
+                }
+              },
+              "score_gene_sha256": "532d84864b081e2ba581ad4d01f12c724068ede459df36256688cba8d3b77727",
+              "seed": 2
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 737,
+              "cosine_improvement_over_best_baseline": 0.21528291120613913,
+              "fit_gene_sha256": "6c52e16ad517bf485e3b0fc0e9bc6405e39421f002ae2b6ef5df3e59e1954cf1",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.08824646565547102,
+                  "norm_ratio": 0.8672396073728853,
+                  "normalized_rmse": 1.2645326710457458,
+                  "sign_agreement": 0.5155307262569833
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.30352937686161013,
+                  "norm_ratio": 2.3850898233466706,
+                  "normalized_rmse": 2.2892714582925904,
+                  "sign_agreement": 0.5747486033519553
+                }
+              },
+              "score_gene_sha256": "0cba66cc0f1adc45887f20ad34b57ae16464b1a7309783e8c7b7c1728a04da48",
+              "seed": 3
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 749,
+              "cosine_improvement_over_best_baseline": 0.22584187212836077,
+              "fit_gene_sha256": "6dffeb1bd29a3dba3fae32f70589c5898c69e1445d14f2ccc7bcc8bc0aa37dd7",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.09360899092184394,
+                  "norm_ratio": 0.8434834228360863,
+                  "normalized_rmse": 1.246414465760608,
+                  "sign_agreement": 0.5032402234636871
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.3194508630502047,
+                  "norm_ratio": 2.326067135267671,
+                  "normalized_rmse": 2.219112437445296,
+                  "sign_agreement": 0.5675977653631284
+                }
+              },
+              "score_gene_sha256": "a703b18aba84a2cf50e1197e5caadbaa226ef1ab0c95e0226f64ca1b397faef1",
+              "seed": 4
+            },
+            {
+              "best_baseline": "best_single_atom",
+              "cone_support_size": 757,
+              "cosine_improvement_over_best_baseline": 0.2224352731072649,
+              "fit_gene_sha256": "b661887fbaf728dad167444b60145970beae805ab468024b0e06d82cf20ccb1d",
+              "metrics": {
+                "best_single_atom": {
+                  "cosine": 0.08694276399394657,
+                  "norm_ratio": 0.8145503796438925,
+                  "normalized_rmse": 1.233634385926758,
+                  "sign_agreement": 0.4963128491620112
+                },
+                "common_response": {
+                  "cosine": 0.0,
+                  "norm_ratio": 0.0,
+                  "normalized_rmse": 1.0,
+                  "sign_agreement": 0.0
+                },
+                "cone": {
+                  "cosine": 0.3093780371012115,
+                  "norm_ratio": 2.393158453435051,
+                  "normalized_rmse": 2.2905078156722882,
+                  "sign_agreement": 0.5617877094972067
+                }
+              },
+              "score_gene_sha256": "ab2d8d7871d232e3a10dfb390978af9b27e2437ddf5d6bda8d7addef2b864418",
+              "seed": 5
+            }
+          ]
+        }
+      },
+      "effect_quality": {
+        "atom_norm_max": 302.0540642156312,
+        "atom_norm_median": 96.48166166500214,
+        "atom_norm_min": 72.91981203309246,
+        "finite_fraction": 1.0,
+        "shape": [
+          6871,
+          8950
+        ],
+        "zero_fraction": 0.0,
+        "zero_norm_atoms": 0
+      }
+    }
+  },
+  "status": "PASS"
+}

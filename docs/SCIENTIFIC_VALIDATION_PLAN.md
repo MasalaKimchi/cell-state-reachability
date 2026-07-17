@@ -96,9 +96,10 @@ Actions:
 4. Reproduce both source-specific targets without sign-based cross-source selection.
 5. Reproduce Zhu's `pert2state_model` ranking as the required same-question baseline.
 
-Exit gate: a clean external-data run regenerates every claim-bearing table from hashed
-inputs; the current 0.446 result is either reproduced within a declared tolerance or
-withdrawn.
+Current status: the aggregate H5AD/target phase is implemented with full input hashes;
+the unreconstructable archived 0.446 multisplit result was withdrawn and replaced by the
+source-bound 0.444 result. Donor-, guide-, and pseudobulk-level reconstruction and the
+same-question baseline remain exit blockers.
 
 ### Workstream 2 — independent transfer and structured inference
 
@@ -178,7 +179,8 @@ an additional direct readout is located.
    resources (GSE190604/GSE174255/GSE190846) to test gain-of-function orientation and
    cytokine agreement. Never treat CRISPRa as scale-matched negative CRISPRi.
 3. Use [Arce et al.](https://doi.org/10.1038/s41586-024-08314-y) GSE271090/GSE278572 for
-   context sign reversals and RNA/protein agreement.
+   context sign reversals and RNA/protein agreement. The first S1 IL2RA/CD25 ranking
+   benchmark is implemented; donor/guide-grain S14 and orthogonal S20/S4 endpoints remain.
 4. Retain Norman/Replogle only as out-of-domain numerical and combination benchmarks.
 
 Exit gate: reported conclusions name the assay, cell system, modality, donor unit, and
@@ -208,7 +210,10 @@ engineering/activation preserves the starting program. Stop if the positive cont
 #### Stage B: single perturbations and mechanism
 
 Pilot six donors for variance estimation, then power an independent single-perturbation
-confirmation cohort from the donor-level effect. Test 6–10 frozen CRISPRi candidates.
+confirmation cohort from the donor-level effect. Test only perturbations admitted by a
+preregistered outcome-independent rule that is stable across epsilon-optimal coefficient
+equivalence sets and held-out effect estimates; a single NNLS coefficient vector is never
+a selection score.
 The current dictionary cannot nominate CRISPRa interventions; any CRISPRa candidate
 requires a separately measured and frozen CRISPRa dictionary/model. Otherwise CRISPRa is
 an assay-control arm only.
@@ -238,18 +243,22 @@ Require improvement over the best single, directly measured interaction versus a
 prediction, multiplicity-controlled donor-level uncertainty, ≥80% viability/recovery,
 and sign agreement in held-out donors. At days 7 and 14 after washout, require persistence,
 within-lineage evidence using heritable lineage barcodes or clonally split/index-sorted
-cells; scTCR tracking is supportive only. Add a mechanism-blocked functional assay. Only
-this stage can support cautious "partial reprogramming" language.
+cells; scTCR tracking is supportive only. Add a mechanism-blocked functional assay. This
+stage is necessary but not sufficient for cautious "partial reprogramming" language:
+same-cell identity change, alternative-state exclusion, durable orthogonal function, and
+held-out-donor replication must all succeed.
 
 ## Systemic harness
 
 The fast harness now covers independent NNLS oracle comparison, atom scaling and
-degeneracy, labelled-axis corruption, group leakage, and maxT behavior. It is intentionally
+degeneracy, labelled-axis corruption, group leakage, exact uncertainty around maxT error,
+and structured common-response/module/sign-selection specificity. It is intentionally
 data-free and runs in pull-request CI.
 
-The next statistical/nightly expansion must add block-correlation levels, selection
-leakage, donor heterogeneity, run confounding, common response components, combination
-synergy/antagonism/saturation, interval coverage, power, and abstention. Use at least
+The next statistical/nightly expansion must sweep block-correlation levels and add full
+adaptive-pipeline replay, partial alternatives, heteroskedasticity, donor heterogeneity,
+run confounding, combination synergy/antagonism/saturation, interval coverage, power, and
+abstention. Use at least
 2,000 simulations per scenario, while primary real-data inference uses ≥9,999 structured
 resamples.
 
@@ -273,6 +282,30 @@ and [PerturBench](https://papers.nips.cc/paper_files/paper/2025/hash/8aee537279a
 No workstream approves its own claim upgrade. Data and code review precede statistical
 review; statistical freezing precedes outcome access; biological and reproducibility
 reviews precede manuscript wording.
+
+## Execution order and release gates
+
+1. **Source-bound reconstruction.** The target lineage, aggregate-screen diagnostics, and
+   bidirectional source transfer now regenerate from full-hash-bound H5AD/CSV inputs.
+   Extend the same contract to donor-, guide-, and pseudobulk-level objects, keeping log
+   fold change primary and z-score sensitivity-only. Exit only when a clean external-data
+   run reproduces every claim-bearing table in its declared scope.
+2. **Transfer and calibration.** Run leakage-safe Ota-to-Höllbacher and reverse transfer,
+   followed by donor-, guide-, module-, pathway-, context-, and run-held-out evaluation.
+   Add covariance-preserving nulls, nested baselines, multiple metrics, multiplicity,
+   interval coverage, power, abstention, and coefficient-equivalence analysis. Exit only
+   if target-specific performance clears the best frozen baseline with calibrated
+   uncertainty.
+3. **Independent compact benchmarks.** The aggregate Arce S1 IL2RA/CD25 transfer is now
+   implemented. Next add its donor/guide and RNA/protein strata, then Schmidt CRISPRa/i
+   orientation and cytokine transfer. Treat the Goudy triple as descriptive until sample
+   mapping and reuse terms are resolved. Exit only with dataset-specific grain,
+   confounding, and claim ceilings attached to every result.
+4. **Prospective biology.** Execute the preregistered established-memory-Th2 and
+   naïve-derived-Th2 stages above with independent donors, matched modalities, direct
+   combinations, fitness, durability, lineage, and functional endpoints. Only coordinated,
+   durable, within-lineage molecular and functional movement can motivate cautious
+   partial-reprogramming language.
 
 ## Manuscript deliverables
 
@@ -300,9 +333,10 @@ Required figures:
 Until prospective stages succeed, do not claim biological attainability, conversion,
 reprogramming, rescue, efficacy, a minimal intervention, dose, synergy, causal regulator,
 donor/population generality, predictive superiority, or independent discovery. Do not
-interpret 0.446 as a converted fraction, `1/61` as precise inference, a coefficient as
-candidate importance, or a separator as biological impossibility.
+interpret 0.444 as a converted fraction, treat the retired `1/61` as current inference,
+use a coefficient as candidate importance, or read a separator as biological impossibility.
 
 The strongest current statement remains: **a retrospective, donor-collapsed CRISPRi
-effect dictionary contains model-relative directional alignment with a selectively
-constructed external population-contrast vector.**
+effect dictionary contains model-relative directional alignment with a source-study-reused,
+selectively constructed cross-sectional population contrast oriented toward the reported
+Th1 centroid; the target is neither independent nor a trajectory.**
