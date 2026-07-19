@@ -36,6 +36,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import acquisition as aq
 import combicone as cc
 import screen_ingest as si
 
@@ -218,6 +219,38 @@ def cmd_certify(args) -> int:
     return 0
 
 
+def cmd_recommend(args) -> int:
+    sub = _load_substrate(args)
+    atoms, names = sub.triage_ready()
+    measured = [c.genes for c in sub.combos]  # already-run combinations
+    labeled = None
+    if args.use_labels:
+        # label already-measured combos by their certified z (needs noise)
+        labeled = {}
+        for rec in sub.combos:
+            if rec.noise_sd is None or not np.all(np.isfinite(rec.noise_sd)):
+                continue
+            cert = cc.certify_emergence(
+                cone_atoms=sub.atoms, measured_combo=rec.effect,
+                noise_sd=rec.noise_sd, n_boot=args.n_boot, seed=args.seed,
+            )
+            labeled[rec.genes] = float(cert.z)
+    batch = aq.recommend_batch(
+        atoms, names, args.batch_size,
+        measured=measured, labeled=labeled,
+        order=args.order, strategy=args.strategy,
+        diversity_weight=args.diversity_weight,
+        diversity_metric=args.diversity_metric,
+    )
+    rows = batch.as_rows()
+    _emit_table(rows, args.output, ["run_order", "combination", "relevance", "novelty"])
+    print(f"\nmodel: {batch.model} | strategy: {batch.strategy} "
+          f"(diversity_weight={batch.diversity_weight}) | {batch.n_candidates} candidates considered",
+          file=sys.stderr)
+    print(f"scope: {batch.scope}", file=sys.stderr)
+    return 0
+
+
 # --------------------------------------------------------------------------- #
 # Output
 # --------------------------------------------------------------------------- #
@@ -291,6 +324,22 @@ def build_parser() -> argparse.ArgumentParser:
     pc.add_argument("--noise-seed", type=int, default=7)
     pc.add_argument("--min-cells-per-half", type=int, default=6)
     pc.set_defaults(func=cmd_certify)
+
+    pr = sub.add_parser("recommend", help="recommend the next batch of combinations to run")
+    _add_common(pr)
+    pr.add_argument("--batch-size", type=int, default=10, help="experiments to recommend this round")
+    pr.add_argument("--order", type=int, default=2)
+    pr.add_argument("--strategy", default="diversified", choices=["diversified", "greedy"])
+    pr.add_argument("--diversity-weight", type=float, default=0.5, help="MMR trade-off in [0,1]")
+    pr.add_argument("--diversity-metric", default="effect_cosine", choices=["effect_cosine", "gene_jaccard"])
+    pr.add_argument("--use-labels", action="store_true",
+                    help="certify already-measured combos and fit the ridge model on their z")
+    pr.add_argument("--n-boot", type=int, default=200)
+    pr.add_argument("--seed", type=int, default=0)
+    pr.add_argument("--no-noise", action="store_true")
+    pr.add_argument("--noise-seed", type=int, default=7)
+    pr.add_argument("--min-cells-per-half", type=int, default=6)
+    pr.set_defaults(func=cmd_recommend)
 
     return ap
 
