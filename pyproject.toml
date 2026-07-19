@@ -44,6 +44,9 @@ tutorial = [
   "ipykernel>=6.29,<7",
 ]
 
+[project.scripts]
+combicone = "combicone_cli:main"
+
 [project.urls]
 Repository = "https://github.com/MasalaKimchi/cell-state-reachability"
 Issues = "https://github.com/MasalaKimchi/cell-state-reachability/issues"
@@ -51,10 +54,12 @@ Issues = "https://github.com/MasalaKimchi/cell-state-reachability/issues"
 [tool.setuptools]
 py-modules = [
   "combicone",
+  "combicone_cli",
   "effect_dictionary",
   "library_coverage",
   "neural_baseline",
   "reachability",
+  "screen_ingest",
   "validation",
 ]
 
