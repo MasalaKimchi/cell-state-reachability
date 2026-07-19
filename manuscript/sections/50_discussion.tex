@@ -97,8 +97,15 @@ arrayed-versus-pooled or MOI-titration comparison would bound this spillover. Se
 noise, but a coordinated attenuation of the combination-specific signal would be a different failure
 mode---a sensitivity radius on the certified verdict quantifies how much coordinated bias would
 overturn it. Third, \emph{construct validity}: negative-control combinations (pairs expected to be
-additive) should not certify, and the specificity of the synthetic screen ($0/80$ false positives)
-is the in-silico version of that check. Fourth, \emph{guide non-compliance}: incomplete knockdown
+additive) should not certify. The synthetic screen gives the in-silico version ($0/80$ false
+positives); the dossier adds the real-data version---across $150$ additive combinations synthesized
+from measured Norman single-gene effects, $0$ are false-certified---and reports a per-pair
+\emph{sensitivity radius} $\Gamma^\star$ (median $\approx 1.25\times$ noise inflation to overturn a
+certified verdict), the certificate's analogue of a Rosenbaum bound. The dossier also separates the
+two quantities the certificate returns: the cone residual is the effect-\emph{size} axis (it recovers
+classical synergy at partial Spearman $0.62$ controlling for magnitude), whereas the $z$-score is a
+noise-relative \emph{confidence} that is decorrelated from magnitude by design---so a verdict must be
+read with its residual, never as a size. Fourth, \emph{guide non-compliance}: incomplete knockdown
 or activation attenuates the measured effect, an errors-in-variables problem an instrumental-variables
 treatment of guide efficiency would address. The computable half of this agenda---sensitivity radii,
 negative-control outcomes, and signed construct validity for the emergence certificate---is released
