@@ -34,10 +34,18 @@ demonstration of *why both bars exist*: significance alone (bar a) can be fooled
 by a vector that is directionally far from the cone but tiny; the noise-floor
 ratio (bar b) cannot.
 
-**NC-reachable.** The 13 least-unreachable *real* doubles (bottom decile by cone
-residual) never certify as emergent (0 certified; 10 within-noise-adjacent
-"modest", 3 borderline). The certificate reserves its strongest verdict for the
-genuinely unreachable pairs.
+**NC-reachable (a deliberately imperfect control).** We took the 13
+least-unreachable *real* doubles (bottom decile by cone residual) and re-certified
+them. Verdicts: **3 certified, 10 "above noise but modest", 0 within-noise.** This
+control does *not* pass cleanly — and that is informative, not a failure. A small
+cone residual means the pair is *nearly* additive in effect *size*, but three of
+these pairs still clear both bars because their measurement noise is tiny, so even
+a small residual is many noise units away from the cone. This is the size-vs-
+confidence distinction (§3) made concrete: low residual (small effect) does not
+imply low z (low confidence). It is a caution for users — "certified emergent" is
+a noise-relative confidence statement, and a certified pair with a small residual
+is a small-but-reliably-nonzero departure, not necessarily a large one. Read the
+residual alongside the verdict.
 
 ---
 

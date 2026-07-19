@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CombiCone — certified triage for combinatorial perturbation screens</title>
+<style>
+  :root { --fg:#1a1a1a; --muted:#666; --accent:#1f6f8b; --line:#e2e2e2; --bg:#fff; --code:#f5f6f7; }
+  * { box-sizing:border-box; }
+  body { font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+         color:var(--fg); background:var(--bg); margin:0; }
+  .wrap { max-width:880px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  h1 { font-size:2rem; margin:0 0 .3rem; letter-spacing:-.01em; }
+  h2 { font-size:1.25rem; margin:2.4rem 0 .8rem; padding-bottom:.3rem; border-bottom:1px solid var(--line); }
+  h3 { font-size:1rem; margin:1.4rem 0 .4rem; }
+  .tag { color:var(--muted); font-size:1.05rem; margin:0 0 1.4rem; }
+  a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+  code { background:var(--code); padding:.12em .4em; border-radius:4px; font-size:.9em;
+         font-family:"SF Mono",Menlo,Consolas,monospace; }
+  pre { background:var(--code); padding:1rem 1.1rem; border-radius:8px; overflow-x:auto;
+        font-size:.85rem; line-height:1.5; border:1px solid var(--line); }
+  pre code { background:none; padding:0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin:1rem 0; }
+  .card { border:1px solid var(--line); border-radius:10px; padding:1rem 1.1rem; }
+  .card h3 { margin-top:0; } .card p { margin:.3rem 0 .6rem; color:var(--muted); font-size:.9rem; }
+  .pill { display:inline-block; background:var(--code); border:1px solid var(--line); border-radius:20px;
+          padding:.15em .7em; font-size:.78rem; color:var(--muted); margin:.15rem .3rem .15rem 0; }
+  blockquote { border-left:3px solid var(--accent); margin:1rem 0; padding:.4rem 0 .4rem 1rem;
+               color:var(--muted); background:var(--code); border-radius:0 6px 6px 0; }
+  figure { margin:1.4rem 0; } figure img { max-width:100%; border:1px solid var(--line); border-radius:8px; }
+  figcaption { color:var(--muted); font-size:.83rem; margin-top:.5rem; }
+  table { border-collapse:collapse; width:100%; font-size:.9rem; margin:1rem 0; }
+  th,td { border:1px solid var(--line); padding:.5rem .7rem; text-align:left; }
+  th { background:var(--code); }
+  .foot { color:var(--muted); font-size:.82rem; margin-top:3rem; padding-top:1rem; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>CombiCone</h1>
+<p class="tag">Certified triage for combinatorial perturbation screens.</p>
+
+<p><strong>Which combinations are worth running?</strong> A combinatorial screen explodes
+super-linearly: 100 single perturbations imply ~5,000 pairs and ~160,000 triples. You cannot
+measure them all, and most combinations are <em>additive</em> — they do nothing the two singles
+didn't already do. The decision that costs real money is <strong>which combinations produce a cell
+state the singles cannot reach on their own.</strong></p>
+
+<p>CombiCone answers with certified convex geometry rather than a black box. Every measured
+single-gene effect is an atom; their non-negative combinations form a <em>cone</em> of everything
+the singles can additively reach. A combination is <strong>emergent</strong> when its measured
+effect lands <em>outside</em> that cone — and the engine returns a model-relative
+<strong>separator</strong> certifying the unreachable direction, together with a
+<strong>measurement-noise test</strong> so a low-SNR residual is never mistaken for biology.</p>
+
+<blockquote><strong>Scope, stated once and everywhere.</strong> "Unreachable" is
+<em>model-relative</em>: outside the non-negative cone of <em>these</em> measured single-gene
+effects under <em>this</em> metric — never a claim of biological impossibility. Every result
+carries this scope field.</blockquote>
+
+<figure>
+  <img src="figures/fig_emergence_keystone.png" alt="Emergence spectrum">
+  <figcaption>The certified emergence spectrum: apparent unreachability tested against measurement
+  noise, and its recovery of classical synergy after controlling for effect size (Norman 2019,
+  131 measured doubles).</figcaption>
+</figure>
+
+<h2>Quickstart</h2>
+<pre><code>pip install -e .            # flat modules: combicone, reachability, screen_ingest, acquisition
+
+# from the command line — ingest, triage, certify, or recommend a screen
+combicone triage   screen.h5ad --condition-key perturbation --measured-only
+combicone certify  screen.h5ad --combo "SET+CEBPE"
+combicone recommend screen.h5ad --batch-size 10 --strategy diversified</code></pre>
+
+<pre><code>import combicone as cc
+# rank unmeasured combinations by predicted emergence (training-free)
+tr = cc.triage_combinations(singles, single_names, candidate_pairs)
+# certify one measured combination against its single-gene cone
+cert = cc.certify_emergence(cone_atoms=singles, measured_combo=effect, noise_sd=se)
+print(cert.verdict)   # "certified emergent" / "above noise but modest" / "within measurement noise"</code></pre>
+
+<h2>API reference</h2>
+<div class="grid">
+  <div class="card"><h3><a href="api/combicone.html">combicone</a></h3>
+    <p>The public API: triage, certify, fit.</p>
+    <span class="pill">triage_combinations</span><span class="pill">certify_emergence</span>
+    <span class="pill">fit_triage_model</span><span class="pill">EmergenceCertificate</span></div>
+  <div class="card"><h3><a href="api/reachability.html">reachability</a></h3>
+    <p>The geometric engine: weighted NNLS onto the cone + Farkas separator.</p>
+    <span class="pill">project_cone</span><span class="pill">ProjectionResult</span></div>
+  <div class="card"><h3><a href="api/screen_ingest.html">screen_ingest</a></h3>
+    <p>Real-data adapter: parse condition grammar, pool effects, split-half noise.</p>
+    <span class="pill">ingest_screen</span><span class="pill">ScreenSubstrate</span></div>
+  <div class="card"><h3><a href="api/acquisition.html">acquisition</a></h3>
+    <p>Prospective design loop: recommend the next batch to run.</p>
+    <span class="pill">recommend_batch</span><span class="pill">simulate_campaign</span></div>
+  <div class="card"><h3><a href="api/combicone_cli.html">combicone_cli</a></h3>
+    <p>The <code>combicone</code> console command.</p>
+    <span class="pill">ingest / triage / certify / recommend</span></div>
+  <div class="card"><h3><a href="api/neural_baseline.html">neural_baseline</a></h3>
+    <p>Self-contained CPU MLP head-to-head baseline.</p>
+    <span class="pill">head-to-head</span></div>
+</div>
+
+<h2>Evidence &amp; validation notes</h2>
+<table>
+  <tr><th>Note</th><th>What it establishes</th></tr>
+  <tr><td><a href="../docs/phase3/certificate_dossier.md">Certificate trust dossier</a></td>
+      <td>0/150 additive controls false-certified; sensitivity radius Γ*; size-vs-confidence decomposition.</td></tr>
+  <tr><td><a href="../docs/phase3/acquisition_note.md">Acquisition recommender</a></td>
+      <td>Design-loop enrichment vs random (1.96× raw label; honest modest lift on strict label).</td></tr>
+  <tr><td><a href="../docs/phase2/kway_note.md">k-way certification</a></td>
+      <td>Reachable-from-lower-order test (real) + planted-triple screen (synthetic).</td></tr>
+  <tr><td><a href="../docs/phase2/cross_screen_analysis.md">Cross-screen transfer</a></td>
+      <td>CaRPool-seq (Cas13d, THP-1): certificate + SNR confound transfer.</td></tr>
+  <tr><td><a href="../docs/phase2/learned_baseline_note.md">Learned baseline</a></td>
+      <td>MLP ties additive for blind prediction — the cone's value is the certificate, not accuracy.</td></tr>
+</table>
+
+<h2>Reproduce the paper</h2>
+<p>One command regenerates the headline emergence certificate from the frozen substrate and
+verifies it against the committed reference:</p>
+<pre><code>bash reproduce_paper.sh          # geometry exact; verdict tiers reproduce; then full test suite</code></pre>
+<p>The geometry (cone residual, separator, magnitudes) is <strong>deterministic</strong> and
+reproduces exactly; the noise-null (z, p, floor ratio) is a seeded Monte-Carlo quantity that
+reproduces run-to-run and varies a few percent across bootstrap counts — the verdict tiers the
+paper's claims rest on are stable.</p>
+
+<div class="foot">
+  CombiCone is research software. Verdicts are model-relative (see scope note). MIT-licensed.
+  Norman substrate: file-label A549, canonically K562 (reported verbatim).
+  Generated API docs via <code>pdoc</code>; landing page hand-authored.
+</div>
+
+</div>
+</body>
+</html>

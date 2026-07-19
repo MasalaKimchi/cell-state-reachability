@@ -36,6 +36,7 @@ dependencies = [
 plot = ["matplotlib==3.9.2"]
 test = ["matplotlib==3.9.2", "pytest==7.4.4"]
 external = ["h5py==3.11.0", "anndata==0.10.9"]
+docs = ["pdoc>=14"]
 tutorial = [
   "matplotlib==3.9.2",
   "nbclient>=0.10,<1",
