@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from reachability import InputError
+from reachability import InputError  # noqa: E402
 
 
 DEFAULT_CONFIG = ROOT / "configs" / "arce_external_validation.json"

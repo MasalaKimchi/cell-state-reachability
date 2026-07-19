@@ -22,8 +22,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from reachability import InputError, project_cone
-from scripts.run_source_reconstruction import build_target_lineage, load_target_table
+from reachability import InputError, project_cone  # noqa: E402
+from scripts.run_source_reconstruction import (  # noqa: E402
+    build_target_lineage,
+    load_target_table,
+)
 
 
 DEFAULT_CONFIG = ROOT / "configs" / "donor_pair_transfer.json"

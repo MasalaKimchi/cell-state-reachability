@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from reachability import InputError, held_out_alignment, project_cone
-from validation import (
+from reachability import InputError, held_out_alignment, project_cone  # noqa: E402
+from validation import (  # noqa: E402
     LabeledEffects,
     LabeledTarget,
     Provenance,

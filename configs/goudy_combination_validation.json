@@ -1,0 +1,235 @@
+{
+  "schema_version": 2,
+  "benchmark_id": "goudy_gse306915_cross_experiment_stress",
+  "source": {
+    "accession": "GSE306915",
+    "citation": "Goudy et al., Integrated epigenetic and genetic programming of primary human T cells, Nature Biotechnology (2025)",
+    "doi": "10.1038/s41587-025-02856-w",
+    "paper_url": "https://doi.org/10.1038/s41587-025-02856-w",
+    "paper_license": "CC-BY-4.0",
+    "geo_data_license": "not specified by GEO",
+    "redistribution": "Raw GEO bytes remain gitignored and are not redistributed."
+  },
+  "inputs": {
+    "counts": {
+      "path": "data/GSE306915_normalized_counts_CO065.csv.gz",
+      "file": "GSE306915_normalized_counts_CO065.csv.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306915/suppl/GSE306915_normalized_counts_CO065.csv.gz",
+      "bytes": 9358021,
+      "sha256": "02307f1019429530fae91d8da3d808a1c8e04241fe4657832205c94d01f43d42",
+      "md5": "2dfe74e900fe94330611fa0e5093323d"
+    },
+    "soft": {
+      "path": "data/GSE306915_family.soft.gz",
+      "file": "GSE306915_family.soft.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306915/soft/GSE306915_family.soft.gz",
+      "bytes": 10412,
+      "sha256": "9059377ff91eee08ba71b52c787d4166baa0b2e29a9a3b02ba29566c63bbe5c4",
+      "md5": "3f9183e4008aaf5d18a253c47ba6126a"
+    },
+    "author_key": {
+      "path": "data/rna_seq_meta_key.csv",
+      "file": "rna_seq_meta_key.csv",
+      "url": "https://raw.githubusercontent.com/GilbertLabUCSF/T_Cell_CRISPRoff/53155c9207d8b4f70f0ae5d60e1f4c0513d41bd7/Cas9_KO_vs_CRISPRoff_KD/rna_seq_meta_key.csv",
+      "commit": "53155c9207d8b4f70f0ae5d60e1f4c0513d41bd7",
+      "bytes": 3671,
+      "sha256": "ba27f8502a517dab3c25c7c8001e85e303659e42d84e96c0e48b20d51fbe3e2f",
+      "md5": "ea121d9634ab466b77dbf6978762b93a"
+    }
+  },
+  "expected": {
+    "soft_samples": 77,
+    "count_samples": 71,
+    "gene_rows": 78724,
+    "analysis_genes_before_mask": 14580,
+    "analysis_genes_after_mask": 14577,
+    "analysis_genes_before_mask_by_threshold": {
+      "0.5": 17410,
+      "1": 14580,
+      "2": 12472,
+      "5": 10271,
+      "10": 8453
+    },
+    "author_key_samples": 71,
+    "author_key_count_overlap": 67,
+    "author_key_rows_absent_from_counts": [
+      "sample_244",
+      "sample_245",
+      "sample_258",
+      "sample_259"
+    ],
+    "declared_rows_absent_from_author_key": [
+      "sample_297",
+      "sample_303",
+      "sample_311",
+      "sample_317"
+    ],
+    "declared_analysis_samples": 40,
+    "donors": 4,
+    "controls_per_donor": 3
+  },
+  "preprocessing": {
+    "deposited_scale": "author-normalized linear CPM (the deposited normalized-count values)",
+    "linear_scale": "use the deposited non-negative values as linear CPM; do not renormalize them a second time",
+    "transform": "log2(CPM + 1) per sample",
+    "gene_filter": "mean linear CPM across the 12 declared controls is >= the declared threshold; the canonical threshold is 1",
+    "single_control_baseline": "within each donor, arithmetic mean of the two AAVS1-guide control log2(CPM + 1) profiles",
+    "triple_control_baseline": "within each donor, the multiplex NTC log2(CPM + 1) profile",
+    "effect": "constituent and unrelated singles minus the donor's AAVS1 mean; triple minus the donor's multiplex NTC",
+    "gene_id_regex": "^ENSG[0-9]{11}\\.[0-9]+$",
+    "control_mean_cpm_min": 1.0,
+    "control_mean_cpm_sensitivity_thresholds": [0.5, 1.0, 2.0, 5.0, 10.0],
+    "target_mask": [
+      {
+        "symbol": "FAS",
+        "gene_id": "ENSG00000026103.25"
+      },
+      {
+        "symbol": "RC3H1",
+        "gene_id": "ENSG00000135870.13"
+      },
+      {
+        "symbol": "SUV39H1",
+        "gene_id": "ENSG00000101945.17"
+      }
+    ]
+  },
+  "models": {
+    "component_order": [
+      "FAS",
+      "RC3H1",
+      "SUV39H1"
+    ],
+    "unrelated_order": [
+      "PTPN2",
+      "RASA2",
+      "MED12"
+    ],
+    "component_cone": "in-sample donor-specific NNLS projection of the measured triple onto target-matched constituent singles; an oracle geometric diagnostic, not additivity validation",
+    "equal_sum": "unit coefficient on each of the three component-single effects",
+    "best_single_oracle": "best target-matched constituent single with identity and non-negative scale selected on the same donor triple",
+    "unrelated_cone": "donor-specific NNLS projection on PTPN2, RASA2, and MED12 singles",
+    "zero": "zero-effect prediction",
+    "signed_least_squares": "unconstrained least-squares upper-bound diagnostic on the three component singles",
+    "on_target_calibrated_component_cone": "coefficients fit only on the three on-target coordinates, frozen, and scored on the disjoint target-masked transcriptome; the 3x3 fit is a saturated calibration diagnostic",
+    "lodo_component_cone": "one shared NNLS coefficient vector fit on a training-control-selected gene mask by stacking only the three training donors and applied to the held donor's measured singles",
+    "lodo_training_selected_best_single": "constituent identity and non-negative scale selected only on stacked training donors and frozen before scoring the held donor",
+    "training_donor_mean_triple": "arithmetic mean of the three training-donor measured triple effects"
+  },
+  "metadata_conflict": {
+    "status": "FLAGGED",
+    "field": "time",
+    "affected_gsms": [
+      "GSM9212391",
+      "GSM9212392",
+      "GSM9212393",
+      "GSM9212394",
+      "GSM9212395",
+      "GSM9212396",
+      "GSM9212397",
+      "GSM9212398"
+    ],
+    "geo_characteristic": "Day 18",
+    "sample_title": "Day7",
+    "computational_resolution": "Day7",
+    "resolution_basis": "The sample titles, paper methods, and pinned author metadata identify Day 7; GEO characteristics alone say Day 18 for these eight donor-1 single/control samples.",
+    "claim_effect": "No time-course or duration claim is made."
+  },
+  "claim_contract": {
+    "tier": "STRESS",
+    "assay": "bulk RNA-seq",
+    "cell_system": "primary human bulk T cells",
+    "modality": "CRISPRoff",
+    "unit": "four fixed donor labels",
+    "benchmark_role": "negative cross-experiment stress test",
+    "constituent_relationship": "target-matched constituent singles",
+    "triple_guide_identity": "UNRESOLVED",
+    "claim_ceiling": "Descriptive negative stress test of whether one measured FAS + RC3H1 + SUV39H1 triple is represented by target-matched constituent singles across confounded experimental/control designs.",
+    "not_claimed": [
+      "combination or additivity validation",
+      "same-guide matching between triple and constituent singles",
+      "statistical interaction or synergy",
+      "donor-population inference",
+      "prospective perturbation selection or validation",
+      "state reachability or conversion",
+      "functional efficacy",
+      "a general combination model"
+    ],
+    "inference": "No p-values, confidence intervals, or donor-population tests are emitted.",
+    "confounding": "Single-versus-triple status is inseparable from experiment, control type, and guide burden; biological interpretation is inconclusive."
+  },
+  "donors": {
+    "D1": {
+      "component": {
+        "FAS": {"gsm": "GSM9212391", "column": "sample_205", "title": "CRISPRoff_FAS_Guide1_Day7_Donor1", "genotype": "FAS_KD", "time": "Day 18"},
+        "RC3H1": {"gsm": "GSM9212393", "column": "sample_207", "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor1", "genotype": "RC3H1_KD", "time": "Day 18"},
+        "SUV39H1": {"gsm": "GSM9212394", "column": "sample_208", "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor1", "genotype": "SUV39H1_KD", "time": "Day 18"}
+      },
+      "unrelated": {
+        "PTPN2": {"gsm": "GSM9212392", "column": "sample_206", "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor1", "genotype": "PTPN2_KD", "time": "Day 18"},
+        "RASA2": {"gsm": "GSM9212395", "column": "sample_209", "title": "CRISPRoff_RASA2_pool_Day7_Donor1", "genotype": "RASA2_KD", "time": "Day 18"},
+        "MED12": {"gsm": "GSM9212396", "column": "sample_210", "title": "CRISPRoff_MED12_pool_Day7_Donor1", "genotype": "MED12_KD", "time": "Day 18"}
+      },
+      "controls": {
+        "AAVS1_Guide1": {"gsm": "GSM9212397", "column": "sample_211", "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor1", "genotype": "WT", "time": "Day 18"},
+        "AAVS1_Guide2": {"gsm": "GSM9212398", "column": "sample_212", "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor1", "genotype": "WT", "time": "Day 18"},
+        "NTC_multiplexing": {"gsm": "GSM9212423", "column": "sample_237", "title": "CRISPRoff_NTC_multiplexing_Donor1", "genotype": "WT", "time": "Day 7"}
+      },
+      "triple": {"gsm": "GSM9212424", "column": "sample_243", "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor1", "genotype": "FAS_SUV39H1_RC3H1_KD", "time": "Day 7"}
+    },
+    "D2": {
+      "component": {
+        "FAS": {"gsm": "GSM9212407", "column": "sample_221", "title": "CRISPRoff_FAS_Guide1_Day7_Donor2", "genotype": "FAS_KD", "time": "Day 7"},
+        "RC3H1": {"gsm": "GSM9212409", "column": "sample_223", "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor2", "genotype": "RC3H1_KD", "time": "Day 7"},
+        "SUV39H1": {"gsm": "GSM9212410", "column": "sample_224", "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor2", "genotype": "SUV39H1_KD", "time": "Day 7"}
+      },
+      "unrelated": {
+        "PTPN2": {"gsm": "GSM9212408", "column": "sample_222", "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor2", "genotype": "PTPN2_KD", "time": "Day 7"},
+        "RASA2": {"gsm": "GSM9212411", "column": "sample_225", "title": "CRISPRoff_RASA2_pool_Day7_Donor2", "genotype": "RASA2_KD", "time": "Day 7"},
+        "MED12": {"gsm": "GSM9212412", "column": "sample_226", "title": "CRISPRoff_MED12_pool_Day7_Donor2", "genotype": "MED12_KD", "time": "Day 7"}
+      },
+      "controls": {
+        "AAVS1_Guide1": {"gsm": "GSM9212413", "column": "sample_227", "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor2", "genotype": "WT", "time": "Day 7"},
+        "AAVS1_Guide2": {"gsm": "GSM9212414", "column": "sample_228", "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor2", "genotype": "WT", "time": "Day 7"},
+        "NTC_multiplexing": {"gsm": "GSM9212425", "column": "sample_251", "title": "CRISPRoff_NTC_multiplexing_Donor2", "genotype": "WT", "time": "Day 7"}
+      },
+      "triple": {"gsm": "GSM9212426", "column": "sample_257", "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor2", "genotype": "FAS_SUV39H1_RC3H1_KD", "time": "Day 7"}
+    },
+    "D3": {
+      "component": {
+        "FAS": {"gsm": "GSM9212427", "column": "sample_265", "title": "CRISPRoff_FAS_Guide1_Day7_Donor3", "genotype": "FAS_KD", "time": "Day 7"},
+        "RC3H1": {"gsm": "GSM9212429", "column": "sample_267", "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor3", "genotype": "RC3H1_KD", "time": "Day 7"},
+        "SUV39H1": {"gsm": "GSM9212430", "column": "sample_268", "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor3", "genotype": "SUV39H1_KD", "time": "Day 7"}
+      },
+      "unrelated": {
+        "PTPN2": {"gsm": "GSM9212428", "column": "sample_266", "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor3", "genotype": "PTPN2_KD", "time": "Day 7"},
+        "RASA2": {"gsm": "GSM9212431", "column": "sample_269", "title": "CRISPRoff_RASA2_pool_Day7_Donor3", "genotype": "RASA2_KD", "time": "Day 7"},
+        "MED12": {"gsm": "GSM9212432", "column": "sample_270", "title": "CRISPRoff_MED12_pool_Day7_Donor3", "genotype": "MED12_KD", "time": "Day 7"}
+      },
+      "controls": {
+        "AAVS1_Guide1": {"gsm": "GSM9212433", "column": "sample_271", "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor3", "genotype": "WT", "time": "Day 7"},
+        "AAVS1_Guide2": {"gsm": "GSM9212434", "column": "sample_272", "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor3", "genotype": "WT", "time": "Day 7"},
+        "NTC_multiplexing": {"gsm": "GSM9212458", "column": "sample_297", "title": "CRISPRoff_NTC_multiplexing_Donor3", "genotype": "WT", "time": "Day 7"}
+      },
+      "triple": {"gsm": "GSM9212459", "column": "sample_303", "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor3", "genotype": "FAS_SUV39H1_RC3H1_KD", "time": "Day 7"}
+    },
+    "D4": {
+      "component": {
+        "FAS": {"gsm": "GSM9212443", "column": "sample_281", "title": "CRISPRoff_FAS_Guide1_Day7_Donor4", "genotype": "FAS_KD", "time": "Day 7"},
+        "RC3H1": {"gsm": "GSM9212445", "column": "sample_283", "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor4", "genotype": "RC3H1_KD", "time": "Day 7"},
+        "SUV39H1": {"gsm": "GSM9212446", "column": "sample_284", "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor4", "genotype": "SUV39H1_KD", "time": "Day 7"}
+      },
+      "unrelated": {
+        "PTPN2": {"gsm": "GSM9212444", "column": "sample_282", "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor4", "genotype": "PTPN2_KD", "time": "Day 7"},
+        "RASA2": {"gsm": "GSM9212447", "column": "sample_285", "title": "CRISPRoff_RASA2_pool_Day7_Donor4", "genotype": "RASA2_KD", "time": "Day 7"},
+        "MED12": {"gsm": "GSM9212448", "column": "sample_286", "title": "CRISPRoff_MED12_pool_Day7_Donor4", "genotype": "MED12_KD", "time": "Day 7"}
+      },
+      "controls": {
+        "AAVS1_Guide1": {"gsm": "GSM9212449", "column": "sample_287", "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor4", "genotype": "WT", "time": "Day 7"},
+        "AAVS1_Guide2": {"gsm": "GSM9212450", "column": "sample_288", "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor4", "genotype": "WT", "time": "Day 7"},
+        "NTC_multiplexing": {"gsm": "GSM9212460", "column": "sample_311", "title": "CRISPRoff_NTC_multiplexing_Donor4", "genotype": "WT", "time": "Day 7"}
+      },
+      "triple": {"gsm": "GSM9212461", "column": "sample_317", "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor4", "genotype": "FAS_SUV39H1_RC3H1_KD", "time": "Day 7"}
+    }
+  }
+}

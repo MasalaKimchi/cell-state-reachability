@@ -1,0 +1,269 @@
+{
+  "schema_version": "1.0.0",
+  "generated_on": "2026-07-19",
+  "benchmark": "zhu_released_guide_position_reciprocal_transfer_v1",
+  "claim_ceiling": "same-study reciprocal robustness across the released guide_1 and guide_2 alphanumeric guide-rank modalities under the authors' effectiveness-selected DE pipeline; not leakage-safe physical-guide generalization, named-sgRNA replication, donor-population inference, predictive utility, or state reachability",
+  "source": {
+    "citation": "Zhu R., Dann E. et al. (2025), Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits",
+    "doi": "10.64898/2025.12.23.696273",
+    "dataset_card": "https://virtualcellmodels.cziscience.com/dataset/genome-scale-tcell-perturb-seq?access_dataset=true",
+    "dataset_card_version": "v1.0",
+    "dataset_card_accessed": "2026-07-19",
+    "accessions": ["SRP643211", "GSE314342"],
+    "data_license": "Virtual Cells Platform metadata labels the dataset MIT plus its Acceptable Use Policy; the downloaded H5MU has no embedded license field",
+    "license_boundary": "Use is subject to the Virtual Cells Platform dataset metadata and Acceptable Use Policy; the author code repository is MIT-licensed.",
+    "redistribution": "The 29.4 GB source object remains gitignored and is not redistributed."
+  },
+  "inputs": {
+    "guide_h5mu": {
+      "path": "data/GWCD4i.DE_stats.by_guide.h5mu",
+      "bytes": 29424424894,
+      "sha256": "964eeafb3356a7322a1d5b1121802c6a1433456f3591e2d5797817df3bf9c2f6",
+      "url": "https://genome-scale-tcell-perturb-seq.s3.amazonaws.com/marson2025_data/GWCD4i.DE_stats.by_guide.h5mu",
+      "s3_bucket": "genome-scale-tcell-perturb-seq",
+      "s3_key": "marson2025_data/GWCD4i.DE_stats.by_guide.h5mu",
+      "s3_version_id": "SQHf_ZhmdbCteM9f4HG1zs.2k25CL3gb",
+      "etag_header": "\"2e6705636ebaa276c7bc7c5a148ad096-3508\"",
+      "last_modified_header": "Thu, 28 May 2026 23:20:10 GMT",
+      "last_modified_iso": "2026-05-28T23:20:10Z"
+    },
+    "target_table": {
+      "path": "data/Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv",
+      "bytes": 6155771,
+      "sha256": "c47d2df21414ca85e7aa255f4148904eec700fbcd9debc2f734ec97049698444",
+      "url": "https://raw.githubusercontent.com/emdann/GWT_perturbseq_analysis_2025/848d62fc2b7027f7218d6fc5f5b0c37255dc94af/metadata/suppl_tables/Th2_Th1_polarization_signature_DE_results_full.suppl_table.csv"
+    }
+  },
+  "author_provenance": {
+    "repository": "https://github.com/emdann/GWT_perturbseq_analysis_2025",
+    "commit": "848d62fc2b7027f7218d6fc5f5b0c37255dc94af",
+    "initial_sample_selection_rule": "keep_min_cells & keep_effective_guides & keep_total_counts",
+    "selection_field": "keep_effective_guides",
+    "minimum_passing_replicates_per_guide_condition": 3,
+    "minimum_cells_per_guide_per_condition_sample": 5,
+    "target_condition_membership_source": "cond_targets from unreleased for_DE_by_guide.csv",
+    "required_testable_guides_per_target_condition": 2,
+    "final_sample_selection_rule": "initial keep_for_DE & keep_test_genes",
+    "de_formula": "~ log10_n_cells + target",
+    "donor_term_in_de_formula": false,
+    "unreleased_intermediate": "for_DE_by_guide.csv",
+    "official_modality_mapping": "guide_1 is the lowest alphanumeric sgRNA ID and guide_2 the second within each perturbed-gene/culture-condition pair; targets with one passing guide appear only in guide_1",
+    "h5mu_identity_field_status": "no guide ID or sequence field is embedded in the guide-level H5MU",
+    "public_identity_sources": [
+      "GWCD4i.pseudobulk_merged.h5ad obs/guide_id",
+      "sgrna_library_metadata.suppl_table.csv sgRNA"
+    ],
+    "identity_crosswalk_status": "exact ranked-modality-to-sgRNA IDs not reconstructed or hash-verified in this benchmark",
+    "guide_identity_status": "OFFICIAL_ALPHANUMERIC_GUIDE_RANKS_IDS_NOT_EMBEDDED_CROSSWALK_NOT_VERIFIED",
+    "interpretation": "The official dataset card defines guide_1/guide_2 as the first/second alphanumeric sgRNA IDs within each target-condition pair, and public pseudobulk/library artifacts expose guide IDs. The H5MU does not embed those IDs, this benchmark does not cross-verify the exact mapping, and effectiveness-selected inclusion is not a structural-QC-only universe.",
+    "frozen_source_files": {
+      "prep_DE_by_guide.ipynb": "27cba79fdb96a6cecfa702759cd51a7b127d8faef9b08428d0c9bdd9c066c8ed",
+      "run_guide_DE_chunk.py": "fb068b7ef2d4413d55716cad3b21ce68c3f5a4819b712b6c8de63eb9258e58c7",
+      "DE_config_by_guide.yaml": "12b57d759d3a62c807aaa9dc646b15ce1aa5db939c315b3fc0602ba848801da6",
+      "data_sharing_readme.md": "1651f775007e3c8b544d0c4f069f52c25d2527bdde6d1f7feac9e88d37076ef8"
+    }
+  },
+  "target": {
+    "gene_field": "variable",
+    "contrast_field": "contrast",
+    "sources": {
+      "hollbacker": "Th2_vs_Th1 (Hollbacker 2021)",
+      "ota": "Th2_vs_Th1 (Ota 2021)"
+    },
+    "value_fields": ["log_fc"],
+    "orientation_multiplier": -1.0
+  },
+  "h5mu": {
+    "modalities": ["guide_1", "guide_2"],
+    "condition": "Rest",
+    "condition_field": "culture_condition",
+    "observation_index": "target_condition",
+    "gene_id_field": "gene_ids",
+    "gene_symbol_field": "gene_name",
+    "layer": "log_fc",
+    "required_root_attributes": {
+      "axis": 0,
+      "encoding-type": "MuData",
+      "encoding-version": "0.1.0",
+      "encoder": "mudata",
+      "encoder-version": "0.3.1"
+    },
+    "required_mod_order": ["guide_1", "guide_2"],
+    "required_modality_attributes": {
+      "encoding-type": "anndata",
+      "encoding-version": "0.1.0",
+      "encoder": "mudata",
+      "encoder-version": "0.3.1"
+    },
+    "required_modality_fields": [
+      "X",
+      "layers",
+      "obs",
+      "obsm",
+      "obsp",
+      "uns",
+      "var",
+      "varm",
+      "varp"
+    ],
+    "required_obs_attributes": {
+      "encoding-type": "dataframe",
+      "encoding-version": "0.2.0",
+      "_index": "target_condition",
+      "column-order": [
+        "target_contrast_gene_name",
+        "culture_condition",
+        "target_contrast",
+        "chunk",
+        "n_cells_target",
+        "n_up_genes",
+        "n_down_genes",
+        "n_total_de_genes",
+        "ontarget_effect_size",
+        "ontarget_significant",
+        "target_baseMean",
+        "neighboring_gene_KD",
+        "n_total_genes_category",
+        "distal_offtarget_flag",
+        "low_target_gex",
+        "n_guides",
+        "single_guide_estimate",
+        "n_downstream",
+        "guide_correlation_signif",
+        "guide_correlation_signif_pval",
+        "guide_correlation_all",
+        "guide_correlation_all_pval",
+        "guide_n_signif_ontarget",
+        "donor_correlation_all_mean",
+        "donor_correlation_all_min",
+        "donor_correlation_hits_mean",
+        "donor_correlation_hits_min"
+      ]
+    },
+    "required_var_attributes": {
+      "encoding-type": "dataframe",
+      "encoding-version": "0.2.0",
+      "_index": "_index",
+      "column-order": ["gene_ids", "gene_name"]
+    },
+    "required_categorical_attributes": {
+      "encoding-type": "categorical",
+      "encoding-version": "0.2.0",
+      "ordered": false
+    },
+    "required_obs_fields": [
+      "chunk",
+      "culture_condition",
+      "distal_offtarget_flag",
+      "donor_correlation_all_mean",
+      "donor_correlation_all_min",
+      "donor_correlation_hits_mean",
+      "donor_correlation_hits_min",
+      "guide_correlation_all",
+      "guide_correlation_all_pval",
+      "guide_correlation_signif",
+      "guide_correlation_signif_pval",
+      "guide_n_signif_ontarget",
+      "low_target_gex",
+      "n_cells_target",
+      "n_down_genes",
+      "n_downstream",
+      "n_guides",
+      "n_total_de_genes",
+      "n_total_genes_category",
+      "n_up_genes",
+      "neighboring_gene_KD",
+      "ontarget_effect_size",
+      "ontarget_significant",
+      "single_guide_estimate",
+      "target_baseMean",
+      "target_condition",
+      "target_contrast",
+      "target_contrast_gene_name"
+    ],
+    "required_var_fields": ["_index", "gene_ids", "gene_name"],
+    "required_layers": [
+      "adj_p_value",
+      "baseMean",
+      "lfcSE",
+      "log_fc",
+      "p_value",
+      "zscore"
+    ],
+    "required_categoricals": [
+      "culture_condition",
+      "target_contrast",
+      "target_contrast_gene_name",
+      "chunk",
+      "n_total_genes_category"
+    ],
+    "selected_rest_mapping_fields": [
+      "target_contrast",
+      "target_contrast_gene_name"
+    ]
+  },
+  "analysis": {
+    "gene_order": "lexicographic_gene_symbol",
+    "rng": "numpy.default_rng(seed)",
+    "split_seeds": [0, 1, 2],
+    "train_guide_slots": ["guide_1", "guide_2"],
+    "train_target_sources": ["hollbacker", "ota"],
+    "representation_sensitivity": {
+      "train_guide_slot": "guide_1",
+      "train_target_source": "hollbacker",
+      "seed": 0,
+      "alternative_atom_order": "reverse_lexicographic"
+    },
+    "score_target_sources": "same source and the opposite source for every frozen fit",
+    "baselines": ["zero", "training_common_ray", "training_best_single"],
+    "inference": "descriptive correlated challenges only; no p-values, confidence intervals, physical-guide generalization, or donor-population inference"
+  },
+  "expected": {
+    "modalities": 2,
+    "genes": 10282,
+    "modality_rows": {
+      "guide_1": 33488,
+      "guide_2": 26078
+    },
+    "condition_counts": {
+      "guide_1": {
+        "Rest": 11075,
+        "Stim8hr": 11231,
+        "Stim48hr": 11068
+      },
+      "guide_2": {
+        "Rest": 8323,
+        "Stim8hr": 8998,
+        "Stim48hr": 8719
+      }
+    },
+    "categorical_missing_rows": {
+      "guide_1": 114,
+      "guide_2": 38
+    },
+    "missing_key_condition_suffix_counts": {
+      "guide_1": {
+        "Rest": 35,
+        "Stim8hr": 18,
+        "Stim48hr": 61
+      },
+      "guide_2": {
+        "Rest": 0,
+        "Stim8hr": 0,
+        "Stim48hr": 38
+      }
+    },
+    "rest_common_atoms": 8323,
+    "guide_1_only_rest_atoms": 2752,
+    "guide_1_rest_keys_sha256": "06b97f432317c166e96d2abae7405f57d0106b3300d5e8cda5ec17c1e2169ada",
+    "guide_2_rest_keys_sha256": "a75887d0a38d0a3a800fbf9c28eae574e68a863dd549ef5b614a19621a808fed",
+    "ordered_gene_ids_sha256": "42a8a03a5cc9249c21da42fad070108398fba6977bb31d55c1de1be8c2b38faa",
+    "ordered_gene_symbols_sha256": "20b005b895d4ff83500c27b4db95f190cf16523664f902ffbf10aa44bb89212b",
+    "shared_target_genes": 8950,
+    "between_source_target_cosine": 0.7905978929805006,
+    "fits": 12,
+    "representation_sensitivity_fits": 1,
+    "challenge_rows": 24
+  },
+  "output": "results/guide_pair_transfer.json"
+}

@@ -1,0 +1,4166 @@
+{
+  "additive_residual": {
+    "across_donor_mean_residual": {
+      "mean_absolute_residual": 0.3806537761975142,
+      "mean_residual": -0.0996863223538721,
+      "median_absolute_residual": 0.2716551332271402,
+      "median_residual": -0.10386965775991941,
+      "negative_gene_count": 9005,
+      "positive_gene_count": 5572,
+      "residual_l2_norm": 67.68256683799943,
+      "residual_norm_over_triple_norm": 2.352809296746556,
+      "top_absolute_residual_genes": [
+        {
+          "absolute_residual": 8.351134279082583,
+          "gene_id": "ENSG00000274862.1",
+          "gene_symbol": "LOC124904138",
+          "residual": -8.351134279082583
+        },
+        {
+          "absolute_residual": 8.207701257680664,
+          "gene_id": "ENSG00000275219.1",
+          "gene_symbol": "LOC124904138",
+          "residual": -8.207701257680664
+        },
+        {
+          "absolute_residual": 7.77227733946231,
+          "gene_id": "ENSG00000278591.1",
+          "gene_symbol": "LOC124904138",
+          "residual": -7.77227733946231
+        },
+        {
+          "absolute_residual": 7.652922878419739,
+          "gene_id": "ENSG00000274062.1",
+          "gene_symbol": "LOC124904138",
+          "residual": -7.652922878419739
+        },
+        {
+          "absolute_residual": 7.342650354735543,
+          "gene_id": "ENSG00000280800.1",
+          "gene_symbol": "NA",
+          "residual": -7.342650354735543
+        },
+        {
+          "absolute_residual": 7.060399019699923,
+          "gene_id": "ENSG00000292344.1",
+          "gene_symbol": "PLCXD1",
+          "residual": -7.060399019699923
+        },
+        {
+          "absolute_residual": 6.796629579413416,
+          "gene_id": "ENSG00000182378.15",
+          "gene_symbol": "PLCXD1",
+          "residual": 6.796629579413416
+        },
+        {
+          "absolute_residual": 6.02255497719797,
+          "gene_id": "ENSG00000206585.1",
+          "gene_symbol": "RNVU1-7",
+          "residual": 6.02255497719797
+        },
+        {
+          "absolute_residual": 5.303158808418283,
+          "gene_id": "ENSG00000278048.1",
+          "gene_symbol": "LOC124904138",
+          "residual": -5.303158808418283
+        },
+        {
+          "absolute_residual": 5.297822687590047,
+          "gene_id": "ENSG00000280614.1",
+          "gene_symbol": "NA",
+          "residual": -5.297822687590047
+        },
+        {
+          "absolute_residual": 4.593593096440875,
+          "gene_id": "ENSG00000278233.1",
+          "gene_symbol": "RNA5-8SN2",
+          "residual": 4.593593096440875
+        },
+        {
+          "absolute_residual": 4.408193683692371,
+          "gene_id": "ENSG00000281181.1",
+          "gene_symbol": "NA",
+          "residual": 4.408193683692371
+        }
+      ]
+    },
+    "causal_interpretation": "UNAVAILABLE: residuals cannot distinguish interaction from experiment, control-type, or guide-burden differences.",
+    "definition": "measured triple effect minus the unit-coefficient sum of constituent-single effects",
+    "per_donor": {
+      "D1": {
+        "mean_absolute_residual": 0.8962895671344199,
+        "mean_residual": -0.10009954457321604,
+        "median_absolute_residual": 0.6263508445792088,
+        "median_residual": -0.09115782629168567,
+        "negative_gene_count": 7890,
+        "positive_gene_count": 6681,
+        "residual_l2_norm": 155.0817714625358,
+        "residual_norm_over_triple_norm": 3.2312426100420777,
+        "top_absolute_residual_genes": [
+          {
+            "absolute_residual": 17.917893771740285,
+            "gene_id": "ENSG00000274862.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -17.917893771740285
+          },
+          {
+            "absolute_residual": 16.512715808524057,
+            "gene_id": "ENSG00000106588.12",
+            "gene_symbol": "PSMA2",
+            "residual": -16.512715808524057
+          },
+          {
+            "absolute_residual": 15.090811826993114,
+            "gene_id": "ENSG00000274062.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -15.090811826993114
+          },
+          {
+            "absolute_residual": 12.59391455098578,
+            "gene_id": "ENSG00000253797.2",
+            "gene_symbol": "UTP14C",
+            "residual": 12.59391455098578
+          },
+          {
+            "absolute_residual": 11.019486391131405,
+            "gene_id": "ENSG00000213860.4",
+            "gene_symbol": "RPL21P75",
+            "residual": 11.019486391131405
+          },
+          {
+            "absolute_residual": 10.906377958996035,
+            "gene_id": "ENSG00000278048.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -10.906377958996035
+          },
+          {
+            "absolute_residual": 10.885517247984435,
+            "gene_id": "ENSG00000278591.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -10.885517247984435
+          },
+          {
+            "absolute_residual": 10.503117288089962,
+            "gene_id": "ENSG00000280800.1",
+            "gene_symbol": "NA",
+            "residual": -10.503117288089962
+          },
+          {
+            "absolute_residual": 9.093113851628313,
+            "gene_id": "ENSG00000262202.5",
+            "gene_symbol": "NA",
+            "residual": -9.093113851628313
+          },
+          {
+            "absolute_residual": 8.789603285368106,
+            "gene_id": "ENSG00000197976.12",
+            "gene_symbol": "AKAP17A",
+            "residual": -8.789603285368106
+          },
+          {
+            "absolute_residual": 8.476534114501419,
+            "gene_id": "ENSG00000284934.3",
+            "gene_symbol": "LOC128125816",
+            "residual": -8.476534114501419
+          },
+          {
+            "absolute_residual": 8.383388719588751,
+            "gene_id": "ENSG00000270882.3",
+            "gene_symbol": "H4C14",
+            "residual": -8.383388719588751
+          }
+        ]
+      },
+      "D2": {
+        "mean_absolute_residual": 0.8943095653285852,
+        "mean_residual": -0.4555206928670712,
+        "median_absolute_residual": 0.6823466633709203,
+        "median_residual": -0.4752437003562884,
+        "negative_gene_count": 10625,
+        "positive_gene_count": 3948,
+        "residual_l2_norm": 149.55638195281787,
+        "residual_norm_over_triple_norm": 2.5613661635115696,
+        "top_absolute_residual_genes": [
+          {
+            "absolute_residual": 18.240931735869914,
+            "gene_id": "ENSG00000280614.1",
+            "gene_symbol": "NA",
+            "residual": -18.240931735869914
+          },
+          {
+            "absolute_residual": 15.520879686685843,
+            "gene_id": "ENSG00000274062.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -15.520879686685843
+          },
+          {
+            "absolute_residual": 12.971951512268035,
+            "gene_id": "ENSG00000274862.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -12.971951512268035
+          },
+          {
+            "absolute_residual": 11.752320866471276,
+            "gene_id": "ENSG00000281383.1",
+            "gene_symbol": "NA",
+            "residual": 11.752320866471276
+          },
+          {
+            "absolute_residual": 11.628511778175474,
+            "gene_id": "ENSG00000281179.1",
+            "gene_symbol": "NA",
+            "residual": -11.628511778175474
+          },
+          {
+            "absolute_residual": 10.9507015292929,
+            "gene_id": "ENSG00000270505.1",
+            "gene_symbol": "NA",
+            "residual": 10.9507015292929
+          },
+          {
+            "absolute_residual": 10.858420528111237,
+            "gene_id": "ENSG00000275219.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -10.858420528111237
+          },
+          {
+            "absolute_residual": 10.618009864642495,
+            "gene_id": "ENSG00000276596.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -10.618009864642495
+          },
+          {
+            "absolute_residual": 10.494526626370655,
+            "gene_id": "ENSG00000278591.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -10.494526626370655
+          },
+          {
+            "absolute_residual": 10.306257274677098,
+            "gene_id": "ENSG00000278048.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -10.306257274677098
+          },
+          {
+            "absolute_residual": 10.305976627113552,
+            "gene_id": "ENSG00000274432.1",
+            "gene_symbol": "LOC124904137",
+            "residual": -10.305976627113552
+          },
+          {
+            "absolute_residual": 10.197305040992429,
+            "gene_id": "ENSG00000273709.1",
+            "gene_symbol": "LOC124904136",
+            "residual": -10.197305040992429
+          }
+        ]
+      },
+      "D3": {
+        "mean_absolute_residual": 0.5434219739746137,
+        "mean_residual": 0.11989403396697962,
+        "median_absolute_residual": 0.37926067994647195,
+        "median_residual": 0.11301788255876577,
+        "negative_gene_count": 6060,
+        "positive_gene_count": 8503,
+        "residual_l2_norm": 100.60857859188162,
+        "residual_norm_over_triple_norm": 1.997804903406781,
+        "top_absolute_residual_genes": [
+          {
+            "absolute_residual": 19.013317656749948,
+            "gene_id": "ENSG00000278233.1",
+            "gene_symbol": "RNA5-8SN2",
+            "residual": 19.013317656749948
+          },
+          {
+            "absolute_residual": 17.284201746869336,
+            "gene_id": "ENSG00000280614.1",
+            "gene_symbol": "NA",
+            "residual": 17.284201746869336
+          },
+          {
+            "absolute_residual": 11.095360084322163,
+            "gene_id": "ENSG00000280800.1",
+            "gene_symbol": "NA",
+            "residual": -11.095360084322163
+          },
+          {
+            "absolute_residual": 10.516439046991842,
+            "gene_id": "ENSG00000206585.1",
+            "gene_symbol": "RNVU1-7",
+            "residual": 10.516439046991842
+          },
+          {
+            "absolute_residual": 10.232997539931397,
+            "gene_id": "ENSG00000292344.1",
+            "gene_symbol": "PLCXD1",
+            "residual": -10.232997539931397
+          },
+          {
+            "absolute_residual": 10.178663995619438,
+            "gene_id": "ENSG00000205572.11",
+            "gene_symbol": "SERF1A",
+            "residual": 10.178663995619438
+          },
+          {
+            "absolute_residual": 10.063844869498693,
+            "gene_id": "ENSG00000182378.15",
+            "gene_symbol": "PLCXD1",
+            "residual": 10.063844869498693
+          },
+          {
+            "absolute_residual": 9.432198599711661,
+            "gene_id": "ENSG00000292345.1",
+            "gene_symbol": "ZBED1",
+            "residual": 9.432198599711661
+          },
+          {
+            "absolute_residual": 9.342540482003443,
+            "gene_id": "ENSG00000292339.1",
+            "gene_symbol": "ASMTL",
+            "residual": -9.342540482003443
+          },
+          {
+            "absolute_residual": 9.122025973706318,
+            "gene_id": "ENSG00000214717.12",
+            "gene_symbol": "ZBED1",
+            "residual": -9.122025973706318
+          },
+          {
+            "absolute_residual": 8.909869000285767,
+            "gene_id": "ENSG00000292358.2",
+            "gene_symbol": "GTPBP6",
+            "residual": 8.909869000285767
+          },
+          {
+            "absolute_residual": 8.867754621718756,
+            "gene_id": "ENSG00000169093.16",
+            "gene_symbol": "ASMTL",
+            "residual": 8.867754621718756
+          }
+        ]
+      },
+      "D4": {
+        "mean_absolute_residual": 0.5799685879427144,
+        "mean_residual": 0.036980914057819114,
+        "median_absolute_residual": 0.3813851677592812,
+        "median_residual": 0.005320866834676252,
+        "negative_gene_count": 7213,
+        "positive_gene_count": 7353,
+        "residual_l2_norm": 110.333960825442,
+        "residual_norm_over_triple_norm": 2.0554340628746943,
+        "top_absolute_residual_genes": [
+          {
+            "absolute_residual": 21.83968632076124,
+            "gene_id": "ENSG00000280614.1",
+            "gene_symbol": "NA",
+            "residual": -21.83968632076124
+          },
+          {
+            "absolute_residual": 13.828323683876881,
+            "gene_id": "ENSG00000214717.12",
+            "gene_symbol": "ZBED1",
+            "residual": 13.828323683876881
+          },
+          {
+            "absolute_residual": 13.263323842304839,
+            "gene_id": "ENSG00000274585.1",
+            "gene_symbol": "RNU2-1",
+            "residual": 13.263323842304839
+          },
+          {
+            "absolute_residual": 12.033111589878668,
+            "gene_id": "ENSG00000277739.1",
+            "gene_symbol": "RNA5-8SP10",
+            "residual": -12.033111589878668
+          },
+          {
+            "absolute_residual": 11.245618169162928,
+            "gene_id": "ENSG00000281179.1",
+            "gene_symbol": "NA",
+            "residual": 11.245618169162928
+          },
+          {
+            "absolute_residual": 11.014578276952278,
+            "gene_id": "ENSG00000275219.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -11.014578276952278
+          },
+          {
+            "absolute_residual": 10.909392391722125,
+            "gene_id": "ENSG00000270505.1",
+            "gene_symbol": "NA",
+            "residual": -10.909392391722125
+          },
+          {
+            "absolute_residual": 10.82078996755574,
+            "gene_id": "ENSG00000292345.1",
+            "gene_symbol": "ZBED1",
+            "residual": -10.82078996755574
+          },
+          {
+            "absolute_residual": 10.729424744921833,
+            "gene_id": "ENSG00000293600.2",
+            "gene_symbol": "LOC131768270",
+            "residual": 10.729424744921833
+          },
+          {
+            "absolute_residual": 10.087407253093403,
+            "gene_id": "ENSG00000275895.8",
+            "gene_symbol": "LOC102724594",
+            "residual": -10.087407253093403
+          },
+          {
+            "absolute_residual": 9.709065483494152,
+            "gene_id": "ENSG00000278591.1",
+            "gene_symbol": "LOC124904138",
+            "residual": -9.709065483494152
+          },
+          {
+            "absolute_residual": 9.508759157567757,
+            "gene_id": "ENSG00000176087.17",
+            "gene_symbol": "SLC35A4",
+            "residual": -9.508759157567757
+          }
+        ]
+      }
+    }
+  },
+  "benchmark_id": "goudy_gse306915_cross_experiment_stress",
+  "biological_interpretation_status": "INCONCLUSIVE_CROSS_EXPERIMENT_CONFOUNDING_LOW_RELIABILITY",
+  "claim_contract": {
+    "assay": "bulk RNA-seq",
+    "benchmark_role": "negative cross-experiment stress test",
+    "cell_system": "primary human bulk T cells",
+    "claim_ceiling": "Descriptive negative stress test of whether one measured FAS + RC3H1 + SUV39H1 triple is represented by target-matched constituent singles across confounded experimental/control designs.",
+    "confounding": "Single-versus-triple status is inseparable from experiment, control type, and guide burden; biological interpretation is inconclusive.",
+    "constituent_relationship": "target-matched constituent singles",
+    "inference": "No p-values, confidence intervals, or donor-population tests are emitted.",
+    "modality": "CRISPRoff",
+    "not_claimed": [
+      "combination or additivity validation",
+      "same-guide matching between triple and constituent singles",
+      "statistical interaction or synergy",
+      "donor-population inference",
+      "prospective perturbation selection or validation",
+      "state reachability or conversion",
+      "functional efficacy",
+      "a general combination model"
+    ],
+    "tier": "STRESS",
+    "triple_guide_identity": "UNRESOLVED",
+    "unit": "four fixed donor labels"
+  },
+  "config_canonical_json_sha256": "1fc6d07a35e8aacfc8d63cc32e132e75f5b71fcb2fcc215ef3ff7823cf7f0c25",
+  "donor_ranges": {
+    "best_single_oracle": {
+      "cosine": {
+        "donor_range": [
+          0.03461095042826224,
+          0.13615449233204832
+        ],
+        "mean": 0.08894771019770097,
+        "median": 0.09251269901524665
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.034610950428262226,
+          0.13615449233204885
+        ],
+        "mean": 0.08894771019770117,
+        "median": 0.09251269901524681
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          0.9906876168691112,
+          0.9994008615717974
+        ],
+        "mean": 0.9952596325149382,
+        "median": 0.9954750258094222
+      }
+    },
+    "component_cone": {
+      "cosine": {
+        "donor_range": [
+          0.03569745996651542,
+          0.16344949213985083
+        ],
+        "mean": 0.09724711902637301,
+        "median": 0.0949207619995629
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.03569745996651548,
+          0.16344949213985074
+        ],
+        "mean": 0.09724711902637298,
+        "median": 0.09492076199956286
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          0.9865517034191477,
+          0.999362642563719
+        ],
+        "mean": 0.9940748340971735,
+        "median": 0.9951924952029135
+      }
+    },
+    "equal_sum": {
+      "cosine": {
+        "donor_range": [
+          0.007805222315889287,
+          0.1263026655249072
+        ],
+        "mean": 0.06583359290411217,
+        "median": 0.06461324188782609
+      },
+      "norm_ratio": {
+        "donor_range": [
+          1.860423997898993,
+          3.080424581502271
+        ],
+        "mean": 2.3066952907988543,
+        "median": 2.142966291897076
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          1.997804903406781,
+          3.2312426100420777
+        ],
+        "mean": 2.4614619349587805,
+        "median": 2.308400113193132
+      }
+    },
+    "lodo_component_cone": {
+      "cosine": {
+        "donor_range": [
+          0.028700207924750303,
+          0.13532940433199428
+        ],
+        "mean": 0.0850736274233683,
+        "median": 0.0881324487183643
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.050039702372651505,
+          0.12861950971979727
+        ],
+        "mean": 0.08376723477224195,
+        "median": 0.0782048634982595
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          0.9944648237034118,
+          1.0025252852873312
+        ],
+        "mean": 0.9983473963821899,
+        "median": 0.9981997382690084
+      }
+    },
+    "lodo_training_selected_best_single": {
+      "cosine": {
+        "donor_range": [
+          0.025637565230338277,
+          0.13532940433199447
+        ],
+        "mean": 0.08811041174450876,
+        "median": 0.09573733870785114
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.05003970237265065,
+          0.11965065951242472
+        ],
+        "mean": 0.0797707077376271,
+        "median": 0.07469623453271651
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          0.9944648237034118,
+          1.0023511747131715
+        ],
+        "mean": 0.9976258787083971,
+        "median": 0.9968437582085027
+      }
+    },
+    "on_target_calibrated_component_cone": {
+      "cosine": {
+        "donor_range": [
+          0.020081341546194016,
+          0.12258588673064699
+        ],
+        "mean": 0.07017588184855447,
+        "median": 0.06901814955868844
+      },
+      "norm_ratio": {
+        "donor_range": [
+          1.1656867708328777,
+          3.0196157777760964
+        ],
+        "mean": 1.8586263480584995,
+        "median": 1.6246014218125118
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          1.4398028180238123,
+          3.1617722204249223
+        ],
+        "mean": 2.0742741689145436,
+        "median": 1.84776081860472
+      }
+    },
+    "signed_least_squares": {
+      "cosine": {
+        "donor_range": [
+          0.03569745996651541,
+          0.17712515468746778
+        ],
+        "mean": 0.11008829985893025,
+        "median": 0.11376529239086891
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.035697459966515396,
+          0.1771251546874678
+        ],
+        "mean": 0.11008829985893008,
+        "median": 0.11376529239086856
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          0.9841883354200749,
+          0.999362642563719
+        ],
+        "mean": 0.9926293554064032,
+        "median": 0.9934832218209093
+      }
+    },
+    "training_donor_mean_triple": {
+      "cosine": {
+        "donor_range": [
+          0.04409972368538176,
+          0.19725533381757834
+        ],
+        "mean": 0.10921887381156317,
+        "median": 0.09776021887164628
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.5488702949896491,
+          0.685344538348265
+        ],
+        "mean": 0.6196600841914007,
+        "median": 0.6222127517138445
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          1.0708475783721716,
+          1.1513042344715874
+        ],
+        "mean": 1.1168536923847154,
+        "median": 1.1226314783475513
+      }
+    },
+    "unrelated_cone": {
+      "cosine": {
+        "donor_range": [
+          0.0,
+          0.09376684750228498
+        ],
+        "mean": 0.037436932467291566,
+        "median": 0.027990441183440636
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.0,
+          0.09376684750228502
+        ],
+        "mean": 0.03743693246729155,
+        "median": 0.02799044118344059
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          0.9955941835454261,
+          1.0
+        ],
+        "mean": 0.998698098352494,
+        "median": 0.9995991049322749
+      }
+    },
+    "zero": {
+      "cosine": {
+        "donor_range": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "norm_ratio": {
+        "donor_range": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "normalized_rmse": {
+        "donor_range": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0,
+        "median": 1.0
+      }
+    }
+  },
+  "donor_results": {
+    "D1": {
+      "models": {
+        "best_single_oracle": {
+          "metrics": {
+            "cosine": 0.07090618161102562,
+            "norm_ratio": 0.07090618161102585,
+            "normalized_rmse": 0.9974829890325664
+          },
+          "nonnegative_scale": 0.052446816407294476,
+          "selected": "SUV39H1",
+          "selection_status": "IN_SAMPLE_ORACLE"
+        },
+        "component_cone": {
+          "coefficients": [
+            0.0,
+            0.0,
+            0.05244681640729428
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000281181.1",
+                  "value": 9.86345773439411
+                },
+                {
+                  "gene_id": "ENSG00000278591.1",
+                  "value": -6.2197429919141545
+                },
+                {
+                  "gene_id": "ENSG00000278233.1",
+                  "value": 5.560577806343283
+                },
+                {
+                  "gene_id": "ENSG00000274585.1",
+                  "value": -5.276697513990277
+                },
+                {
+                  "gene_id": "ENSG00000278189.1",
+                  "value": -5.228304368403857
+                },
+                {
+                  "gene_id": "ENSG00000274062.1",
+                  "value": -5.218177165178455
+                },
+                {
+                  "gene_id": "ENSG00000169093.16",
+                  "value": 4.849104688335259
+                },
+                {
+                  "gene_id": "ENSG00000226179.6",
+                  "value": 4.661085349217118
+                }
+              ],
+              "orthogonality_error": 3.60630399467813e-17,
+              "polarity_violation": 9.179346672720614e-18,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.9974829890325654,
+              "sha256_float64_little_endian": "5d2167cdb01d5922c7013a7a1fdedbfd24a39e5cef19d9ece0727fc27d44bd1b"
+            },
+            "kkt_violation": 1.3322676295501877e-15,
+            "projection_residual_fraction": 0.9974829890325664,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.07090618161102565,
+            "norm_ratio": 0.07090618161102562,
+            "normalized_rmse": 0.9974829890325663
+          },
+          "selection_status": "IN_SAMPLE_ORACLE_FIT"
+        },
+        "equal_sum": {
+          "coefficients": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metrics": {
+            "cosine": 0.007805222315889287,
+            "norm_ratio": 3.080424581502271,
+            "normalized_rmse": 3.2312426100420777
+          }
+        },
+        "lodo_component_cone": {
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.0,
+            0.04555793985163662,
+            0.06944519712244196
+          ],
+          "design_status": "CONDITIONAL_TRANSDUCTIVE",
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "2311020a9bbe2dd4ef33e9f5ff99ba37fda0a0e5772dcee18f55c7b171f31645",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14354,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D2",
+              "D3",
+              "D4"
+            ]
+          },
+          "leakage_contract": "fold mask uses training-donor controls only; coefficients do not read the held triple; scoring remains conditional on author-normalized matrix values and the held donor's measured constituent singles",
+          "metrics": {
+            "cosine": 0.053698142343235895,
+            "norm_ratio": 0.12861950971979727,
+            "normalized_rmse": 1.0013639302463715
+          },
+          "training_donors": [
+            "D2",
+            "D3",
+            "D4"
+          ],
+          "training_fit": {
+            "kkt_violation": 4.440892098500625e-15,
+            "projection_residual_fraction": 0.9960965825537483,
+            "strict_status": "outside_model_cone"
+          }
+        },
+        "lodo_training_selected_best_single": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "2311020a9bbe2dd4ef33e9f5ff99ba37fda0a0e5772dcee18f55c7b171f31645",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14354,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D2",
+              "D3",
+              "D4"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.07322258045551566,
+            "norm_ratio": 0.11965065951242472,
+            "normalized_rmse": 0.9983957232662558
+          },
+          "nonnegative_scale": 0.08891443836853939,
+          "selected": "SUV39H1",
+          "selection_contract": "identity and scale selected on stacked training donors only and frozen before application to the held donor",
+          "training_donors": [
+            "D2",
+            "D3",
+            "D4"
+          ]
+        },
+        "on_target_calibrated_component_cone": {
+          "calibration_fit": {
+            "atom_count": 3,
+            "coordinate_count": 3,
+            "metrics": {
+              "cosine": 0.9999999999999999,
+              "norm_ratio": 1.0,
+              "normalized_rmse": 1.5926449447006292e-16
+            },
+            "strict_status": "inside_tolerance",
+            "warning_status": "SATURATED_3X3_CALIBRATION_DIAGNOSTIC_NOT_VALIDATION"
+          },
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.47742528776180476,
+            1.404727227480846,
+            0.9893888549358816
+          ],
+          "metrics": {
+            "cosine": 0.020081341546194016,
+            "norm_ratio": 3.0196157777760964,
+            "normalized_rmse": 3.1617722204249223
+          },
+          "scoring_contract": "coefficients fit only on the three on-target coordinates, then frozen and scored on the disjoint target-masked transcriptome"
+        },
+        "signed_least_squares": {
+          "coefficients": [
+            -0.05908081526629354,
+            -0.005512082262955673,
+            0.07476978873951157
+          ],
+          "interpretation": "in-sample signed upper-bound diagnostic",
+          "metrics": {
+            "cosine": 0.10684301922783856,
+            "norm_ratio": 0.1068430192278383,
+            "normalized_rmse": 0.9942759019720219
+          }
+        },
+        "training_donor_mean_triple": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "2311020a9bbe2dd4ef33e9f5ff99ba37fda0a0e5772dcee18f55c7b171f31645",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14354,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D2",
+              "D3",
+              "D4"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.12940303035353473,
+            "norm_ratio": 0.685344538348265,
+            "normalized_rmse": 1.1368050914940417
+          },
+          "training_donors": [
+            "D2",
+            "D3",
+            "D4"
+          ]
+        },
+        "unrelated_cone": {
+          "atom_order": [
+            "PTPN2",
+            "RASA2",
+            "MED12"
+          ],
+          "coefficients": [
+            0.0,
+            0.0,
+            0.01417963452328555
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000281181.1",
+                  "value": 9.974391026054356
+                },
+                {
+                  "gene_id": "ENSG00000278591.1",
+                  "value": -6.409049669249064
+                },
+                {
+                  "gene_id": "ENSG00000278233.1",
+                  "value": 5.466456478231775
+                },
+                {
+                  "gene_id": "ENSG00000274585.1",
+                  "value": -5.462988845123518
+                },
+                {
+                  "gene_id": "ENSG00000278189.1",
+                  "value": -5.316476070751609
+                },
+                {
+                  "gene_id": "ENSG00000274062.1",
+                  "value": -4.966686098147027
+                },
+                {
+                  "gene_id": "ENSG00000169093.16",
+                  "value": 4.849104688335259
+                },
+                {
+                  "gene_id": "ENSG00000226179.6",
+                  "value": 4.818122793108313
+                }
+              ],
+              "orthogonality_error": 1.558038315786109e-18,
+              "polarity_violation": 0.0,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.9997184012004025,
+              "sha256_float64_little_endian": "992cd4c516c45f0e3047391f64419fa919c8943bd196ee6b46130c9856ba0dcf"
+            },
+            "kkt_violation": 1.8873791418627657e-15,
+            "projection_residual_fraction": 0.999718401200404,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.02373011380727345,
+            "norm_ratio": 0.023730113807273377,
+            "normalized_rmse": 0.9997184012004056
+          }
+        },
+        "zero": {
+          "metrics": {
+            "cosine": 0.0,
+            "norm_ratio": 0.0,
+            "normalized_rmse": 1.0
+          }
+        }
+      }
+    },
+    "D2": {
+      "models": {
+        "best_single_oracle": {
+          "metrics": {
+            "cosine": 0.03461095042826224,
+            "norm_ratio": 0.034610950428262226,
+            "normalized_rmse": 0.9994008615717974
+          },
+          "nonnegative_scale": 0.0338125759334557,
+          "selected": "FAS",
+          "selection_status": "IN_SAMPLE_ORACLE"
+        },
+        "component_cone": {
+          "coefficients": [
+            0.02922224312169672,
+            0.0063195052785376595,
+            0.005074826060561098
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000280614.1",
+                  "value": -14.56751919798878
+                },
+                {
+                  "gene_id": "ENSG00000145337.5",
+                  "value": -5.578899858989988
+                },
+                {
+                  "gene_id": "ENSG00000255072.2",
+                  "value": 5.5415250446868205
+                },
+                {
+                  "gene_id": "ENSG00000292373.2",
+                  "value": -5.437769430424218
+                },
+                {
+                  "gene_id": "ENSG00000226179.6",
+                  "value": -4.938324745164415
+                },
+                {
+                  "gene_id": "ENSG00000124334.19",
+                  "value": 4.87142221302494
+                },
+                {
+                  "gene_id": "ENSG00000292342.1",
+                  "value": 4.788683253890822
+                },
+                {
+                  "gene_id": "ENSG00000292344.1",
+                  "value": -4.59259571340301
+                }
+              ],
+              "orthogonality_error": 1.7360962925568887e-17,
+              "polarity_violation": 1.0093480786283988e-17,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.9993626425637179,
+              "sha256_float64_little_endian": "39d98a8d2505fbea36d75a5c5bc1c76338b33ff0cca2c3b443c1c35b9e087dc1"
+            },
+            "kkt_violation": 6.1062266354383594e-15,
+            "projection_residual_fraction": 0.9993626425637157,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.03569745996651542,
+            "norm_ratio": 0.03569745996651548,
+            "normalized_rmse": 0.999362642563719
+          },
+          "selection_status": "IN_SAMPLE_ORACLE_FIT"
+        },
+        "equal_sum": {
+          "coefficients": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metrics": {
+            "cosine": 0.032203046817928876,
+            "norm_ratio": 2.390514658926545,
+            "normalized_rmse": 2.5613661635115696
+          }
+        },
+        "lodo_component_cone": {
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.0,
+            0.02664838092806799,
+            0.09136313991322223
+          ],
+          "design_status": "CONDITIONAL_TRANSDUCTIVE",
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "b26498ae28f6de40d1a1ab17cc4ab47b1983b19de5a8c9f3579dbc87296034da",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14581,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D3",
+              "D4"
+            ]
+          },
+          "leakage_contract": "fold mask uses training-donor controls only; coefficients do not read the held triple; scoring remains conditional on author-normalized matrix values and the held donor's measured constituent singles",
+          "metrics": {
+            "cosine": 0.028700207924750303,
+            "norm_ratio": 0.10538560141899823,
+            "normalized_rmse": 1.0025252852873312
+          },
+          "training_donors": [
+            "D1",
+            "D3",
+            "D4"
+          ],
+          "training_fit": {
+            "kkt_violation": 1.4432899320127031e-15,
+            "projection_residual_fraction": 0.994468519362433,
+            "strict_status": "outside_model_cone"
+          }
+        },
+        "lodo_training_selected_best_single": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "b26498ae28f6de40d1a1ab17cc4ab47b1983b19de5a8c9f3579dbc87296034da",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14581,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D3",
+              "D4"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.025637565230338277,
+            "norm_ratio": 0.09888483275490301,
+            "normalized_rmse": 1.0023511747131715
+          },
+          "nonnegative_scale": 0.10088644879589785,
+          "selected": "SUV39H1",
+          "selection_contract": "identity and scale selected on stacked training donors only and frozen before application to the held donor",
+          "training_donors": [
+            "D1",
+            "D3",
+            "D4"
+          ]
+        },
+        "on_target_calibrated_component_cone": {
+          "calibration_fit": {
+            "atom_count": 3,
+            "coordinate_count": 3,
+            "metrics": {
+              "cosine": 0.9999715600939497,
+              "norm_ratio": 0.9999715600939498,
+              "normalized_rmse": 0.007541816974207231
+            },
+            "strict_status": "outside_model_cone",
+            "warning_status": "SATURATED_3X3_CALIBRATION_DIAGNOSTIC_NOT_VALIDATION"
+          },
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            1.165333527087627,
+            0.6807955883149479,
+            0.0
+          ],
+          "metrics": {
+            "cosine": 0.03483167837294173,
+            "norm_ratio": 1.6271776019972832,
+            "normalized_rmse": 1.8799873123680333
+          },
+          "scoring_contract": "coefficients fit only on the three on-target coordinates, then frozen and scored on the disjoint target-masked transcriptome"
+        },
+        "signed_least_squares": {
+          "coefficients": [
+            0.029222243121696623,
+            0.006319505278537654,
+            0.005074826060561139
+          ],
+          "interpretation": "in-sample signed upper-bound diagnostic",
+          "metrics": {
+            "cosine": 0.03569745996651541,
+            "norm_ratio": 0.035697459966515396,
+            "normalized_rmse": 0.999362642563719
+          }
+        },
+        "training_donor_mean_triple": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "b26498ae28f6de40d1a1ab17cc4ab47b1983b19de5a8c9f3579dbc87296034da",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14581,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D3",
+              "D4"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.06611740738975783,
+            "norm_ratio": 0.5488702949896491,
+            "normalized_rmse": 1.1084578652010608
+          },
+          "training_donors": [
+            "D1",
+            "D3",
+            "D4"
+          ]
+        },
+        "unrelated_cone": {
+          "atom_order": [
+            "PTPN2",
+            "RASA2",
+            "MED12"
+          ],
+          "coefficients": [
+            0.06976591955465986,
+            0.0,
+            0.0
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000280614.1",
+                  "value": -14.564944407312023
+                },
+                {
+                  "gene_id": "ENSG00000145337.5",
+                  "value": -5.674674806976427
+                },
+                {
+                  "gene_id": "ENSG00000255072.2",
+                  "value": 5.640078710721984
+                },
+                {
+                  "gene_id": "ENSG00000292373.2",
+                  "value": -5.499259476300154
+                },
+                {
+                  "gene_id": "ENSG00000226179.6",
+                  "value": -5.11483592287863
+                },
+                {
+                  "gene_id": "ENSG00000292342.1",
+                  "value": 5.01354912063865
+                },
+                {
+                  "gene_id": "ENSG00000124334.19",
+                  "value": 4.874430562993229
+                },
+                {
+                  "gene_id": "ENSG00000270276.3",
+                  "value": -4.681863549447064
+                }
+              ],
+              "orthogonality_error": 6.784614045269158e-17,
+              "polarity_violation": 3.401903267114384e-17,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.9955941835454216,
+              "sha256_float64_little_endian": "94583c14498634d25a32962f0956855bea3dcbe5c8479d9b5abd1b156bcbe3d6"
+            },
+            "kkt_violation": 3.996802888650563e-15,
+            "projection_residual_fraction": 0.995594183545424,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.09376684750228498,
+            "norm_ratio": 0.09376684750228502,
+            "normalized_rmse": 0.9955941835454261
+          }
+        },
+        "zero": {
+          "metrics": {
+            "cosine": 0.0,
+            "norm_ratio": 0.0,
+            "normalized_rmse": 1.0
+          }
+        }
+      }
+    },
+    "D3": {
+      "models": {
+        "best_single_oracle": {
+          "metrics": {
+            "cosine": 0.13615449233204832,
+            "norm_ratio": 0.13615449233204885,
+            "normalized_rmse": 0.9906876168691112
+          },
+          "nonnegative_scale": 0.16173124793536,
+          "selected": "SUV39H1",
+          "selection_status": "IN_SAMPLE_ORACLE"
+        },
+        "component_cone": {
+          "coefficients": [
+            0.0,
+            0.1138002114464196,
+            0.12117658586251051
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000278233.1",
+                  "value": 7.130160963457016
+                },
+                {
+                  "gene_id": "ENSG00000275616.1",
+                  "value": 6.052446761330097
+                },
+                {
+                  "gene_id": "ENSG00000281181.1",
+                  "value": 5.766276541068572
+                },
+                {
+                  "gene_id": "ENSG00000274585.1",
+                  "value": -5.378150625074684
+                },
+                {
+                  "gene_id": "ENSG00000278189.1",
+                  "value": -5.232075518980997
+                },
+                {
+                  "gene_id": "ENSG00000292344.1",
+                  "value": -5.029667996517972
+                },
+                {
+                  "gene_id": "ENSG00000182378.15",
+                  "value": 4.816044130931177
+                },
+                {
+                  "gene_id": "ENSG00000253797.2",
+                  "value": -4.3928290129838405
+                }
+              ],
+              "orthogonality_error": 3.122124609120382e-17,
+              "polarity_violation": 3.8690086775879155e-17,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.986551703419151,
+              "sha256_float64_little_endian": "eec2ac1b0704c445125e8236184f27908af6862afec737398a0e644a32c03d4e"
+            },
+            "kkt_violation": 1.4432899320127031e-15,
+            "projection_residual_fraction": 0.9865517034191499,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.16344949213985083,
+            "norm_ratio": 0.16344949213985074,
+            "normalized_rmse": 0.9865517034191477
+          },
+          "selection_status": "IN_SAMPLE_ORACLE_FIT"
+        },
+        "equal_sum": {
+          "coefficients": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metrics": {
+            "cosine": 0.1263026655249072,
+            "norm_ratio": 1.860423997898993,
+            "normalized_rmse": 1.997804903406781
+          }
+        },
+        "lodo_component_cone": {
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.0,
+            0.0,
+            0.059009057627812646
+          ],
+          "design_status": "CONDITIONAL_TRANSDUCTIVE",
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "aa4b10f58c1f987167196e7a0e3127e936027e85cb2246f3e50c82dbe50170ac",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14598,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D2",
+              "D4"
+            ]
+          },
+          "leakage_contract": "fold mask uses training-donor controls only; coefficients do not read the held triple; scoring remains conditional on author-normalized matrix values and the held donor's measured constituent singles",
+          "metrics": {
+            "cosine": 0.13532940433199428,
+            "norm_ratio": 0.050039702372651505,
+            "normalized_rmse": 0.9944648237034118
+          },
+          "training_donors": [
+            "D1",
+            "D2",
+            "D4"
+          ],
+          "training_fit": {
+            "kkt_violation": 1.9984014443252814e-15,
+            "projection_residual_fraction": 0.9980626550867135,
+            "strict_status": "outside_model_cone"
+          }
+        },
+        "lodo_training_selected_best_single": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "aa4b10f58c1f987167196e7a0e3127e936027e85cb2246f3e50c82dbe50170ac",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14598,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D2",
+              "D4"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.13532940433199447,
+            "norm_ratio": 0.05003970237265065,
+            "normalized_rmse": 0.9944648237034118
+          },
+          "nonnegative_scale": 0.05900905762781165,
+          "selected": "SUV39H1",
+          "selection_contract": "identity and scale selected on stacked training donors only and frozen before application to the held donor",
+          "training_donors": [
+            "D1",
+            "D2",
+            "D4"
+          ]
+        },
+        "on_target_calibrated_component_cone": {
+          "calibration_fit": {
+            "atom_count": 3,
+            "coordinate_count": 3,
+            "metrics": {
+              "cosine": 0.9999999999999998,
+              "norm_ratio": 0.9999999999999998,
+              "normalized_rmse": 1.4089207907495853e-16
+            },
+            "strict_status": "inside_tolerance",
+            "warning_status": "SATURATED_3X3_CALIBRATION_DIAGNOSTIC_NOT_VALIDATION"
+          },
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.6494416149640209,
+            0.7428507065095344,
+            0.47290819090007846
+          ],
+          "metrics": {
+            "cosine": 0.12258588673064699,
+            "norm_ratio": 1.1656867708328777,
+            "normalized_rmse": 1.4398028180238123
+          },
+          "scoring_contract": "coefficients fit only on the three on-target coordinates, then frozen and scored on the disjoint target-masked transcriptome"
+        },
+        "signed_least_squares": {
+          "coefficients": [
+            -0.09881811031308115,
+            0.14122145674290537,
+            0.1414394338054297
+          ],
+          "interpretation": "in-sample signed upper-bound diagnostic",
+          "metrics": {
+            "cosine": 0.17712515468746778,
+            "norm_ratio": 0.1771251546874678,
+            "normalized_rmse": 0.9841883354200749
+          }
+        },
+        "training_donor_mean_triple": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "aa4b10f58c1f987167196e7a0e3127e936027e85cb2246f3e50c82dbe50170ac",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14598,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D2",
+              "D4"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.19725533381757834,
+            "norm_ratio": 0.6280966071712715,
+            "normalized_rmse": 1.0708475783721716
+          },
+          "training_donors": [
+            "D1",
+            "D2",
+            "D4"
+          ]
+        },
+        "unrelated_cone": {
+          "atom_order": [
+            "PTPN2",
+            "RASA2",
+            "MED12"
+          ],
+          "coefficients": [
+            0.0,
+            0.0,
+            0.025359570694052168
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000275616.1",
+                  "value": 6.481308051050283
+                },
+                {
+                  "gene_id": "ENSG00000278233.1",
+                  "value": 6.229295340682569
+                },
+                {
+                  "gene_id": "ENSG00000274585.1",
+                  "value": -5.791426668470671
+                },
+                {
+                  "gene_id": "ENSG00000281181.1",
+                  "value": 5.782073515802408
+                },
+                {
+                  "gene_id": "ENSG00000278189.1",
+                  "value": -5.232075518980997
+                },
+                {
+                  "gene_id": "ENSG00000253797.2",
+                  "value": -5.041344094610364
+                },
+                {
+                  "gene_id": "ENSG00000292344.1",
+                  "value": -5.029667996517972
+                },
+                {
+                  "gene_id": "ENSG00000182378.15",
+                  "value": 4.798306575040447
+                }
+              ],
+              "orthogonality_error": 6.344980694976537e-18,
+              "polarity_violation": 0.0,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.999479808664146,
+              "sha256_float64_little_endian": "0a084fbf4317639ad322b469a31817e12a6d66a27c86b550beb126c7489c9f3d"
+            },
+            "kkt_violation": 2.109423746787797e-15,
+            "projection_residual_fraction": 0.9994798086641454,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.032250768559607824,
+            "norm_ratio": 0.032250768559607804,
+            "normalized_rmse": 0.9994798086641442
+          }
+        },
+        "zero": {
+          "metrics": {
+            "cosine": 0.0,
+            "norm_ratio": 0.0,
+            "normalized_rmse": 1.0
+          }
+        }
+      }
+    },
+    "D4": {
+      "models": {
+        "best_single_oracle": {
+          "metrics": {
+            "cosine": 0.11411921641946769,
+            "norm_ratio": 0.11411921641946776,
+            "normalized_rmse": 0.9934670625862779
+          },
+          "nonnegative_scale": 0.1373548009608877,
+          "selected": "SUV39H1",
+          "selection_status": "IN_SAMPLE_ORACLE"
+        },
+        "component_cone": {
+          "coefficients": [
+            0.0,
+            0.04479563731181937,
+            0.12060233934395609
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000280614.1",
+                  "value": 10.969520653228448
+                },
+                {
+                  "gene_id": "ENSG00000275219.1",
+                  "value": -6.545160340696701
+                },
+                {
+                  "gene_id": "ENSG00000274585.1",
+                  "value": 5.311531519027207
+                },
+                {
+                  "gene_id": "ENSG00000275215.1",
+                  "value": 4.960255971040385
+                },
+                {
+                  "gene_id": "ENSG00000182378.15",
+                  "value": 4.709182064501344
+                },
+                {
+                  "gene_id": "ENSG00000292344.1",
+                  "value": -4.674876532179056
+                },
+                {
+                  "gene_id": "ENSG00000275616.1",
+                  "value": 4.563391004329571
+                },
+                {
+                  "gene_id": "ENSG00000278189.1",
+                  "value": 4.553366287102371
+                }
+              ],
+              "orthogonality_error": 7.72164420095256e-17,
+              "polarity_violation": 1.2505632016779391e-17,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.9929020013732583,
+              "sha256_float64_little_endian": "3de38254558a8c35d0fbf7858989dbad9dd48611c6915d3d2abbfca268f3343a"
+            },
+            "kkt_violation": 1.77635683940025e-15,
+            "projection_residual_fraction": 0.992902001373261,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.11893534238810015,
+            "norm_ratio": 0.1189353423881001,
+            "normalized_rmse": 0.9929020013732608
+          },
+          "selection_status": "IN_SAMPLE_ORACLE_FIT"
+        },
+        "equal_sum": {
+          "coefficients": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metrics": {
+            "cosine": 0.09702343695772331,
+            "norm_ratio": 1.8954179248676077,
+            "normalized_rmse": 2.0554340628746943
+          }
+        },
+        "lodo_component_cone": {
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.0,
+            0.01262833517848887,
+            0.05608055680988049
+          ],
+          "design_status": "CONDITIONAL_TRANSDUCTIVE",
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "a53c4ee62e0934c6dd19547c621373c20a8a80855f820f57150b9182bdcaf7c2",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14637,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D2",
+              "D3"
+            ]
+          },
+          "leakage_contract": "fold mask uses training-donor controls only; coefficients do not read the held triple; scoring remains conditional on author-normalized matrix values and the held donor's measured constituent singles",
+          "metrics": {
+            "cosine": 0.1225667550934927,
+            "norm_ratio": 0.05102412557752077,
+            "normalized_rmse": 0.9950355462916453
+          },
+          "training_donors": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "training_fit": {
+            "kkt_violation": 2.2204460492503127e-15,
+            "projection_residual_fraction": 0.9977925947110536,
+            "strict_status": "outside_model_cone"
+          }
+        },
+        "lodo_training_selected_best_single": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "a53c4ee62e0934c6dd19547c621373c20a8a80855f820f57150b9182bdcaf7c2",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14637,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D2",
+              "D3"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.11825209696018664,
+            "norm_ratio": 0.05050763631053002,
+            "normalized_rmse": 0.9952917931507496
+          },
+          "nonnegative_scale": 0.06123796914534127,
+          "selected": "SUV39H1",
+          "selection_contract": "identity and scale selected on stacked training donors only and frozen before application to the held donor",
+          "training_donors": [
+            "D1",
+            "D2",
+            "D3"
+          ]
+        },
+        "on_target_calibrated_component_cone": {
+          "calibration_fit": {
+            "atom_count": 3,
+            "coordinate_count": 3,
+            "metrics": {
+              "cosine": 1.0,
+              "norm_ratio": 0.9999999999999998,
+              "normalized_rmse": 3.246048375683645e-16
+            },
+            "strict_status": "inside_tolerance",
+            "warning_status": "SATURATED_3X3_CALIBRATION_DIAGNOSTIC_NOT_VALIDATION"
+          },
+          "coefficient_order": [
+            "FAS",
+            "RC3H1",
+            "SUV39H1"
+          ],
+          "coefficients": [
+            0.6618548583822927,
+            0.9023592750554882,
+            0.9901954551507881
+          ],
+          "metrics": {
+            "cosine": 0.10320462074443516,
+            "norm_ratio": 1.6220252416277403,
+            "normalized_rmse": 1.8155343248414069
+          },
+          "scoring_contract": "coefficients fit only on the three on-target coordinates, then frozen and scored on the disjoint target-masked transcriptome"
+        },
+        "signed_least_squares": {
+          "coefficients": [
+            -0.02940706711705311,
+            0.05553759649032816,
+            0.12703615055409498
+          ],
+          "interpretation": "in-sample signed upper-bound diagnostic",
+          "metrics": {
+            "cosine": 0.12068756555389924,
+            "norm_ratio": 0.12068756555389883,
+            "normalized_rmse": 0.9926905416697968
+          }
+        },
+        "training_donor_mean_triple": {
+          "gene_filter": {
+            "control_mean_cpm_min": 1.0,
+            "gene_ids_sha256": "a53c4ee62e0934c6dd19547c621373c20a8a80855f820f57150b9182bdcaf7c2",
+            "held_donor_controls_used": false,
+            "retained_transcriptome_genes": 14637,
+            "selection_scope": "training-donor controls only",
+            "training_donors": [
+              "D1",
+              "D2",
+              "D3"
+            ]
+          },
+          "metrics": {
+            "cosine": 0.04409972368538176,
+            "norm_ratio": 0.6163288962564174,
+            "normalized_rmse": 1.1513042344715874
+          },
+          "training_donors": [
+            "D1",
+            "D2",
+            "D3"
+          ]
+        },
+        "unrelated_cone": {
+          "atom_order": [
+            "PTPN2",
+            "RASA2",
+            "MED12"
+          ],
+          "coefficients": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "geometry": {
+            "certificate": {
+              "largest_absolute_coordinates": [
+                {
+                  "gene_id": "ENSG00000280614.1",
+                  "value": 12.814941389174443
+                },
+                {
+                  "gene_id": "ENSG00000275219.1",
+                  "value": -5.932215500456689
+                },
+                {
+                  "gene_id": "ENSG00000182378.15",
+                  "value": 4.919914463937008
+                },
+                {
+                  "gene_id": "ENSG00000255072.2",
+                  "value": 4.8992003644627236
+                },
+                {
+                  "gene_id": "ENSG00000292344.1",
+                  "value": -4.8803603028920355
+                },
+                {
+                  "gene_id": "ENSG00000274585.1",
+                  "value": 4.8475473864309215
+                },
+                {
+                  "gene_id": "ENSG00000278189.1",
+                  "value": 4.72657530938008
+                },
+                {
+                  "gene_id": "ENSG00000226179.6",
+                  "value": 4.5949201324120486
+                }
+              ],
+              "orthogonality_error": 0.0,
+              "polarity_violation": 0.0,
+              "scope": "model-relative to this measured atom cone and masked gene metric",
+              "separation_margin": 0.9999999999999991,
+              "sha256_float64_little_endian": "e65c12e99cbe80eaf3e6284b747ee2a83afbf3789e7db3a31b553a551ebacb53"
+            },
+            "kkt_violation": 0.0,
+            "projection_residual_fraction": 1.0,
+            "strict_status": "outside_model_cone"
+          },
+          "metrics": {
+            "cosine": 0.0,
+            "norm_ratio": 0.0,
+            "normalized_rmse": 1.0
+          }
+        },
+        "zero": {
+          "metrics": {
+            "cosine": 0.0,
+            "norm_ratio": 0.0,
+            "normalized_rmse": 1.0
+          }
+        }
+      }
+    }
+  },
+  "execution_status": "PASS",
+  "filter_sensitivity": {
+    "component_cone_median_cosine_span": 0.1303267794814468,
+    "conclusion": "Component-cone alignment changes materially across the declared control-only expression thresholds; no threshold rescues the geometric model.",
+    "filter_sensitivity_status": "FILTER_SENSITIVE",
+    "per_threshold": {
+      "0.5": {
+        "conclusion": "At control-mean CPM >= 0.5, 17407 target-masked genes remain; median component-cone cosine/nRMSE=0.069586/0.997359 and median equal-sum cosine/nRMSE=0.056365/2.287023. This remains a confounded cross-experiment descriptive stress test.",
+        "control_mean_cpm_min": 0.5,
+        "donor_ranges": {
+          "component_cone": {
+            "cosine": {
+              "donor_range": [
+                0.03803469596412957,
+                0.12535437873276503
+              ],
+              "mean": 0.07564043316652563,
+              "median": 0.06958632898460396
+            },
+            "norm_ratio": {
+              "donor_range": [
+                0.03803469596412948,
+                0.125354378732765
+              ],
+              "mean": 0.07564043316652558,
+              "median": 0.06958632898460392
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                0.9921120298295562,
+                0.9992764191668474
+              ],
+              "mean": 0.9965268011754256,
+              "median": 0.9973593778526493
+            }
+          },
+          "equal_sum": {
+            "cosine": {
+              "donor_range": [
+                -0.001578982289822221,
+                0.0933222140870283
+              ],
+              "mean": 0.051118528387453795,
+              "median": 0.056365440876304546
+            },
+            "norm_ratio": {
+              "donor_range": [
+                1.8529615647052828,
+                3.0748846548279594
+              ],
+              "mean": 2.2874503983156793,
+              "median": 2.1109776868647376
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                2.0217867366767734,
+                3.234907420208944
+              ],
+              "mean": 2.457685027345088,
+              "median": 2.287022976247317
+            }
+          }
+        },
+        "gene_ids_sha256": "fa5b0ca8cd43838ea1ce32d669e51a981a6b3cd7d07d7a3bb0c4995bd33177c2",
+        "per_donor": {
+          "D1": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.04885178293957291,
+                  "norm_ratio": 0.048851782939572895,
+                  "normalized_rmse": 0.9988060388802352
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": -0.001578982289822221,
+                  "norm_ratio": 3.0748846548279594,
+                  "normalized_rmse": 3.234907420208944
+                }
+              }
+            }
+          },
+          "D2": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.03803469596412957,
+                  "norm_ratio": 0.03803469596412948,
+                  "normalized_rmse": 0.9992764191668474
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.03785883463124284,
+                  "norm_ratio": 2.3497869256071677,
+                  "normalized_rmse": 2.518646105844159
+                }
+              }
+            }
+          },
+          "D3": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.12535437873276503,
+                  "norm_ratio": 0.125354378732765,
+                  "normalized_rmse": 0.9921120298295562
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.0933222140870283,
+                  "norm_ratio": 1.8529615647052828,
+                  "normalized_rmse": 2.0217867366767734
+                }
+              }
+            }
+          },
+          "D4": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.09032087502963501,
+                  "norm_ratio": 0.09032087502963493,
+                  "normalized_rmse": 0.9959127168250634
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.07487204712136625,
+                  "norm_ratio": 1.8721684481223078,
+                  "normalized_rmse": 2.0553998466504755
+                }
+              }
+            }
+          }
+        },
+        "retained_genes_before_target_mask": 17410,
+        "retained_transcriptome_genes": 17407
+      },
+      "1": {
+        "conclusion": "At control-mean CPM >= 1, 14577 target-masked genes remain; median component-cone cosine/nRMSE=0.094921/0.995192 and median equal-sum cosine/nRMSE=0.064613/2.308400. This remains a confounded cross-experiment descriptive stress test.",
+        "control_mean_cpm_min": 1.0,
+        "donor_ranges": {
+          "component_cone": {
+            "cosine": {
+              "donor_range": [
+                0.03569745996651542,
+                0.16344949213985083
+              ],
+              "mean": 0.09724711902637301,
+              "median": 0.0949207619995629
+            },
+            "norm_ratio": {
+              "donor_range": [
+                0.03569745996651548,
+                0.16344949213985074
+              ],
+              "mean": 0.09724711902637298,
+              "median": 0.09492076199956286
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                0.9865517034191477,
+                0.999362642563719
+              ],
+              "mean": 0.9940748340971735,
+              "median": 0.9951924952029135
+            }
+          },
+          "equal_sum": {
+            "cosine": {
+              "donor_range": [
+                0.007805222315889287,
+                0.1263026655249072
+              ],
+              "mean": 0.06583359290411217,
+              "median": 0.06461324188782609
+            },
+            "norm_ratio": {
+              "donor_range": [
+                1.860423997898993,
+                3.080424581502271
+              ],
+              "mean": 2.3066952907988543,
+              "median": 2.142966291897076
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                1.997804903406781,
+                3.2312426100420777
+              ],
+              "mean": 2.4614619349587805,
+              "median": 2.308400113193132
+            }
+          }
+        },
+        "gene_ids_sha256": "22be565d7b20601f9d97d53320160f7ed6d60b676e96295e45b7b928a8eb8098",
+        "per_donor": {
+          "D1": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.07090618161102565,
+                  "norm_ratio": 0.07090618161102562,
+                  "normalized_rmse": 0.9974829890325663
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.007805222315889287,
+                  "norm_ratio": 3.080424581502271,
+                  "normalized_rmse": 3.2312426100420777
+                }
+              }
+            }
+          },
+          "D2": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.03569745996651542,
+                  "norm_ratio": 0.03569745996651548,
+                  "normalized_rmse": 0.999362642563719
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.032203046817928876,
+                  "norm_ratio": 2.390514658926545,
+                  "normalized_rmse": 2.5613661635115696
+                }
+              }
+            }
+          },
+          "D3": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.16344949213985083,
+                  "norm_ratio": 0.16344949213985074,
+                  "normalized_rmse": 0.9865517034191477
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.1263026655249072,
+                  "norm_ratio": 1.860423997898993,
+                  "normalized_rmse": 1.997804903406781
+                }
+              }
+            }
+          },
+          "D4": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.11893534238810015,
+                  "norm_ratio": 0.1189353423881001,
+                  "normalized_rmse": 0.9929020013732608
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.09702343695772331,
+                  "norm_ratio": 1.8954179248676077,
+                  "normalized_rmse": 2.0554340628746943
+                }
+              }
+            }
+          }
+        },
+        "retained_genes_before_target_mask": 14580,
+        "retained_transcriptome_genes": 14577
+      },
+      "10": {
+        "conclusion": "At control-mean CPM >= 10, 8451 target-masked genes remain; median component-cone cosine/nRMSE=0.199913/0.977412 and median equal-sum cosine/nRMSE=0.115385/2.257696. This remains a confounded cross-experiment descriptive stress test.",
+        "control_mean_cpm_min": 10.0,
+        "donor_ranges": {
+          "component_cone": {
+            "cosine": {
+              "donor_range": [
+                0.015706294618814128,
+                0.32808697563792005
+              ],
+              "mean": 0.18590487179720894,
+              "median": 0.19991310846605076
+            },
+            "norm_ratio": {
+              "donor_range": [
+                0.015706294618814176,
+                0.3280869756379201
+              ],
+              "mean": 0.185904871797209,
+              "median": 0.19991310846605082
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                0.9446475196689825,
+                0.9998766485468834
+              ],
+              "mean": 0.974837246858107,
+              "median": 0.9774124096082812
+            }
+          },
+          "equal_sum": {
+            "cosine": {
+              "donor_range": [
+                -0.006652094598614626,
+                0.2756033714261982
+              ],
+              "mean": 0.12493019208848676,
+              "median": 0.11538474576318172
+            },
+            "norm_ratio": {
+              "donor_range": [
+                1.8497724347605693,
+                2.925405075531541
+              ],
+              "mean": 2.2760855495727235,
+              "median": 2.164582343999392
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                1.9348227134788476,
+                3.0463499628276876
+              ],
+              "mean": 2.3741411884776,
+              "median": 2.2576960388019325
+            }
+          }
+        },
+        "gene_ids_sha256": "0553c239f29cc03042966c462413de602665971a5c20748b6a0fc0b35879eae0",
+        "per_donor": {
+          "D1": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.13274899755296596,
+                  "norm_ratio": 0.132748997552966,
+                  "normalized_rmse": 0.9911496878114242
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.047471504416352506,
+                  "norm_ratio": 2.925405075531541,
+                  "normalized_rmse": 3.0463499628276876
+                }
+              }
+            }
+          },
+          "D2": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.015706294618814128,
+                  "norm_ratio": 0.015706294618814176,
+                  "normalized_rmse": 0.9998766485468834
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": -0.006652094598614626,
+                  "norm_ratio": 2.3355468986237446,
+                  "normalized_rmse": 2.5467335693961557
+                }
+              }
+            }
+          },
+          "D3": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.2670772193791356,
+                  "norm_ratio": 0.26707721937913564,
+                  "normalized_rmse": 0.9636751314051382
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.18329798711001094,
+                  "norm_ratio": 1.8497724347605693,
+                  "normalized_rmse": 1.9348227134788476
+                }
+              }
+            }
+          },
+          "D4": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.32808697563792005,
+                  "norm_ratio": 0.3280869756379201,
+                  "normalized_rmse": 0.9446475196689825
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.2756033714261982,
+                  "norm_ratio": 1.993617789375039,
+                  "normalized_rmse": 1.9686585082077088
+                }
+              }
+            }
+          }
+        },
+        "retained_genes_before_target_mask": 8453,
+        "retained_transcriptome_genes": 8451
+      },
+      "2": {
+        "conclusion": "At control-mean CPM >= 2, 12469 target-masked genes remain; median component-cone cosine/nRMSE=0.117774/0.992568 and median equal-sum cosine/nRMSE=0.079991/2.318522. This remains a confounded cross-experiment descriptive stress test.",
+        "control_mean_cpm_min": 2.0,
+        "donor_ranges": {
+          "component_cone": {
+            "cosine": {
+              "donor_range": [
+                0.038035695533537035,
+                0.2114417435565128
+              ],
+              "mean": 0.12125640942817739,
+              "median": 0.11777409931132987
+            },
+            "norm_ratio": {
+              "donor_range": [
+                0.0380356955335371,
+                0.21144174355651266
+              ],
+              "mean": 0.12125640942817736,
+              "median": 0.11777409931132984
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                0.977390602104287,
+                0.9992763811204979
+              ],
+              "mean": 0.9904507668689416,
+              "median": 0.9925680421254908
+            }
+          },
+          "equal_sum": {
+            "cosine": {
+              "donor_range": [
+                0.013046455654409988,
+                0.1640911952806893
+              ],
+              "mean": 0.08427988434930513,
+              "median": 0.07999094323106061
+            },
+            "norm_ratio": {
+              "donor_range": [
+                1.8833307105353088,
+                3.0409940326882405
+              ],
+              "mean": 2.3157691245352785,
+              "median": 2.1693758774587826
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                1.9821348567754657,
+                3.188776617961801
+              ],
+              "mean": 2.451989039073169,
+              "median": 2.3185223407777045
+            }
+          }
+        },
+        "gene_ids_sha256": "717dc39d2143bd7690dd1b7b8630f4c41c45e27109852088432f0678c3453f33",
+        "per_donor": {
+          "D1": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.08736158375378296,
+                  "norm_ratio": 0.08736158375378288,
+                  "normalized_rmse": 0.9961766679078715
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.013046455654409988,
+                  "norm_ratio": 3.0409940326882405,
+                  "normalized_rmse": 3.188776617961801
+                }
+              }
+            }
+          },
+          "D2": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.038035695533537035,
+                  "norm_ratio": 0.0380356955335371,
+                  "normalized_rmse": 0.9992763811204979
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.033796270470505964,
+                  "norm_ratio": 2.445140029547285,
+                  "normalized_rmse": 2.610256028925287
+                }
+              }
+            }
+          },
+          "D3": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.2114417435565128,
+                  "norm_ratio": 0.21144174355651266,
+                  "normalized_rmse": 0.977390602104287
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.1640911952806893,
+                  "norm_ratio": 1.8833307105353088,
+                  "normalized_rmse": 1.9821348567754657
+                }
+              }
+            }
+          },
+          "D4": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.14818661486887677,
+                  "norm_ratio": 0.1481866148688768,
+                  "normalized_rmse": 0.98895941634311
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.12618561599161526,
+                  "norm_ratio": 1.8936117253702798,
+                  "normalized_rmse": 2.0267886526301218
+                }
+              }
+            }
+          }
+        },
+        "retained_genes_before_target_mask": 12472,
+        "retained_transcriptome_genes": 12469
+      },
+      "5": {
+        "conclusion": "At control-mean CPM >= 5, 10269 target-masked genes remain; median component-cone cosine/nRMSE=0.155529/0.987426 and median equal-sum cosine/nRMSE=0.106447/2.303826. This remains a confounded cross-experiment descriptive stress test.",
+        "control_mean_cpm_min": 5.0,
+        "donor_ranges": {
+          "component_cone": {
+            "cosine": {
+              "donor_range": [
+                0.03542179060810632,
+                0.2504335883235692
+              ],
+              "mean": 0.14922842016089244,
+              "median": 0.15552915085594715
+            },
+            "norm_ratio": {
+              "donor_range": [
+                0.03542179060810621,
+                0.25043358832356966
+              ],
+              "mean": 0.14922842016089244,
+              "median": 0.15552915085594698
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                0.9681337809617949,
+                0.999372451466477
+              ],
+              "mean": 0.9855895748297707,
+              "median": 0.9874260334454055
+            }
+          },
+          "equal_sum": {
+            "cosine": {
+              "donor_range": [
+                0.020773605945372604,
+                0.19652382984168018
+              ],
+              "mean": 0.10754786822572157,
+              "median": 0.10644701855791674
+            },
+            "norm_ratio": {
+              "donor_range": [
+                1.917601180643153,
+                2.8634131368887434
+              ],
+              "mean": 2.2782964191467534,
+              "median": 2.166085679527559
+            },
+            "normalized_rmse": {
+              "donor_range": [
+                1.9807790466748598,
+                2.9848994629233117
+              ],
+              "mean": 2.393332734397034,
+              "median": 2.3038262139949817
+            }
+          }
+        },
+        "gene_ids_sha256": "c33c4a1371d71fe8a686d293a5efe0aa4907fe9f6e920ee15386c349391441f8",
+        "per_donor": {
+          "D1": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.12758040555994216,
+                  "norm_ratio": 0.1275804055599419,
+                  "normalized_rmse": 0.9918282311555562
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.05055330385571479,
+                  "norm_ratio": 2.8634131368887434,
+                  "normalized_rmse": 2.9848994629233117
+                }
+              }
+            }
+          },
+          "D2": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.03542179060810632,
+                  "norm_ratio": 0.03542179060810621,
+                  "normalized_rmse": 0.999372451466477
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.020773605945372604,
+                  "norm_ratio": 2.411830525147251,
+                  "normalized_rmse": 2.5916638763850535
+                }
+              }
+            }
+          },
+          "D3": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.2504335883235692,
+                  "norm_ratio": 0.25043358832356966,
+                  "normalized_rmse": 0.9681337809617949
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.19652382984168018,
+                  "norm_ratio": 1.917601180643153,
+                  "normalized_rmse": 1.9807790466748598
+                }
+              }
+            }
+          },
+          "D4": {
+            "models": {
+              "component_cone": {
+                "metrics": {
+                  "cosine": 0.18347789615195212,
+                  "norm_ratio": 0.18347789615195204,
+                  "normalized_rmse": 0.9830238357352548
+                },
+                "strict_status": "outside_model_cone"
+              },
+              "equal_sum": {
+                "metrics": {
+                  "cosine": 0.1623407332601187,
+                  "norm_ratio": 1.9203408339078667,
+                  "normalized_rmse": 2.01598855160491
+                }
+              }
+            }
+          }
+        },
+        "retained_genes_before_target_mask": 10271,
+        "retained_transcriptome_genes": 10269
+      }
+    },
+    "selection_contract": "Each mask uses only the 12 declared controls, never perturbation outcomes."
+  },
+  "geometric_model_status": "FAILS_DECLARED_GEOMETRIC_MODEL",
+  "input_identity": {
+    "author_key": {
+      "bytes": 3671,
+      "commit": "53155c9207d8b4f70f0ae5d60e1f4c0513d41bd7",
+      "file": "rna_seq_meta_key.csv",
+      "hash_verified_before_parse": true,
+      "md5_actual": "ea121d9634ab466b77dbf6978762b93a",
+      "md5_expected": "ea121d9634ab466b77dbf6978762b93a",
+      "path": "data/rna_seq_meta_key.csv",
+      "sha256_actual": "ba27f8502a517dab3c25c7c8001e85e303659e42d84e96c0e48b20d51fbe3e2f",
+      "sha256_expected": "ba27f8502a517dab3c25c7c8001e85e303659e42d84e96c0e48b20d51fbe3e2f",
+      "url": "https://raw.githubusercontent.com/GilbertLabUCSF/T_Cell_CRISPRoff/53155c9207d8b4f70f0ae5d60e1f4c0513d41bd7/Cas9_KO_vs_CRISPRoff_KD/rna_seq_meta_key.csv"
+    },
+    "counts": {
+      "bytes": 9358021,
+      "file": "GSE306915_normalized_counts_CO065.csv.gz",
+      "hash_verified_before_parse": true,
+      "md5_actual": "2dfe74e900fe94330611fa0e5093323d",
+      "md5_expected": "2dfe74e900fe94330611fa0e5093323d",
+      "path": "data/GSE306915_normalized_counts_CO065.csv.gz",
+      "sha256_actual": "02307f1019429530fae91d8da3d808a1c8e04241fe4657832205c94d01f43d42",
+      "sha256_expected": "02307f1019429530fae91d8da3d808a1c8e04241fe4657832205c94d01f43d42",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306915/suppl/GSE306915_normalized_counts_CO065.csv.gz"
+    },
+    "soft": {
+      "bytes": 10412,
+      "file": "GSE306915_family.soft.gz",
+      "hash_verified_before_parse": true,
+      "md5_actual": "3f9183e4008aaf5d18a253c47ba6126a",
+      "md5_expected": "3f9183e4008aaf5d18a253c47ba6126a",
+      "path": "data/GSE306915_family.soft.gz",
+      "sha256_actual": "9059377ff91eee08ba71b52c787d4166baa0b2e29a9a3b02ba29566c63bbe5c4",
+      "sha256_expected": "9059377ff91eee08ba71b52c787d4166baa0b2e29a9a3b02ba29566c63bbe5c4",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE306nnn/GSE306915/soft/GSE306915_family.soft.gz"
+    }
+  },
+  "interpretation": {
+    "claim_boundary": "Execution succeeded, but the declared geometric model fails. This is a negative cross-experiment stress test, not combination/additivity validation, an interaction test, or biological reachability evidence.",
+    "numerical_summary": {
+      "best_single_in_sample_oracle_median_cosine": 0.09251269901524665,
+      "component_cone_median_cosine": 0.0949207619995629,
+      "component_pairwise_donor_median_cosines": {
+        "FAS": 0.0036998534299603324,
+        "RC3H1": 0.08094677597893407,
+        "SUV39H1": 0.041930337637273114
+      },
+      "equal_sum_median_cosine": 0.06461324188782609,
+      "equal_sum_median_normalized_rmse": 2.308400113193132,
+      "filter_threshold_component_cone_median_cosines": {
+        "0.5": 0.06958632898460396,
+        "1": 0.0949207619995629,
+        "10": 0.19991310846605076,
+        "2": 0.11777409931132987,
+        "5": 0.15552915085594715
+      },
+      "lodo_component_cone_median_cosine": 0.0881324487183643,
+      "lodo_training_selected_best_single_median_cosine": 0.09573733870785114,
+      "on_target_calibrated_disjoint_transcriptome_median_cosine": 0.06901814955868844,
+      "triple_pairwise_donor_median_cosine": 0.04801213690254969
+    },
+    "text": "The in-sample component cone reaches median cosine 0.095, only descriptively, while the equal-sum model has median cosine 0.065 and normalized RMSE 2.308. LODO median cosine is 0.088 versus 0.096 for the training-selected best single. On-target-frozen potency scoring reaches median transcriptome cosine 0.069. Low donor reproducibility and expression-filter sensitivity, together with perfect single/triple experiment-control-guide burden confounding, make the biological result inconclusive."
+  },
+  "metadata_conflict": {
+    "affected_gsms": [
+      "GSM9212391",
+      "GSM9212392",
+      "GSM9212393",
+      "GSM9212394",
+      "GSM9212395",
+      "GSM9212396",
+      "GSM9212397",
+      "GSM9212398"
+    ],
+    "claim_effect": "No time-course or duration claim is made.",
+    "computational_resolution": "Day7",
+    "field": "time",
+    "geo_characteristic": "Day 18",
+    "observed_affected_gsms": [
+      "GSM9212391",
+      "GSM9212392",
+      "GSM9212393",
+      "GSM9212394",
+      "GSM9212395",
+      "GSM9212396",
+      "GSM9212397",
+      "GSM9212398"
+    ],
+    "resolution_basis": "The sample titles, paper methods, and pinned author metadata identify Day 7; GEO characteristics alone say Day 18 for these eight donor-1 single/control samples.",
+    "sample_title": "Day7",
+    "status": "FLAGGED"
+  },
+  "models": {
+    "best_single_oracle": "best target-matched constituent single with identity and non-negative scale selected on the same donor triple",
+    "component_cone": "in-sample donor-specific NNLS projection of the measured triple onto target-matched constituent singles; an oracle geometric diagnostic, not additivity validation",
+    "component_order": [
+      "FAS",
+      "RC3H1",
+      "SUV39H1"
+    ],
+    "equal_sum": "unit coefficient on each of the three component-single effects",
+    "lodo_component_cone": "one shared NNLS coefficient vector fit on a training-control-selected gene mask by stacking only the three training donors and applied to the held donor's measured singles",
+    "lodo_training_selected_best_single": "constituent identity and non-negative scale selected only on stacked training donors and frozen before scoring the held donor",
+    "on_target_calibrated_component_cone": "coefficients fit only on the three on-target coordinates, frozen, and scored on the disjoint target-masked transcriptome; the 3x3 fit is a saturated calibration diagnostic",
+    "signed_least_squares": "unconstrained least-squares upper-bound diagnostic on the three component singles",
+    "training_donor_mean_triple": "arithmetic mean of the three training-donor measured triple effects",
+    "unrelated_cone": "donor-specific NNLS projection on PTPN2, RASA2, and MED12 singles",
+    "unrelated_order": [
+      "PTPN2",
+      "RASA2",
+      "MED12"
+    ],
+    "zero": "zero-effect prediction"
+  },
+  "module_error": {
+    "reason": "No preregistered module set was supplied; post hoc module selection would not be a valid holdout analysis.",
+    "status": "UNAVAILABLE_NO_PREREGISTERED_MODULE_SET"
+  },
+  "on_target_controls": {
+    "excluded_from_transcriptome_metrics": true,
+    "per_donor": {
+      "D1": {
+        "FAS": {
+          "gene_id": "ENSG00000026103.25",
+          "single_effect": -2.940886177491094,
+          "triple_effect": -2.113928592870129
+        },
+        "RC3H1": {
+          "gene_id": "ENSG00000135870.13",
+          "single_effect": -2.0453769120956227,
+          "triple_effect": -1.8210950156476113
+        },
+        "SUV39H1": {
+          "gene_id": "ENSG00000101945.17",
+          "single_effect": -1.6447089649169846,
+          "triple_effect": -1.969130646437754
+        }
+      },
+      "D2": {
+        "FAS": {
+          "gene_id": "ENSG00000026103.25",
+          "single_effect": -2.2751448263259815,
+          "triple_effect": -2.4054259892150487
+        },
+        "RC3H1": {
+          "gene_id": "ENSG00000135870.13",
+          "single_effect": -3.559646540218713,
+          "triple_effect": -2.60232403077522
+        },
+        "SUV39H1": {
+          "gene_id": "ENSG00000101945.17",
+          "single_effect": -2.2630391604335953,
+          "triple_effect": -0.982490389324926
+        }
+      },
+      "D3": {
+        "FAS": {
+          "gene_id": "ENSG00000026103.25",
+          "single_effect": -3.5762902613489262,
+          "triple_effect": -3.497827275312928
+        },
+        "RC3H1": {
+          "gene_id": "ENSG00000135870.13",
+          "single_effect": -3.1830164101946083,
+          "triple_effect": -2.1201109294814406
+        },
+        "SUV39H1": {
+          "gene_id": "ENSG00000101945.17",
+          "single_effect": -2.729536961008156,
+          "triple_effect": -1.7720912053172735
+        }
+      },
+      "D4": {
+        "FAS": {
+          "gene_id": "ENSG00000026103.25",
+          "single_effect": -3.202461517492076,
+          "triple_effect": -2.6409930327063376
+        },
+        "RC3H1": {
+          "gene_id": "ENSG00000135870.13",
+          "single_effect": -2.384903212961419,
+          "triple_effect": -2.34222004456354
+        },
+        "SUV39H1": {
+          "gene_id": "ENSG00000101945.17",
+          "single_effect": -2.504797428118331,
+          "triple_effect": -2.501182167353609
+        }
+      }
+    },
+    "saturated_calibration_diagnostic": {
+      "donor_ranges": {
+        "best_single_oracle": {
+          "cosine": {
+            "donor_range": [
+              0.6447725695991653,
+              0.8345429200173213
+            ],
+            "mean": 0.7225973889885382,
+            "median": 0.7055370331688331
+          },
+          "norm_ratio": {
+            "donor_range": [
+              0.6447725695991653,
+              0.8345429200173213
+            ],
+            "mean": 0.7225973889885381,
+            "median": 0.7055370331688329
+          },
+          "normalized_rmse": {
+            "donor_range": [
+              0.5509429322978586,
+              0.7643744720308818
+            ],
+            "mean": 0.6827276104419097,
+            "median": 0.7077965187194492
+          }
+        },
+        "component_cone": {
+          "cosine": {
+            "donor_range": [
+              0.9999715600939497,
+              1.0
+            ],
+            "mean": 0.9999928900234873,
+            "median": 0.9999999999999998
+          },
+          "norm_ratio": {
+            "donor_range": [
+              0.9999715600939498,
+              1.0
+            ],
+            "mean": 0.9999928900234873,
+            "median": 0.9999999999999998
+          },
+          "normalized_rmse": {
+            "donor_range": [
+              1.4089207907495853e-16,
+              0.007541816974207231
+            ],
+            "mean": 0.001885454243551964,
+            "median": 2.4193466601921373e-16
+          }
+        },
+        "equal_sum": {
+          "cosine": {
+            "donor_range": [
+              0.8850384989749339,
+              0.9911701613440916
+            ],
+            "mean": 0.9390665842351353,
+            "median": 0.9400288383107578
+          },
+          "norm_ratio": {
+            "donor_range": [
+              1.212847990066441,
+              1.5751022916456525
+            ],
+            "mean": 1.3645279391958387,
+            "median": 1.3350807375356304
+          },
+          "normalized_rmse": {
+            "donor_range": [
+              0.2639323982951787,
+              0.735849206866959
+            ],
+            "mean": 0.5396093378089901,
+            "median": 0.5793278730369114
+          }
+        }
+      },
+      "interpretation": "The three-atom cone is fit on only three on-target coordinates. Exact or near-exact interpolation is a saturated calibration diagnostic, not mechanistic, combination, or additivity validation.",
+      "per_donor": {
+        "D1": {
+          "models": {
+            "best_single_oracle": {
+              "metrics": {
+                "cosine": 0.6447725695991653,
+                "norm_ratio": 0.6447725695991653,
+                "normalized_rmse": 0.7643744720308818
+              },
+              "nonnegative_scale": 1.065776540442062,
+              "selected": "RC3H1",
+              "selection_status": "IN_SAMPLE_ORACLE"
+            },
+            "component_cone": {
+              "coefficients": [
+                0.47742528776180476,
+                1.404727227480846,
+                0.9893888549358816
+              ],
+              "geometry": {
+                "certificate": null,
+                "kkt_violation": 1.362473210209203e-16,
+                "projection_residual_fraction": 1.5926449447006292e-16,
+                "strict_status": "inside_tolerance"
+              },
+              "metrics": {
+                "cosine": 0.9999999999999999,
+                "norm_ratio": 1.0,
+                "normalized_rmse": 1.5926449447006292e-16
+              }
+            },
+            "equal_sum": {
+              "coefficients": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metrics": {
+                "cosine": 0.8900985243592388,
+                "norm_ratio": 1.2152394793055035,
+                "normalized_rmse": 0.55985824769925
+              }
+            }
+          }
+        },
+        "D2": {
+          "models": {
+            "best_single_oracle": {
+              "metrics": {
+                "cosine": 0.7304925207822407,
+                "norm_ratio": 0.7304925207822406,
+                "normalized_rmse": 0.6829206960410614
+              },
+              "nonnegative_scale": 1.1651411978301043,
+              "selected": "FAS",
+              "selection_status": "IN_SAMPLE_ORACLE"
+            },
+            "component_cone": {
+              "coefficients": [
+                1.165333527087627,
+                0.6807955883149479,
+                0.0
+              ],
+              "geometry": {
+                "certificate": {
+                  "largest_absolute_coordinates": [
+                    {
+                      "gene_id": "ENSG00000101945.17",
+                      "value": 0.026587168888692836
+                    },
+                    {
+                      "gene_id": "ENSG00000135870.13",
+                      "value": -0.007050403344960543
+                    },
+                    {
+                      "gene_id": "ENSG00000026103.25",
+                      "value": -0.003551721967472332
+                    }
+                  ],
+                  "orthogonality_error": 3.280528374984166e-14,
+                  "polarity_violation": 0.0,
+                  "scope": "model-relative to this measured atom cone and masked gene metric",
+                  "separation_margin": 0.007541816974174377,
+                  "sha256_float64_little_endian": "5d4c4eb0b3084147f26b50a357b1e6cb084e20beeadf7adb8677b417121d374f"
+                },
+                "kkt_violation": 5.478812390748155e-16,
+                "projection_residual_fraction": 0.007541816974207231,
+                "strict_status": "outside_model_cone"
+              },
+              "metrics": {
+                "cosine": 0.9999715600939497,
+                "norm_ratio": 0.9999715600939498,
+                "normalized_rmse": 0.007541816974207231
+              }
+            },
+            "equal_sum": {
+              "coefficients": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metrics": {
+                "cosine": 0.8850384989749339,
+                "norm_ratio": 1.4549219957657573,
+                "normalized_rmse": 0.735849206866959
+              }
+            }
+          }
+        },
+        "D3": {
+          "models": {
+            "best_single_oracle": {
+              "metrics": {
+                "cosine": 0.8345429200173213,
+                "norm_ratio": 0.8345429200173213,
+                "normalized_rmse": 0.5509429322978586
+              },
+              "nonnegative_scale": 0.9955161226652096,
+              "selected": "FAS",
+              "selection_status": "IN_SAMPLE_ORACLE"
+            },
+            "component_cone": {
+              "coefficients": [
+                0.6494416149640209,
+                0.7428507065095344,
+                0.47290819090007846
+              ],
+              "geometry": {
+                "certificate": null,
+                "kkt_violation": 1.2661169375528043e-16,
+                "projection_residual_fraction": 1.4089207907495856e-16,
+                "strict_status": "inside_tolerance"
+              },
+              "metrics": {
+                "cosine": 0.9999999999999998,
+                "norm_ratio": 0.9999999999999998,
+                "normalized_rmse": 1.4089207907495853e-16
+              }
+            },
+            "equal_sum": {
+              "coefficients": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metrics": {
+                "cosine": 0.9911701613440916,
+                "norm_ratio": 1.5751022916456525,
+                "normalized_rmse": 0.5987974983745726
+              }
+            }
+          }
+        },
+        "D4": {
+          "models": {
+            "best_single_oracle": {
+              "metrics": {
+                "cosine": 0.6805815455554254,
+                "norm_ratio": 0.6805815455554253,
+                "normalized_rmse": 0.7326723413978369
+              },
+              "nonnegative_scale": 1.1649253060225686,
+              "selected": "SUV39H1",
+              "selection_status": "IN_SAMPLE_ORACLE"
+            },
+            "component_cone": {
+              "coefficients": [
+                0.6618548583822927,
+                0.9023592750554882,
+                0.9901954551507881
+              ],
+              "geometry": {
+                "certificate": null,
+                "kkt_violation": 4.440892098500624e-16,
+                "projection_residual_fraction": 3.246048375683645e-16,
+                "strict_status": "inside_tolerance"
+              },
+              "metrics": {
+                "cosine": 1.0,
+                "norm_ratio": 0.9999999999999998,
+                "normalized_rmse": 3.246048375683645e-16
+              }
+            },
+            "equal_sum": {
+              "coefficients": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metrics": {
+                "cosine": 0.9899591522622768,
+                "norm_ratio": 1.212847990066441,
+                "normalized_rmse": 0.2639323982951787
+              }
+            }
+          }
+        }
+      },
+      "scope": "three on-target coordinates fitted by three atoms",
+      "warning_status": "SATURATED_3X3_CALIBRATION_DIAGNOSTIC_NOT_VALIDATION"
+    },
+    "summary": {
+      "FAS": {
+        "single_effect_mean": -2.9986956956645194,
+        "single_effect_median": -3.071673847491585,
+        "single_effect_range": [
+          -3.5762902613489262,
+          -2.2751448263259815
+        ],
+        "single_negative_donors": 4,
+        "triple_effect_mean": -2.664543722526111,
+        "triple_effect_median": -2.523209510960693,
+        "triple_effect_range": [
+          -3.497827275312928,
+          -2.113928592870129
+        ],
+        "triple_negative_donors": 4
+      },
+      "RC3H1": {
+        "single_effect_mean": -2.793235768867591,
+        "single_effect_median": -2.783959811578014,
+        "single_effect_range": [
+          -3.559646540218713,
+          -2.0453769120956227
+        ],
+        "single_negative_donors": 4,
+        "triple_effect_mean": -2.221437505116953,
+        "triple_effect_median": -2.2311654870224906,
+        "triple_effect_range": [
+          -2.60232403077522,
+          -1.8210950156476113
+        ],
+        "triple_negative_donors": 4
+      },
+      "SUV39H1": {
+        "single_effect_mean": -2.285520628619267,
+        "single_effect_median": -2.383918294275963,
+        "single_effect_range": [
+          -2.729536961008156,
+          -1.6447089649169846
+        ],
+        "single_negative_donors": 4,
+        "triple_effect_mean": -1.8062236021083906,
+        "triple_effect_median": -1.8706109258775139,
+        "triple_effect_range": [
+          -2.501182167353609,
+          -0.982490389324926
+        ],
+        "triple_negative_donors": 4
+      }
+    }
+  },
+  "preprocessing": {
+    "control_columns": [
+      "sample_211",
+      "sample_212",
+      "sample_237",
+      "sample_227",
+      "sample_228",
+      "sample_251",
+      "sample_271",
+      "sample_272",
+      "sample_297",
+      "sample_287",
+      "sample_288",
+      "sample_311"
+    ],
+    "control_mean_cpm_min": 1.0,
+    "control_mean_cpm_sensitivity_thresholds": [
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0
+    ],
+    "control_pairing": {
+      "D1": {
+        "constituent_relationship": "target-matched constituent singles",
+        "cross_experiment_confounding": true,
+        "single_control_columns": [
+          "sample_211",
+          "sample_212"
+        ],
+        "single_role_experiment_ids": [
+          "Co065"
+        ],
+        "triple_control_column": "sample_237",
+        "triple_control_experiment_id": "Co066",
+        "triple_role_experiment_id": "Co066"
+      },
+      "D2": {
+        "constituent_relationship": "target-matched constituent singles",
+        "cross_experiment_confounding": true,
+        "single_control_columns": [
+          "sample_227",
+          "sample_228"
+        ],
+        "single_role_experiment_ids": [
+          "Co065"
+        ],
+        "triple_control_column": "sample_251",
+        "triple_control_experiment_id": "Co066",
+        "triple_role_experiment_id": "Co066"
+      },
+      "D3": {
+        "constituent_relationship": "target-matched constituent singles",
+        "cross_experiment_confounding": true,
+        "single_control_columns": [
+          "sample_271",
+          "sample_272"
+        ],
+        "single_role_experiment_ids": [
+          "Co065"
+        ],
+        "triple_control_column": "sample_297",
+        "triple_control_experiment_id": "UNRESOLVED",
+        "triple_role_experiment_id": "UNRESOLVED"
+      },
+      "D4": {
+        "constituent_relationship": "target-matched constituent singles",
+        "cross_experiment_confounding": true,
+        "single_control_columns": [
+          "sample_287",
+          "sample_288"
+        ],
+        "single_role_experiment_ids": [
+          "Co065"
+        ],
+        "triple_control_column": "sample_311",
+        "triple_control_experiment_id": "UNRESOLVED",
+        "triple_role_experiment_id": "UNRESOLVED"
+      }
+    },
+    "deposited_scale": "author-normalized linear CPM (the deposited normalized-count values)",
+    "effect": "constituent and unrelated singles minus the donor's AAVS1 mean; triple minus the donor's multiplex NTC",
+    "gene_filter": "mean linear CPM across the 12 declared controls is >= the declared threshold; the canonical threshold is 1",
+    "gene_id_regex": "^ENSG[0-9]{11}\\.[0-9]+$",
+    "linear_scale": "use the deposited non-negative values as linear CPM; do not renormalize them a second time",
+    "masked_gene_ids_sha256": "22be565d7b20601f9d97d53320160f7ed6d60b676e96295e45b7b928a8eb8098",
+    "observed_count_samples": 71,
+    "observed_gene_rows": 78724,
+    "observed_gene_universe_before_mask": 14580,
+    "observed_gene_universe_before_mask_by_threshold": {
+      "0.5": 17410,
+      "1": 14580,
+      "10": 8453,
+      "2": 12472,
+      "5": 10271
+    },
+    "observed_transcriptome_genes_after_mask": 14577,
+    "selected_sample_library_sums": {
+      "sample_205": 957350.7208516556,
+      "sample_206": 890636.8780438963,
+      "sample_207": 874338.227563411,
+      "sample_208": 918421.7184363976,
+      "sample_209": 967502.6161072958,
+      "sample_210": 804621.1197493955,
+      "sample_211": 897057.2836267782,
+      "sample_212": 907722.7978695445,
+      "sample_221": 988108.2371165267,
+      "sample_222": 961217.6507426702,
+      "sample_223": 983208.0936050758,
+      "sample_224": 1070841.5426194042,
+      "sample_225": 902015.6302738783,
+      "sample_226": 938136.8826878868,
+      "sample_227": 951889.2882438543,
+      "sample_228": 953498.0660181363,
+      "sample_237": 1064762.40268829,
+      "sample_243": 994383.6160854204,
+      "sample_251": 1138406.8367111993,
+      "sample_257": 1014590.5551776686,
+      "sample_265": 1130130.39475081,
+      "sample_266": 1064846.411446139,
+      "sample_267": 1049853.3226515506,
+      "sample_268": 1153487.4035775987,
+      "sample_269": 1132680.5618319497,
+      "sample_270": 1089076.5564908765,
+      "sample_271": 1256243.1998176717,
+      "sample_272": 1158008.579041213,
+      "sample_281": 1220800.5160394225,
+      "sample_282": 1205593.4561656232,
+      "sample_283": 1165177.3057336367,
+      "sample_284": 1235542.5374140528,
+      "sample_285": 1183831.0964942419,
+      "sample_286": 1069330.35450704,
+      "sample_287": 1171536.8919558523,
+      "sample_288": 1190954.1119186596,
+      "sample_297": 1146690.1253717886,
+      "sample_303": 1071244.6315266811,
+      "sample_311": 1100246.7769781922,
+      "sample_317": 1088231.1938240877
+    },
+    "single_control_baseline": "within each donor, arithmetic mean of the two AAVS1-guide control log2(CPM + 1) profiles",
+    "target_mask": [
+      {
+        "gene_id": "ENSG00000026103.25",
+        "symbol": "FAS"
+      },
+      {
+        "gene_id": "ENSG00000135870.13",
+        "symbol": "RC3H1"
+      },
+      {
+        "gene_id": "ENSG00000101945.17",
+        "symbol": "SUV39H1"
+      }
+    ],
+    "transform": "log2(CPM + 1) per sample",
+    "triple_control_baseline": "within each donor, the multiplex NTC log2(CPM + 1) profile",
+    "universe_gene_ids_sha256": "9bdd197c381d04e8ea0bf3348b5b78e43cc97371b0ad0d90566de56cc12a1606"
+  },
+  "reliability_diagnostics": {
+    "aavs1_guide_replicate_noise": {
+      "definition": "Guide1-versus-Guide2 uses target-masked log2(CPM+1) expression; normalized_rmse is ||Guide1-Guide2||/||Guide2||. Difference-norm ratios compare replicate noise with measured effect magnitudes.",
+      "donor_ranges": {
+        "cosine": {
+          "median": 0.9941502086568064,
+          "range": [
+            0.9888928381690535,
+            0.997030855586597
+          ]
+        },
+        "normalized_rmse": {
+          "median": 0.10614183202922103,
+          "range": [
+            0.07922144858880893,
+            0.14882881729191713
+          ]
+        }
+      },
+      "per_donor": {
+        "D1": {
+          "difference_l2_norm": 78.41889138809957,
+          "difference_norm_over_median_constituent_effect_norm": 1.2085497830244407,
+          "difference_norm_over_triple_effect_norm": 1.6339151977426463,
+          "metrics": {
+            "cosine": 0.9888928381690535,
+            "norm_ratio": 0.9965780342349637,
+            "normalized_rmse": 0.14882881729191713
+          },
+          "prediction_role": "AAVS1 Guide1 expression predicts AAVS1 Guide2 expression"
+        },
+        "D2": {
+          "difference_l2_norm": 68.0186747048759,
+          "difference_norm_over_median_constituent_effect_norm": 1.1380454742239183,
+          "difference_norm_over_triple_effect_norm": 1.1649167330815258,
+          "metrics": {
+            "cosine": 0.9919907266201768,
+            "norm_ratio": 0.9979061726045619,
+            "normalized_rmse": 0.126449162910362
+          },
+          "prediction_role": "AAVS1 Guide1 expression predicts AAVS1 Guide2 expression"
+        },
+        "D3": {
+          "difference_l2_norm": 44.83166263842709,
+          "difference_norm_over_median_constituent_effect_norm": 1.0574622422282998,
+          "difference_norm_over_triple_effect_norm": 0.8902313967703294,
+          "metrics": {
+            "cosine": 0.997030855586597,
+            "norm_ratio": 1.0156471094587625,
+            "normalized_rmse": 0.07922144858880893
+          },
+          "prediction_role": "AAVS1 Guide1 expression predicts AAVS1 Guide2 expression"
+        },
+        "D4": {
+          "difference_l2_norm": 48.557432688016924,
+          "difference_norm_over_median_constituent_effect_norm": 1.1169501254065937,
+          "difference_norm_over_triple_effect_norm": 0.9045864066332026,
+          "metrics": {
+            "cosine": 0.9963096906934358,
+            "norm_ratio": 0.9970589283200575,
+            "normalized_rmse": 0.08583450114808007
+          },
+          "prediction_role": "AAVS1 Guide1 expression predicts AAVS1 Guide2 expression"
+        }
+      }
+    },
+    "interpretation": "Low cross-donor effect cosine and sensitivity to the control-only expression filter limit transcriptome-wide reliability.",
+    "overall_status": "SNR_LIMITED_FILTER_SENSITIVE",
+    "pairwise_donor_cosines": {
+      "components": {
+        "FAS": {
+          "pair_count": 6,
+          "pairs": [
+            {
+              "cosine": 0.06360146287020209,
+              "donor_a": "D1",
+              "donor_b": "D2"
+            },
+            {
+              "cosine": -0.034862056215627504,
+              "donor_a": "D1",
+              "donor_b": "D3"
+            },
+            {
+              "cosine": 0.029030146082630333,
+              "donor_a": "D1",
+              "donor_b": "D4"
+            },
+            {
+              "cosine": -0.022313642607094054,
+              "donor_a": "D2",
+              "donor_b": "D3"
+            },
+            {
+              "cosine": 0.01204274037991505,
+              "donor_a": "D2",
+              "donor_b": "D4"
+            },
+            {
+              "cosine": -0.004643033519994386,
+              "donor_a": "D3",
+              "donor_b": "D4"
+            }
+          ],
+          "summary": {
+            "mean": 0.007142602831671921,
+            "median": 0.0036998534299603324,
+            "range": [
+              -0.034862056215627504,
+              0.06360146287020209
+            ]
+          }
+        },
+        "RC3H1": {
+          "pair_count": 6,
+          "pairs": [
+            {
+              "cosine": 0.14792171040220414,
+              "donor_a": "D1",
+              "donor_b": "D2"
+            },
+            {
+              "cosine": 0.06522081819602123,
+              "donor_a": "D1",
+              "donor_b": "D3"
+            },
+            {
+              "cosine": 0.12192291223022628,
+              "donor_a": "D1",
+              "donor_b": "D4"
+            },
+            {
+              "cosine": -0.014001524535096488,
+              "donor_a": "D2",
+              "donor_b": "D3"
+            },
+            {
+              "cosine": 0.0966727337618469,
+              "donor_a": "D2",
+              "donor_b": "D4"
+            },
+            {
+              "cosine": 0.0452985714919576,
+              "donor_a": "D3",
+              "donor_b": "D4"
+            }
+          ],
+          "summary": {
+            "mean": 0.07717253692452661,
+            "median": 0.08094677597893407,
+            "range": [
+              -0.014001524535096488,
+              0.14792171040220414
+            ]
+          }
+        },
+        "SUV39H1": {
+          "pair_count": 6,
+          "pairs": [
+            {
+              "cosine": 0.04360932569977098,
+              "donor_a": "D1",
+              "donor_b": "D2"
+            },
+            {
+              "cosine": 0.04862757425773823,
+              "donor_a": "D1",
+              "donor_b": "D3"
+            },
+            {
+              "cosine": -0.023073780377532698,
+              "donor_a": "D1",
+              "donor_b": "D4"
+            },
+            {
+              "cosine": -0.027880677773501856,
+              "donor_a": "D2",
+              "donor_b": "D3"
+            },
+            {
+              "cosine": 0.10359942130169607,
+              "donor_a": "D2",
+              "donor_b": "D4"
+            },
+            {
+              "cosine": 0.04025134957477525,
+              "donor_a": "D3",
+              "donor_b": "D4"
+            }
+          ],
+          "summary": {
+            "mean": 0.03085553544715766,
+            "median": 0.041930337637273114,
+            "range": [
+              -0.027880677773501856,
+              0.10359942130169607
+            ]
+          }
+        }
+      },
+      "triple": {
+        "pair_count": 6,
+        "pairs": [
+          {
+            "cosine": -0.01383129102549222,
+            "donor_a": "D1",
+            "donor_b": "D2"
+          },
+          {
+            "cosine": 0.1832790793072397,
+            "donor_a": "D1",
+            "donor_b": "D3"
+          },
+          {
+            "cosine": 0.06776996193212012,
+            "donor_a": "D1",
+            "donor_b": "D4"
+          },
+          {
+            "cosine": 0.14025686926623032,
+            "donor_a": "D2",
+            "donor_b": "D3"
+          },
+          {
+            "cosine": -0.0040163691696974285,
+            "donor_a": "D2",
+            "donor_b": "D4"
+          },
+          {
+            "cosine": 0.02825431187297926,
+            "donor_a": "D3",
+            "donor_b": "D4"
+          }
+        ],
+        "summary": {
+          "mean": 0.06695209369722996,
+          "median": 0.04801213690254969,
+          "range": [
+            -0.01383129102549222,
+            0.1832790793072397
+          ]
+        }
+      }
+    },
+    "snr_status": "SNR_LIMITED_LOW_DONOR_REPRODUCIBILITY"
+  },
+  "report_version": 2,
+  "sample_contract": {
+    "author_key": {
+      "author_key_confirmed_declared_role_count": 36,
+      "author_key_row_count": 71,
+      "author_key_rows_absent_from_count_matrix": [
+        "sample_244",
+        "sample_245",
+        "sample_258",
+        "sample_259"
+      ],
+      "cas_modality_row_counts": {
+        "CRISPRoff": 40,
+        "Cas9": 31
+      },
+      "constituent_relationship": "target-matched constituent singles",
+      "constituent_single_guide_notes": {
+        "FAS": "Guide 1",
+        "RC3H1": "Guide 2",
+        "SUV39H1": "Guide 2"
+      },
+      "count_matrix_overlap_count": 67,
+      "declared_analysis_role_count": 40,
+      "declared_roles": {
+        "D1": {
+          "component:FAS": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_205",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 1",
+            "target": "FAS"
+          },
+          "component:RC3H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_207",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "RC3H1"
+          },
+          "component:SUV39H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_208",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "SUV39H1"
+          },
+          "controls:AAVS1_Guide1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_211",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 35",
+            "target": "AAVS1"
+          },
+          "controls:AAVS1_Guide2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_212",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 36",
+            "target": "AAVS1"
+          },
+          "controls:NTC_multiplexing": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_237",
+            "experiment_id": "Co066",
+            "experimental_day": 7,
+            "guide_identity": "UNRESOLVED",
+            "target": "NTC"
+          },
+          "triple:triple": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_243",
+            "experiment_id": "Co066",
+            "experimental_day": 7,
+            "guide_identity": "UNRESOLVED",
+            "target": "FAS, SUV39H1, RC3H1"
+          },
+          "unrelated:MED12": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_210",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,3",
+            "target": "MED12"
+          },
+          "unrelated:PTPN2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_206",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 6",
+            "target": "PTPN2"
+          },
+          "unrelated:RASA2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_209",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,4",
+            "target": "RASA2"
+          }
+        },
+        "D2": {
+          "component:FAS": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_221",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 1",
+            "target": "FAS"
+          },
+          "component:RC3H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_223",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "RC3H1"
+          },
+          "component:SUV39H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_224",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "SUV39H1"
+          },
+          "controls:AAVS1_Guide1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_227",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 35",
+            "target": "AAVS1"
+          },
+          "controls:AAVS1_Guide2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_228",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 36",
+            "target": "AAVS1"
+          },
+          "controls:NTC_multiplexing": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_251",
+            "experiment_id": "Co066",
+            "experimental_day": 7,
+            "guide_identity": "UNRESOLVED",
+            "target": "NTC"
+          },
+          "triple:triple": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_257",
+            "experiment_id": "Co066",
+            "experimental_day": 7,
+            "guide_identity": "UNRESOLVED",
+            "target": "FAS, SUV39H1, RC3H1"
+          },
+          "unrelated:MED12": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_226",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,3",
+            "target": "MED12"
+          },
+          "unrelated:PTPN2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_222",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 6",
+            "target": "PTPN2"
+          },
+          "unrelated:RASA2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_225",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,4",
+            "target": "RASA2"
+          }
+        },
+        "D3": {
+          "component:FAS": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_265",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 1",
+            "target": "FAS"
+          },
+          "component:RC3H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_267",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "RC3H1"
+          },
+          "component:SUV39H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_268",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "SUV39H1"
+          },
+          "controls:AAVS1_Guide1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_271",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 35",
+            "target": "AAVS1"
+          },
+          "controls:AAVS1_Guide2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_272",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 36",
+            "target": "AAVS1"
+          },
+          "controls:NTC_multiplexing": {
+            "author_key_status": "ABSENT_FROM_AUTHOR_KEY",
+            "column": "sample_297",
+            "experiment_id": "UNRESOLVED",
+            "experimental_day": "UNRESOLVED",
+            "guide_identity": "UNRESOLVED"
+          },
+          "triple:triple": {
+            "author_key_status": "ABSENT_FROM_AUTHOR_KEY",
+            "column": "sample_303",
+            "experiment_id": "UNRESOLVED",
+            "experimental_day": "UNRESOLVED",
+            "guide_identity": "UNRESOLVED"
+          },
+          "unrelated:MED12": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_270",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,3",
+            "target": "MED12"
+          },
+          "unrelated:PTPN2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_266",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 6",
+            "target": "PTPN2"
+          },
+          "unrelated:RASA2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_269",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,4",
+            "target": "RASA2"
+          }
+        },
+        "D4": {
+          "component:FAS": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_281",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 1",
+            "target": "FAS"
+          },
+          "component:RC3H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_283",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "RC3H1"
+          },
+          "component:SUV39H1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_284",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 2",
+            "target": "SUV39H1"
+          },
+          "controls:AAVS1_Guide1": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_287",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 35",
+            "target": "AAVS1"
+          },
+          "controls:AAVS1_Guide2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_288",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "gJ 36",
+            "target": "AAVS1"
+          },
+          "controls:NTC_multiplexing": {
+            "author_key_status": "ABSENT_FROM_AUTHOR_KEY",
+            "column": "sample_311",
+            "experiment_id": "UNRESOLVED",
+            "experimental_day": "UNRESOLVED",
+            "guide_identity": "UNRESOLVED"
+          },
+          "triple:triple": {
+            "author_key_status": "ABSENT_FROM_AUTHOR_KEY",
+            "column": "sample_317",
+            "experiment_id": "UNRESOLVED",
+            "experimental_day": "UNRESOLVED",
+            "guide_identity": "UNRESOLVED"
+          },
+          "unrelated:MED12": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_286",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,3",
+            "target": "MED12"
+          },
+          "unrelated:PTPN2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_282",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guide 6",
+            "target": "PTPN2"
+          },
+          "unrelated:RASA2": {
+            "author_key_status": "CONFIRMED",
+            "column": "sample_285",
+            "experiment_id": "Co065",
+            "experimental_day": 7,
+            "guide_identity": "Guides 1,2,4",
+            "target": "RASA2"
+          }
+        }
+      },
+      "declared_rows_absent_from_author_key": [
+        "sample_297",
+        "sample_303",
+        "sample_311",
+        "sample_317"
+      ],
+      "experiment_role_summary": {
+        "constituent_singles_unrelated_singles_and_aavs1": {
+          "experiment_ids": [
+            "Co065"
+          ],
+          "status": "AUTHOR_KEY_CONFIRMED_ALL_DONORS"
+        },
+        "multiplex_ntc_and_triple": {
+          "author_key_confirmed_donors": [
+            "D1",
+            "D2"
+          ],
+          "experiment_ids": [
+            "Co066"
+          ],
+          "unresolved_donors": [
+            "D3",
+            "D4"
+          ]
+        }
+      },
+      "same_guide_match_claimed": false,
+      "triple_guide_identity": "UNRESOLVED",
+      "unresolved_experiment_id_columns": [
+        "sample_297",
+        "sample_303",
+        "sample_311",
+        "sample_317"
+      ]
+    },
+    "geo_soft": {
+      "declared_roles": {
+        "D1": {
+          "component:FAS": {
+            "characteristic_time": "Day 18",
+            "column": "sample_205",
+            "gsm": "GSM9212391",
+            "title": "CRISPRoff_FAS_Guide1_Day7_Donor1"
+          },
+          "component:RC3H1": {
+            "characteristic_time": "Day 18",
+            "column": "sample_207",
+            "gsm": "GSM9212393",
+            "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor1"
+          },
+          "component:SUV39H1": {
+            "characteristic_time": "Day 18",
+            "column": "sample_208",
+            "gsm": "GSM9212394",
+            "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor1"
+          },
+          "controls:AAVS1_Guide1": {
+            "characteristic_time": "Day 18",
+            "column": "sample_211",
+            "gsm": "GSM9212397",
+            "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor1"
+          },
+          "controls:AAVS1_Guide2": {
+            "characteristic_time": "Day 18",
+            "column": "sample_212",
+            "gsm": "GSM9212398",
+            "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor1"
+          },
+          "controls:NTC_multiplexing": {
+            "characteristic_time": "Day 7",
+            "column": "sample_237",
+            "gsm": "GSM9212423",
+            "title": "CRISPRoff_NTC_multiplexing_Donor1"
+          },
+          "triple:triple": {
+            "characteristic_time": "Day 7",
+            "column": "sample_243",
+            "gsm": "GSM9212424",
+            "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor1"
+          },
+          "unrelated:MED12": {
+            "characteristic_time": "Day 18",
+            "column": "sample_210",
+            "gsm": "GSM9212396",
+            "title": "CRISPRoff_MED12_pool_Day7_Donor1"
+          },
+          "unrelated:PTPN2": {
+            "characteristic_time": "Day 18",
+            "column": "sample_206",
+            "gsm": "GSM9212392",
+            "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor1"
+          },
+          "unrelated:RASA2": {
+            "characteristic_time": "Day 18",
+            "column": "sample_209",
+            "gsm": "GSM9212395",
+            "title": "CRISPRoff_RASA2_pool_Day7_Donor1"
+          }
+        },
+        "D2": {
+          "component:FAS": {
+            "characteristic_time": "Day 7",
+            "column": "sample_221",
+            "gsm": "GSM9212407",
+            "title": "CRISPRoff_FAS_Guide1_Day7_Donor2"
+          },
+          "component:RC3H1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_223",
+            "gsm": "GSM9212409",
+            "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor2"
+          },
+          "component:SUV39H1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_224",
+            "gsm": "GSM9212410",
+            "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor2"
+          },
+          "controls:AAVS1_Guide1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_227",
+            "gsm": "GSM9212413",
+            "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor2"
+          },
+          "controls:AAVS1_Guide2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_228",
+            "gsm": "GSM9212414",
+            "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor2"
+          },
+          "controls:NTC_multiplexing": {
+            "characteristic_time": "Day 7",
+            "column": "sample_251",
+            "gsm": "GSM9212425",
+            "title": "CRISPRoff_NTC_multiplexing_Donor2"
+          },
+          "triple:triple": {
+            "characteristic_time": "Day 7",
+            "column": "sample_257",
+            "gsm": "GSM9212426",
+            "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor2"
+          },
+          "unrelated:MED12": {
+            "characteristic_time": "Day 7",
+            "column": "sample_226",
+            "gsm": "GSM9212412",
+            "title": "CRISPRoff_MED12_pool_Day7_Donor2"
+          },
+          "unrelated:PTPN2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_222",
+            "gsm": "GSM9212408",
+            "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor2"
+          },
+          "unrelated:RASA2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_225",
+            "gsm": "GSM9212411",
+            "title": "CRISPRoff_RASA2_pool_Day7_Donor2"
+          }
+        },
+        "D3": {
+          "component:FAS": {
+            "characteristic_time": "Day 7",
+            "column": "sample_265",
+            "gsm": "GSM9212427",
+            "title": "CRISPRoff_FAS_Guide1_Day7_Donor3"
+          },
+          "component:RC3H1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_267",
+            "gsm": "GSM9212429",
+            "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor3"
+          },
+          "component:SUV39H1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_268",
+            "gsm": "GSM9212430",
+            "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor3"
+          },
+          "controls:AAVS1_Guide1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_271",
+            "gsm": "GSM9212433",
+            "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor3"
+          },
+          "controls:AAVS1_Guide2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_272",
+            "gsm": "GSM9212434",
+            "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor3"
+          },
+          "controls:NTC_multiplexing": {
+            "characteristic_time": "Day 7",
+            "column": "sample_297",
+            "gsm": "GSM9212458",
+            "title": "CRISPRoff_NTC_multiplexing_Donor3"
+          },
+          "triple:triple": {
+            "characteristic_time": "Day 7",
+            "column": "sample_303",
+            "gsm": "GSM9212459",
+            "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor3"
+          },
+          "unrelated:MED12": {
+            "characteristic_time": "Day 7",
+            "column": "sample_270",
+            "gsm": "GSM9212432",
+            "title": "CRISPRoff_MED12_pool_Day7_Donor3"
+          },
+          "unrelated:PTPN2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_266",
+            "gsm": "GSM9212428",
+            "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor3"
+          },
+          "unrelated:RASA2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_269",
+            "gsm": "GSM9212431",
+            "title": "CRISPRoff_RASA2_pool_Day7_Donor3"
+          }
+        },
+        "D4": {
+          "component:FAS": {
+            "characteristic_time": "Day 7",
+            "column": "sample_281",
+            "gsm": "GSM9212443",
+            "title": "CRISPRoff_FAS_Guide1_Day7_Donor4"
+          },
+          "component:RC3H1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_283",
+            "gsm": "GSM9212445",
+            "title": "CRISPRoff_RC3H1_Guide2_Day7_Donor4"
+          },
+          "component:SUV39H1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_284",
+            "gsm": "GSM9212446",
+            "title": "CRISPRoff_SUV39H1_Guide2_Day7_Donor4"
+          },
+          "controls:AAVS1_Guide1": {
+            "characteristic_time": "Day 7",
+            "column": "sample_287",
+            "gsm": "GSM9212449",
+            "title": "CRISPRoff_AAVS1_Guide1_Day7_Donor4"
+          },
+          "controls:AAVS1_Guide2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_288",
+            "gsm": "GSM9212450",
+            "title": "CRISPRoff_AAVS1_Guide2_Day7_Donor4"
+          },
+          "controls:NTC_multiplexing": {
+            "characteristic_time": "Day 7",
+            "column": "sample_311",
+            "gsm": "GSM9212460",
+            "title": "CRISPRoff_NTC_multiplexing_Donor4"
+          },
+          "triple:triple": {
+            "characteristic_time": "Day 7",
+            "column": "sample_317",
+            "gsm": "GSM9212461",
+            "title": "CRISPRoff_FAS_SUV39H1_RC3H1_Donor4"
+          },
+          "unrelated:MED12": {
+            "characteristic_time": "Day 7",
+            "column": "sample_286",
+            "gsm": "GSM9212448",
+            "title": "CRISPRoff_MED12_pool_Day7_Donor4"
+          },
+          "unrelated:PTPN2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_282",
+            "gsm": "GSM9212444",
+            "title": "CRISPRoff_PTPN2_Guide6_Day7_Donor4"
+          },
+          "unrelated:RASA2": {
+            "characteristic_time": "Day 7",
+            "column": "sample_285",
+            "gsm": "GSM9212447",
+            "title": "CRISPRoff_RASA2_pool_Day7_Donor4"
+          }
+        }
+      },
+      "observed_time_conflict_gsms": [
+        "GSM9212391",
+        "GSM9212392",
+        "GSM9212393",
+        "GSM9212394",
+        "GSM9212395",
+        "GSM9212396",
+        "GSM9212397",
+        "GSM9212398"
+      ],
+      "series_accession": "GSE306915",
+      "soft_sample_count": 77
+    }
+  },
+  "source": {
+    "accession": "GSE306915",
+    "citation": "Goudy et al., Integrated epigenetic and genetic programming of primary human T cells, Nature Biotechnology (2025)",
+    "doi": "10.1038/s41587-025-02856-w",
+    "geo_data_license": "not specified by GEO",
+    "paper_license": "CC-BY-4.0",
+    "paper_url": "https://doi.org/10.1038/s41587-025-02856-w",
+    "redistribution": "Raw GEO bytes remain gitignored and are not redistributed."
+  }
+}

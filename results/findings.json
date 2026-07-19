@@ -1,7 +1,8 @@
 {
-  "schema_version": "2.0.0",
-  "generated_on": "2026-07-17",
-  "claim_boundary": "Retrospective, donor-collapsed, model-relative directional evidence; not state conversion, target validation, donor generalization, predictive superiority, or intervention efficacy.",
+  "schema_version": "3.2.0",
+  "generated_on": "2026-07-19",
+  "objective": "Fail-closed, model-relative point-estimate cone geometry: test whether a target transcriptomic direction is representable by the non-negative cone of a measured perturbation dictionary, emit a numerical separator when it is not, and expose known evaluation failure modes with an adversarial harness. The Zhu Th2->Th1 analysis is a proving-ground case study, not the headline claim.",
+  "claim_boundary": "Retrospective, donor-collapsed, model-relative directional evidence; not calibrated biological reachability, state conversion, target validation, donor generalization, predictive superiority, prospective library design, or intervention efficacy.",
   "dataset_context": {
     "system": "donor-collapsed primary human CD4 perturbation-condition profiles",
     "condition": "Rest",
@@ -79,6 +80,78 @@
     "interpretation": "Frozen-weight donor-pair plus target-source transfer retains only weak directional gain and fails magnitude calibration. Released H5MU presence is DE-eligibility selected, modalities are two-donor summaries, and four donors support fixed-cohort robustness only.",
     "source": "results/donor_pair_transfer.json"
   },
+  "guide_position_transfer": {
+    "benchmark": "zhu_released_guide_position_reciprocal_transfer_v1",
+    "report_schema_version": "1.0.0",
+    "report_sha256": "0fd291002f55c7d6a505d3d19c15f53747bc4cf5b6473540a06978de53b4e721",
+    "tier": "STRESS",
+    "benchmark_role": "negative released first/second guide-rank reciprocal-transfer stress",
+    "guide_identity_status": "OFFICIAL_ALPHANUMERIC_GUIDE_RANKS_IDS_NOT_EMBEDDED_CROSSWALK_NOT_VERIFIED",
+    "official_modality_mapping": "guide_1 is the lowest alphanumeric sgRNA ID and guide_2 the second within each perturbed-gene/culture-condition pair; targets with one passing guide appear only in guide_1",
+    "h5mu_identity_field_status": "no guide ID or sequence field is embedded in the guide-level H5MU",
+    "identity_crosswalk_status": "exact ranked-modality-to-sgRNA IDs not reconstructed or hash-verified in this benchmark",
+    "positional_modalities": 2,
+    "common_rest_atoms": 8323,
+    "guide_1_only_rest_atoms": 2752,
+    "shared_target_genes": 8950,
+    "categorical_missing_rows": {
+      "guide_1": 114,
+      "guide_2": 38
+    },
+    "missing_key_condition_suffix_counts": {
+      "guide_1": {
+        "Rest": 35,
+        "Stim8hr": 18,
+        "Stim48hr": 61
+      },
+      "guide_2": {
+        "Rest": 0,
+        "Stim8hr": 0,
+        "Stim48hr": 38
+      }
+    },
+    "fit_count": 12,
+    "representation_sensitivity_fits": 1,
+    "challenge_rows": 24,
+    "atom_order_sensitivity": {
+      "coefficient_cosine": 1.0,
+      "held_score_prediction_cosine": 1.0,
+      "maximum_relative_l2_difference": 1.7553913092863503e-15
+    },
+    "same_source_guide_position_transfer": {
+      "challenge_rows": 12,
+      "unique_fits": 12,
+      "median_within_training_guide_cone_cosine": 0.2512272406084353,
+      "median_reciprocal_held_guide_cone_cosine": -0.019196850447341172,
+      "median_reciprocal_held_guide_training_best_single_cosine": -0.027805668803638217,
+      "median_reciprocal_held_guide_cosine_improvement_over_training_best_single": -0.020344930367076613,
+      "fraction_reciprocal_held_guide_cosine_improvement_positive_over_training_best_single": 0.25,
+      "median_reciprocal_held_guide_cone_normalized_rmse": 1.3866961655743721,
+      "median_reciprocal_held_guide_training_best_single_normalized_rmse": 1.0172763270405651,
+      "median_reciprocal_held_guide_normalized_rmse_improvement_over_training_best_single": -0.3714506896069646,
+      "fraction_reciprocal_held_guide_normalized_rmse_improvement_positive_over_training_best_single": 0.0,
+      "median_reciprocal_minus_within_cone_cosine": -0.29108898733127786,
+      "median_within_reciprocal_cone_prediction_cosine": 0.5105271504587168
+    },
+    "joint_guide_position_plus_target_source_transfer": {
+      "challenge_rows": 12,
+      "unique_fits": 12,
+      "median_within_training_guide_cone_cosine": 0.22720723868117598,
+      "median_reciprocal_held_guide_cone_cosine": -0.03438281245714121,
+      "median_reciprocal_held_guide_training_best_single_cosine": 0.002123095914908104,
+      "median_reciprocal_held_guide_cosine_improvement_over_training_best_single": -0.04151824215945757,
+      "fraction_reciprocal_held_guide_cosine_improvement_positive_over_training_best_single": 0.16666666666666666,
+      "median_reciprocal_held_guide_cone_normalized_rmse": 1.3477825472384517,
+      "median_reciprocal_held_guide_training_best_single_normalized_rmse": 1.0150376451931027,
+      "median_reciprocal_held_guide_normalized_rmse_improvement_over_training_best_single": -0.33429002238194827,
+      "fraction_reciprocal_held_guide_normalized_rmse_improvement_positive_over_training_best_single": 0.0,
+      "median_reciprocal_minus_within_cone_cosine": -0.25487819735995576,
+      "median_within_reciprocal_cone_prediction_cosine": 0.5105271504587168
+    },
+    "claim_boundary": "same-study reciprocal robustness across the released guide_1 and guide_2 alphanumeric guide-rank modalities under the authors' effectiveness-selected DE pipeline; not leakage-safe physical-guide generalization, named-sgRNA replication, donor-population inference, predictive utility, or state reachability",
+    "interpretation": "The cone's within-rank held-gene alignment does not survive reciprocal guide-rank transfer: same-source median cosine falls from 0.251 to -0.019 (median paired change -0.291), with positive gain over the training-selected best single in 3/12 rows and normalized-RMSE gain in 0/12. Joint target-source transfer is likewise negative. This fixed descriptive benchmark therefore does not demonstrate reciprocal-rank robustness. The H5MU does not embed the ranked sgRNA IDs, this benchmark has not cross-verified the exact ID mapping against public identity-bearing artifacts, and effectiveness-selected inclusion prevents a leakage-safe physical-guide generalization claim.",
+    "source": "results/guide_pair_transfer.json"
+  },
   "arce_external_validation": {
     "benchmark": "arce_il2ra_context_transfer_v1",
     "analysis_targets": 480,
@@ -119,6 +192,75 @@
       "results/evidence/arce_activation_guide_effects.csv"
     ]
   },
+  "schmidt_external_validation": {
+    "benchmark": "schmidt_primary_tcell_crispra_crispri_transfer_v1",
+    "report_version": 1,
+    "tier": "STRESS",
+    "benchmark_role": "two-fixed-donor functional-screen rank-transfer stress test",
+    "contexts": {
+      "IL2": "primary human CD4 T cells",
+      "IFNG": "primary human CD8 T cells"
+    },
+    "assay": "genome-wide cytokine-sort functional screen",
+    "modalities": ["CRISPRa", "CRISPRi"],
+    "guide_libraries": {
+      "CRISPRa": "Calabrese",
+      "CRISPRi": "Dolcetto"
+    },
+    "fixed_donor_labels": 2,
+    "orientation": {
+      "CRISPRa": 1,
+      "CRISPRi": -1
+    },
+    "primary_contract": {
+      "minimum_guides_per_gene_per_donor": 3,
+      "top_k": 200,
+      "common_complete_genes": 18568,
+      "directions_per_transfer_class": 8
+    },
+    "whole_universe_donor_spearman": {
+      "CRISPRa_IFNG": 0.31208591521139245,
+      "CRISPRa_IL2": 0.3318383678832218,
+      "CRISPRi_IFNG": 0.13740749390166201,
+      "CRISPRi_IL2": 0.13528388692779353
+    },
+    "whole_universe_modality_plus_library_spearman": {
+      "IFNG": 0.035511694548025975,
+      "IL2": 0.01972346467895676
+    },
+    "whole_universe_cross_context_spearman": {
+      "CRISPRa": 0.33684405849158633,
+      "CRISPRi": 0.1448952182505973
+    },
+    "source_selected_top_k_transfer": {
+      "same_screen_held_donor": {
+        "median_signed_spearman": 0.886641416035401,
+        "median_absolute_effect_spearman": 0.608442961074027,
+        "median_sign_agreement": 0.945,
+        "median_held_target_global_top_k_overlap_fraction": 0.4575
+      },
+      "donor_plus_modality_library_same_context": {
+        "median_signed_spearman": 0.3001860046501163,
+        "median_absolute_effect_spearman": 0.18282007050176258,
+        "median_sign_agreement": 0.5974999999999999,
+        "median_held_target_global_top_k_overlap_fraction": 0.0975
+      },
+      "donor_plus_cross_context_cytokine_cell_type_same_modality": {
+        "median_signed_spearman": 0.748791719792995,
+        "median_absolute_effect_spearman": 0.3947093677341934,
+        "median_sign_agreement": 0.8625,
+        "median_held_target_global_top_k_overlap_fraction": 0.33999999999999997
+      }
+    },
+    "sensitivity": {
+      "minimum_guides_per_gene_per_donor": [1, 3, 6],
+      "top_k": [50, 100, 200, 500],
+      "status": "EXPLORATORY_POST_HOC_DESCRIPTIVE"
+    },
+    "claim_boundary": "Two-fixed-donor, source-selected functional-screen concordance; cross-screen rows jointly change donor plus modality/library or donor plus cytokine/cell-type context. Not transcriptomic reachability, modality or guide-library equivalence, cytokine or cell-type generality, guide-held-out replication, donor-population inference, efficacy, or target recommendation.",
+    "interpretation": "Whole-universe same-reagent donor concordance is limited (Spearman 0.135-0.332), and modality-plus-library agreement is near zero (0.020-0.036). Conditional on the training donor's 200 largest absolute effects, same-screen held-donor signed ranks are strongest, joint donor-plus-context transfer is intermediate, and joint donor-plus-modality/library transfer is weaker. This is a correlated descriptive stress test, not an estimate of any isolated axis, population generality, or guide generalization.",
+    "source": "results/schmidt_external_validation.json"
+  },
   "zhu_arrayed_followup": {
     "benchmark": "zhu_source_selected_arrayed_followup_v1",
     "perturbations": 9,
@@ -147,6 +289,193 @@
       "results/evidence/zhu_arrayed_flow_effects.csv"
     ]
   },
+  "goudy_cross_experiment_stress": {
+    "benchmark": "goudy_gse306915_cross_experiment_stress",
+    "report_version": 2,
+    "tier": "STRESS",
+    "benchmark_role": "negative cross-experiment stress test",
+    "cell_system": "primary human bulk T cells",
+    "assay": "bulk RNA-seq",
+    "modality": "CRISPRoff",
+    "fixed_donor_labels": 4,
+    "status": {
+      "execution": "PASS",
+      "geometric_model": "FAILS_DECLARED_GEOMETRIC_MODEL",
+      "biological_interpretation": "INCONCLUSIVE_CROSS_EXPERIMENT_CONFOUNDING_LOW_RELIABILITY"
+    },
+    "primary_transcriptome": {
+      "analysis_genes_before_target_mask": 14580,
+      "transcriptome_genes_after_target_mask": 14577,
+      "component_cone_median_cosine": 0.0949207619995629,
+      "component_cone_median_normalized_rmse": 0.9951924952029135,
+      "component_cone_strict_inside_count": 0,
+      "equal_sum_median_cosine": 0.06461324188782609,
+      "equal_sum_median_normalized_rmse": 2.308400113193132,
+      "best_single_in_sample_oracle_median_cosine": 0.09251269901524665,
+      "best_single_in_sample_oracle_median_normalized_rmse": 0.9954750258094222,
+      "lodo_component_cone_median_cosine": 0.0881324487183643,
+      "lodo_component_cone_median_normalized_rmse": 0.9981997382690084,
+      "lodo_training_selected_best_single_median_cosine": 0.09573733870785114,
+      "lodo_training_selected_best_single_median_normalized_rmse": 0.9968437582085027,
+      "on_target_frozen_disjoint_median_cosine": 0.06901814955868844,
+      "on_target_frozen_disjoint_median_normalized_rmse": 1.84776081860472
+    },
+    "on_target_controls": {
+      "all_three_targets_negative_in_single_and_triple_donors": 4,
+      "equal_sum_coordinate_cosine_median": 0.9400288383107578,
+      "equal_sum_coordinate_cosine_range": [0.8850384989749339, 0.9911701613440916],
+      "warning_status": "SATURATED_3X3_CALIBRATION_DIAGNOSTIC_NOT_VALIDATION"
+    },
+    "filter_sensitivity": {
+      "status": "FILTER_SENSITIVE",
+      "control_mean_cpm_thresholds": [0.5, 1.0, 2.0, 5.0, 10.0],
+      "component_cone_median_cosine_by_threshold": {
+        "0.5": 0.06958632898460396,
+        "1": 0.0949207619995629,
+        "2": 0.11777409931132987,
+        "5": 0.15552915085594715,
+        "10": 0.19991310846605076
+      },
+      "target_rows_removed_by_threshold": {
+        "0.5": 3,
+        "1": 3,
+        "2": 3,
+        "5": 2,
+        "10": 2
+      },
+      "conclusion": "No declared control-only expression threshold rescues the geometric model; SUV39H1 is already filtered at CPM 5 and 10, so only two target rows are removed there while scoring remains target-disjoint."
+    },
+    "reliability": {
+      "status": "SNR_LIMITED_FILTER_SENSITIVE",
+      "triple_pairwise_donor_median_cosine": 0.04801213690254969,
+      "component_pairwise_donor_median_cosine": {
+        "FAS": 0.0036998534299603324,
+        "RC3H1": 0.08094677597893407,
+        "SUV39H1": 0.041930337637273114
+      },
+      "aavs1_guide_expression_median_cosine": 0.9941502086568064,
+      "aavs1_guide_expression_median_normalized_rmse": 0.10614183202922103,
+      "aavs1_difference_norm_over_triple_effect_norm_range": [0.8902313967703294, 1.6339151977426463]
+    },
+    "additive_residual": {
+      "definition": "measured triple effect minus the unit-coefficient sum of constituent-single effects",
+      "per_donor_relative_l2_median": 2.308400113193132,
+      "per_donor_relative_l2_range": [1.997804903406781, 3.2312426100420777],
+      "across_donor_mean_relative_l2": 2.352809296746556,
+      "across_donor_mean_absolute_residual": 0.3806537761975142,
+      "module_error_status": "UNAVAILABLE_NO_PREREGISTERED_MODULE_SET",
+      "causal_interpretation": "UNAVAILABLE: residuals cannot distinguish interaction from experiment, control-type, or guide-burden differences."
+    },
+    "provenance_limits": {
+      "author_key_confirmed_declared_roles": 36,
+      "declared_analysis_roles": 40,
+      "d3_d4_multiplex_control_and_triple_experiment_ids": "UNRESOLVED",
+      "triple_guide_identity": "UNRESOLVED",
+      "same_guide_match_claimed": false,
+      "metadata_conflict": "Donor-1 GEO characteristics say Day18 while titles, paper methods, and pinned author metadata say Day7; the report uses Day7 and makes no duration claim."
+    },
+    "claim_boundary": "Descriptive negative stress test of whether one measured FAS + RC3H1 + SUV39H1 triple is represented by target-matched constituent singles across confounded experimental/control designs.",
+    "interpretation": "Execution succeeds, but the declared geometric model fails. Weak transcriptome alignment, low donor reproducibility, filter sensitivity, and perfect single-versus-triple confounding by experiment, control type, and guide burden make the biological result inconclusive. This is not combination or additivity validation, same-guide matching, an interaction test, donor-population inference, prospective validation, or biological reachability evidence.",
+    "source": "results/goudy_combination_validation.json"
+  },
+  "library_coverage": {
+    "tier": "EXTENSION",
+    "benchmark": "library_coverage_split_first_retrospective_v3",
+    "description": "Split-first catalog bookkeeping over reachability.project_cone: strict point-estimate cone membership, cosine-threshold alignment, simple rays, a signed-span capacity ceiling, and retrospective scoring of supplied, already-measured candidate effects.",
+    "reproducibility_boundary": "The three pickle-free cache artifacts are rebuilt byte-for-byte by a hash-gated deterministic builder. The registered Norman/Replogle URLs remain mutable and historical S3 versions are not anonymously retrievable, so a durable release archive is still required for manuscript-grade availability.",
+    "soft_cosine_threshold": 0.5,
+    "split_sensitivity": {
+      "deterministic_splits": 12,
+      "purpose": "algorithmic library/row-partition sensitivity over correlated measured effects; not biological sampling uncertainty",
+      "acquisition_recomputed": false
+    },
+    "datasets": {
+      "zhu_crispri_tcell": {
+        "source_effect_rows": 6871,
+        "effect_pool_rows": 6871,
+        "catalog_targets": 150,
+        "coverage_mean_cosine": 0.4357711574946169,
+        "strict_inside_cone_count": 0,
+        "soft_coverage_count": 32,
+        "best_single_mean_cosine": 0.24079566106441153,
+        "best_single_soft_coverage_count": 0,
+        "certificate_vs_realized_mean_cosine_gain_spearman": 0.8606003752345217,
+        "certificate_top1": "XPO4",
+        "realized_mean_cosine_top1": "CROT",
+        "certificate_matches_realized_mean_cosine_top1": false,
+        "sensitivity": {
+          "catalog_targets_per_split": 60,
+          "cone_mean_cosine_median": 0.4268911525786352,
+          "cone_mean_cosine_range": [0.4093144933674676, 0.44282315545664275],
+          "soft_coverage_fraction_at_0_5_median": 0.2,
+          "soft_coverage_fraction_at_0_5_range": [0.15, 0.2833333333333333],
+          "strict_inside_positive_splits": 0,
+          "cone_minus_best_single_mean_cosine_median": 0.18793884642554903,
+          "cone_minus_common_response_mean_cosine_median": 0.21235507249306196,
+          "signed_span_minus_cone_mean_cosine_median": 0.08393170143560355
+        }
+      },
+      "norman_k562_crispra": {
+        "source_effect_rows": 283,
+        "single_effect_rows": 152,
+        "canonical_single_genes": 105,
+        "double_effect_rows": 131,
+        "all_singles_cone_mean_cosine": 0.9576621859327356,
+        "strict_inside_cone_count": 0,
+        "soft_coverage_count": 131,
+        "paired_constituent_sum_mean_cosine": 0.9140796100362939,
+        "paired_constituent_two_atom_cone_mean_cosine": 0.9244691563324997,
+        "best_single_mean_cosine": 0.86310718488662,
+        "best_single_soft_coverage_count": 130,
+        "common_response_mean_cosine": 0.5704451442470599,
+        "acquisition_library_canonical_genes": 40,
+        "acquisition_library_candidate_gene_overlap_count": 0,
+        "certificate_vs_realized_mean_cosine_gain_spearman": 0.921245828698554,
+        "certificate_top1": "MAP2K6+ctrl",
+        "realized_mean_cosine_top1": "KLF1+ctrl",
+        "certificate_matches_realized_mean_cosine_top1": false,
+        "sensitivity": {
+          "fixed_catalog_double_effect_rows": 60,
+          "library_canonical_genes_per_split": 40,
+          "cone_mean_cosine_median": 0.8646924130131981,
+          "cone_mean_cosine_range": [0.8070681662666559, 0.8775472661201487],
+          "soft_coverage_fraction_at_0_5_median": 0.9833333333333333,
+          "soft_coverage_fraction_at_0_5_range": [0.9, 1.0],
+          "strict_inside_positive_splits": 0,
+          "cone_minus_best_single_mean_cosine_median": 0.10564429936388459,
+          "cone_minus_common_response_mean_cosine_median": 0.3397917675064022,
+          "signed_span_minus_cone_mean_cosine_median": 0.03335713677813579
+        }
+      },
+      "replogle_k562_essential_crispri": {
+        "source_effect_rows": 1087,
+        "catalog_targets": 150,
+        "coverage_mean_cosine": 0.7760393134674174,
+        "strict_inside_cone_count": 0,
+        "soft_coverage_count": 143,
+        "best_single_mean_cosine": 0.6742593559729345,
+        "best_single_soft_coverage_count": 116,
+        "certificate_vs_realized_mean_cosine_gain_spearman": 0.8731707317073172,
+        "certificate_top1": "ILF2+ctrl",
+        "realized_mean_cosine_top1": "NLE1+ctrl",
+        "certificate_matches_realized_mean_cosine_top1": false,
+        "sensitivity": {
+          "catalog_targets_per_split": 60,
+          "cone_mean_cosine_median": 0.7744959915457892,
+          "cone_mean_cosine_range": [0.7445850012879294, 0.8067745196678348],
+          "soft_coverage_fraction_at_0_5_median": 0.95,
+          "soft_coverage_fraction_at_0_5_range": [0.9, 0.9666666666666667],
+          "strict_inside_positive_splits": 0,
+          "cone_minus_best_single_mean_cosine_median": 0.09505643733851654,
+          "cone_minus_common_response_mean_cosine_median": 0.3624323953007439,
+          "signed_span_minus_cone_mean_cosine_median": 0.063442036093256
+        }
+      }
+    },
+    "synthetic_contract": "Data-free tests distinguish strict from thresholded coverage, validate weighted gap normals, enforce nested signed-span/cone/ray capacity, require non-negative realized gains, and keep certificate order separate from realized order.",
+    "interpretation": "Strict membership is zero in every reference catalog and every one of the 12 sensitivity splits; the 0.5 cosine bar is descriptive alignment, not reachability. The cone beats best-single and common-response rays in every split, while the signed span is uniformly better, exposing the cost of non-negativity. Certificate scores correlate with realized mean-cosine gains (Spearman 0.861-0.921) but match the realized top supplied effect atom in 0/3 audits. Zhu and Replogle remain same-screen compression tests; Norman's full-single reference and 40-gene representative sensitivity designs are retrospective additivity/alignment diagnostics. No candidate is unmeasured, and no result is prospective design or a biological verdict.",
+    "source": "results/library_coverage_crossdataset.json"
+  },
   "systemic_harness": {
     "status": "PASS",
     "scenarios": 6,
@@ -166,7 +495,7 @@
     "leakage-safe pseudobulk donor- and guide-held-out evaluation",
     "module/pathway holdouts and calibrated structured nulls",
     "nested PCA, ridge, unconstrained and capacity-matched baselines",
-    "measured in-domain perturbation combinations",
+    "same-experiment, guide-burden- and control-matched measured in-domain perturbation combinations",
     "paired CRISPRi and CRISPRa dictionaries",
     "independent whole-state protein, chromatin, function, fitness and durability",
     "prospective established-state validation"

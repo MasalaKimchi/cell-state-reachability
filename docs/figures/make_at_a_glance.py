@@ -28,7 +28,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 RESULTS = ROOT / "results"
 findings = json.loads((RESULTS / "findings.json").read_text(encoding="utf-8"))
-if findings.get("schema_version") != "2.0.0":
+if findings.get("schema_version") != "3.2.0":
     raise ValueError("unsupported findings schema")
 alignment = findings["source_bound_alignment"]
 split_values = [float(value) for value in alignment["split_values"]]
@@ -41,10 +41,63 @@ target_analyzed = int(target_scope["registered_genes"])
 transfer = findings["cross_source_directional_transfer"]
 donor = findings["donor_pair_transfer"]["run_balanced"]
 arce = findings["arce_external_validation"]["spearman"]
-arce_activation = findings["arce_external_validation"]["activation_score_robustness"]
+schmidt = findings["schmidt_external_validation"]
+schmidt_top = schmidt["source_selected_top_k_transfer"]
+guide = findings["guide_position_transfer"]
+guide_same_source = guide["same_source_guide_position_transfer"]
 arrayed = findings["zhu_arrayed_followup"]
+goudy = findings["goudy_cross_experiment_stress"]
+goudy_primary = goudy["primary_transcriptome"]
+goudy_reliability = goudy["reliability"]
 if len(split_values) != 12:
     raise ValueError("unexpected source-bound split count")
+if goudy["status"]["geometric_model"] != "FAILS_DECLARED_GEOMETRIC_MODEL":
+    raise ValueError("unexpected Goudy geometric status")
+if (
+    schmidt["tier"] != "STRESS"
+    or schmidt["primary_contract"]["common_complete_genes"] != 18568
+    or schmidt["primary_contract"]["top_k"] != 200
+):
+    raise ValueError("unexpected Schmidt stress contract")
+if (
+    guide["tier"] != "STRESS"
+    or guide["benchmark_role"]
+    != "negative released positional-guide reciprocal-transfer stress"
+    or guide["guide_identity_status"]
+    != "POSITIONAL_MODALITIES_ONLY_IDENTITIES_NOT_RELEASED"
+    or guide["positional_modalities"] != 2
+    or guide["common_rest_atoms"] != 8323
+    or guide["fit_count"] != 12
+    or guide["challenge_rows"] != 24
+    or guide_same_source["challenge_rows"] != 12
+    or guide_same_source["unique_fits"] != 12
+):
+    raise ValueError("unexpected released positional-guide stress contract")
+guide_within_cosine = float(guide_same_source["median_within_training_guide_cone_cosine"])
+guide_reciprocal_cosine = float(
+    guide_same_source["median_reciprocal_held_guide_cone_cosine"]
+)
+guide_reciprocal_delta = float(guide_same_source["median_reciprocal_minus_within_cone_cosine"])
+guide_positive_fraction = float(
+    guide_same_source[
+        "fraction_reciprocal_held_guide_cosine_improvement_positive_over_training_best_single"
+    ]
+)
+if not np.isfinite(
+    [
+        guide_within_cosine,
+        guide_reciprocal_cosine,
+        guide_reciprocal_delta,
+        guide_positive_fraction,
+    ]
+).all():
+    raise ValueError("non-finite released positional-guide stress values")
+guide_positive_count_float = guide_positive_fraction * guide_same_source["challenge_rows"]
+guide_positive_count = round(guide_positive_count_float)
+if not np.isclose(guide_positive_count_float, guide_positive_count, atol=1e-12, rtol=0.0):
+    raise ValueError("released positional-guide positive fraction is not an exact row count")
+guide_reciprocal_label = f"{guide_reciprocal_cosine:.3f}"
+guide_delta_label = f"{guide_reciprocal_delta:+.3f}"
 
 
 # restrained, print-safe palette
@@ -135,7 +188,7 @@ label(4, 94.0, "Cell-State Reachability", size=25, color=NAVY, weight="bold")
 label(
     4,
     89.1,
-    "A screen-relative test of transcriptomic direction — not a state-conversion claim",
+    "Point-estimate cone geometry — not a calibrated state-conversion claim",
     size=13.2,
     color=TEAL,
     weight="bold",
@@ -143,7 +196,7 @@ label(
 label(
     96,
     93.5,
-    "MEASURED  →  MODELLED  →  TEST NEXT",
+    "MEASURED  →  MODELLED  →  VALIDATE",
     size=9.0,
     color=MUTE,
     weight="bold",
@@ -265,36 +318,39 @@ label(
     f"+{transfer['hollbacker_to_ota']['mean_cosine_improvement_over_test_selected_better_baseline']:.3f}\n"
     f"Donor-pair gain +{donor['median_cosine_improvement_over_training_best_single']:.3f}; "
     f"nRMSE {donor['median_cone_normalized_rmse']:.3f} vs "
-    f"{donor['median_training_best_single_normalized_rmse']:.3f}",
-    size=7.6,
+    f"{donor['median_training_best_single_normalized_rmse']:.3f}\n"
+    f"Released positional: cone {guide_within_cosine:.3f} within → "
+    f"{guide_reciprocal_label} reciprocal\n"
+    f"Δ {guide_delta_label}; {guide_positive_count}/{guide_same_source['challenge_rows']} beat best single",
+    size=6.5,
     color=MUTE,
+    linespacing=1.0,
 )
 
 label(
     x + 1.8,
-    28.4,
-    f"Arce ranks: {arce['Resting_Teff']:.3f}/{arce['Stimulated_Teff']:.3f}/{arce['Resting_Treg']:.3f}; donor ranks: "
-    f"{min(arce_activation['donor_spearman'].values()):.2f}–"
-    f"{max(arce_activation['donor_spearman'].values()):.2f}; signs: "
-    f"{min(arce_activation['all_two_guides_two_donors_same_sign_fraction'].values()):.0%}–"
-    f"{max(arce_activation['all_two_guides_two_donors_same_sign_fraction'].values()):.0%}\n"
-    f"Zhu arrayed RNA: 9/9 retrieved; centered cosine "
-    f"{arrayed['profile_replication']['panel_centered_median_cosine']:.3f}\n"
-    "RNA→flow cytokine ranks: 0.72–0.85; descriptive, not donor/state validation",
-    size=6.8,
+    29.6,
+    f"Arce ranks {arce['Resting_Teff']:.3f}/{arce['Stimulated_Teff']:.3f}/{arce['Resting_Treg']:.3f} | "
+    f"Zhu 9/9; cosine {arrayed['profile_replication']['panel_centered_median_cosine']:.3f}\n"
+    f"Schmidt ρ(top-200): donor {schmidt_top['same_screen_held_donor']['median_signed_spearman']:.2f} | "
+    f"donor+M/L {schmidt_top['donor_plus_modality_library_same_context']['median_signed_spearman']:.2f} | "
+    f"donor+ctx {schmidt_top['donor_plus_cross_context_cytokine_cell_type_same_modality']['median_signed_spearman']:.2f}\n"
+    "RNA→flow 0.72–0.85; descriptive, not donor/guide/state validation",
+    size=6.5,
     color=MUTE,
     style="italic",
     va="top",
+    linespacing=1.0,
 )
 
 
 # 4. Decision boundary
 x = xs[3]
-step_header(x, 4, "Decide", "what this result changes")
+step_header(x, 4, "Limits", "what remains unresolved")
 
 rows = [
-    (TEAL_LIGHT, TEAL, "REPLICATION NEEDED", "Donor-resolved, polarized\nTh2 starting-state study"),
-    (GOLD_LIGHT, GOLD, "MEASURE NEXT", "Matched modalities, combinations\n+ functional readouts"),
+    (TEAL_LIGHT, TEAL, "REPLICATION GATE", "Donor-resolved, polarized\nTh2 starting-state study"),
+    (GOLD_LIGHT, GOLD, "CALIBRATION GATE", "Structured holdouts, uncertainty\n+ matched baselines"),
     (GRAY_LIGHT, MUTE, "NOT ESTABLISHED", "State conversion, rescue,\nor target validation"),
 ]
 for i, (fill, accent, heading, body) in enumerate(rows):
@@ -304,6 +360,20 @@ for i, (fill, accent, heading, body) in enumerate(rows):
     label(x + 3.2, ry + 8.2, heading, size=8.0, color=accent, weight="bold")
     label(x + 3.2, ry + 4.0, body, size=9.2, color=NAVY, weight="bold", linespacing=1.25)
 
+label(
+    x + 1.8,
+    29.0,
+    "Goudy cross-experiment stress: cone "
+    f"{goudy_primary['component_cone_median_cosine']:.3f};\n"
+    "triple donor cosine "
+    f"{goudy_reliability['triple_pairwise_donor_median_cosine']:.3f} — model fails",
+    size=7.1,
+    color=GOLD,
+    weight="bold",
+    va="top",
+    linespacing=1.25,
+)
+
 
 # Footer: the durable boundary
 box(4, 7.0, 92, 11.8, fc=GRAY_LIGHT, ec=BORDER, lw=1.1, radius=0.7)
@@ -311,7 +381,7 @@ label(6.0, 15.1, "CLAIM BOUNDARY", size=8.8, color=GOLD, weight="bold")
 label(
     6.0,
     11.1,
-    "Screen-relative directional support  •  measured subset only  •  model-relative geometry ≠ biological efficacy",
+    "Point-estimate directional geometry  •  correlated holdout diagnostic  •  model cone ≠ biological reachability",
     size=10.7,
     color=NAVY,
     weight="bold",

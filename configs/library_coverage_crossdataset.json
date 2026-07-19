@@ -1,0 +1,268 @@
+{
+  "schema_version": "3.0.0",
+  "generated_on": "2026-07-19",
+  "benchmark": "library_coverage_split_first_retrospective_v3",
+  "claim_ceiling": "Split-first retrospective computation on hash-frozen, already-measured effect dictionaries: Zhu and Replogle measure within-dictionary compression/self-reconstruction, and Norman measures K562 single-to-double additivity/alignment. Twelve deterministic splits measure algorithmic row-partition sensitivity only. The reference acquisition audit evaluates supplied measured candidates against the same declared catalog and is not a generalization test. This is not coverage of an independent biological target catalog, prospective library design, prioritization of unmeasured candidates, biological reachability, state conversion, or experimental validation.",
+  "provenance": {
+    "candidate_status": "Every ranked candidate is a supplied, already-measured effect atom held out from the current computational library; the benchmark does not rank unmeasured genes or experiments.",
+    "perturbation_modalities": [
+      "CRISPRi",
+      "CRISPRa"
+    ],
+    "cell_systems": [
+      "primary human CD4+ T cells",
+      "K562"
+    ],
+    "zhu": {
+      "identity": "Zhu et al., Primary Human CD4+ T Cell Perturb-seq, VCP v1.0 processed release",
+      "dataset_card_version": "v1.0 processed",
+      "dataset_card_release_date": "2025-12-22",
+      "citation_url": "https://doi.org/10.64898/2025.12.23.696273",
+      "dataset_card_url": "https://virtualcellmodels.cziscience.com/dataset/genome-scale-tcell-perturb-seq",
+      "upstream_object": "GWCD4i.DE_stats.h5ad",
+      "upstream_object_sha256": "c355f535ff32cf7ba1edc49cf9c6039fe84f2c9ebe4d005515cba75790cfbb62",
+      "local_cache_creation_date": "deterministically rebuilt from the registered source contract on 2026-07-19",
+      "license_note": "The VCP v1.0 dataset card labels the processed dataset MIT and also requires compliance with the VCP Acceptable Use Policy; the local NPZ is a derived, gitignored cache."
+    },
+    "norman": {
+      "identity": "Norman et al. 2019 CRISPRa Perturb-seq processed through GEARS 0.0.2 and redistributed by VCP",
+      "dataset_card_version": "v1.0 source; processed data are GEARS 0.0.2",
+      "dataset_card_release_date": "2019-08-08",
+      "citation_url": "https://doi.org/10.1126/science.aax4438",
+      "dataset_card_url": "https://virtualcellmodels.cziscience.com/dataset/norman-osteosarcoma-immune-microenvironment",
+      "raw_redistribution_url": "https://cz-benchmarks-data.s3.amazonaws.com/datasets/v1/perturb/single_cell/norman_perturbation.h5ad",
+      "raw_redistribution_byte_identity": "2,228,849,977 bytes; SHA-256 a2a194c0eaa001d229e21a3f4f5b447db7c73f7a3a44c3d0464f317bda5f12a2",
+      "local_cache_creation_date": "deterministically rebuilt from the registered source contract on 2026-07-19",
+      "canonical_cell_system": "K562",
+      "license_note": "The VCP v1.0 Norman dataset card labels the processed GEARS-derived dataset MIT and requires compliance with the VCP Acceptable Use Policy.",
+      "upstream_metadata_discrepancy": {
+        "field": "obs.cell_type",
+        "redistributed_value": "A549",
+        "canonical_value": "K562",
+        "status": "FLAGGED",
+        "handling": "The Norman paper explicitly describes K562 cells. This report uses canonical K562, records the redistributed A549 label as an upstream metadata discrepancy, and does not use that field computationally."
+      }
+    },
+    "replogle": {
+      "identity": "Replogle et al. 2022 K562 day-6 essential-gene CRISPRi Perturb-seq, VCP v1.0 processed benchmark redistribution",
+      "dataset_card_version": "v1.0 processed",
+      "dataset_card_release_date": "2025-09-03",
+      "dataset_card_source_download_date": "2025-08-01",
+      "citation_url": "https://doi.org/10.1016/j.cell.2022.05.013",
+      "dataset_card_url": "https://virtualcellmodels.cziscience.com/dataset/k562-essential-perturb-seq",
+      "raw_redistribution_url": "https://cz-benchmarks-data.s3.amazonaws.com/datasets/v1/perturb/single_cell/replogle_k562_essential_perturbation.h5ad",
+      "raw_redistribution_byte_identity": "2,890,786,004 bytes; SHA-256 04b7b3c28504ace115bb6ee192a0710f428aee3468cf0372b4fc0978cc05adb4",
+      "local_cache_creation_date": "deterministically rebuilt from the registered source contract on 2026-07-19",
+      "canonical_cell_system": "K562",
+      "license_note": "The VCP v1.0 processed benchmark dataset card displays the license label 'CC BY NA SA 4.0' and requires compliance with the VCP Acceptable Use Policy; users should consult the source card for the controlling terms."
+    }
+  },
+  "cache_build": {
+    "format": "portable_effect_dictionary_v1",
+    "writer_contract": "pickle-free uncompressed NPZ with canonical little-endian C-contiguous arrays, fixed member order, ZIP timestamps, and permissions",
+    "zhu": {
+      "builder": "zhu_de_layer",
+      "source_config": "configs/source_reconstruction.json",
+      "layer": "log_fc",
+      "gene_universe": "shared_screen_genes",
+      "effect_rows": "Rest condition with ontarget_significant=true in registered source order"
+    },
+    "norman": {
+      "builder": "condition_minus_control_mean",
+      "source": {
+        "path": "data/norman_perturbation.h5ad",
+        "bytes": 2228849977,
+        "sha256": "a2a194c0eaa001d229e21a3f4f5b447db7c73f7a3a44c3d0464f317bda5f12a2",
+        "url": "https://cz-benchmarks-data.s3.amazonaws.com/datasets/v1/perturb/single_cell/norman_perturbation.h5ad",
+        "etag_observed": "06342285874921d9802d798b0126a088-266",
+        "last_modified_observed": "2025-04-03",
+        "version_id_observed": "M4abkqxM0_x10v2l.RCes78Ux.V7vmi5",
+        "retrieved_on": "2026-07-19"
+      },
+      "condition_field": "condition",
+      "control_field": "control",
+      "control_label": "ctrl",
+      "gene_field": "gene_id",
+      "gene_axis_note": "legacy cache symbols were unique, but portable v1 uses upstream Ensembl gene_id for a stable identifier axis; E, perts, and ncells remain bit-for-bit unchanged",
+      "source_matrix_semantics": "processed/log-transformed expression in X as redistributed; exact upstream normalization is not independently frozen and the values are accepted as-is; not raw counts"
+    },
+    "replogle": {
+      "builder": "condition_minus_control_mean",
+      "source": {
+        "path": "data/replogle_k562_essential_perturbation.h5ad",
+        "bytes": 2890786004,
+        "sha256": "04b7b3c28504ace115bb6ee192a0710f428aee3468cf0372b4fc0978cc05adb4",
+        "url": "https://cz-benchmarks-data.s3.amazonaws.com/datasets/v1/perturb/single_cell/replogle_k562_essential_perturbation.h5ad",
+        "etag_observed": "54a6597e65f9a1ba0c16a7a4038d1020-345",
+        "last_modified_observed": "2025-03-26",
+        "version_id_observed": "Z59GwoaniO1l0x8hhyaa4hnErU7NahUX",
+        "retrieved_on": "2026-07-19"
+      },
+      "condition_field": "condition",
+      "control_field": "control",
+      "control_label": "ctrl",
+      "gene_field": "gene_id",
+      "gene_axis_note": "portable v1 uses unique upstream Ensembl gene_id; E, perts, and ncells remain bit-for-bit unchanged from the legacy cache",
+      "feature_name_note": "upstream feature_name has 4999 unique labels across 5000 columns because TBCE occurs twice; unique gene_id is the fail-closed transport axis",
+      "source_matrix_semantics": "processed/log-transformed expression in X as redistributed; exact upstream normalization is not independently frozen and the values are accepted as-is; not raw counts"
+    }
+  },
+  "inputs": {
+    "zhu": {
+      "path": "slice/zhu_rest_effects_portable_v1.npz",
+      "bytes": 246642804,
+      "sha256": "75d7ce623ae8157c84a174b6dfc2a24baea34ce117e4ccb0ebceacfb174edba1",
+      "effect_array": "E",
+      "label_array": "perts",
+      "required_arrays": {
+        "E": {
+          "shape": [
+            6871,
+            8950
+          ],
+          "dtype": "float32"
+        },
+        "perts": {
+          "shape": [
+            6871
+          ],
+          "dtype": "<U11"
+        },
+        "genes": {
+          "shape": [
+            8950
+          ],
+          "dtype": "<U10"
+        }
+      }
+    },
+    "norman": {
+      "path": "slice/norman_effects_portable_v1.npz",
+      "bytes": 6033788,
+      "sha256": "636973133bb34b0bb7f0cc6c7e1ef1a799808c15cc1ea982b8097bb95a48d964",
+      "effect_array": "E",
+      "label_array": "perts",
+      "required_arrays": {
+        "E": {
+          "shape": [
+            283,
+            5045
+          ],
+          "dtype": "float32"
+        },
+        "perts": {
+          "shape": [
+            283
+          ],
+          "dtype": "<U15"
+        },
+        "genes": {
+          "shape": [
+            5045
+          ],
+          "dtype": "<U15"
+        },
+        "ncells": {
+          "shape": [
+            283
+          ],
+          "dtype": "int64"
+        }
+      }
+    },
+    "replogle": {
+      "path": "slice/replogle_effects_portable_v1.npz",
+      "bytes": 22110472,
+      "sha256": "f48a92f7866ad1f055c9468c8d9ace289b5fc2e75b84ecf0aaf19d350aad25c3",
+      "effect_array": "E",
+      "label_array": "perts",
+      "required_arrays": {
+        "E": {
+          "shape": [
+            1087,
+            5000
+          ],
+          "dtype": "float32"
+        },
+        "perts": {
+          "shape": [
+            1087
+          ],
+          "dtype": "<U14"
+        },
+        "genes": {
+          "shape": [
+            5000
+          ],
+          "dtype": "<U15"
+        },
+        "ncells": {
+          "shape": [
+            1087
+          ],
+          "dtype": "int64"
+        }
+      }
+    }
+  },
+  "analysis": {
+    "strict_inside_cone_definition": "reachability.project_cone geometry_status == inside_tolerance under the core's certified default numerical tolerance",
+    "soft_cosine_threshold": 0.5,
+    "soft_coverage_definition": "best cone-projection cosine >= 0.5; an application-chosen alignment summary, not geometric cone membership",
+    "acquisition_certificate": "sum over strict outside-cone targets of positive unit-candidate alignment with the certified dual separator, weighted by residual fraction",
+    "primary_realized_acquisition_objective": "gain in mean catalog cosine after adding one supplied, already-measured candidate effect atom",
+    "secondary_realized_acquisition_objectives": [
+      "gain in strict inside-cone fraction",
+      "gain in soft cosine-threshold coverage fraction"
+    ],
+    "top1_comparison": "Every acquisition pool is required to contain unique effect-atom labels and exactly one supplied candidate per canonical perturbation label. Exact-row and canonical-label top-1 agreement are therefore identical by construction and are reported once. Norman groups by canonical gene before role assignment and freezes one measured representative row per gene (GENE+ctrl preferred, ctrl+GENE only if absent). Ties use stable supplied-candidate order.",
+    "status_definition": "PASS means every configured cache identity and schema verified and the descriptive computation completed; it does not require a minimum rank correlation or a top-1 match",
+    "inference": "descriptive retrospective computation; split sensitivity is algorithmic robustness over correlated row partitions, not sampling uncertainty, prospective outcome prediction, or biological reachability inference",
+    "split_sensitivity": {
+      "seeds": [3, 5, 11, 17, 23, 29, 31, 37, 41, 43, 47, 53],
+      "soft_cosine_thresholds": [0.3, 0.5, 0.7, 0.9],
+      "acquisition_scope": "coverage and fixed comparators only; the expensive acquisition audit remains the declared reference split",
+      "summary": "median, interquartile range, 5th/95th percentile, extrema, and positive-split count over deterministic correlated row partitions"
+    }
+  },
+  "datasets": {
+    "zhu_crispri_tcell": {
+      "effect_definition": "donor-collapsed Rest-condition differential-expression log-fold-change rows from the registered Zhu source reconstruction cache",
+      "eligible_effect_pool": "all 6871 Rest-condition rows admitted upstream by the registered ontarget_significant field; no benchmark-outcome magnitude filter",
+      "n_features": 400,
+      "feature_selection": "stable top-400 variance coordinates from the 50 current-library rows after the retrospective row split; catalog and candidate rows do not participate",
+      "seed": 11,
+      "library_size": 50,
+      "catalog_size": 150,
+      "candidate_size": 40,
+      "sensitivity_catalog_size": 60,
+      "sensitivity_candidate_reserve": 24
+    },
+    "norman_k562_crispra": {
+      "effect_definition": "per-condition mean processed expression minus control mean in the VCP/GEARS-derived Norman cache",
+      "n_features": 400,
+      "feature_selection": "full additivity description: stable top-400 variance coordinates from all 152 position-specific single-perturbation rows only; acquisition and split sensitivity: group by 105 canonical genes, freeze one measured cassette-position representative per gene, then select a separate stable top-400 set from each current 40-gene library only; doubles and candidates never select those features",
+      "seed": 3,
+      "acquisition_library_size": 40,
+      "acquisition_candidate_size": 30,
+      "sensitivity_catalog_doubles": 60,
+      "sensitivity_catalog_seed": 20260719,
+      "expected": {
+        "single_effect_rows": 152,
+        "unique_single_genes": 105,
+        "double_effect_rows": 131
+      }
+    },
+    "replogle_k562_essential_crispri": {
+      "effect_definition": "per-condition mean processed expression minus control mean in the VCP K562 essential-gene cache",
+      "n_features": 400,
+      "feature_selection": "stable top-400 variance coordinates from the 50 current-library rows after the retrospective row split; catalog and candidate rows do not participate",
+      "seed": 5,
+      "library_size": 50,
+      "catalog_size": 150,
+      "candidate_size": 40,
+      "sensitivity_catalog_size": 60,
+      "sensitivity_candidate_reserve": 24
+    }
+  }
+}

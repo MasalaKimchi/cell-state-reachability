@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from reachability import InputError, held_out_alignment, project_cone
+from reachability import InputError, held_out_alignment, project_cone  # noqa: E402
 
 
 DEFAULT_CONFIG = ROOT / "configs" / "source_reconstruction.json"
@@ -45,8 +45,15 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def verify_input(name: str, spec: dict[str, Any], *, verify_hash: bool) -> dict[str, Any]:
-    path = ROOT / spec["path"]
+def verify_input(
+    name: str,
+    spec: dict[str, Any],
+    *,
+    verify_hash: bool,
+    project_root: Path | None = None,
+) -> dict[str, Any]:
+    root = ROOT if project_root is None else project_root
+    path = root / spec["path"]
     if not path.is_file():
         raise FileNotFoundError(f"{name}: {path}")
     actual_bytes = path.stat().st_size
@@ -483,14 +490,17 @@ def source_transfer(
 
 
 def build_profile(
-    config: dict[str, Any], *, verify_hash: bool
+    config: dict[str, Any], *, verify_hash: bool, project_root: Path | None = None
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    root = ROOT if project_root is None else project_root
     input_status = {
-        name: verify_input(name, spec, verify_hash=verify_hash)
+        name: verify_input(
+            name, spec, verify_hash=verify_hash, project_root=root
+        )
         for name, spec in config["inputs"].items()
     }
-    h5ad_path = ROOT / config["inputs"]["de_stats"]["path"]
-    target_path = ROOT / config["inputs"]["target_table"]["path"]
+    h5ad_path = root / config["inputs"]["de_stats"]["path"]
+    target_path = root / config["inputs"]["target_table"]["path"]
     h5_profile, axes = profile_h5ad(h5ad_path, config["screen"])
     target_rows, target_values = load_target_table(target_path, config["target"])
     lineages = {

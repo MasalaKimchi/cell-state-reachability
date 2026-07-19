@@ -8,10 +8,22 @@ data/*
 analysis_cache/
 outputs/
 
+# Cross-dataset effect-matrix caches (large, local, and required by exact byte identity;
+# see data/README.md for reconstruction and durable-availability boundaries). Never commit.
+slice/
+
+# Exploratory baseline-ladder scratch is not claim-bearing until it has a checked-in,
+# hash-bound runner and frozen configuration.
+analysis/*
+
 # Python and environments.
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
 .venv/
 .env
 

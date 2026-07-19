@@ -1,0 +1,1739 @@
+{
+  "analysis_contract": {
+    "acquisition_certificate": "sum over strict outside-cone targets of positive unit-candidate alignment with the certified dual separator, weighted by residual fraction",
+    "inference": "descriptive retrospective computation; split sensitivity is algorithmic robustness over correlated row partitions, not sampling uncertainty, prospective outcome prediction, or biological reachability inference",
+    "primary_realized_acquisition_objective": "gain in mean catalog cosine after adding one supplied, already-measured candidate effect atom",
+    "secondary_realized_acquisition_objectives": [
+      "gain in strict inside-cone fraction",
+      "gain in soft cosine-threshold coverage fraction"
+    ],
+    "soft_cosine_threshold": 0.5,
+    "soft_coverage_definition": "best cone-projection cosine >= 0.5; an application-chosen alignment summary, not geometric cone membership",
+    "split_sensitivity": {
+      "acquisition_scope": "coverage and fixed comparators only; the expensive acquisition audit remains the declared reference split",
+      "seeds": [
+        3,
+        5,
+        11,
+        17,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53
+      ],
+      "soft_cosine_thresholds": [
+        0.3,
+        0.5,
+        0.7,
+        0.9
+      ],
+      "summary": "median, interquartile range, 5th/95th percentile, extrema, and positive-split count over deterministic correlated row partitions"
+    },
+    "status_definition": "PASS means every configured cache identity and schema verified and the descriptive computation completed; it does not require a minimum rank correlation or a top-1 match",
+    "strict_inside_cone_definition": "reachability.project_cone geometry_status == inside_tolerance under the core's certified default numerical tolerance",
+    "top1_comparison": "Every acquisition pool is required to contain unique effect-atom labels and exactly one supplied candidate per canonical perturbation label. Exact-row and canonical-label top-1 agreement are therefore identical by construction and are reported once. Norman groups by canonical gene before role assignment and freezes one measured representative row per gene (GENE+ctrl preferred, ctrl+GENE only if absent). Ties use stable supplied-candidate order."
+  },
+  "benchmark": "library_coverage_split_first_retrospective_v3",
+  "claim_ceiling": "Split-first retrospective computation on hash-frozen, already-measured effect dictionaries: Zhu and Replogle measure within-dictionary compression/self-reconstruction, and Norman measures K562 single-to-double additivity/alignment. Twelve deterministic splits measure algorithmic row-partition sensitivity only. The reference acquisition audit evaluates supplied measured candidates against the same declared catalog and is not a generalization test. This is not coverage of an independent biological target catalog, prospective library design, prioritization of unmeasured candidates, biological reachability, state conversion, or experimental validation.",
+  "config_sha256": "53c9bf27ba396fc543ba2109d6f7f1c7a1e9923e68d9da636e30a1e9a65057f8",
+  "datasets": {
+    "norman_k562_crispra": {
+      "acquisition": {
+        "candidate_pool_canonical_labels_unique": true,
+        "candidate_pool_effect_atom_labels_unique": true,
+        "candidate_status": "supplied_already_measured_effect_atoms",
+        "certificate_definition": "positive alignment with strict outside-cone dual separators, weighted by residual fraction",
+        "certificate_matches_realized_mean_cosine_top1": false,
+        "certificate_top1": {
+          "candidate_pool_position_zero_based": 29,
+          "canonical_perturbation_label": "MAP2K6",
+          "certificate_score": 11.242930236312281,
+          "effect_atom_label": "MAP2K6+ctrl",
+          "realized_mean_cosine_gain": 0.021992021659803962,
+          "realized_soft_coverage_fraction_gain": 0.06106870229007633,
+          "realized_strict_inside_cone_fraction_gain": 0.0,
+          "source_effect_row_index_zero_based": 147
+        },
+        "certificate_top1_tie_count": 1,
+        "certificate_vs_realized_mean_cosine_gain_spearman": 0.921245828698554,
+        "primary_realized_objective": "mean_catalog_cosine_gain",
+        "realized_mean_cosine_top1": {
+          "candidate_pool_position_zero_based": 17,
+          "canonical_perturbation_label": "KLF1",
+          "certificate_score": 9.369719864867772,
+          "effect_atom_label": "KLF1+ctrl",
+          "realized_mean_cosine_gain": 0.026765892774667233,
+          "realized_soft_coverage_fraction_gain": 0.03816793893129766,
+          "realized_strict_inside_cone_fraction_gain": 0.0,
+          "source_effect_row_index_zero_based": 131
+        },
+        "realized_mean_cosine_top1_tie_count": 1,
+        "realized_soft_coverage_top1": {
+          "candidate_pool_position_zero_based": 29,
+          "canonical_perturbation_label": "MAP2K6",
+          "effect_atom_label": "MAP2K6+ctrl",
+          "realized_mean_cosine_gain": 0.021992021659803962,
+          "realized_soft_coverage_fraction_gain": 0.06106870229007633,
+          "source_effect_row_index_zero_based": 147
+        },
+        "realized_soft_coverage_top1_tie_count": 1,
+        "secondary_realized_objective": "soft_cosine_threshold_coverage_fraction_gain",
+        "top1_agreement_unit": "unique supplied effect atom; exactly one candidate exists per canonical label"
+      },
+      "acquisition_design": {
+        "candidate_canonical_labels_sha256": "218f39b6cf3e4f327dc8b077de8f4ae214dc2d751f0721a4a615be28234c62f3",
+        "candidate_source_row_index_sha256": "0cca69647b085c6ce2245f1661ca9064c80eebe60af5df17fafeed383b132edc",
+        "canonical_representative_selection": {
+          "canonical_genes": 105,
+          "genes_with_both_cassette_positions": 47,
+          "opposite_position_fallbacks": 1,
+          "representative_rule": "choose measured GENE+ctrl; use ctrl+GENE only when GENE+ctrl is absent; choice is frozen before row-role assignment and does not use outcomes"
+        },
+        "catalog_double_effect_rows": 131,
+        "catalog_source_row_index_sha256": "b95fe545f2189733e67bae8ac2c6475d8404a3fb51bef36b800d5cfc36794e6b",
+        "current_library_canonical_genes": 40,
+        "feature_count": 400,
+        "feature_index_sha256": "9fad50c87fef201b1ee52fc9f6cc86a33fda1d677e1840ff1c2b3d60a0922ae0",
+        "feature_selection": "stable top-variance coordinates from current canonical-gene acquisition library representatives only",
+        "feature_selection_rows": "current_library_only",
+        "library_candidate_canonical_gene_overlap_count": 0,
+        "library_canonical_labels_sha256": "46f5ab84e8425503daf0db503f56192b43ed9f519e4a85bbd657ed126762e600",
+        "library_source_row_index_sha256": "bb34e7a321380064ec2d75f76b0e8d06b1da99bba26cacbbe7eca6aeb3825fc2",
+        "rng": "numpy.default_rng(seed)",
+        "role_assignment_unit": "canonical_gene_with_one_fixed_measured_position_representative",
+        "seed": 3,
+        "supplied_candidate_canonical_genes": 30,
+        "unused_canonical_genes": 35
+      },
+      "classification": "retrospective_single_to_double_additivity_and_coverage",
+      "comparators": {
+        "best_single_effect_nonnegative_ray": {
+          "mean_cosine": 0.86310718488662,
+          "n_targets": 131,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 130,
+          "soft_coverage_fraction": 0.9923664122137404
+        },
+        "common_single_response_nonnegative_ray": {
+          "mean_cosine": 0.5704451442470599,
+          "n_targets": 131,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 95,
+          "soft_coverage_fraction": 0.7251908396946565
+        },
+        "paired_constituent_sum": {
+          "constituent_selection": "for A+B use A+ctrl and ctrl+B to match cassette position; fall back to the available opposite-position single only when absent",
+          "mean_cosine": 0.9140796100362939,
+          "n_targets": 131,
+          "opposite_position_fallback_count": 1,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 131,
+          "soft_coverage_fraction": 1.0
+        },
+        "paired_constituent_two_atom_cone": {
+          "constituent_selection": "same position-matched rule as paired_constituent_sum",
+          "mean_cosine": 0.9244691563324997,
+          "n_targets": 131,
+          "opposite_position_fallback_count": 1,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 131,
+          "soft_coverage_fraction": 1.0,
+          "strict_inside_cone_count": 0,
+          "strict_inside_cone_fraction": 0.0
+        }
+      },
+      "coverage": {
+        "mean_cosine": 0.9576621859327356,
+        "mean_residual_fraction": 0.26894233955590624,
+        "n_targets": 131,
+        "soft_cosine_threshold": 0.5,
+        "soft_coverage_count": 131,
+        "soft_coverage_fraction": 1.0,
+        "strict_inside_cone_count": 0,
+        "strict_inside_cone_fraction": 0.0
+      },
+      "double_effect_rows": 131,
+      "preprocessing": {
+        "effect_definition": "per-condition mean processed expression minus control mean in the VCP/GEARS-derived Norman cache",
+        "feature_count": 400,
+        "feature_index_sha256": "a8d27920ee984421d17e39cfec549e23e1db1032ab3e8bbeb94a0ed98fed7bcf",
+        "feature_selection": "full additivity description: stable top-400 variance coordinates from all 152 position-specific single-perturbation rows only; acquisition and split sensitivity: group by 105 canonical genes, freeze one measured cassette-position representative per gene, then select a separate stable top-400 set from each current 40-gene library only; doubles and candidates never select those features"
+      },
+      "single_effect_rows": 152,
+      "source_effect_rows": 283,
+      "split_sensitivity": {
+        "aggregate": {
+          "best_single_mean_cosine": {
+            "maximum": 0.7817708579803944,
+            "median": 0.7538727078415695,
+            "minimum": 0.7062150212148981,
+            "n_splits": 12,
+            "p05": 0.7135851215798524,
+            "p95": 0.7755362432851224,
+            "positive_split_count": 12,
+            "q25": 0.7387115712495262,
+            "q75": 0.7597769737487114
+          },
+          "common_response_mean_cosine": {
+            "maximum": 0.5340311317609292,
+            "median": 0.5258561116247646,
+            "minimum": 0.5124324875755732,
+            "n_splits": 12,
+            "p05": 0.5148830089425607,
+            "p95": 0.531656528195743,
+            "positive_split_count": 12,
+            "q25": 0.5216262811125584,
+            "q75": 0.5278850313918269
+          },
+          "cone_mean_cosine": {
+            "maximum": 0.8775472661201487,
+            "median": 0.8646924130131981,
+            "minimum": 0.8070681662666559,
+            "n_splits": 12,
+            "p05": 0.8131456224794134,
+            "p95": 0.8765021304654647,
+            "positive_split_count": 12,
+            "q25": 0.8430953977904054,
+            "q75": 0.8698485646824872
+          },
+          "cone_minus_best_single_mean_cosine": {
+            "maximum": 0.11937143987500476,
+            "median": 0.10564429936388459,
+            "minimum": 0.08517486703984833,
+            "n_splits": 12,
+            "p05": 0.09100571464479662,
+            "p95": 0.11628749880695832,
+            "positive_split_count": 12,
+            "q25": 0.10026557952803195,
+            "q75": 0.1118197115192961
+          },
+          "cone_minus_common_response_mean_cosine": {
+            "maximum": 0.34783359538683056,
+            "median": 0.3397917675064022,
+            "minimum": 0.2901801852965601,
+            "n_splits": 12,
+            "p05": 0.294117900255187,
+            "p95": 0.34651882406048107,
+            "positive_split_count": 12,
+            "q25": 0.32033226220251526,
+            "q75": 0.34188113941224985
+          },
+          "cone_soft_coverage_cosine_at_least_0.3": {
+            "maximum": 1.0,
+            "median": 1.0,
+            "minimum": 1.0,
+            "n_splits": 12,
+            "p05": 1.0,
+            "p95": 1.0,
+            "positive_split_count": 12,
+            "q25": 1.0,
+            "q75": 1.0
+          },
+          "cone_soft_coverage_cosine_at_least_0.5": {
+            "maximum": 1.0,
+            "median": 0.9833333333333333,
+            "minimum": 0.9,
+            "n_splits": 12,
+            "p05": 0.9091666666666667,
+            "p95": 1.0,
+            "positive_split_count": 12,
+            "q25": 0.9416666666666667,
+            "q75": 1.0
+          },
+          "cone_soft_coverage_cosine_at_least_0.7": {
+            "maximum": 0.9333333333333333,
+            "median": 0.8916666666666666,
+            "minimum": 0.7833333333333333,
+            "n_splits": 12,
+            "p05": 0.7833333333333333,
+            "p95": 0.9333333333333333,
+            "positive_split_count": 12,
+            "q25": 0.85,
+            "q75": 0.9041666666666667
+          },
+          "cone_soft_coverage_cosine_at_least_0.9": {
+            "maximum": 0.6166666666666667,
+            "median": 0.5083333333333333,
+            "minimum": 0.4166666666666667,
+            "n_splits": 12,
+            "p05": 0.42583333333333334,
+            "p95": 0.6075,
+            "positive_split_count": 12,
+            "q25": 0.45833333333333337,
+            "q75": 0.5708333333333333
+          },
+          "cone_strict_inside_fraction": {
+            "maximum": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "n_splits": 12,
+            "p05": 0.0,
+            "p95": 0.0,
+            "positive_split_count": 0,
+            "q25": 0.0,
+            "q75": 0.0
+          },
+          "signed_span_mean_cosine": {
+            "maximum": 0.9112034700638626,
+            "median": 0.892975491158894,
+            "minimum": 0.8703095390910938,
+            "n_splits": 12,
+            "p05": 0.8765972402196642,
+            "p95": 0.9098293605270427,
+            "positive_split_count": 12,
+            "q25": 0.8864821701482113,
+            "q75": 0.8953689423052384
+          },
+          "signed_span_minus_cone_mean_cosine": {
+            "maximum": 0.06362363630773415,
+            "median": 0.03335713677813579,
+            "minimum": 0.0218018623310825,
+            "n_splits": 12,
+            "p05": 0.02322889988802194,
+            "p95": 0.0634133913919212,
+            "positive_split_count": 12,
+            "q25": 0.02644763646763204,
+            "q75": 0.047281484034818494
+          }
+        },
+        "protocol": {
+          "acquisition_recomputed": false,
+          "canonical_representative_selection": {
+            "canonical_genes": 105,
+            "genes_with_both_cassette_positions": 47,
+            "opposite_position_fallbacks": 1,
+            "representative_rule": "choose measured GENE+ctrl; use ctrl+GENE only when GENE+ctrl is absent; choice is frozen before row-role assignment and does not use outcomes"
+          },
+          "canonical_single_genes": 105,
+          "catalog_double_effect_rows": 60,
+          "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+          "catalog_role": "fixed across every library-partition seed",
+          "catalog_seed": 20260719,
+          "eligible_double_effect_rows": 131,
+          "feature_count": 400,
+          "feature_selection_rows": "current 40-gene measured-representative library only",
+          "library_canonical_genes": 40,
+          "purpose": "algorithmic current-library partition sensitivity against one fixed measured double catalog; not biological sampling uncertainty",
+          "rng": "numpy.default_rng(seed)",
+          "seeds": [
+            3,
+            5,
+            11,
+            17,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53
+          ],
+          "soft_cosine_thresholds": [
+            0.3,
+            0.5,
+            0.7,
+            0.9
+          ]
+        },
+        "splits": [
+          {
+            "best_single_mean_cosine": 0.7196152036966333,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5207784196139695,
+            "cone_mean_cosine": 0.8181180866534877,
+            "cone_minus_best_single_mean_cosine": 0.09850288295685439,
+            "cone_minus_common_response_mean_cosine": 0.2973396670395182,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9,
+              "cosine_at_least_0.7": 0.7833333333333333,
+              "cosine_at_least_0.9": 0.43333333333333335
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "9fad50c87fef201b1ee52fc9f6cc86a33fda1d677e1840ff1c2b3d60a0922ae0",
+            "library_canonical_labels_sha256": "46f5ab84e8425503daf0db503f56192b43ed9f519e4a85bbd657ed126762e600",
+            "library_representative_source_row_index_sha256": "bb34e7a321380064ec2d75f76b0e8d06b1da99bba26cacbbe7eca6aeb3825fc2",
+            "seed": 3,
+            "signed_span_mean_cosine": 0.8817417229612219,
+            "signed_span_minus_cone_mean_cosine": 0.06362363630773415,
+            "unused_representative_source_row_index_sha256": "5d12fbea2819e4540639eea7b466ff15dc47329ca02d5fe26c45187c1f0287f4"
+          },
+          {
+            "best_single_mean_cosine": 0.7687335936657804,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5274126957036995,
+            "cone_mean_cosine": 0.8728557977698946,
+            "cone_minus_best_single_mean_cosine": 0.10412220410411421,
+            "cone_minus_common_response_mean_cosine": 0.3454431020661951,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 1.0,
+              "cosine_at_least_0.7": 0.9166666666666666,
+              "cosine_at_least_0.9": 0.5666666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "70fa84f98397ef5aad3d3b76bb7db519dc8499505252cb8c2bd74a05ebf612dd",
+            "library_canonical_labels_sha256": "13c33b3333d63b72dab4e1561d3e046e67ed7bd98f11bbe0e8e852822f499fa6",
+            "library_representative_source_row_index_sha256": "4c16a4a61a1046cdef6351b6d8e0bd464b6c885c9a41b532ab03c92ec1db4dc7",
+            "seed": 5,
+            "signed_span_mean_cosine": 0.8946576601009771,
+            "signed_span_minus_cone_mean_cosine": 0.0218018623310825,
+            "unused_representative_source_row_index_sha256": "f08dce6311e4b2f44a191c0fd0faa466e529263ef56cdfb59f63ccc5dc8d67ba"
+          },
+          {
+            "best_single_mean_cosine": 0.7388799867762061,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5240392100928586,
+            "cone_mean_cosine": 0.8450864322219298,
+            "cone_minus_best_single_mean_cosine": 0.10620644544572366,
+            "cone_minus_common_response_mean_cosine": 0.3210472221290712,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9166666666666666,
+              "cosine_at_least_0.7": 0.8666666666666667,
+              "cosine_at_least_0.9": 0.5166666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "47141af4c886a234272087eca551c6e0608726eb37682a4dfa1898114e7c7d00",
+            "library_canonical_labels_sha256": "6143d223ee966e9511e990f4fb3493c9458e7850a235908bb70825ca162651e7",
+            "library_representative_source_row_index_sha256": "2aa442c2c4ec95386192765b00f16ac124a28df5f4a0218e3a7a8d1ed173a1c7",
+            "seed": 11,
+            "signed_span_mean_cosine": 0.8904030583043382,
+            "signed_span_minus_cone_mean_cosine": 0.045316626082408384,
+            "unused_representative_source_row_index_sha256": "bad3587d02c2d8bd563926fb4a91ad2c4cb5fbebf34478b7b93c9786241b5707"
+          },
+          {
+            "best_single_mean_cosine": 0.7550818793566129,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5293020384562088,
+            "cone_mean_cosine": 0.8688461536533514,
+            "cone_minus_best_single_mean_cosine": 0.11376427429673852,
+            "cone_minus_common_response_mean_cosine": 0.33954411519714256,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 1.0,
+              "cosine_at_least_0.7": 0.8833333333333333,
+              "cosine_at_least_0.9": 0.6166666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "fdd1cbcfcf770fc0858b6d9f139049a7040b7bab4539f57d599610e8004799b9",
+            "library_canonical_labels_sha256": "74c9b473268615e115176c8a2df44bf23b7d80b5ab8c57c26c79e72754ce4cfe",
+            "library_representative_source_row_index_sha256": "777f81642f7f6dff5382c488c275c3c3cdb16585741101a9914f06406afe4970",
+            "seed": 17,
+            "signed_span_mean_cosine": 0.8932426297243238,
+            "signed_span_minus_cone_mean_cosine": 0.024396476070972395,
+            "unused_representative_source_row_index_sha256": "cf9c09c64f3e0b1661450e69c30880feaa3b98ae9b7d3260ffe3af3ba62121f1"
+          },
+          {
+            "best_single_mean_cosine": 0.7382063246694865,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5260957163972214,
+            "cone_mean_cosine": 0.8442830988200688,
+            "cone_minus_best_single_mean_cosine": 0.10607677415058225,
+            "cone_minus_common_response_mean_cosine": 0.3181873824228474,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9833333333333333,
+              "cosine_at_least_0.7": 0.85,
+              "cosine_at_least_0.9": 0.43333333333333335
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "c8dc26e2154430a05767cd8e7d82b287be2eccba04c2081542eec1af42398741",
+            "library_canonical_labels_sha256": "999fb14556c3f61e3ccb557aac5f125bb6e9e3341929cc6216e41f6b9623aa74",
+            "library_representative_source_row_index_sha256": "a0cf006ba735a5fc8af688b4d22e939b6b2e6dca75c56de1ee46e38aa0dded56",
+            "seed": 23,
+            "signed_span_mean_cosine": 0.8819834466229088,
+            "signed_span_minus_cone_mean_cosine": 0.03770034780284004,
+            "unused_representative_source_row_index_sha256": "cb5bc0476b6d12bd655c528a1035ecb6351ffadca0e7254c7e62e3a6b247a379"
+          },
+          {
+            "best_single_mean_cosine": 0.754357427661567,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5124324875755732,
+            "cone_mean_cosine": 0.8395322947014153,
+            "cone_minus_best_single_mean_cosine": 0.08517486703984833,
+            "cone_minus_common_response_mean_cosine": 0.3270998071258421,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.95,
+              "cosine_at_least_0.7": 0.85,
+              "cosine_at_least_0.9": 0.4666666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "d1ecbc171de2258e85e958b775f3771c5715f13791baebf27bbbd4851b91845b",
+            "library_canonical_labels_sha256": "b1e809bc0afdd0dda9ed97a29862449a561252eb5bd7101517ec7b6233ee6d33",
+            "library_representative_source_row_index_sha256": "72b386092b34c0fb64c4fe7f3ea223f17faaafa8b11d9e726ba7ec7488ec2849",
+            "seed": 29,
+            "signed_span_mean_cosine": 0.8927083525934641,
+            "signed_span_minus_cone_mean_cosine": 0.05317605789204882,
+            "unused_representative_source_row_index_sha256": "e64438dc07d3a4b08b354b87f4a7d3d8a63b08d30d4acf8914809c29e45f7096"
+          },
+          {
+            "best_single_mean_cosine": 0.7062150212148981,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5168879809700958,
+            "cone_mean_cosine": 0.8070681662666559,
+            "cone_minus_best_single_mean_cosine": 0.1008531450517578,
+            "cone_minus_common_response_mean_cosine": 0.2901801852965601,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9166666666666666,
+              "cosine_at_least_0.7": 0.7833333333333333,
+              "cosine_at_least_0.9": 0.4166666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "9b73276b83606c046158f3e1ddfea1328dacd92355957102d44266c91250e477",
+            "library_canonical_labels_sha256": "089108452d3f8d360815914b38157fdbed258170b9d9feb9b3a2807922a70f79",
+            "library_representative_source_row_index_sha256": "db86350a8a916edba1fab75d26549eca9ca7893f2e76c868b1635ab3af207513",
+            "seed": 31,
+            "signed_span_mean_cosine": 0.8703095390910938,
+            "signed_span_minus_cone_mean_cosine": 0.06324137282443787,
+            "unused_representative_source_row_index_sha256": "cafeaab0de5054f27671b71c46ddb6d0eddb5a8523f5ae54519694f4844e1c2a"
+          },
+          {
+            "best_single_mean_cosine": 0.7533879880215719,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5260828188271855,
+            "cone_mean_cosine": 0.8661222386428474,
+            "cone_minus_best_single_mean_cosine": 0.11273425062127551,
+            "cone_minus_common_response_mean_cosine": 0.3400394198156619,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9833333333333333,
+              "cosine_at_least_0.7": 0.9333333333333333,
+              "cosine_at_least_0.9": 0.5333333333333333
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "5f6ad3480937fa9e020bc566a6c62ab52fde0ec4b3ee6a11f7a92a20d3145263",
+            "library_canonical_labels_sha256": "ae79efe6f24ae4171ab15beedb738bf7b2f94a6a3ca29ab7a1c1d34815e5fa6a",
+            "library_representative_source_row_index_sha256": "a73c7b80271927cbca3c9403b054761df9eaa383c962c7a13a1975e8dbc82dd4",
+            "seed": 37,
+            "signed_span_mean_cosine": 0.8954854838385484,
+            "signed_span_minus_cone_mean_cosine": 0.029363245195700993,
+            "unused_representative_source_row_index_sha256": "1eb016910e75cf740cff2c18b13e4f0f17b9373949a75c565e95243ab58f890c"
+          },
+          {
+            "best_single_mean_cosine": 0.756791433776355,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5256294044223436,
+            "cone_mean_cosine": 0.8683062989283247,
+            "cone_minus_best_single_mean_cosine": 0.11151486515196962,
+            "cone_minus_common_response_mean_cosine": 0.34267689450598104,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 1.0,
+              "cosine_at_least_0.7": 0.9333333333333333,
+              "cosine_at_least_0.9": 0.48333333333333334
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "d6b4e280091728e095ae6d40b3610695142305758eafff868662544d032b8fe5",
+            "library_canonical_labels_sha256": "ee397ed9f52b1377d85aced70b90760a58a77e36b29fdfaec88209e315702b3d",
+            "library_representative_source_row_index_sha256": "58c411e4278c43b7acdb97cecdad6779acbc33a0b580babc49b0a58355d684bb",
+            "seed": 41,
+            "signed_span_mean_cosine": 0.8953300951274685,
+            "signed_span_minus_cone_mean_cosine": 0.027023796199143857,
+            "unused_representative_source_row_index_sha256": "e112eb5f2cad88145956d4a93c6bdfaeef1c4a42ee0e0443e53e7ccfb3a64b31"
+          },
+          {
+            "best_single_mean_cosine": 0.7438911475085441,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.521908901612088,
+            "cone_mean_cosine": 0.8632625873835489,
+            "cone_minus_best_single_mean_cosine": 0.11937143987500476,
+            "cone_minus_common_response_mean_cosine": 0.34135368577146086,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 1.0,
+              "cosine_at_least_0.7": 0.9,
+              "cosine_at_least_0.9": 0.5
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "1bc3b97536ca3b16edc540d2241e32b9107294b414a9980f83840586e919a628",
+            "library_canonical_labels_sha256": "df8056559e7e6c4ac448fb9d0f18a9d36d540d78f468c8ab08091bde9d422264",
+            "library_representative_source_row_index_sha256": "9d6847e0766c86fd7d778824362220e5bc0ce6f4b3e23b075d589bc6ba6b9b3c",
+            "seed": 43,
+            "signed_span_mean_cosine": 0.8879817446566455,
+            "signed_span_minus_cone_mean_cosine": 0.024719157273096592,
+            "unused_representative_source_row_index_sha256": "4cc8607d76577f3f48ec8ebdd480db041ba056f6904cb7a42a70db988ae04bb2"
+          },
+          {
+            "best_single_mean_cosine": 0.7817708579803944,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5297136707333181,
+            "cone_mean_cosine": 0.8775472661201487,
+            "cone_minus_best_single_mean_cosine": 0.0957764081397543,
+            "cone_minus_common_response_mean_cosine": 0.34783359538683056,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 1.0,
+              "cosine_at_least_0.7": 0.9,
+              "cosine_at_least_0.9": 0.5833333333333334
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "f9efa98ad5606f9ca3ee633d01bff960b28208e2d1c43d991c128cd4fd86a0f4",
+            "library_canonical_labels_sha256": "aec1f5e6f857a941864d2da45e4968dcb9b87302e2d4c4dfef37f3619d14292d",
+            "library_representative_source_row_index_sha256": "9a8a23c33509f817b3db84e128e242d4fa222893fb5fb84f84a375697db56d33",
+            "seed": 47,
+            "signed_span_mean_cosine": 0.9112034700638626,
+            "signed_span_minus_cone_mean_cosine": 0.033656203943713936,
+            "unused_representative_source_row_index_sha256": "ca0fab134c7645eaa8757b2db11adb929011ad6e517c6cda17e2020b945b648d"
+          },
+          {
+            "best_single_mean_cosine": 0.7704351948980818,
+            "catalog_double_source_row_index_sha256": "ad47a2191cfccad62d054cb04804a14ef9bd6c1a9a203b797cf52effa0cda8a4",
+            "common_response_mean_cosine": 0.5340311317609292,
+            "cone_mean_cosine": 0.8756470194752687,
+            "cone_minus_best_single_mean_cosine": 0.10521182457718692,
+            "cone_minus_common_response_mean_cosine": 0.3416158877143395,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9833333333333333,
+              "cosine_at_least_0.7": 0.9,
+              "cosine_at_least_0.9": 0.6
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "9b154d54c901c10712ef4ee677cf3adc1542297cd49a59192245803f2d90b251",
+            "library_canonical_labels_sha256": "9f625fe242ae0d2e4ca1079f84d28e2bbe85c77c457eff00c1c56d2ee9fd6b3a",
+            "library_representative_source_row_index_sha256": "6edeff3d614fd9e1eab1843d258de774335773b2bd5cf1d36a1c071395a095bc",
+            "seed": 53,
+            "signed_span_mean_cosine": 0.9087050890878263,
+            "signed_span_minus_cone_mean_cosine": 0.03305806961255764,
+            "unused_representative_source_row_index_sha256": "2ddabf3d241028c3b9c9a413b44835f9abefa6a4d4c14aa38366c19af9283c6d"
+          }
+        ]
+      },
+      "unique_single_genes": 105
+    },
+    "replogle_k562_essential_crispri": {
+      "acquisition": {
+        "candidate_pool_canonical_labels_unique": true,
+        "candidate_pool_effect_atom_labels_unique": true,
+        "candidate_status": "supplied_already_measured_effect_atoms",
+        "certificate_definition": "positive alignment with strict outside-cone dual separators, weighted by residual fraction",
+        "certificate_matches_realized_mean_cosine_top1": false,
+        "certificate_top1": {
+          "candidate_pool_position_zero_based": 26,
+          "canonical_perturbation_label": "ILF2",
+          "certificate_score": 5.332179257969926,
+          "effect_atom_label": "ILF2+ctrl",
+          "realized_mean_cosine_gain": 0.0038084905277756542,
+          "realized_soft_coverage_fraction_gain": 0.006666666666666599,
+          "realized_strict_inside_cone_fraction_gain": 0.0,
+          "source_effect_row_index_zero_based": 340
+        },
+        "certificate_top1_tie_count": 1,
+        "certificate_vs_realized_mean_cosine_gain_spearman": 0.8731707317073172,
+        "primary_realized_objective": "mean_catalog_cosine_gain",
+        "realized_mean_cosine_top1": {
+          "candidate_pool_position_zero_based": 39,
+          "canonical_perturbation_label": "NLE1",
+          "certificate_score": 3.3902454072290675,
+          "effect_atom_label": "NLE1+ctrl",
+          "realized_mean_cosine_gain": 0.008479016053182131,
+          "realized_soft_coverage_fraction_gain": 0.0,
+          "realized_strict_inside_cone_fraction_gain": 0.0,
+          "source_effect_row_index_zero_based": 525
+        },
+        "realized_mean_cosine_top1_tie_count": 1,
+        "realized_soft_coverage_top1": {
+          "candidate_pool_position_zero_based": 8,
+          "canonical_perturbation_label": "INTS7",
+          "effect_atom_label": "INTS7+ctrl",
+          "realized_mean_cosine_gain": 0.003411069863764604,
+          "realized_soft_coverage_fraction_gain": 0.006666666666666599,
+          "source_effect_row_index_zero_based": 352
+        },
+        "realized_soft_coverage_top1_tie_count": 2,
+        "secondary_realized_objective": "soft_cosine_threshold_coverage_fraction_gain",
+        "top1_agreement_unit": "unique supplied effect atom; exactly one candidate exists per canonical label"
+      },
+      "comparators": {
+        "best_single_library_atom_nonnegative_ray": {
+          "mean_cosine": 0.6742593559729345,
+          "n_targets": 150,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 116,
+          "soft_coverage_fraction": 0.7733333333333333
+        },
+        "common_library_response_nonnegative_ray": {
+          "mean_cosine": 0.41671063089489424,
+          "n_targets": 150,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 48,
+          "soft_coverage_fraction": 0.32
+        }
+      },
+      "coverage": {
+        "mean_cosine": 0.7760393134674174,
+        "mean_residual_fraction": 0.5886391820065724,
+        "n_targets": 150,
+        "soft_cosine_threshold": 0.5,
+        "soft_coverage_count": 143,
+        "soft_coverage_fraction": 0.9533333333333334,
+        "strict_inside_cone_count": 0,
+        "strict_inside_cone_fraction": 0.0
+      },
+      "design": {
+        "candidate_source_row_index_sha256": "7bcc7a214cb9e59a4b37554913578d4fdcd801c7af2c6a2eaaf9029bb7cf5707",
+        "catalog_effect_rows": 150,
+        "catalog_source_row_index_sha256": "48f8e1e0349b573a6dc07b9dddad940dd53e71ab09ca935dae4bdf91400cdf22",
+        "feature_count": 400,
+        "feature_index_sha256": "0e9541ec4fa6bfa92f3c8564a30386593e4d56d16ef602ea9649fa96ff27073e",
+        "feature_selection": "stable top-400 variance coordinates from the 50 current-library rows after the retrospective row split; catalog and candidate rows do not participate",
+        "feature_selection_rows": "current_library_only",
+        "library_atoms": 50,
+        "library_source_row_index_sha256": "25f24e5487f442a87322eb086d0138a927bbd4674ad762313bbe76dd328e46af",
+        "rng": "numpy.default_rng(seed)",
+        "seed": 5,
+        "supplied_candidate_effect_atoms": 40,
+        "unused_measured_effect_rows": 847
+      },
+      "effect_pool_rows": 1087,
+      "preprocessing": {
+        "effect_definition": "per-condition mean processed expression minus control mean in the VCP K562 essential-gene cache"
+      },
+      "source_effect_rows": 1087,
+      "split_sensitivity": {
+        "aggregate": {
+          "best_single_mean_cosine": {
+            "maximum": 0.7252203260527584,
+            "median": 0.6783861289248116,
+            "minimum": 0.6542314669609125,
+            "n_splits": 12,
+            "p05": 0.6552722138359337,
+            "p95": 0.7135633586309819,
+            "positive_split_count": 12,
+            "q25": 0.6660660895402536,
+            "q75": 0.6941577480909398
+          },
+          "common_response_mean_cosine": {
+            "maximum": 0.4743542505733164,
+            "median": 0.40760383473548384,
+            "minimum": 0.36696746133023556,
+            "n_splits": 12,
+            "p05": 0.384644717841544,
+            "p95": 0.4701823865394122,
+            "positive_split_count": 12,
+            "q25": 0.4010163181870841,
+            "q75": 0.4137420150333737
+          },
+          "cone_mean_cosine": {
+            "maximum": 0.8067745196678348,
+            "median": 0.7744959915457892,
+            "minimum": 0.7445850012879294,
+            "n_splits": 12,
+            "p05": 0.7489068835363417,
+            "p95": 0.8044062993835903,
+            "positive_split_count": 12,
+            "q25": 0.7603639439421385,
+            "q75": 0.7802453995828543
+          },
+          "cone_minus_best_single_mean_cosine": {
+            "maximum": 0.10642074355689468,
+            "median": 0.09505643733851654,
+            "minimum": 0.08109738674950928,
+            "n_splits": 12,
+            "p05": 0.08134863052557115,
+            "p95": 0.10482743157171161,
+            "positive_split_count": 12,
+            "q25": 0.08822035830457103,
+            "q75": 0.0990270976723415
+          },
+          "cone_minus_common_response_mean_cosine": {
+            "maximum": 0.3953446795515176,
+            "median": 0.3624323953007439,
+            "minimum": 0.30328461094903564,
+            "n_splits": 12,
+            "p05": 0.32348108696295536,
+            "p95": 0.3856821869955898,
+            "positive_split_count": 12,
+            "q25": 0.3531014505207499,
+            "q75": 0.37460992313171254
+          },
+          "cone_soft_coverage_cosine_at_least_0.3": {
+            "maximum": 1.0,
+            "median": 1.0,
+            "minimum": 0.9833333333333333,
+            "n_splits": 12,
+            "p05": 0.9833333333333333,
+            "p95": 1.0,
+            "positive_split_count": 12,
+            "q25": 0.9833333333333333,
+            "q75": 1.0
+          },
+          "cone_soft_coverage_cosine_at_least_0.5": {
+            "maximum": 0.9666666666666667,
+            "median": 0.95,
+            "minimum": 0.9,
+            "n_splits": 12,
+            "p05": 0.9091666666666667,
+            "p95": 0.9666666666666667,
+            "positive_split_count": 12,
+            "q25": 0.9333333333333333,
+            "q75": 0.95
+          },
+          "cone_soft_coverage_cosine_at_least_0.7": {
+            "maximum": 0.7833333333333333,
+            "median": 0.7083333333333333,
+            "minimum": 0.6333333333333333,
+            "n_splits": 12,
+            "p05": 0.6425,
+            "p95": 0.7741666666666667,
+            "positive_split_count": 12,
+            "q25": 0.6791666666666667,
+            "q75": 0.725
+          },
+          "cone_soft_coverage_cosine_at_least_0.9": {
+            "maximum": 0.35,
+            "median": 0.225,
+            "minimum": 0.15,
+            "n_splits": 12,
+            "p05": 0.15916666666666665,
+            "p95": 0.3408333333333333,
+            "positive_split_count": 12,
+            "q25": 0.18333333333333332,
+            "q75": 0.275
+          },
+          "cone_strict_inside_fraction": {
+            "maximum": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "n_splits": 12,
+            "p05": 0.0,
+            "p95": 0.0,
+            "positive_split_count": 0,
+            "q25": 0.0,
+            "q75": 0.0
+          },
+          "signed_span_mean_cosine": {
+            "maximum": 0.8590623472713876,
+            "median": 0.8386165025012505,
+            "minimum": 0.8222359983727412,
+            "n_splits": 12,
+            "p05": 0.82224004065701,
+            "p95": 0.8590152581564957,
+            "positive_split_count": 12,
+            "q25": 0.824278203956512,
+            "q75": 0.8418435741864609
+          },
+          "signed_span_minus_cone_mean_cosine": {
+            "maximum": 0.07792583860263746,
+            "median": 0.063442036093256,
+            "minimum": 0.05228782760355288,
+            "n_splits": 12,
+            "p05": 0.05437750201130993,
+            "p95": 0.07345683580368978,
+            "positive_split_count": 12,
+            "q25": 0.05927308530717068,
+            "q75": 0.06509142946767563
+          }
+        },
+        "protocol": {
+          "acquisition_recomputed": false,
+          "catalog_effect_rows": 60,
+          "feature_count": 400,
+          "feature_selection_rows": "current_library_only",
+          "library_atoms": 50,
+          "purpose": "algorithmic row-split sensitivity; not biological sampling uncertainty",
+          "reserved_candidate_effect_atoms": 24,
+          "rng": "numpy.default_rng(seed)",
+          "seeds": [
+            3,
+            5,
+            11,
+            17,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53
+          ],
+          "soft_cosine_thresholds": [
+            0.3,
+            0.5,
+            0.7,
+            0.9
+          ]
+        },
+        "splits": [
+          {
+            "best_single_mean_cosine": 0.6692099229350327,
+            "candidate_source_row_index_sha256": "7cf0b7c7626e5d102f8dee17ab3275742c4ee04207229af69b7dff62c2097440",
+            "catalog_source_row_index_sha256": "cff2a0640a864ef1e8ea2e3ea6c62364b21fb7ecd0dbc9c8472bee3031c4e9fa",
+            "common_response_mean_cosine": 0.4080836844169132,
+            "cone_mean_cosine": 0.7727337356097763,
+            "cone_minus_best_single_mean_cosine": 0.10352381267474364,
+            "cone_minus_common_response_mean_cosine": 0.36465005119286314,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9333333333333333,
+              "cosine_at_least_0.7": 0.7,
+              "cosine_at_least_0.9": 0.26666666666666666
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "7af9c60e2fd7765362d0b1017f48258c91a4ed7e62ae8a54d3fc57f5a501ba02",
+            "library_source_row_index_sha256": "b8ebc6de9cdf04664b4860f0ffcd01819a2db84733a0550b967c7b333c8ed41c",
+            "seed": 3,
+            "signed_span_mean_cosine": 0.8368809536386793,
+            "signed_span_minus_cone_mean_cosine": 0.064147218028903,
+            "unused_source_row_index_sha256": "f79c71f440dd03f573c95a7a80ab603031eb51a3d87bff0d5869811400275f8d"
+          },
+          {
+            "best_single_mean_cosine": 0.6813709688617383,
+            "candidate_source_row_index_sha256": "192db35ea0e600a4ca40d77f9c9ce1ea515d5c8df52068d1d4cc08b4151209ad",
+            "catalog_source_row_index_sha256": "7baf59f858e6ac35fa749d5bb6b178926fc89eac5365ad841205e9062e3601bb",
+            "common_response_mean_cosine": 0.4006419523354445,
+            "cone_mean_cosine": 0.778418463603457,
+            "cone_minus_best_single_mean_cosine": 0.0970474947417187,
+            "cone_minus_common_response_mean_cosine": 0.37777651126801254,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.95,
+              "cosine_at_least_0.7": 0.75,
+              "cosine_at_least_0.9": 0.21666666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "0e9541ec4fa6bfa92f3c8564a30386593e4d56d16ef602ea9649fa96ff27073e",
+            "library_source_row_index_sha256": "25f24e5487f442a87322eb086d0138a927bbd4674ad762313bbe76dd328e46af",
+            "seed": 5,
+            "signed_span_mean_cosine": 0.838613221981923,
+            "signed_span_minus_cone_mean_cosine": 0.060194758378465996,
+            "unused_source_row_index_sha256": "30f82434a74917097dd8e7f464e96d3edc052f4b386e9a917f455d5b42186476"
+          },
+          {
+            "best_single_mean_cosine": 0.6936767886274745,
+            "candidate_source_row_index_sha256": "6f6655a8d26dea9f07bd46038fb6e174b110e4101e0f1a0b4a5ce69884a661ea",
+            "catalog_source_row_index_sha256": "b216b9d6d8789d8e14ef4a169e3b2e3d2f6a93e7394c9c3e9f7af48889e7e3a5",
+            "common_response_mean_cosine": 0.4186115901395127,
+            "cone_mean_cosine": 0.7747741753769838,
+            "cone_minus_best_single_mean_cosine": 0.08109738674950928,
+            "cone_minus_common_response_mean_cosine": 0.3561625852374711,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9833333333333333,
+              "cosine_at_least_0.5": 0.9333333333333333,
+              "cosine_at_least_0.7": 0.7166666666666667,
+              "cosine_at_least_0.9": 0.21666666666666667
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "183318d531c968c3a90346813ce5c5ae4de79f75eba338480da8e610a12246ad",
+            "library_source_row_index_sha256": "ae64ce60e40dd947733a8e4392c29544724fceb3df855fd47ee3b5ac050ee521",
+            "seed": 11,
+            "signed_span_mean_cosine": 0.8419339673297356,
+            "signed_span_minus_cone_mean_cosine": 0.06715979195275179,
+            "unused_source_row_index_sha256": "1d483c1eb76a84821932d7518f288b655fa7d6f277c240266cd876a631794e3d"
+          },
+          {
+            "best_single_mean_cosine": 0.6768589451556626,
+            "candidate_source_row_index_sha256": "c4ef8b5f88e8807e35021385015d4eebcddf1e26c5fae9a049d0900340e226d5",
+            "catalog_source_row_index_sha256": "a0f7da6805e4ca4928456f67a7a3dacde416fababb6d8976028565d0cfb72e42",
+            "common_response_mean_cosine": 0.4743542505733164,
+            "cone_mean_cosine": 0.7776388615223521,
+            "cone_minus_best_single_mean_cosine": 0.10077991636668948,
+            "cone_minus_common_response_mean_cosine": 0.30328461094903564,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.95,
+              "cosine_at_least_0.7": 0.65,
+              "cosine_at_least_0.9": 0.3333333333333333
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "bcac2b31393bac9a9a39d0d68d019b4270587c11cd36756dcc669ae8c90b8313",
+            "library_source_row_index_sha256": "ea91c278e6df96eb9744b91398f635d06bf52c65a80b071785a5655fe48a80a1",
+            "seed": 17,
+            "signed_span_mean_cosine": 0.8395699458321453,
+            "signed_span_minus_cone_mean_cosine": 0.061931084309793216,
+            "unused_source_row_index_sha256": "888d6a0c1b3fd7b6354fa6c0b5eb015ffecd5107217c889e8260aa7138255ae6"
+          },
+          {
+            "best_single_mean_cosine": 0.6720015128414195,
+            "candidate_source_row_index_sha256": "557fcf45b310756f68e6b8bd04e2cf79d9a55f8ccc2713b978e6e30042835741",
+            "catalog_source_row_index_sha256": "25bfc9774362d80fff5425cae38cdd8d5d3de31e3458c7ae818804c53259a0b5",
+            "common_response_mean_cosine": 0.4057978309234717,
+            "cone_mean_cosine": 0.7594991442151322,
+            "cone_minus_best_single_mean_cosine": 0.08749763137371269,
+            "cone_minus_common_response_mean_cosine": 0.3537013132916605,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.95,
+              "cosine_at_least_0.7": 0.7166666666666667,
+              "cosine_at_least_0.9": 0.16666666666666666
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "d72542468a8e7533aef9ed285900a9e9a0df487bf277efd4479cd9032f48fd9a",
+            "library_source_row_index_sha256": "38c7ae51c3c78c000d8472666c1ca2fdf9ef92f31099f0e0bb87f0dc883b878e",
+            "seed": 23,
+            "signed_span_mean_cosine": 0.8222359983727412,
+            "signed_span_minus_cone_mean_cosine": 0.06273685415760899,
+            "unused_source_row_index_sha256": "85dbc7da7a0ed7d3031cf4ff1b3f539b97197efd8dd83b8623fc730b265b6581"
+          },
+          {
+            "best_single_mean_cosine": 0.6542314669609125,
+            "candidate_source_row_index_sha256": "34a19f4a4dad9b838145c21e7e735c08fe16d041336cd2de0125aa008ace5ef0",
+            "catalog_source_row_index_sha256": "bf326fc615e00f28999f3fed873c47e5917f91e7e101897c87e770b8970e7119",
+            "common_response_mean_cosine": 0.3991079277144328,
+            "cone_mean_cosine": 0.7606522105178072,
+            "cone_minus_best_single_mean_cosine": 0.10642074355689468,
+            "cone_minus_common_response_mean_cosine": 0.36154428280337436,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9833333333333333,
+              "cosine_at_least_0.5": 0.9333333333333333,
+              "cosine_at_least_0.7": 0.7,
+              "cosine_at_least_0.9": 0.15
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "b95212ce916db9f0fd0b0100ca7721775edbfa10a72ac195019e12be2ca37f21",
+            "library_source_row_index_sha256": "8288982fb7cb261dd86e55c3ec3218d5efecb7f26c1d74d5a4d10a71f1b81627",
+            "seed": 29,
+            "signed_span_mean_cosine": 0.824867325311827,
+            "signed_span_minus_cone_mean_cosine": 0.06421511479401987,
+            "unused_source_row_index_sha256": "2bc8d546080ee336f488d5386e416f6107e790d368576a82c63e0149064504e2"
+          },
+          {
+            "best_single_mean_cosine": 0.6566345893559162,
+            "candidate_source_row_index_sha256": "852b559f856853dd520a159e68b26a1db06e97893c7a6556bae8ab190e5ef137",
+            "catalog_source_row_index_sha256": "4a516e12ac9725a3c4f57fcc369ef5a3062be8aec07a8f18e0a0b86c868224b6",
+            "common_response_mean_cosine": 0.4011411068042973,
+            "cone_mean_cosine": 0.7524429690123154,
+            "cone_minus_best_single_mean_cosine": 0.09580837965639921,
+            "cone_minus_common_response_mean_cosine": 0.3513018622080181,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9833333333333333,
+              "cosine_at_least_0.5": 0.9166666666666666,
+              "cosine_at_least_0.7": 0.6666666666666666,
+              "cosine_at_least_0.9": 0.18333333333333332
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "dc57f4ff15806abf8cfbaaf437526c9637748c7c4d0bbaa988643263575ea655",
+            "library_source_row_index_sha256": "beab8abe51b0788a14f0eb7ce48d92663802dc50fc37596f4967df3ac6fae927",
+            "seed": 31,
+            "signed_span_mean_cosine": 0.8222433479805026,
+            "signed_span_minus_cone_mean_cosine": 0.06980037896818714,
+            "unused_source_row_index_sha256": "1bb4d729670a6edde08eeddf1b63025fc169c482ecd459d271d29a00e5b4e404"
+          },
+          {
+            "best_single_mean_cosine": 0.6956006264813356,
+            "candidate_source_row_index_sha256": "78e6797a3aee79a5751b7ac7ce8a5ad4960777ebebb3c72a498e61b8aab96c82",
+            "catalog_source_row_index_sha256": "0ef38bcaeaadff4cdb069397203ee2754377c9e045ac2769b58ff0947e439e1a",
+            "common_response_mean_cosine": 0.4121188233313274,
+            "cone_mean_cosine": 0.7857262075210462,
+            "cone_minus_best_single_mean_cosine": 0.09012558103971058,
+            "cone_minus_common_response_mean_cosine": 0.3736073841897188,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9833333333333333,
+              "cosine_at_least_0.5": 0.95,
+              "cosine_at_least_0.7": 0.7166666666666667,
+              "cosine_at_least_0.9": 0.35
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "b8ba151977defd00d0b87dd562a447d000627466f86c5262df96d58143c89ddd",
+            "library_source_row_index_sha256": "f27c7d1e76c2e2f1bd5d20a2fb8bb55e09f07ce8f67390d604b6bb6a6747f3aa",
+            "seed": 37,
+            "signed_span_mean_cosine": 0.8418134431387028,
+            "signed_span_minus_cone_mean_cosine": 0.056087235617656606,
+            "unused_source_row_index_sha256": "5eaf62f620f1e17049a45be035d8440b91a12c6318bd4b4ae17972be67080a30"
+          },
+          {
+            "best_single_mean_cosine": 0.7252203260527584,
+            "candidate_source_row_index_sha256": "5b3ae9ed9a2ea145908f519f06b4950b160ac3404424f8b986bac676028184b3",
+            "catalog_source_row_index_sha256": "6be3a1be25ae73e286ce10a6c4eb9fc349b0cf6da1564c1760e66fc296c81d76",
+            "common_response_mean_cosine": 0.4667690432389451,
+            "cone_mean_cosine": 0.8067745196678348,
+            "cone_minus_best_single_mean_cosine": 0.08155419361507632,
+            "cone_minus_common_response_mean_cosine": 0.3400054764288897,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.95,
+              "cosine_at_least_0.7": 0.7666666666666667,
+              "cosine_at_least_0.9": 0.26666666666666666
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "2a56f47c2e3f01d8e93c51bc7b34f9bb167eacea4fa79c07a4d868e4475d73ae",
+            "library_source_row_index_sha256": "d1260f5923cc19387dafc97bef00402e58dee0712f728b7082f8e740a22fdf53",
+            "seed": 41,
+            "signed_span_mean_cosine": 0.8590623472713876,
+            "signed_span_minus_cone_mean_cosine": 0.05228782760355288,
+            "unused_source_row_index_sha256": "df38227c952f876cf01195209d3aae5f06614eeaac6355ba3c741c59c2a4c41b"
+          },
+          {
+            "best_single_mean_cosine": 0.7040258398313466,
+            "candidate_source_row_index_sha256": "cb501d6dc46bb06444e5cd707f5e2c32d275419da74fe9a30a9b59dfd592376e",
+            "catalog_source_row_index_sha256": "9d0e977f8fdc01e2ec0d104b2c9fb1a7fc0e30010dfbc095447940ffdc1be3ee",
+            "common_response_mean_cosine": 0.4071239850540545,
+            "cone_mean_cosine": 0.8024686646055721,
+            "cone_minus_best_single_mean_cosine": 0.0984428247742255,
+            "cone_minus_common_response_mean_cosine": 0.3953446795515176,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9666666666666667,
+              "cosine_at_least_0.7": 0.7833333333333333,
+              "cosine_at_least_0.9": 0.3
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "b2dd8d38b2a851e2390fce6b790dfd6a24077de52a046b3be0f27569cd061838",
+            "library_source_row_index_sha256": "8871211e7e673b066c05652f1a1ac377b95b4274ebbb3ac9447dcf51a696295d",
+            "seed": 43,
+            "signed_span_mean_cosine": 0.8589767306988568,
+            "signed_span_minus_cone_mean_cosine": 0.05650806609328474,
+            "unused_source_row_index_sha256": "c90fad4f533abc375d3cc412df06298d3530eb706e09440a406c1b9624d72d59"
+          },
+          {
+            "best_single_mean_cosine": 0.6799133126939606,
+            "candidate_source_row_index_sha256": "a9090b54a72db8c05942e9468ee87190176c3f0841f69b629815f7e856da5f44",
+            "catalog_source_row_index_sha256": "95b163c4df95105b8adea61ee0c6d9ec16a55b705334344b45d9c03833123af9",
+            "common_response_mean_cosine": 0.4108972999164811,
+            "cone_mean_cosine": 0.7742178077145945,
+            "cone_minus_best_single_mean_cosine": 0.09430449502063387,
+            "cone_minus_common_response_mean_cosine": 0.36332050779811337,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.9666666666666667,
+              "cosine_at_least_0.7": 0.6833333333333333,
+              "cosine_at_least_0.9": 0.23333333333333334
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "6042524c0606fd046c7e97fa00feb02763e963f15f4197fe6bea22ac1c7639be",
+            "library_source_row_index_sha256": "405aa4582a0c76c59ccdcbf284f79a0460ac705f24920ee513609d1968d6c712",
+            "seed": 47,
+            "signed_span_mean_cosine": 0.838619783020578,
+            "signed_span_minus_cone_mean_cosine": 0.06440197530598357,
+            "unused_source_row_index_sha256": "063b30a87468004a630ce6eef059307f161efdcc8523e5bcfdcfbcae937c0487"
+          },
+          {
+            "best_single_mean_cosine": 0.6561237340064056,
+            "candidate_source_row_index_sha256": "205998c3fab166057c1d7393b483f614c6824d7198660d0a50046011fa6d91fa",
+            "catalog_source_row_index_sha256": "9c8085627b12d406bd95dbae66d030b69ad05879863ea45585fdd9149ee64f3c",
+            "common_response_mean_cosine": 0.36696746133023556,
+            "cone_mean_cosine": 0.7445850012879294,
+            "cone_minus_best_single_mean_cosine": 0.08846126728152381,
+            "cone_minus_common_response_mean_cosine": 0.3776175399576938,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9833333333333333,
+              "cosine_at_least_0.5": 0.9,
+              "cosine_at_least_0.7": 0.6333333333333333,
+              "cosine_at_least_0.9": 0.18333333333333332
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "8db9a6a59281180878f6117cb74b336101569831fc532d4015a2959624b9f351",
+            "library_source_row_index_sha256": "7c0a6583d7bc043a93d52b2b928e321e8d7aca0e658bc6e6e0b5cb6f56e15c24",
+            "seed": 53,
+            "signed_span_mean_cosine": 0.8225108398905668,
+            "signed_span_minus_cone_mean_cosine": 0.07792583860263746,
+            "unused_source_row_index_sha256": "f27d681061a6ac2cf45d54c6ce5f64513cf77ff942d8ec49ef3601faff81ba65"
+          }
+        ]
+      }
+    },
+    "zhu_crispri_tcell": {
+      "acquisition": {
+        "candidate_pool_canonical_labels_unique": true,
+        "candidate_pool_effect_atom_labels_unique": true,
+        "candidate_status": "supplied_already_measured_effect_atoms",
+        "certificate_definition": "positive alignment with strict outside-cone dual separators, weighted by residual fraction",
+        "certificate_matches_realized_mean_cosine_top1": false,
+        "certificate_top1": {
+          "candidate_pool_position_zero_based": 38,
+          "canonical_perturbation_label": "XPO4",
+          "certificate_score": 4.338248233230366,
+          "effect_atom_label": "XPO4",
+          "realized_mean_cosine_gain": 0.002826348587618488,
+          "realized_soft_coverage_fraction_gain": 0.006666666666666654,
+          "realized_strict_inside_cone_fraction_gain": 0.0,
+          "source_effect_row_index_zero_based": 6436
+        },
+        "certificate_top1_tie_count": 1,
+        "certificate_vs_realized_mean_cosine_gain_spearman": 0.8606003752345217,
+        "primary_realized_objective": "mean_catalog_cosine_gain",
+        "realized_mean_cosine_top1": {
+          "candidate_pool_position_zero_based": 11,
+          "canonical_perturbation_label": "CROT",
+          "certificate_score": 4.173267430705163,
+          "effect_atom_label": "CROT",
+          "realized_mean_cosine_gain": 0.00581636175660577,
+          "realized_soft_coverage_fraction_gain": 0.0,
+          "realized_strict_inside_cone_fraction_gain": 0.0,
+          "source_effect_row_index_zero_based": 1327
+        },
+        "realized_mean_cosine_top1_tie_count": 1,
+        "realized_soft_coverage_top1": {
+          "candidate_pool_position_zero_based": 1,
+          "canonical_perturbation_label": "MAIP1",
+          "effect_atom_label": "MAIP1",
+          "realized_mean_cosine_gain": 0.0017304946787534692,
+          "realized_soft_coverage_fraction_gain": 0.013333333333333308,
+          "source_effect_row_index_zero_based": 3174
+        },
+        "realized_soft_coverage_top1_tie_count": 4,
+        "secondary_realized_objective": "soft_cosine_threshold_coverage_fraction_gain",
+        "top1_agreement_unit": "unique supplied effect atom; exactly one candidate exists per canonical label"
+      },
+      "comparators": {
+        "best_single_library_atom_nonnegative_ray": {
+          "mean_cosine": 0.24079566106441153,
+          "n_targets": 150,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 0,
+          "soft_coverage_fraction": 0.0
+        },
+        "common_library_response_nonnegative_ray": {
+          "mean_cosine": 0.2263283045043048,
+          "n_targets": 150,
+          "soft_cosine_threshold": 0.5,
+          "soft_coverage_count": 0,
+          "soft_coverage_fraction": 0.0
+        }
+      },
+      "coverage": {
+        "mean_cosine": 0.4357711574946169,
+        "mean_residual_fraction": 0.8945541958045766,
+        "n_targets": 150,
+        "soft_cosine_threshold": 0.5,
+        "soft_coverage_count": 32,
+        "soft_coverage_fraction": 0.21333333333333335,
+        "strict_inside_cone_count": 0,
+        "strict_inside_cone_fraction": 0.0
+      },
+      "design": {
+        "candidate_source_row_index_sha256": "2e80d29f702ec110eb6927c80125df6a4a3befe6c682b52b26e4ee693b2bbdd6",
+        "catalog_effect_rows": 150,
+        "catalog_source_row_index_sha256": "79f716d6f7808bfd78f3e6feb924b1feeddd01ff193237a7e6646c3a9cc28de3",
+        "feature_count": 400,
+        "feature_index_sha256": "317c0b954343c70ade44ab9a36404ffb4499df2eb70059c725050a1e6fc669f5",
+        "feature_selection": "stable top-400 variance coordinates from the 50 current-library rows after the retrospective row split; catalog and candidate rows do not participate",
+        "feature_selection_rows": "current_library_only",
+        "library_atoms": 50,
+        "library_source_row_index_sha256": "9cf6fd0de6d9bacbd919518a73ccb1e4112fd0908054bf9c04e957d3c7cf834f",
+        "rng": "numpy.default_rng(seed)",
+        "seed": 11,
+        "supplied_candidate_effect_atoms": 40,
+        "unused_measured_effect_rows": 6631
+      },
+      "effect_pool_rows": 6871,
+      "preprocessing": {
+        "effect_definition": "donor-collapsed Rest-condition differential-expression log-fold-change rows from the registered Zhu source reconstruction cache",
+        "eligible_effect_pool": "all 6871 Rest-condition rows admitted upstream by the registered ontarget_significant field; no benchmark-outcome magnitude filter",
+        "outcome_based_effect_filtering": false
+      },
+      "source_effect_rows": 6871,
+      "split_sensitivity": {
+        "aggregate": {
+          "best_single_mean_cosine": {
+            "maximum": 0.25010698804080994,
+            "median": 0.24178484518108073,
+            "minimum": 0.23630888267393227,
+            "n_splits": 12,
+            "p05": 0.2367826988779914,
+            "p95": 0.24893186105251972,
+            "positive_split_count": 12,
+            "q25": 0.23894709692151345,
+            "q75": 0.24505370890755818
+          },
+          "common_response_mean_cosine": {
+            "maximum": 0.24380315775409547,
+            "median": 0.2097901513933519,
+            "minimum": 0.19477604066955348,
+            "n_splits": 12,
+            "p05": 0.19577722151478086,
+            "p95": 0.23598061013694213,
+            "positive_split_count": 12,
+            "q25": 0.19984619183638777,
+            "q75": 0.22087480028673045
+          },
+          "cone_mean_cosine": {
+            "maximum": 0.44282315545664275,
+            "median": 0.4268911525786352,
+            "minimum": 0.4093144933674676,
+            "n_splits": 12,
+            "p05": 0.4094621475985938,
+            "p95": 0.4393984300847289,
+            "positive_split_count": 12,
+            "q25": 0.421821459287724,
+            "q75": 0.434277102166124
+          },
+          "cone_minus_best_single_mean_cosine": {
+            "maximum": 0.1958061471379689,
+            "median": 0.18793884642554903,
+            "minimum": 0.16443874577581513,
+            "n_splits": 12,
+            "p05": 0.1656970231243356,
+            "p95": 0.19410665829079404,
+            "positive_split_count": 12,
+            "q25": 0.1797351254564371,
+            "q75": 0.1893462265936555
+          },
+          "cone_minus_common_response_mean_cosine": {
+            "maximum": 0.23109189228741014,
+            "median": 0.21235507249306196,
+            "minimum": 0.19901999770254727,
+            "n_splits": 12,
+            "p05": 0.20341781994778677,
+            "p95": 0.23097675074717772,
+            "positive_split_count": 12,
+            "q25": 0.209462900946384,
+            "q75": 0.21497159368422153
+          },
+          "cone_soft_coverage_cosine_at_least_0.3": {
+            "maximum": 1.0,
+            "median": 0.9333333333333333,
+            "minimum": 0.8333333333333334,
+            "n_splits": 12,
+            "p05": 0.8608333333333333,
+            "p95": 0.9816666666666667,
+            "positive_split_count": 12,
+            "q25": 0.9125,
+            "q75": 0.95
+          },
+          "cone_soft_coverage_cosine_at_least_0.5": {
+            "maximum": 0.2833333333333333,
+            "median": 0.2,
+            "minimum": 0.15,
+            "n_splits": 12,
+            "p05": 0.15,
+            "p95": 0.24666666666666662,
+            "positive_split_count": 12,
+            "q25": 0.16666666666666666,
+            "q75": 0.20416666666666666
+          },
+          "cone_soft_coverage_cosine_at_least_0.7": {
+            "maximum": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "n_splits": 12,
+            "p05": 0.0,
+            "p95": 0.0,
+            "positive_split_count": 0,
+            "q25": 0.0,
+            "q75": 0.0
+          },
+          "cone_soft_coverage_cosine_at_least_0.9": {
+            "maximum": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "n_splits": 12,
+            "p05": 0.0,
+            "p95": 0.0,
+            "positive_split_count": 0,
+            "q25": 0.0,
+            "q75": 0.0
+          },
+          "cone_strict_inside_fraction": {
+            "maximum": 0.0,
+            "median": 0.0,
+            "minimum": 0.0,
+            "n_splits": 12,
+            "p05": 0.0,
+            "p95": 0.0,
+            "positive_split_count": 0,
+            "q25": 0.0,
+            "q75": 0.0
+          },
+          "signed_span_mean_cosine": {
+            "maximum": 0.5216876019281167,
+            "median": 0.5141074062748765,
+            "minimum": 0.5033045683825106,
+            "n_splits": 12,
+            "p05": 0.5044243570295303,
+            "p95": 0.5190771525958292,
+            "positive_split_count": 12,
+            "q25": 0.5062181020771206,
+            "q75": 0.5161464695085947
+          },
+          "signed_span_minus_cone_mean_cosine": {
+            "maximum": 0.09757690855250528,
+            "median": 0.08393170143560355,
+            "minimum": 0.07742617554042142,
+            "n_splits": 12,
+            "p05": 0.07768491917069338,
+            "p95": 0.09688476613895215,
+            "positive_split_count": 12,
+            "q25": 0.0793320329659528,
+            "q75": 0.09077621244159546
+          }
+        },
+        "protocol": {
+          "acquisition_recomputed": false,
+          "catalog_effect_rows": 60,
+          "feature_count": 400,
+          "feature_selection_rows": "current_library_only",
+          "library_atoms": 50,
+          "purpose": "algorithmic row-split sensitivity; not biological sampling uncertainty",
+          "reserved_candidate_effect_atoms": 24,
+          "rng": "numpy.default_rng(seed)",
+          "seeds": [
+            3,
+            5,
+            11,
+            17,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53
+          ],
+          "soft_cosine_thresholds": [
+            0.3,
+            0.5,
+            0.7,
+            0.9
+          ]
+        },
+        "splits": [
+          {
+            "best_single_mean_cosine": 0.2423878224814931,
+            "candidate_source_row_index_sha256": "bc1d97cc4cac2229f4dfe8f07e8555c23b410c6731cbf1798a9f48e66089ad4b",
+            "catalog_source_row_index_sha256": "3f8248b664f796fba9a11e334909665b652a22c8a055a7f1996b34b05d4b4ec2",
+            "common_response_mean_cosine": 0.2074212002085885,
+            "cone_mean_cosine": 0.42271576129639227,
+            "cone_minus_best_single_mean_cosine": 0.18032793881489917,
+            "cone_minus_common_response_mean_cosine": 0.21529456108780376,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.95,
+              "cosine_at_least_0.5": 0.15,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "c2e87dcf4e90feb89d492026e9f576f49fab9602f376f88c40394038e8a0ac5c",
+            "library_source_row_index_sha256": "2b0aea377a12ff5ec6f115d0e48b1f0bf68211d0d9289c0ee10e68184d86693d",
+            "seed": 3,
+            "signed_span_mean_cosine": 0.5064131490468081,
+            "signed_span_minus_cone_mean_cosine": 0.08369738775041585,
+            "unused_source_row_index_sha256": "0692fdcfb5ac770a12f5a96428c86b6f9f5dc0475dab8cc6235b554dd6ea7653"
+          },
+          {
+            "best_single_mean_cosine": 0.2392561663352315,
+            "candidate_source_row_index_sha256": "eb8be380fbbc35671483776483af5cd85e5384b62ba72fc24363300dfd6d6dab",
+            "catalog_source_row_index_sha256": "2675fb8fd5078428a658981f23ac92cdaab2e4f503e900a178824c27f6e3ee9d",
+            "common_response_mean_cosine": 0.2154403991390406,
+            "cone_mean_cosine": 0.428419640620123,
+            "cone_minus_best_single_mean_cosine": 0.1891634742848915,
+            "cone_minus_common_response_mean_cosine": 0.2129792414810824,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.95,
+              "cosine_at_least_0.5": 0.2833333333333333,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "62097ab3478d89ef214df37e1dde86fe108fdd17c5472fd3ee891447fa1861e2",
+            "library_source_row_index_sha256": "06091911583003a84d276c9b7d340f69261bc16b7d5901c2fb7c07620bbab4f0",
+            "seed": 5,
+            "signed_span_mean_cosine": 0.5160968751146525,
+            "signed_span_minus_cone_mean_cosine": 0.08767723449452952,
+            "unused_source_row_index_sha256": "227f497facf9e94afd687d0cb23143d864ee19838aa2ffd6ad4e06309d4910b6"
+          },
+          {
+            "best_single_mean_cosine": 0.24079023491519413,
+            "candidate_source_row_index_sha256": "c2db9515e7d651b5af5edff66ea02f04fa2a46343a4ebbf87b561a3c05a70425",
+            "catalog_source_row_index_sha256": "35041d31c77e9243a2f1741940e219b4eebb0755b64c10ad9c48c7ceb9bcb934",
+            "common_response_mean_cosine": 0.2295803439047258,
+            "cone_mean_cosine": 0.43659638205316303,
+            "cone_minus_best_single_mean_cosine": 0.1958061471379689,
+            "cone_minus_common_response_mean_cosine": 0.20701603814843725,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9666666666666667,
+              "cosine_at_least_0.5": 0.2,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "317c0b954343c70ade44ab9a36404ffb4499df2eb70059c725050a1e6fc669f5",
+            "library_source_row_index_sha256": "9cf6fd0de6d9bacbd919518a73ccb1e4112fd0908054bf9c04e957d3c7cf834f",
+            "seed": 11,
+            "signed_span_mean_cosine": 0.5144930005577153,
+            "signed_span_minus_cone_mean_cosine": 0.07789661850455226,
+            "unused_source_row_index_sha256": "f143c2e9ab732ae050a047787f7d5b03777fb81d8dfffd4200bfc87ac107fd85"
+          },
+          {
+            "best_single_mean_cosine": 0.24118186788066837,
+            "candidate_source_row_index_sha256": "5f04d61d7dac174e133d7eaf09401ba7b4e99497bef6621ee912c65a7faf9c4a",
+            "catalog_source_row_index_sha256": "141c18668bf962a8d4fe6d143fa7244e70afce2cfe57b57be5fcd5caa0105868",
+            "common_response_mean_cosine": 0.2078221970423661,
+            "cone_mean_cosine": 0.41913855326171934,
+            "cone_minus_best_single_mean_cosine": 0.17795668538105097,
+            "cone_minus_common_response_mean_cosine": 0.21131635621935324,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9,
+              "cosine_at_least_0.5": 0.2,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "6eb3ac1b81fce337604592b947770450314bf2cbedd443930979f306a5116803",
+            "library_source_row_index_sha256": "21b0662588226e44443e6759b800c19fa92bae863720698bef71cda7d1c01db5",
+            "seed": 17,
+            "signed_span_mean_cosine": 0.5033045683825106,
+            "signed_span_minus_cone_mean_cosine": 0.08416601512079125,
+            "unused_source_row_index_sha256": "bed0900d76b03715836886fdb810f4e430d1bfe7dfa3faed8a3890c7f9e3b0b1"
+          },
+          {
+            "best_single_mean_cosine": 0.24558759285527523,
+            "candidate_source_row_index_sha256": "a18c483734a0cc96f2dcd6e0ba5a60b72ca3e3ebede39ad2b525239a97a02008",
+            "catalog_source_row_index_sha256": "713fb709b6a002db812ca104fe7964eccbc9f1dec94c929283404c3bf283e843",
+            "common_response_mean_cosine": 0.2196968195170743,
+            "cone_mean_cosine": 0.43456075740010175,
+            "cone_minus_best_single_mean_cosine": 0.18897316454482652,
+            "cone_minus_common_response_mean_cosine": 0.21486393788302746,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9166666666666666,
+              "cosine_at_least_0.5": 0.2,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "ae22606729b5877b54b9abd194b05dfc0516c7fb6f5782504edd0564a8af5a13",
+            "library_source_row_index_sha256": "3190888baefe80e9f940e99e744d691fad55006438dc5c77e21cbc75605e1331",
+            "seed": 23,
+            "signed_span_mean_cosine": 0.5140486525308808,
+            "signed_span_minus_cone_mean_cosine": 0.07948789513077908,
+            "unused_source_row_index_sha256": "759ee77c1905b35bade0765312373b5d4378966284d57b2069a24a3c4b1cfc79"
+          },
+          {
+            "best_single_mean_cosine": 0.2479703935166459,
+            "candidate_source_row_index_sha256": "0f87b4206e75dbdf3fa1a30c0588d36c11da36b6544718c0f780a5a8c7100dc7",
+            "catalog_source_row_index_sha256": "59a2aa86bc7795f8e8a8a15908602f5d26e7bbfa56919c26e38efb77861bb214",
+            "common_response_mean_cosine": 0.22440874259569896,
+            "cone_mean_cosine": 0.4341825504214647,
+            "cone_minus_best_single_mean_cosine": 0.1862121569048188,
+            "cone_minus_common_response_mean_cosine": 0.20977380782576574,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 1.0,
+              "cosine_at_least_0.5": 0.21666666666666667,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "74028c91ea43580619b8796741802d6cf94bd9a1432871430877440ad0d4fa6b",
+            "library_source_row_index_sha256": "65cac7a674d7b3cfc19adf798e11de8eff8e6a821379e913b1ceee43ed99f3b1",
+            "seed": 29,
+            "signed_span_mean_cosine": 0.5162952526904209,
+            "signed_span_minus_cone_mean_cosine": 0.08211270226895617,
+            "unused_source_row_index_sha256": "cc924d6d2700e1279571392534c19f801576d6827a8ed1323a3469677808763c"
+          },
+          {
+            "best_single_mean_cosine": 0.23630888267393227,
+            "candidate_source_row_index_sha256": "2a815dacb01a351ad6e615408b6c66e87597d171ca42cc34f8f2afb1037307f7",
+            "catalog_source_row_index_sha256": "21da3f9cbd7e2b27a79f6bd6cc443fbea6adf48bcd623b19c35a18827450860b",
+            "common_response_mean_cosine": 0.21175810574433768,
+            "cone_mean_cosine": 0.42348900924937916,
+            "cone_minus_best_single_mean_cosine": 0.1871801265754469,
+            "cone_minus_common_response_mean_cosine": 0.21173090350504148,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.95,
+              "cosine_at_least_0.5": 0.15,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "df9f7b99065280c7ae25ddebdbfdecab55a686cb8dd4861c6c69ac141d557711",
+            "library_source_row_index_sha256": "4b9255144f8c9beae16197c74b429233cb1a7822d951932a4ad948d14fd6e5b9",
+            "seed": 31,
+            "signed_span_mean_cosine": 0.514166160018872,
+            "signed_span_minus_cone_mean_cosine": 0.0906771507694929,
+            "unused_source_row_index_sha256": "ae6d7238da0e1445cd3b2f869cdd7ebfc111f7c808d3e2bd61beac0132d44ab6"
+          },
+          {
+            "best_single_mean_cosine": 0.24487574759165248,
+            "candidate_source_row_index_sha256": "98ee3bbc9c0048f6414deb6bae53cd57782c572aacbf808545af1bc0c6e959fa",
+            "catalog_source_row_index_sha256": "13213f85e0c8aaeab530676a78ebd4e81952972f9b1851aad37b2c67cd03e02d",
+            "common_response_mean_cosine": 0.2007843130592288,
+            "cone_mean_cosine": 0.4093144933674676,
+            "cone_minus_best_single_mean_cosine": 0.16443874577581513,
+            "cone_minus_common_response_mean_cosine": 0.2085301803082388,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.8333333333333334,
+              "cosine_at_least_0.5": 0.16666666666666666,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "a9b3a848d4a9aa152c3944512da39f7fd67ddca50634243d82e9092e6a1dacca",
+            "library_source_row_index_sha256": "06f29db47ca0905ac3d2e3df57ab22b5fabc3e2df75e61cff79c0accccfe23dd",
+            "seed": 37,
+            "signed_span_mean_cosine": 0.5056329611680581,
+            "signed_span_minus_cone_mean_cosine": 0.0963184678005905,
+            "unused_source_row_index_sha256": "6c9b6a1e4fc4bab997c8a39b379c7aa292efee070c756419486ccef9a39c1ec0"
+          },
+          {
+            "best_single_mean_cosine": 0.23801988868035923,
+            "candidate_source_row_index_sha256": "4dcddef5f1635f62a0cd023f268365ce88df0744526f52525305ac6eb435dd42",
+            "catalog_source_row_index_sha256": "59c62cb5b6cd56718fcc5bbd69db9b5f6735911bfd6fd22d2b802472c9ad1011",
+            "common_response_mean_cosine": 0.19703182816786463,
+            "cone_mean_cosine": 0.4279143722003067,
+            "cone_minus_best_single_mean_cosine": 0.18989448351994748,
+            "cone_minus_common_response_mean_cosine": 0.23088254403244207,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9333333333333333,
+              "cosine_at_least_0.5": 0.2,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "305fb6598d2fb7489012ad6fec785f13269a5cffceb1b58fa1d70d12d9e33d63",
+            "library_source_row_index_sha256": "20bb2c090eefbe02500b39b236d17a4d67f1b4feb60992a24318d24fa1539cfa",
+            "seed": 41,
+            "signed_span_mean_cosine": 0.5053405477407281,
+            "signed_span_minus_cone_mean_cosine": 0.07742617554042142,
+            "unused_source_row_index_sha256": "3a248f0ffaf19d8f75877c2c5cde357a7cb0f136f17ec171f682aecd615159f8"
+          },
+          {
+            "best_single_mean_cosine": 0.25010698804080994,
+            "candidate_source_row_index_sha256": "c5fb11e541397c9532f70c93ad92eff45886b5ecbbd0e4dbc987ec7cc0de7fd9",
+            "catalog_source_row_index_sha256": "6fde7c3a9b5ef34a7454ed281239770a79dd2f67d17e2360d195c7dec2e3d4cb",
+            "common_response_mean_cosine": 0.24380315775409547,
+            "cone_mean_cosine": 0.44282315545664275,
+            "cone_minus_best_single_mean_cosine": 0.1927161674158328,
+            "cone_minus_common_response_mean_cosine": 0.19901999770254727,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.8833333333333333,
+              "cosine_at_least_0.5": 0.21666666666666667,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "7fbebb6c3cb25a33fd977a069e3a933237af033d548586d21e74b9d51db66c2b",
+            "library_source_row_index_sha256": "8fd60f2aacd24dbe1a57b9b639ee32d582b1e172637f4472a58cb02476514b8d",
+            "seed": 43,
+            "signed_span_mean_cosine": 0.5216876019281167,
+            "signed_span_minus_cone_mean_cosine": 0.07886444647147395,
+            "unused_source_row_index_sha256": "93b54d2f6055d7d20b47c98a186f5e1ca05b03d0fd4f0a052b6f02d5db8d7404"
+          },
+          {
+            "best_single_mean_cosine": 0.24285643283275374,
+            "candidate_source_row_index_sha256": "d48de857cceb39edfed4878c84ea7138545cc662b51af698319dede2b6169f51",
+            "catalog_source_row_index_sha256": "5408e3876431bfa310bdf816cb2e3d4b90435e7f5dcdb0a5dc08e635d9e80fc1",
+            "common_response_mean_cosine": 0.19659636947905781,
+            "cone_mean_cosine": 0.4095829556058788,
+            "cone_minus_best_single_mean_cosine": 0.16672652277312508,
+            "cone_minus_common_response_mean_cosine": 0.212986586126821,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9333333333333333,
+              "cosine_at_least_0.5": 0.16666666666666666,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "b99716a905d9a229b6fb9751e9bfa1e2719f4ea7e099f422eecf1c5fe2bcb311",
+            "library_source_row_index_sha256": "d748778789c5d4667672281f32108470d0e305b9f6803e274f3b4cc50fb445b0",
+            "seed": 47,
+            "signed_span_mean_cosine": 0.5071598641583841,
+            "signed_span_minus_cone_mean_cosine": 0.09757690855250528,
+            "unused_source_row_index_sha256": "b0137c7520d2b7b66ee1c1e6f60d2d5fb7472f4e6c5c88cf111ed72a0ce3a012"
+          },
+          {
+            "best_single_mean_cosine": 0.23717036668131247,
+            "candidate_source_row_index_sha256": "bfc4c8aa5bb33c0e41f16c13b12919da4567bc68a59229024e2c8ecaae84d4f2",
+            "catalog_source_row_index_sha256": "7407bfdd1ed839b95870f2893719e381666e1f482e382acdf80afcabbfd4f307",
+            "common_response_mean_cosine": 0.19477604066955348,
+            "cone_mean_cosine": 0.4258679329569636,
+            "cone_minus_best_single_mean_cosine": 0.18869756627565115,
+            "cone_minus_common_response_mean_cosine": 0.23109189228741014,
+            "cone_soft_coverage_by_threshold": {
+              "cosine_at_least_0.3": 0.9333333333333333,
+              "cosine_at_least_0.5": 0.2,
+              "cosine_at_least_0.7": 0.0,
+              "cosine_at_least_0.9": 0.0
+            },
+            "cone_strict_inside_fraction": 0.0,
+            "feature_index_sha256": "277fcf03470ecbbe3d94b7b1253063e7f83bf9421f371fb015cb7f71d5025d8a",
+            "library_source_row_index_sha256": "c8936a58f42a6da2adcc5055569353a5b4724c2050d2e1de43af60c847e8329e",
+            "seed": 53,
+            "signed_span_mean_cosine": 0.5169413304148668,
+            "signed_span_minus_cone_mean_cosine": 0.09107339745790316,
+            "unused_source_row_index_sha256": "aae4a81397421237737d58636c2e903c58c0a979bf6833ff22bbb95f150063d0"
+          }
+        ]
+      }
+    }
+  },
+  "generated_on": "2026-07-19",
+  "input_verification": {
+    "norman": {
+      "bytes": 6033788,
+      "hash_verified": true,
+      "path": "slice/norman_effects_portable_v1.npz",
+      "sha256_actual": "636973133bb34b0bb7f0cc6c7e1ef1a799808c15cc1ea982b8097bb95a48d964",
+      "sha256_expected": "636973133bb34b0bb7f0cc6c7e1ef1a799808c15cc1ea982b8097bb95a48d964"
+    },
+    "replogle": {
+      "bytes": 22110472,
+      "hash_verified": true,
+      "path": "slice/replogle_effects_portable_v1.npz",
+      "sha256_actual": "f48a92f7866ad1f055c9468c8d9ace289b5fc2e75b84ecf0aaf19d350aad25c3",
+      "sha256_expected": "f48a92f7866ad1f055c9468c8d9ace289b5fc2e75b84ecf0aaf19d350aad25c3"
+    },
+    "zhu": {
+      "bytes": 246642804,
+      "hash_verified": true,
+      "path": "slice/zhu_rest_effects_portable_v1.npz",
+      "sha256_actual": "75d7ce623ae8157c84a174b6dfc2a24baea34ce117e4ccb0ebceacfb174edba1",
+      "sha256_expected": "75d7ce623ae8157c84a174b6dfc2a24baea34ce117e4ccb0ebceacfb174edba1"
+    }
+  },
+  "provenance": {
+    "candidate_status": "Every ranked candidate is a supplied, already-measured effect atom held out from the current computational library; the benchmark does not rank unmeasured genes or experiments.",
+    "cell_systems": [
+      "primary human CD4+ T cells",
+      "K562"
+    ],
+    "norman": {
+      "canonical_cell_system": "K562",
+      "citation_url": "https://doi.org/10.1126/science.aax4438",
+      "dataset_card_release_date": "2019-08-08",
+      "dataset_card_url": "https://virtualcellmodels.cziscience.com/dataset/norman-osteosarcoma-immune-microenvironment",
+      "dataset_card_version": "v1.0 source; processed data are GEARS 0.0.2",
+      "identity": "Norman et al. 2019 CRISPRa Perturb-seq processed through GEARS 0.0.2 and redistributed by VCP",
+      "license_note": "The VCP v1.0 Norman dataset card labels the processed GEARS-derived dataset MIT and requires compliance with the VCP Acceptable Use Policy.",
+      "local_cache_creation_date": "deterministically rebuilt from the registered source contract on 2026-07-19",
+      "raw_redistribution_byte_identity": "2,228,849,977 bytes; SHA-256 a2a194c0eaa001d229e21a3f4f5b447db7c73f7a3a44c3d0464f317bda5f12a2",
+      "raw_redistribution_url": "https://cz-benchmarks-data.s3.amazonaws.com/datasets/v1/perturb/single_cell/norman_perturbation.h5ad",
+      "upstream_metadata_discrepancy": {
+        "canonical_value": "K562",
+        "field": "obs.cell_type",
+        "handling": "The Norman paper explicitly describes K562 cells. This report uses canonical K562, records the redistributed A549 label as an upstream metadata discrepancy, and does not use that field computationally.",
+        "redistributed_value": "A549",
+        "status": "FLAGGED"
+      }
+    },
+    "perturbation_modalities": [
+      "CRISPRi",
+      "CRISPRa"
+    ],
+    "replogle": {
+      "canonical_cell_system": "K562",
+      "citation_url": "https://doi.org/10.1016/j.cell.2022.05.013",
+      "dataset_card_release_date": "2025-09-03",
+      "dataset_card_source_download_date": "2025-08-01",
+      "dataset_card_url": "https://virtualcellmodels.cziscience.com/dataset/k562-essential-perturb-seq",
+      "dataset_card_version": "v1.0 processed",
+      "identity": "Replogle et al. 2022 K562 day-6 essential-gene CRISPRi Perturb-seq, VCP v1.0 processed benchmark redistribution",
+      "license_note": "The VCP v1.0 processed benchmark dataset card displays the license label 'CC BY NA SA 4.0' and requires compliance with the VCP Acceptable Use Policy; users should consult the source card for the controlling terms.",
+      "local_cache_creation_date": "deterministically rebuilt from the registered source contract on 2026-07-19",
+      "raw_redistribution_byte_identity": "2,890,786,004 bytes; SHA-256 04b7b3c28504ace115bb6ee192a0710f428aee3468cf0372b4fc0978cc05adb4",
+      "raw_redistribution_url": "https://cz-benchmarks-data.s3.amazonaws.com/datasets/v1/perturb/single_cell/replogle_k562_essential_perturbation.h5ad"
+    },
+    "zhu": {
+      "citation_url": "https://doi.org/10.64898/2025.12.23.696273",
+      "dataset_card_release_date": "2025-12-22",
+      "dataset_card_url": "https://virtualcellmodels.cziscience.com/dataset/genome-scale-tcell-perturb-seq",
+      "dataset_card_version": "v1.0 processed",
+      "identity": "Zhu et al., Primary Human CD4+ T Cell Perturb-seq, VCP v1.0 processed release",
+      "license_note": "The VCP v1.0 dataset card labels the processed dataset MIT and also requires compliance with the VCP Acceptable Use Policy; the local NPZ is a derived, gitignored cache.",
+      "local_cache_creation_date": "deterministically rebuilt from the registered source contract on 2026-07-19",
+      "upstream_object": "GWCD4i.DE_stats.h5ad",
+      "upstream_object_sha256": "c355f535ff32cf7ba1edc49cf9c6039fe84f2c9ebe4d005515cba75790cfbb62"
+    }
+  },
+  "schema_version": "3.0.0",
+  "status": "PASS"
+}

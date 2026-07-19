@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "report_version": 1,
+  "benchmark_id": "schmidt_primary_tcell_crispra_crispri_transfer_v1",
+  "source": {
+    "citation": "Schmidt et al., CRISPR activation and interference screens decode stimulation responses in primary human T cells, Science (2022)",
+    "doi": "10.1126/science.abj4008",
+    "geo_accession": "GSE174292",
+    "screen_subseries": "GSE174255",
+    "zenodo_record": "5784651",
+    "license": "CC-BY-4.0",
+    "same_donors_basis": "Paper Methods: the CRISPRi screens followed the same procedure using T cells from the same donors as the CRISPRa screens."
+  },
+  "input": {
+    "path": "data/Genome-wide-screens.zip",
+    "url": "https://zenodo.org/api/records/5784651/files/Genome-wide-screens.zip/content",
+    "bytes": 26152593,
+    "sha256": "15571c41d76b2462d15f167f8920b0ec335f685b1582d18b0264f65f21b2fefd",
+    "md5": "e0392eb7b2512720bb8cbf705ce9854f"
+  },
+  "archive_members": [
+    "Genome-wide-screens/",
+    "__MACOSX/._Genome-wide-screens",
+    "Genome-wide-screens/.Rhistory",
+    "__MACOSX/Genome-wide-screens/._.Rhistory",
+    "Genome-wide-screens/.DS_Store",
+    "__MACOSX/Genome-wide-screens/._.DS_Store",
+    "Genome-wide-screens/Generate-screen-analysis-table.R",
+    "__MACOSX/Genome-wide-screens/._Generate-screen-analysis-table.R",
+    "Genome-wide-screens/data/",
+    "__MACOSX/Genome-wide-screens/._data",
+    "Genome-wide-screens/data/.DS_Store",
+    "__MACOSX/Genome-wide-screens/data/._.DS_Store",
+    "Genome-wide-screens/data/gene_summaries/",
+    "__MACOSX/Genome-wide-screens/data/._gene_summaries",
+    "Genome-wide-screens/data/sgRNA_summaries/",
+    "__MACOSX/Genome-wide-screens/data/._sgRNA_summaries",
+    "Genome-wide-screens/data/gene_summaries/mageck.test.CRISPRa.IFNG.gene_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/gene_summaries/._mageck.test.CRISPRa.IFNG.gene_summary.txt",
+    "Genome-wide-screens/data/gene_summaries/mageck.test.CRISPRi.IFNG.gene_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/gene_summaries/._mageck.test.CRISPRi.IFNG.gene_summary.txt",
+    "Genome-wide-screens/data/gene_summaries/mageck.test.CRISPRa.IL2.gene_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/gene_summaries/._mageck.test.CRISPRa.IL2.gene_summary.txt",
+    "Genome-wide-screens/data/gene_summaries/mageck.test.CRISPRi.IL2.gene_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/gene_summaries/._mageck.test.CRISPRi.IL2.gene_summary.txt",
+    "Genome-wide-screens/data/sgRNA_summaries/CRISPRi.IFNG.sgrna_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/sgRNA_summaries/._CRISPRi.IFNG.sgrna_summary.txt",
+    "Genome-wide-screens/data/sgRNA_summaries/CRISPRa.IL2.sgrna_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/sgRNA_summaries/._CRISPRa.IL2.sgrna_summary.txt",
+    "Genome-wide-screens/data/sgRNA_summaries/CRISPRa.IFNG.sgrna_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/sgRNA_summaries/._CRISPRa.IFNG.sgrna_summary.txt",
+    "Genome-wide-screens/data/sgRNA_summaries/CRISPRi.IL2.sgrna_summary.txt",
+    "__MACOSX/Genome-wide-screens/data/sgRNA_summaries/._CRISPRi.IL2.sgrna_summary.txt"
+  ],
+  "author_script": {
+    "member": "Genome-wide-screens/Generate-screen-analysis-table.R",
+    "bytes": 4985,
+    "sha256": "0dccfac8bf327ea23ee96652053a58ac149059d1250e28068a7e695860df98e0",
+    "required_text": [
+      "r0 = Donor1, r1 = Donor2",
+      "Donor1_LFC = median(Donor1_LFC)",
+      "Donor2_LFC = median(Donor2_LFC)",
+      "mutate(rev_lfc = -1 * LFC"
+    ]
+  },
+  "screens": {
+    "CRISPRa_IFNG": {
+      "modality": "CRISPRa",
+      "context": "IFNG",
+      "cell_system": "primary human CD8 T cells",
+      "member": "Genome-wide-screens/data/sgRNA_summaries/CRISPRa.IFNG.sgrna_summary.txt",
+      "rows": 226476,
+      "bytes": 29910945,
+      "sha256": "2638585aa6a046e5a7880b8cb093b9cd7555625da80adcd228b823af9e32f7e0"
+    },
+    "CRISPRa_IL2": {
+      "modality": "CRISPRa",
+      "context": "IL2",
+      "cell_system": "primary human CD4 T cells",
+      "member": "Genome-wide-screens/data/sgRNA_summaries/CRISPRa.IL2.sgrna_summary.txt",
+      "rows": 226476,
+      "bytes": 29508230,
+      "sha256": "311e9e3560848c0a3c246e7de13e4705883a2f1e13f49492ba3dbdce88217468"
+    },
+    "CRISPRi_IFNG": {
+      "modality": "CRISPRi",
+      "context": "IFNG",
+      "cell_system": "primary human CD8 T cells",
+      "member": "Genome-wide-screens/data/sgRNA_summaries/CRISPRi.IFNG.sgrna_summary.txt",
+      "rows": 228122,
+      "bytes": 30162462,
+      "sha256": "597f4757c469f0e114ce0bd2d47c934347a4eab1de5ea1c5b9f1d5d3c9d4ed4a"
+    },
+    "CRISPRi_IL2": {
+      "modality": "CRISPRi",
+      "context": "IL2",
+      "cell_system": "primary human CD4 T cells",
+      "member": "Genome-wide-screens/data/sgRNA_summaries/CRISPRi.IL2.sgrna_summary.txt",
+      "rows": 228122,
+      "bytes": 29733342,
+      "sha256": "d721c6c469eb84eee55e2412d0b544f147aea83bc2ed6c1088787a1132be6aac"
+    }
+  },
+  "analysis": {
+    "donor_suffixes": {
+      "r0": "Donor1",
+      "r1": "Donor2"
+    },
+    "orientation": {
+      "CRISPRa": 1,
+      "CRISPRi": -1
+    },
+    "excluded_gene": "NO-TARGET",
+    "eligibility": "Common gene identity across all four screens and both donors with at least the declared number of unique guides; no LFC, FDR, hit, sign, or magnitude field enters eligibility.",
+    "aggregation": "Median sgRNA LFC within gene and donor, matching the deposited author script.",
+    "minimum_guides_per_gene_per_donor": [1, 3, 6],
+    "primary_minimum_guides": 3,
+    "top_k": [50, 100, 200, 500],
+    "primary_top_k": 200,
+    "expected_common_genes": {
+      "1": 18734,
+      "3": 18568,
+      "6": 18075
+    },
+    "sensitivity_status": "EXPLORATORY_POST_HOC_DESCRIPTIVE"
+  },
+  "claim_contract": {
+    "tier": "STRESS",
+    "benchmark_role": "two-fixed-donor functional-screen rank-transfer stress test",
+    "same_screen_label": "same-reagent fixed-two-donor reproducibility",
+    "cross_modality_label": "donor-plus-modality-and-library transfer within the same cytokine/cell context",
+    "cross_context_label": "donor-plus-cross-context transfer coupled across cytokine, CD4/CD8 cell type, and screen",
+    "claim_ceiling": "Two-fixed-donor, source-selected functional-screen concordance; cross-screen rows jointly change donor plus modality/library or donor plus cytokine/cell-type context. Not transcriptomic reachability, modality or guide-library equivalence, cytokine or cell-type generality, guide-held-out replication, donor-population inference, efficacy, or target recommendation.",
+    "inference": "No p-values, confidence intervals, or donor-population tests are emitted; the eight donor directions per class are correlated descriptive challenges.",
+    "not_claimed": [
+      "transcriptomic effect dictionaries or whole-state reachability",
+      "scale equivalence between CRISPRa and reversed CRISPRi",
+      "guide-held-out or reagent-independent replication",
+      "cytokine-only or cell-type-only transfer",
+      "donor-population generalization",
+      "functional efficacy or target recommendation"
+    ]
+  }
+}

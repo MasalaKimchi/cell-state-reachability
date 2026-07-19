@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Cell-State Reachability"
+type: software
+authors:
+  - name: "MasalaKimchi"
+repository-code: "https://github.com/MasalaKimchi/cell-state-reachability"
+license: MIT
+version: 0.1.0
+keywords:
+  - perturb-seq
+  - transcriptomics
+  - convex geometry
+  - reachability
+  - reproducible research
+abstract: >-
+  A geometric, fail-closed test of whether a target transcriptomic direction is
+  representable by the non-negative cone of a measured perturbation library,
+  with a model-relative infeasibility certificate and adversarial validation
+  harness.
+
