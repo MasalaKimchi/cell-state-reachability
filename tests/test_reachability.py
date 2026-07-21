@@ -100,10 +100,22 @@ def test_held_out_prediction_overflow_fails_closed():
         rx.held_out_alignment(effects, target, [0], [1])
 
 
-def test_nnls_iteration_failure_is_wrapped_as_input_error():
+def test_nnls_iteration_failure_is_wrapped_as_input_error(monkeypatch):
+    # Contract under test: when the NNLS solver raises RuntimeError (its
+    # iteration-limit failure mode), project_cone wraps it as InputError.
+    # We force that RuntimeError deterministically instead of relying on an
+    # ill-conditioned matrix to exhaust the solver's internal iteration limit.
+    # Whether a given matrix actually trips that limit depends on BLAS/LAPACK
+    # rounding, which varies across CPU microarchitecture, Python build, and
+    # scipy version, so an input-driven trigger is not portable across the CI
+    # matrix (it passed on 3.10/3.12 but converged on 3.11).
+    def _raise_iteration_failure(*args, **kwargs):
+        raise RuntimeError("Maximum number of iterations reached.")
+
+    monkeypatch.setattr(rx, "nnls", _raise_iteration_failure)
+
     rng = np.random.default_rng(22)
     effects = rng.normal(size=(7, 12))
-    effects[-1] = effects[-2] + 1e-12 * rng.normal(size=12)
     target = rng.normal(size=12)
     weights = np.exp(rng.uniform(-5, 5, size=12))
     with pytest.raises(rx.InputError, match="NNLS solver failed"):
