@@ -1,0 +1,38 @@
+{
+  "preregistration_id": "combicone_E2_prospective_v1",
+  "frozen_utc": "2026-07-21T13:56:49Z",
+  "substrate": "combicone_substrate.npz (Norman combinatorial CRISPRa; file label A549 / canonical K562)",
+  "substrate_atoms_sha256": "e4f69836086add6314315ff590863aee11c106208969c2fd78e57abbfead5d0f",
+  "n_single_atoms": 105,
+  "n_genes": 5045,
+  "n_measured_doubles": 131,
+  "n_unmeasured_pairs_universe": 5329,
+  "triage_score": "training-free -cos: score = -mean pairwise cosine between single-gene effect vectors (combicone.triage_combinations, order=2, pairwise='mean')",
+  "arms": {
+    "triaged": {
+      "n": 30,
+      "rule": "top-30 by triage score"
+    },
+    "random": {
+      "n": 30,
+      "rule": "uniform random unmeasured pairs, numpy default_rng(seed=20260721), excluding the 30 triaged"
+    }
+  },
+  "random_seed": 20260721,
+  "retrospective_anchor": {
+    "base_rate_top_quartile": 0.251908,
+    "raw_label_top20_precision": 0.6,
+    "raw_label_top20_hits": 12,
+    "raw_label_enrichment": 2.38,
+    "noise_robust_top20_precision": 0.35,
+    "noise_robust_top20_hits": 7,
+    "noise_robust_enrichment": 1.39,
+    "source": "results/findings.json prospective_triage; reproduced this session (raw: 12 hits, 2.382x)"
+  },
+  "prospective_endpoint": "hit = two-bar certified emergent (bar a: noise-injection p<0.05 AND bar b: floor_ratio>=1.9) via combicone.certify_emergence on the realized measured effect; a raw-residual-threshold endpoint is pre-registered as secondary (see protocol).",
+  "primary_test": "one-sided two-proportion (triaged hit rate > random hit rate), alpha=0.05",
+  "ranked_list_csv": "prospective_ranked_list.csv",
+  "ranked_list_sha256": "05e0e4a04767fa4822a3b59b617b6a41663b0cb974fbaf0853c07c30aac56a8f",
+  "semantic_payload_sha256": "3265074a7db70ba841fe48bff1f83788478a848af0775d6450e897d213a475a2",
+  "freeze_note": "This list and seed are frozen BEFORE any prospective measurement. Do not re-rank after data collection."
+}

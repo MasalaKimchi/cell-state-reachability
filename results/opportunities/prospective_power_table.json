@@ -1,0 +1,43 @@
+{
+  "base_rate_p0": 0.2519,
+  "primary": {
+    "p1": 0.6,
+    "enrichment": "2.4x_raw",
+    "delta": 0.3481,
+    "z_approx": {
+      "n_per_arm_80": 24,
+      "n_per_arm_90": 33
+    },
+    "fisher_exact": {
+      "n_per_arm_80": 30,
+      "n_per_arm_90": 40
+    },
+    "total_combos_fisher_80": 60,
+    "total_combos_fisher_90": 80
+  },
+  "secondary": {
+    "p1": 0.3502,
+    "enrichment": "1.4x_noise_robust",
+    "delta": 0.0982,
+    "z_approx": {
+      "n_per_arm_80": 269,
+      "n_per_arm_90": 372
+    },
+    "fisher_exact": {
+      "n_per_arm_80": 290,
+      "n_per_arm_90": 390
+    },
+    "total_combos_fisher_80": 580,
+    "total_combos_fisher_90": 780
+  },
+  "test": "one-sided two-proportion (z-approx for planning; Fisher's exact for the small-N primary readout)",
+  "alpha": 0.05,
+  "cells_per_condition_guidance": {
+    "noise_model": "per-gene SE = |m1-m2|/2 from a random cell split-half; SE \u221d 1/sqrt(N_cells)",
+    "gamma_star_median": 1.25,
+    "frac_certified_robust_to_2x": 0.0286,
+    "requirement": "match Norman per-condition depth; do not drop below ~0.64x it (N/gamma*^2 at the median certificate)",
+    "hard_floor": ">=12 cells/condition (min_cells_per_half=6) to form a split-half SE at all",
+    "status": "DESIGN guidance from the substrate noise model + sensitivity curve; absolute Norman cell counts are NOT in the substrate"
+  }
+}

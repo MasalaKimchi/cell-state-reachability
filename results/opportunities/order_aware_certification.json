@@ -1,0 +1,72 @@
+{
+  "synthetic": true,
+  "npz": "synth_triple_screen.npz",
+  "monotonicity": {
+    "n_triples": 120,
+    "cone_sparse_size": 14,
+    "cone_rich_size": 105,
+    "n_certified_sparse": 80,
+    "n_certified_rich": 36,
+    "is_subset": true,
+    "n_newly_certified": 0,
+    "n_flipped_to_reachable": 44,
+    "shrink_fraction": 0.55,
+    "residual_non_increasing": true,
+    "max_residual_increase": -0.0005641194449891307,
+    "certified_by_class_sparse": {
+      "additive": 0,
+      "emergent": 40,
+      "reducible": 40
+    },
+    "certified_by_class_rich": {
+      "additive": 0,
+      "emergent": 36,
+      "reducible": 0
+    },
+    "flipped_by_class": {
+      "additive": 0,
+      "emergent": 4,
+      "reducible": 40
+    },
+    "method": "analytic",
+    "tol": 1e-09
+  },
+  "triage": {
+    "n_triples": 120,
+    "n_emergent": 40,
+    "base_rate": 0.3333333333333333,
+    "cone_size": 105,
+    "auroc": {
+      "residual": 0.925625,
+      "z": 1.0,
+      "floor": 1.0
+    },
+    "top_k_precision": {
+      "20": {
+        "z": 1.0,
+        "random": 0.3328,
+        "enrichment": 3.0
+      },
+      "40": {
+        "z": 1.0,
+        "random": 0.33360500000000004,
+        "enrichment": 3.0
+      }
+    },
+    "two_bar_confusion": {
+      "TP": 36,
+      "FP": 0,
+      "TN": 80,
+      "FN": 4,
+      "sensitivity": 0.9,
+      "specificity": 1.0,
+      "precision": 1.0
+    },
+    "certified_by_class": {
+      "additive": 0,
+      "emergent": 36,
+      "reducible": 0
+    },
+    "method": "analytic"
+  }
+}

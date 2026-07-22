@@ -1,0 +1,61 @@
+arm,rank,geneA,geneB,combination,triage_score,agg_cosine,selection_rule
+triaged,1,ARRDC3,SLC38A2,ARRDC3+SLC38A2,0.585998,-0.585998,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,2,CSRNP1,IER5L,CSRNP1+IER5L,0.580368,-0.580368,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,3,CSRNP1,EGR1,CSRNP1+EGR1,0.543276,-0.543276,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,4,CSRNP1,POU3F2,CSRNP1+POU3F2,0.512020,-0.512020,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,5,FOXL2,MAP2K3,FOXL2+MAP2K3,0.506789,-0.506789,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,6,IER5L,MAP2K3,IER5L+MAP2K3,0.503935,-0.503935,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,7,CSRNP1,MEIS1,CSRNP1+MEIS1,0.496614,-0.496614,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,8,AHR,CSRNP1,AHR+CSRNP1,0.488086,-0.488086,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,9,HOXA13,MAP2K3,HOXA13+MAP2K3,0.484571,-0.484571,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,10,HOXC13,MAP2K3,HOXC13+MAP2K3,0.482788,-0.482788,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,11,IER5L,MAP2K6,IER5L+MAP2K6,0.477583,-0.477583,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,12,HOXB9,MAP2K3,HOXB9+MAP2K3,0.474943,-0.474943,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,13,MAP2K3,ZBTB10,MAP2K3+ZBTB10,0.471999,-0.471999,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,14,FOXA3,MAP2K3,FOXA3+MAP2K3,0.471602,-0.471602,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,15,C3orf72,MAP2K3,C3orf72+MAP2K3,0.469304,-0.469304,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,16,CBFA2T3,MAML2,CBFA2T3+MAML2,0.462542,-0.462542,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,17,MAP2K6,PTPN1,MAP2K6+PTPN1,0.450774,-0.450774,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,18,MAP2K3,POU3F2,MAP2K3+POU3F2,0.449361,-0.449361,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,19,CSRNP1,FEV,CSRNP1+FEV,0.447676,-0.447676,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,20,CSRNP1,MIDN,CSRNP1+MIDN,0.447522,-0.447522,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,21,MAP2K3,MIDN,MAP2K3+MIDN,0.444166,-0.444166,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,22,MAP2K3,MEIS1,MAP2K3+MEIS1,0.443218,-0.443218,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,23,CSRNP1,HOXA13,CSRNP1+HOXA13,0.433871,-0.433871,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,24,MAP2K6,SGK1,MAP2K6+SGK1,0.431531,-0.431531,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,25,CSRNP1,PRDM1,CSRNP1+PRDM1,0.421934,-0.421934,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,26,DLX2,MAP2K3,DLX2+MAP2K3,0.420909,-0.420909,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,27,LYL1,MAP2K6,LYL1+MAP2K6,0.420475,-0.420475,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,28,MAP2K6,UBASH3B,MAP2K6+UBASH3B,0.415168,-0.415168,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,29,JUN,MAP2K3,JUN+MAP2K3,0.414037,-0.414037,top-30 by -mean_pairwise_cosine (training-free triage)
+triaged,30,ARRDC3,MAP2K6,ARRDC3+MAP2K6,0.413407,-0.413407,top-30 by -mean_pairwise_cosine (training-free triage)
+random,1,AHR,SPI1,AHR+SPI1,-0.474984,0.474984,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,2,ATL1,HOXA13,ATL1+HOXA13,-0.596406,0.596406,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,3,BPGM,CBL,BPGM+CBL,-0.737670,0.737670,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,4,C3orf72,CBL,C3orf72+CBL,-0.280643,0.280643,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,5,C3orf72,HES7,C3orf72+HES7,-0.622501,0.622501,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,6,CBL,DLX2,CBL+DLX2,0.033813,-0.033813,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,7,CDKN1B,KLF1,CDKN1B+KLF1,-0.154723,0.154723,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,8,CDKN1C,FOXL2,CDKN1C+FOXL2,-0.364464,0.364464,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,9,CEBPA,FOXA3,CEBPA+FOXA3,-0.355051,0.355051,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,10,CNN1,GLB1L2,CNN1+GLB1L2,-0.266714,0.266714,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,11,COL1A1,UBASH3A,COL1A1+UBASH3A,-0.251363,0.251363,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,12,COL2A1,MAP4K5,COL2A1+MAP4K5,0.037701,-0.037701,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,13,CSRNP1,STIL,CSRNP1+STIL,0.156138,-0.156138,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,14,DUSP9,FOXF1,DUSP9+FOXF1,-0.224828,0.224828,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,15,FOXA1,HOXA13,FOXA1+HOXA13,-0.567679,0.567679,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,16,FOXA1,NCL,FOXA1+NCL,-0.307663,0.307663,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,17,FOXA3,SLC4A1,FOXA3+SLC4A1,-0.249323,0.249323,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,18,FOXA3,TGFBR2,FOXA3+TGFBR2,-0.197978,0.197978,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,19,FOXO4,UBASH3B,FOXO4+UBASH3B,-0.509505,0.509505,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,20,GLB1L2,MEIS1,GLB1L2+MEIS1,-0.259775,0.259775,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,21,HES7,KLF1,HES7+KLF1,0.167196,-0.167196,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,22,IER5L,ZBTB25,IER5L+ZBTB25,-0.526535,0.526535,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,23,IGDCC3,RHOXF2BB,IGDCC3+RHOXF2BB,-0.667875,0.667875,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,24,KLF1,MAPK1,KLF1+MAPK1,0.279872,-0.279872,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,25,LYL1,SLC38A2,LYL1+SLC38A2,0.112341,-0.112341,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,26,MAML2,MAP2K3,MAML2+MAP2K3,-0.378599,0.378599,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,27,MAML2,ZBTB25,MAML2+ZBTB25,-0.013664,0.013664,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,28,MAP4K3,SPI1,MAP4K3+SPI1,-0.257296,0.257296,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,29,NIT1,TP73,NIT1+TP73,-0.379638,0.379638,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"
+random,30,PRTG,SGK1,PRTG+SGK1,-0.600169,0.600169,"uniform sample of unmeasured pairs, rng=default_rng(20260721), disjoint from triaged"

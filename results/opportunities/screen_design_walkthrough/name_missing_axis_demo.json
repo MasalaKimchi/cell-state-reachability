@@ -1,0 +1,66 @@
+{
+  "provenance": "COMPUTED from combicone_substrate.npz via screenloop.nominate_atoms (unchanged)",
+  "held_out_gene": "CBFA2T3",
+  "combos_that_needed_it": [
+    "FEV+CBFA2T3",
+    "POU3F2+CBFA2T3",
+    "PRDM1+CBFA2T3"
+  ],
+  "n_separating": 3,
+  "separator_top5": [
+    {
+      "rank": 1,
+      "gene": "CBFA2T3",
+      "alignment": 0.1675
+    },
+    {
+      "rank": 2,
+      "gene": "PTPN13",
+      "alignment": 0.0
+    },
+    {
+      "rank": 3,
+      "gene": "MEIS1",
+      "alignment": 0.0
+    },
+    {
+      "rank": 4,
+      "gene": "IRF1",
+      "alignment": 0.0
+    },
+    {
+      "rank": 5,
+      "gene": "FEV",
+      "alignment": 0.0
+    }
+  ],
+  "naive_baseline_top5": [
+    {
+      "rank": 1,
+      "gene": "HOXA13",
+      "cosine": 0.7722
+    },
+    {
+      "rank": 2,
+      "gene": "HOXC13",
+      "cosine": 0.7278
+    },
+    {
+      "rank": 3,
+      "gene": "IER5L",
+      "cosine": 0.7207
+    },
+    {
+      "rank": 4,
+      "gene": "POU3F2",
+      "cosine": 0.7185
+    },
+    {
+      "rank": 5,
+      "gene": "HOXB9",
+      "cosine": 0.7108
+    }
+  ],
+  "cbfa2t3_rank_separator": 1,
+  "cbfa2t3_rank_naive_baseline": 67
+}

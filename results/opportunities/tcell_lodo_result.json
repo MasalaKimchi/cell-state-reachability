@@ -1,0 +1,163 @@
+{
+  "analysis": "tcell_leave_one_donor_out",
+  "leakage_free": true,
+  "data_provenance": {
+    "dataset": "Genome-scale perturb-seq in primary human CD4+ T cells (Zhu, Dann et al. 2025)",
+    "doi": "10.64898/2025.12.23.696273",
+    "source": "s3://genome-scale-tcell-perturb-seq/marson2025_data/GWCD4i.pseudobulk_merged.h5ad",
+    "access": "CZI Virtual Cells Platform, anonymous/public; streamed via HTTP range requests (h5py fileobj)",
+    "file_size_gb": 44.57,
+    "bytes_streamed_mb": 881.9,
+    "screen_type": "genome-scale SINGLES (each cell one guide); NOT combinatorial",
+    "donors": [
+      "D1 (CE0008162)",
+      "D2 (CE0010866)",
+      "D3 (CE0008678)",
+      "D4 (CE0006864)"
+    ],
+    "condition": "Rest",
+    "n_panel_genes": 40,
+    "panel_selection": "top-40 ontarget-significant perturbations by n_downstream (pooled DE_stats.suppl_table), each with effective guides in ALL 4 donors",
+    "atom_construction": "per-donor log1p-CP10K pseudobulk (guide-averaged) minus that donor's own NTC mean; NO cross-donor pooling",
+    "trans_gene_axis": "top-2000 genes by mean|effect| across panel, on-target panel genes removed"
+  },
+  "method": {
+    "cone": "non-negative conic hull of reference-donor single-gene effect atoms (reachability.project_cone, NNLS + Farkas/KKT separator)",
+    "fold": "hold out donor d; reference cone built ONLY from donors != d; score d's atoms against it; repeat for all 4 donors",
+    "kkt_tol": 1e-08,
+    "note_on_frac_outside": "every real 18k/2k-dim biological vector has nonzero residual against a 120-atom cone, so geometry_status='outside_model_cone' is the generic case; the informative quantities are residual_fraction MAGNITUDE and cosine, not the binary. No emergence VERDICT is claimed (that needs the noise-aware two-bar test on MEASURED combinations, which a singles screen does not have)."
+  },
+  "results": {
+    "cone_transfer_self_gene_excluded": {
+      "D1": {
+        "reference_donors": [
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.7382980579172826,
+        "mean_residual_fraction": 0.7226747214605564,
+        "median_cosine": 0.6744742842652236,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 9.992007221626407e-16
+      },
+      "D2": {
+        "reference_donors": [
+          "D1",
+          "D3",
+          "D4"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.7440699496436938,
+        "mean_residual_fraction": 0.7516223009391056,
+        "median_cosine": 0.6679891648768932,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 1.3877787807814453e-15
+      },
+      "D3": {
+        "reference_donors": [
+          "D1",
+          "D2",
+          "D4"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.670740434869405,
+        "mean_residual_fraction": 0.6676487160588968,
+        "median_cosine": 0.7416697548844129,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 9.992007221626407e-16
+      },
+      "D4": {
+        "reference_donors": [
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.7267496148444011,
+        "mean_residual_fraction": 0.6831930289170977,
+        "median_cosine": 0.6868086401466298,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 1.221245327087672e-15
+      }
+    },
+    "cone_transfer_self_gene_included": {
+      "D1": {
+        "reference_donors": [
+          "D2",
+          "D3",
+          "D4"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.6277266899821408,
+        "mean_residual_fraction": 0.6431204169241503,
+        "median_cosine": 0.7784253042379259,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 1.5543122344752188e-15
+      },
+      "D2": {
+        "reference_donors": [
+          "D1",
+          "D3",
+          "D4"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.6857313422542993,
+        "mean_residual_fraction": 0.6846338272692934,
+        "median_cosine": 0.7277789082390362,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 1.804112415015879e-15
+      },
+      "D3": {
+        "reference_donors": [
+          "D1",
+          "D2",
+          "D4"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.5862222211033656,
+        "mean_residual_fraction": 0.5968616916343805,
+        "median_cosine": 0.8101246127223394,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 2.109423746787797e-15
+      },
+      "D4": {
+        "reference_donors": [
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "mode": "cone_transfer",
+        "n_scored": 40,
+        "median_residual_fraction": 0.5836721290163795,
+        "mean_residual_fraction": 0.5971512865893358,
+        "median_cosine": 0.8118964730468712,
+        "frac_outside_cone": 1.0,
+        "max_kkt": 1.498801083243961e-15
+      }
+    },
+    "permutation_null_cosine_D1_shuffled_cone_median": 0.041,
+    "leakage_contrast": {
+      "leakage_free_median_residual_fraction": 0.624,
+      "leaky_self_in_cone_median_residual_fraction": 0.0,
+      "interpretation": "Including the held-out donor's own atom in the reference cone collapses the median residual from 0.62 to 0.00 (trivially 'reachable'). This is the concrete inflation that leakage-free holdout removes.",
+      "n_atom_folds": 160
+    },
+    "max_kkt_violation_across_all_8_folds": 2.109e-15,
+    "bytes_streamed_fraction_of_pseudobulk": 0.02
+  },
+  "contrast_with_existing_result": {
+    "file": "results/donor_pair_transfer.json",
+    "its_claim_ceiling": "fixed-four-donor, published-eligibility robustness sensitivity; not leakage-free donor holdout, donor-population inference, predictive utility, or state reachability",
+    "why_it_is_not_lodo": "It operates on released TWO-DONOR-GROUP summaries (6 modalities = donor pairs), so a single donor cannot be isolated from the reference. This harness uses INDIVIDUAL per-donor pseudobulk effect vectors and holds one donor fully out -> it closes exactly the gap donor_pair_transfer.json declares out of scope (leakage-free holdout + state reachability)."
+  },
+  "claim_boundary": "COMPUTED from real per-donor CD4+ T-cell pseudobulk (Rest, 40-gene panel). Demonstrates leakage-free donor holdout on a SINGLES screen via single-gene cone transfer. It is NOT combinatorial emergence certification (no measured combinations in this screen) and NOT a genome-wide claim (40-gene panel by RAM/network budget). Direction/reachability are model-relative under the chosen metric, not biological impossibility."
+}

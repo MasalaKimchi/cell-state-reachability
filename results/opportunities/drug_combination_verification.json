@@ -1,0 +1,77 @@
+{
+  "track": "A1 \u2014 NCI-ALMANAC drug-combination: verify + reconcile",
+  "verdict": "VERIFIED (exact reproduction) + RECONCILED (report overclaim corrected)",
+  "inputs": {
+    "summary_json": "results/drug_combination_generalization.json",
+    "loo_csv": "data/nci_almanac/drug_singleagent_cone_reachability.csv (89 rows)",
+    "triage_csv": "data/nci_almanac/drug_triage_vs_synergy.csv (3802 rows)"
+  },
+  "counts_confirmed": {
+    "n_drugs_with_atoms": 89,
+    "n_pairs_usable": 3802,
+    "n_drugs_almanac_reported": 105,
+    "n_pairs_total_reported": 5355
+  },
+  "test_a_leave_one_out_reachability": {
+    "drugs_outside_cone": 89,
+    "drugs_inside_cone": 0,
+    "mean_residual_fraction_recomputed": 0.5228331685118957,
+    "mean_residual_fraction_json": 0.5228331685118958,
+    "max_kkt_recomputed": 1.5543122344752188e-15,
+    "residual_fraction_range": [
+      0.1109,
+      0.8612
+    ],
+    "cosine_range": [
+      0.5083,
+      0.9938
+    ],
+    "most_unique": [
+      "Streptozocin",
+      "Decitabine",
+      "Vemurafenib",
+      "Estramustine",
+      "Celecoxib"
+    ],
+    "most_redundant": [
+      "Triethylenemelamine",
+      "Thiotepa",
+      "Uracil Mustard",
+      "Chlorambucil"
+    ],
+    "match": "EXACT"
+  },
+  "test_b_triage_vs_comboscore": {
+    "label_definition_verified": "is_synergy == (combo_mean > Q75); agreement=1.0000; base_rate=0.2501 (951/3802)",
+    "training_free_spearman_vs_combo_mean": -0.007172,
+    "training_free_p": 0.6584,
+    "training_free_top20_enrichment": 1.199,
+    "learned_oof_spearman_vs_combo_mean": 0.107534,
+    "learned_oof_p": 2.98e-11,
+    "roc_auc_triage": 0.5102,
+    "roc_auc_learned": 0.568,
+    "avg_precision_triage": 0.2823,
+    "avg_precision_learned": 0.302,
+    "peak_enrichment_triage": 1.7,
+    "peak_enrichment_learned": 1.54,
+    "enrichment_top20pct_triage": 1.17,
+    "enrichment_top20pct_learned": 1.29,
+    "match_to_json": "EXACT (all 5 JSON prospective_triage fields reproduced)"
+  },
+  "reconciliation": {
+    "report_claim_FIELD_OPPORTUNITIES": "certified-emergence result on measured combinations",
+    "correct_scope": "modality-generalization TRIAGE demo (single-agent atoms + INDEPENDENT ComboScore label); NOT certified emergence on measured combinations",
+    "raw_combo_vectors_available": false,
+    "live_download_attempt": {
+      "cellminer_portal_root": "200 OK",
+      "cellminer_manifest_offers": [
+        "DTP_NCI60_ALMANAC_COMBO_SCORE.zip (ComboScore label, already in repo)",
+        "DTP_NCI60_ZSCORE.zip (single-agent atoms)"
+      ],
+      "raw_combination_growth_dataset_offered": false,
+      "wiki_ComboDrugGrowth_zip": "HTTP 403 Forbidden"
+    },
+    "claim_boundary_status": "ACCURATE \u2014 no correction needed to the repo's own claim_boundary; only the external strategy report overclaimed"
+  },
+  "provenance": "All test_a/test_b numbers COMPUTED from real staged CSVs. Live network check this session. No synthetic data. No wet-lab/prospective claim."
+}
